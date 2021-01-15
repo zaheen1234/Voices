@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { timeout } from 'rxjs/operators';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
@@ -15,7 +15,7 @@ import { MediaCapture } from '@ionic-native/media-capture';
 export class RecordAnswerPage implements OnInit {
 
   constructor(private route: Router, private media: Media, private file: File,
-     private platform: Platform
+     private platform: Platform, private changeRef: ChangeDetectorRef
    ) { }
 
   enable1 = false;
@@ -36,6 +36,7 @@ export class RecordAnswerPage implements OnInit {
 
 
   ngOnInit() {
+    console.log('init called');
     this.enable5 = true;
     this.startTimerFirst();
   }
@@ -256,25 +257,45 @@ playRecording() {
 
 
 
-
-
-
 // 5 timers for displaying count down before audio recording starts
 
   goToRecordingsList() {
+
     this.route.navigate(['/recordings-list']);
   }
 
+  backToQuestionScreen() {
+    this.cancelModeEnable = false;
+    this.cancelModeDisable = true;
+    this.changeRef.detectChanges()
+    this.route.navigate(['/home']);
+    
+  }
+
+  backToRecording () {
+    console.log('gotorecording function called');
+    this.cancelModeEnable = false;
+    this.cancelModeDisable = true;
+    this.changeRef.detectChanges();
+  }
+
+
   goToCancelScreen() {
-   // this.route.navigate(['/cancel-confirmation']);
-   this.cancelModeDisable = false;
+   console.log('gotocancelScreen function called');
    this.cancelModeEnable = true;
+   this.cancelModeDisable = false;
+   this.changeRef.detectChanges();
+   
     
   }
 
   pauseRecording() {
     this.isRecord = true;
     this.isPaused = false;
+  }
+
+  saveRecording() {
+    this.route.navigate(['/success-page']);
   }
 
   goToAnswerScreen() {

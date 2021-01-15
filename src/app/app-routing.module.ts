@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'success-page',
     loadChildren: () => import('./pages/success-page/success-page.module').then( m => m.SuccessPagePageModule)
+  },
+  {
+    path: 'answer-recorded',
+    loadChildren: () => import('./pages/answer-recorded/answer-recorded.module').then( m => m.AnswerRecordedPageModule)
   }
 
 ];

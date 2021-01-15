@@ -3,6 +3,70 @@
   // background-color: greenyellow;
 }
 
+.headerTitlecls {
+  color: white;
+  font-size: 150%;
+}
+
+// adding classes for cancelRecording View mode
+.cardclscancel{
+  position: fixed;
+  height: 40%;
+  width: 95%;
+  margin-left: 2%;
+  margin-top: 50%;
+  }
+
+  .titleclscancel{
+    font-size: 250%;
+    color: #33cccc;
+    text-align: center;
+  }
+
+  .gridcls {
+    margin-top: 10%;
+}
+
+.borderclsgrn {
+  text-align: center;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-color: #f0f0f5;
+  border-style: solid;
+  width: 125%;
+  height: 150%;
+}  
+
+.borderclsred{
+  border-top-right-radius: 10%;
+  text-align: center;
+  border-bottom-right-radius: 10%;
+  border-color: #f0f0f5;
+  border-style: solid;
+  width: 125%;
+  height: 150%;
+  margin-left: 15%;
+}  
+
+.labelclsgrncancel {
+  text-align: center;
+  color: green;
+  font-size: 300%;
+  font-weight: 700;
+  // margin-left: 10%;
+  // margin-top: 10%;
+}
+
+.labelclsredcancel {
+  text-align: center;
+  color: red;
+  font-size: 300%;
+  margin-left: 10%;
+  // margin-top: -10%;
+  font-weight: 700;
+}
+
+// cancel view mode css classes end
 
 .countdwncls{
   font-size: 900%;
@@ -42,7 +106,7 @@
   
   .recordingiconcls {
     // margin-right: 5%;
-    font-size: 150%;
+    font-size: 200%;
   }
   
   .ppcls {
