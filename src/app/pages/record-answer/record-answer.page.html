@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons>
+      <ion-back-button slot="start"> </ion-back-button>
+
+    </ion-buttons>
+    <ion-title>Record Answer</ion-title>
+    <ion-icon slot="end" class="recordingiconcls" name="recording-outline" ></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-card class="cardcls">
+
+    <ion-card-header>
+      <ion-card-title class="titlecls">What is the first thing you remember from your childhood?</ion-card-title>
+    </ion-card-header>    
+  </ion-card>
+  <div class="countdwncls" *ngIf="enable5">
+      5
+  </div>
+  <div class="countdwncls" *ngIf="enable4">
+    4
+</div>
+<div class="countdwncls" *ngIf="enable3">
+  3
+</div>
+<div class="countdwncls" *ngIf="enable2">
+  2
+</div>
+<div class="countdwncls" *ngIf="enable1">
+  1
+</div>
+<div class="countdwnstrtcls" *ngIf="started">
+  Recording Started
+</div>
+</ion-content>
+
+
+<!-- <ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        <button ion-button primary (click)="stopRecord()" *ngIf="recording"><ion-icon name="mic-off"></ion-icon>&nbsp;&nbsp;Stop Record</button>
+        <button ion-button primary (click)="startRecord()" *ngIf="!recording"><ion-icon name="mic"></ion-icon>&nbsp;&nbsp;Start Record</button>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let audio of audioList; index as i;">
+      <p>{{audio.filename}}</p>
+      <button ion-button clear item-end large (click)="playAudio(audio.filename, i)"><ion-icon name="play"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+<ion-footer class="footercls">
+  <div >
+  <ion-button class="bigbtn" (click)="goToCancelScreen()">
+    <ion-grid>
+      <ion-row>
+        <ion-icon name="close-outline" class="btniconclsred"></ion-icon>
+      </ion-row>
+      <ion-row>
+        <ion-label class="labelclsred">
+          Cancel
+        </ion-label>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+  <ion-button class="bigbtn" (click)="goToAnswerScreen()" *ngIf="isRecord">
+    <ion-grid>
+      <ion-row>
+        <ion-icon name="pause-outline" class="btniconclsorange"></ion-icon>
+        </ion-row>
+      <ion-row>
+        <ion-label class="labelclsgrn" class="labelclsorg">
+          Pause
+        </ion-label>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+  <ion-button class="bigbtn" (click)="pauseRecording()" *ngIf="isPaused">
+    <ion-grid>
+      <ion-row>
+        <ion-icon name="mic-outline" class="btniconclsorange"></ion-icon>
+        </ion-row>
+      <ion-row>
+        <ion-label class="labelclsgrn" class="labelclsorg">
+          Record
+        </ion-label>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+  <ion-button class="bigbtn" (click)="startRecording()">
+    <ion-grid>
+      <ion-row>
+        <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
+      </ion-row>
+      <ion-row>
+        <ion-label class="labelclsgrn">
+          Save
+        </ion-label>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-button>
+</div>
+</ion-footer>
+
+
+
+
+

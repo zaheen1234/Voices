@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +12,65 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  username = '';
+  password = '';
+  otpMode = false;
+  normalMode = true;
+  // tslint:disable-next-line:prefer-const
 
+  constructor( private modalCtrl: ModalController, private http: HttpClient,
+               private route: Router) {
+
+
+  }
+
+
+  // submit() {
+  //   if (this.username === '') {
+  //     alert('Mobile number can not be blank');
+  //     this.username = '';
+  //   } else {
+  //    // alert('OTP has been sent');
+  //     this.normalMode = false;
+  //     this.otpMode = true;
+  //   }
+  // }
+
+  // submitOTP(otp) {
+  //   if (otp === '') {
+  //     alert('OTP can not be blank');
+  //   } else if (otp === '123456') {
+  //     this.callAPI();
+  //   } else {
+  //     alert('OTP is invalid');
+  //     this.password = '';
+  //   }
+  // }
+
+  goToHomepage() {
+    this.route.navigate(['/homepage']);
+  }
+
+  goToRecordingsList() {
+    this.route.navigate(['/recordings-list']);
+  }
+
+  goToAnswerScreen() {
+    this.route.navigate(['/record-answer'])
+  }
+
+//  async callAPI() {
+                                     
+//     let postParams = {"MobileNo":"8209090987","OTP":"123456","OTPType":"V","DeviceId":"ios123","ProgramType":"T","OSType":"IOS"};
+//     let url = 'http://localhost/otp_api.php';
+
+//     await this.http.post(url, JSON.stringify(postParams)).subscribe(data => {
+//       console.log('this is response', data);
+//       this.dataService.setData(data);
+//       this.route.navigate(['/info']);
+
+//     }, error => {
+//       alert('this is error');
+//     });
+//   }
 }

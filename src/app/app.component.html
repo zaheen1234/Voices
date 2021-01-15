@@ -1,3 +1,59 @@
-<ion-app>
+<!-- <ion-app>
   <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content id="inbox-list">
+        <ion-grid id="main-grid">
+          <ion-menu-toggle auto-hide="false" id="m-toggle">
+          <ion-row>
+                  <ion-col >
+                    <ion-label> Profile : Sarah 
+                    </ion-label>
+                  </ion-col>
+          </ion-row>
+          <ion-row>
+                <ion-col>
+                  <ion-label> Home 
+                  </ion-label>
+                </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label> My Recordings
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label> My Family
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label> My Account
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label> Tutorial
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-menu-toggle>
+
+        </ion-grid>
+
+
+      </ion-content>
+     
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
+<!-- <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
