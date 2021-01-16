@@ -1,7 +1,3 @@
-.footercls {
-  height: 20%;
-  // background-color: greenyellow;
-}
 
 .container {
   position: absolute;
@@ -18,13 +14,7 @@
 ion-button {
   --background: #white;
   }
-.cardcls{
-position: fixed;
-height: 70%;
-width: 95%;
-margin-left: 2%;
-margin-top: 2%;
-}
+
 
 .recordingiconcls {
   margin-right: 5%;
@@ -39,11 +29,15 @@ margin-top: 2%;
 .btniconclsred {
   font-size: 800%;
   color: red;
+  text-align: center !important;
+  font-weight: bold !important;
 }
 
 .btniconclsgreen {
   font-size: 800%;
   color: green;
+  text-align: center !important;
+  font-weight: bold !important;
   
 }
 
@@ -51,8 +45,9 @@ margin-top: 2%;
   text-align: center;
   color: red;
   font-size: 200%;
-  margin-left: 28%;
+  margin-left: 24%;
   margin-top: -10%;
+  font-weight: bold !important;
 }
 
 .labelclsgrn {
@@ -61,39 +56,7 @@ margin-top: 2%;
   font-size: 200%;
   margin-left: 10%;
   margin-top: -10%;
-}
-
-.innercrd {
-  height: 20%;
-  // background-color: #f2f2f2;
-  margin-top: 30%;
-}
-
-.titlecls{
-  font-size: 350%;
-  color: #33cccc
-}
-
-.bigbtn{
-
-  // margin-left: 3%;
-  //   // margin-bottom: 2%;
-  //   height: 25%;
-  //   width: 29%;
-  //   background-color: white !important;
-  //   border-radius: 10%;
-  //   color: white !important;
-  //   border-style: solid 1px;
-
-
-  margin-left: 3%;
-  // margin-top: -2%;
-  height: 20%;
-  width: 45%;
-  background-color: white !important;
-  border-radius: 10%;
-  color: white !important;
-  border-style: solid 1px;
+  font-weight: bold !important;
 }
 
 .new-background-color{
@@ -159,14 +122,33 @@ ion-content ion-toolbar {
 }
  
 
-
-
 // START MEDIA QUERY //
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px){
   .img1 {
     width:320px;
     height:568px;
+  }
+  .cardcls{
+    position: fixed;
+    height: 60%;
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 2%;
+    }
+  .titlecls{
+    font-size: 36px !important;
+    color: #33cccc;
+    margin-top:0px !important;
+  }
+  .innercrd {
+    height: 18%;
+    margin-top: 7%;
+
+    // background-color: #f2f2f2;
+  }
+  .innercrd2{
+    margin-top:12px !important;
   }
   .book-icon{
     font-size:18px;
@@ -176,434 +158,626 @@ ion-content ion-toolbar {
     margin-bottom: 0px;
     margin-top:2px;
   }
-  /* Styles */
+
+  .footercls {
+    height: 30% !important;
+    // background-color: greenyellow;
+  }
+  .cardcls{
+    position: fixed;
+    height: 60%;
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 2%;
+    }
+  .bigbtn{
+
+    // margin-left: 3%;
+    //   // margin-bottom: 2%;
+    //   height: 25%;
+    //   width: 29%;
+    //   background-color: white !important;
+    //   border-radius: 10%;
+    //   color: white !important;
+    //   border-style: solid 1px;
+  
+  
+    margin-left: 3%;
+    // margin-top: -2%;
+    height: 20%;
+    width: 45%;
+    background-color: white !important;
+    border-radius: 10%;
+    color: white !important;
+    border-style: solid 1px;
   }
   
-  /* Smartphones (landscape) ----------- */
-  @media only screen and (min-width : 321px) {
-    .img1 {
-      width:320px;
-      height:568px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  /* Smartphones (portrait) ----------- */
-  @media only screen and (max-width : 320px) {
-    .img1 {
-      width:320px;
-      height:568px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  /* iPhone 4 ----------- */
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-    .img1 {
-      width:320px;
-      height:568px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-    
-  /* Styles */
-  }
-  
-  /* iPhone 5 ----------- */
-  @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-    .img1 {
-      width:320px;
-      height:568px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  
-  
-  /* Samsung Galaxy S3 ----------- */
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-    .img1 {
-      width:320px;
-      height:640px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-    .img1 {
-      width:320px;
-      height:640px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  /* Samsung Galaxy S4 ----------- */
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-    .img1 {
-      width:320px;
-      height:640px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    .img1 {
-      width:320px;
-      height:640px;
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
+}
   
   /* Samsung Galaxy S5 ----------- */
-  @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+  @media only screen and (min-device-width: 360px){
     .img1 {
       width:360;
       height:640px;
     }
+    
+    .titlecls{
+      font-size: 44px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:15px !important;
+    }
     .book-icon{
       font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
     }
-  /* Styles */
-  }
   
-  @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    .img1 {
-      width:360px;
-      height:640px;
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
     }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  /* iPhone 6, 7, 8 ----------- */
-  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-    .img1 {
-      width:375px;
-      height:667px;
-    }
-    .book-icon{
-      font-size:20px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-    .img1 {
-      width:375px;
-      height:667px;
+    .cardcls{
+      position: fixed;
+      height: 60%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
 
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 185px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
     }
-    .book-icon{
-      font-size:20px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
+    
   /* Styles */
   }
+ 
   
-  /* iPhone X ----------- */
-  @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+ 
+  @media only screen and (min-device-width: 375px){
     .img1 {
       width:375px;
       height:812px;
     }
+    .titlecls{
+      font-size: 50px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:34px !important;
+    }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 63%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 230px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
     }
   /* Styles */
   }
-  
-  @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+  @media only screen and (min-device-width: 393px){
     .img1 {
       width:375px;
-      height:812px;
+      height:715px;
+    }
+    .titlecls{
+      font-size: 48px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 20%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:23px !important;
     }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
     }
-  /* Styles */
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 60%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 200px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+    }
   }
   
-  @media only screen and (min-width: 411px) and (max-width: 731px) { 
+  
+  @media only screen and (min-width: 411px){ 
     
     .img1 {
       width:411px;
       height:731px;
     }  
+    .titlecls{
+      font-size: 51px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:23px !important;
+    }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
     }
-  }
-  @media only screen and (min-width: 411px) and (max-width: 823px) { 
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 60%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
     
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 205px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+    }
+  }
+  @media only screen and (min-width: 412px){
     .img1 {
-      width:411px;
-      height:823px;
+      width:412px;
+      height:812px;
     }  
+    .titlecls{
+      font-size: 54px;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:23px !important;
+    }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
     }
-  }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 60%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 205px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+    }
+   }
+ 
   
   /* iPhone 6+, 7+, 8+ ----------- */
-  @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+  @media only screen and (min-device-width: 414px){
     .img1 {
       width:414px;
       height:736px;
     }
+    .titlecls{
+      font-size: 49px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:23px !important;
+    }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 62%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 205px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
     }
   /* Styles */
   }
-  
-  @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+  @media only screen and (min-device-width: 471px){
     .img1 {
-      width:414px;
-      height:736px;
+      width:471px;
+      height:983px;
+    }
+    .titlecls{
+      font-size: 62px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:35px !important;
     }
     .book-icon{
-      font-size:20px;
+      font-size:18px;
     }
     .icon-text{
       font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
     }
-  /* Styles */
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 62%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 280px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+    }
   }
   
-  
-  /* iPhone XS Max, XR ----------- */
-  @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
-    .img1 {
-      width:414px;
-      height:896px;
-    }
-    .book-icon{
-      font-size:20px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
-    .img1 {
-      width:414px;
-      height:896px;
-    }
-    .book-icon{
-      font-size:20px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-  
+ 
   /* iPads (portrait and landscape) ----------- */
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  @media only screen and (min-device-width : 768px){
     .img1 {
       width:768px;
       height:1024px;
     }
+    .titlecls{
+      font-size: 75px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:45px !important;
+    }
+    .voice-text{
+      font-size: 30px !important;
+    }
     .book-icon{
-      font-size:30px;
+      font-size:18px;
     }
     .icon-text{
-      font-size:16px;
+      font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 63%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 297px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
     }
 
-  /* Styles */
-  }
-  
-  /* iPads (landscape) ----------- */
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   /* Styles */
   }
   
   /* iPads (portrait) ----------- */
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-    .img1 {
-      width:768px;
-      height:1024px;
-    }
-    .book-icon{
-      font-size:30px;
-    }
-    .icon-text{
-      font-size:16px;
-      margin-bottom: 0px;
-      margin-top:1px;
-    }
-  /* Styles */
-  }
-
-
- /* iPads (landscape) ----------- */
- @media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : landscape) {
-  /* Styles */
-  }
-  
-  /* iPads (portrait) ----------- */
-  @media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : portrait) {
+  @media only screen and (min-device-width : 1024px){
     .img1 {
       width:1024px;
       height:1366px;
     }
+    .titlecls{
+      font-size: 91.5px !important;
+      color: #33cccc;
+      margin-top:0px !important;
+    }
+    .innercrd {
+      height: 18%;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:45px !important;
+    }
+    .voice-text{
+      font-size: 30px !important;
+    }
     .book-icon{
-      font-size:40px;
+      font-size:18px;
     }
     .icon-text{
-      font-size:25px;
+      font-size:11px;
       margin-bottom: 0px;
-      margin-top:1px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 64%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 2%;
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 397px;
+      width: 45%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
     }
   /* Styles */
   }
-
-  /**********
-  iPad 3
-  **********/
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-  /* Styles */
-  }
-  
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-  /* Styles */
-  }
-  /* Desktops and laptops ----------- */
-  @media only screen  and (min-width : 1224px) {
-  /* Styles */
-  }
-  
-  /* Large screens ----------- */
-  @media only screen  and (min-width : 1824px) {
-  /* Styles */
-  }
-  

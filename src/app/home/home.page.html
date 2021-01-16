@@ -17,28 +17,19 @@
 
 <ion-content [fullscreen]="true" color="light">
   <ion-card class="cardcls">
-
   <ion-card-header>
-    <ion-card-title class="titlecls">What is the first thing you remember from your childhood?</ion-card-title>
+    <ion-card-title><p class="titlecls">What is the first thing you remember from your childhood?</p></ion-card-title>
   </ion-card-header>    
     <ion-card class="innercrd" color="light">
-      <ion-card-content>
-      
-        <ion-grid>
-          <ion-row>
-            <ion-col size="3" class="ppcls">
-              <ion-icon name="image-outline">
-                </ion-icon>
-              </ion-col>
-            <ion-col size="9">
-            <div>asked by Voices</div>   
-            <div>
-            Mike Josh
-            </div>
-              </ion-col>
-          </ion-row>
-        </ion-grid>
-        </ion-card-content>
+        <ion-item lines="none" color="light">
+          <ion-avatar slot="start" class="innercrd2">
+            <img src="assets/images/voicenew.jpg" class="voice-text">
+          </ion-avatar>
+          <ion-label class="innercrd2">
+            <h2 class="voice-text">Asked by Voices</h2>
+            
+          </ion-label>
+        </ion-item>
     </ion-card>
     
 </ion-card>
@@ -46,8 +37,7 @@
 </ion-content>
 
 <ion-footer class="footercls">
-  <div >
-
+<div>
 <ion-button class="bigbtn">
   <ion-grid>
     <ion-row>
