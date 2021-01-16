@@ -47,11 +47,11 @@
 
   <ion-card class="cardcls" *ngIf="cancelModeDisable">
     <ion-card-header>
-      <ion-card-title class="titlecls">What is the first thing you remember from your childhood?</ion-card-title>
+      <ion-card-title><p class="titlecls">What is your favourite Holiday Destination?</p></ion-card-title>
     </ion-card-header>    
   </ion-card>
-  <div *ngIf="cancelModeDisable">
-  <div class="countdwncls" *ngIf="enable5">
+  <div *ngIf="cancelModeDisable" >
+  <div class="countdwncls" *ngIf="enable5" class="middiv">
       5
   </div>
   <div class="countdwncls" *ngIf="enable4">
@@ -73,7 +73,7 @@
 </ion-content>
 
 <ion-footer class="footercls" >
-  <div *ngIf="cancelModeDisable">
+  <div *ngIf="cancelModeDisable" >
 
   <ion-button class="bigbtn" (click)="goToCancelScreen()">
     <ion-grid>
