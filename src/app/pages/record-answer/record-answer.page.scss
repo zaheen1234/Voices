@@ -9,13 +9,7 @@
 }
 
 // adding classes for cancelRecording View mode
-.cardclscancel{
-  position: fixed;
-  height: 40%;
-  width: 95%;
-  margin-left: 2%;
-  margin-top: 50%;
-  }
+
 
   .titleclscancel{
     font-size: 250%;
@@ -261,14 +255,21 @@
       color: white !important;
       border-style: solid 1px;
     }
-    .middiv{
-      margin-top:0px !important;
-    }
+    // .middiv{
+    //   margin-top:0px !important;
+    // }
     .titlecls{
       font-size: 150%;
       color: #33cccc;
       margin-top:0px !important;
     }
+    .cardclscancel{
+      position: fixed;
+      height: 55%;
+      width: 95%;
+      margin-left: 2%;
+      margin-top: 25%;
+      }
     
     /* Styles */
     }
@@ -307,6 +308,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 48%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 25%;
+        }
     /* Styles */
     }
    
@@ -340,6 +348,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 40%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     /* Styles */
     }
     @media only screen and (min-device-width: 393px){
@@ -371,6 +386,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 42%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     }
     
     @media only screen and (min-width: 411px){ 
@@ -403,6 +425,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 42%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     }
     @media only screen and (min-width: 412px){
       .img1 {
@@ -433,6 +462,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 40%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     }
   
    
@@ -466,6 +502,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 42%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     /* Styles */
     }
     @media only screen and (min-device-width: 471px){
@@ -497,6 +540,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 28%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     }
     
     /* iPads (portrait and landscape) ----------- */
@@ -529,6 +579,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 30%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
   
     /* Styles */
     }
@@ -564,6 +621,13 @@
         color: #33cccc;
         margin-top:0px !important;
       }
+      .cardclscancel{
+        position: fixed;
+        height: 23%;
+        width: 95%;
+        margin-left: 2%;
+        margin-top: 40%;
+        }
     /* Styles */
     }
  
