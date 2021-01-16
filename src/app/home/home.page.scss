@@ -40,25 +40,6 @@ ion-button {
   font-weight: bold !important;
   
 }
-
-.labelclsred {
-  text-align: center;
-  color: red;
-  font-size: 200%;
-  margin-left: 24%;
-  margin-top: -10%;
-  font-weight: bold !important;
-}
-
-.labelclsgrn {
-  text-align: center;
-  color: green;
-  font-size: 200%;
-  margin-left: 10%;
-  margin-top: -10%;
-  font-weight: bold !important;
-}
-
 .new-background-color{
   --background: #33cccc;
 }
@@ -143,12 +124,17 @@ ion-content ion-toolbar {
   }
   .innercrd {
     height: 18%;
-    margin-top: 7%;
+    margin-top: 70%;
+    
 
     // background-color: #f2f2f2;
   }
   .innercrd2{
     margin-top:12px !important;
+  }
+  .title-div{
+    position: fixed !important;
+    
   }
   .book-icon{
     font-size:18px;
@@ -191,6 +177,24 @@ ion-content ion-toolbar {
     color: white !important;
     border-style: solid 1px;
   }
+  .labelclsred {
+    text-align: center;
+    color: red;
+    font-size: 200%;
+    margin-left: 24%;
+    margin-top: -10%;
+    font-weight: bold !important;
+  }
+  
+  .labelclsgrn {
+    text-align: center;
+    color: green;
+    font-size: 200%;
+    margin-left: 10%;
+    margin-top: -10%;
+    font-weight: bold !important;
+  }
+  
   
 }
   
@@ -257,6 +261,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
     
   /* Styles */
   }
@@ -324,6 +346,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   /* Styles */
   }
   @media only screen and (min-device-width: 393px){
@@ -387,6 +427,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   }
   
   
@@ -452,6 +510,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   }
   @media only screen and (min-width: 412px){
     .img1 {
@@ -514,6 +590,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
    }
  
   
@@ -579,6 +673,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   /* Styles */
   }
   @media only screen and (min-device-width: 471px){
@@ -642,6 +754,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   }
   
  
@@ -710,6 +840,24 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
 
   /* Styles */
   }
@@ -779,5 +927,23 @@ ion-content ion-toolbar {
       color: white !important;
       border-style: solid 1px;
     }
+    .labelclsred {
+      text-align: center;
+      color: red;
+      font-size: 200%;
+      margin-left: 24%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      text-align: center;
+      color: green;
+      font-size: 200%;
+      margin-left: 10%;
+      margin-top: -10%;
+      font-weight: bold !important;
+    }
+    
   /* Styles */
   }
