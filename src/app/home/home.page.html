@@ -1,37 +1,37 @@
 <ion-header [translucent]="true">
-   <!-- <ion-toolbar>
-      <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
-  </ion-toolbar>  -->
+  <!-- <ion-toolbar>
+     <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
+ </ion-toolbar>  -->
 
- <ion-toolbar class="new-background-color">
-  <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
+<ion-toolbar class="new-background-color">
+ <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
 
-    <ion-title class="title">
-      Questions 
-    </ion-title>
-    <ion-icon slot="end" class="recordingiconcls" name="headset-outline" (click)="goToRecordingsList()"></ion-icon>
-    <!-- <ion-icon slot="end" class="recordingiconcls" name="recording-outline" (click)="goToRecordingsList()"></ion-icon> -->
-  </ion-toolbar> 
+   <ion-title class="title">
+     Questions 
+   </ion-title>
+   <ion-icon slot="end" class="recordingiconcls" name="headset-outline" (click)="goToRecordingsList()"></ion-icon>
+   <!-- <ion-icon slot="end" class="recordingiconcls" name="recording-outline" (click)="goToRecordingsList()"></ion-icon> -->
+ </ion-toolbar> 
 
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
-  <ion-card class="cardcls">
-  <ion-card-header>
-    <ion-card-title><p class="titlecls">What is the first thing you remember from your childhood?</p></ion-card-title>
-  </ion-card-header>    
-    <ion-card class="innercrd" color="light">
-        <ion-item lines="none" color="light">
-          <ion-avatar slot="start" class="innercrd2">
-            <img src="assets/images/voicenew.jpg" class="voice-text">
-          </ion-avatar>
-          <ion-label class="innercrd2">
-            <h2 class="voice-text">Asked by Voices</h2>
-            
-          </ion-label>
-        </ion-item>
-    </ion-card>
-    
+ <ion-card class="cardcls">
+ <ion-card-header>
+   <ion-card-title><p class="titlecls">What is the first thing you remember from your childhood?</p></ion-card-title>
+ </ion-card-header>    
+   <ion-card class="innercrd" color="light">
+       <ion-item lines="none" color="light">
+         <ion-avatar slot="start" class="innercrd2">
+           <img src="assets/images/voicenew.jpg" class="voice-text">
+         </ion-avatar>
+         <ion-label class="innercrd2">
+           <h2 class="voice-text">Asked by Voices</h2>
+           
+         </ion-label>
+       </ion-item>
+   </ion-card>
+   
 </ion-card>
 
 </ion-content>
@@ -39,30 +39,30 @@
 <ion-footer class="footercls">
 <div>
 <ion-button class="bigbtn">
-  <ion-grid>
-    <ion-row>
-      <ion-icon name="close-outline" class="btniconclsred"></ion-icon>
-    </ion-row>
-    <ion-row>
-      <ion-label class="labelclsred">
-        Skip
-      </ion-label>
-      
-    </ion-row>
-  </ion-grid>
+ <ion-grid>
+   <ion-row>
+     <ion-icon name="close-outline" class="btniconclsred"></ion-icon>
+   </ion-row>
+   <ion-row>
+     <ion-label class="labelclsred">
+       Skip
+     </ion-label>
+     
+   </ion-row>
+ </ion-grid>
 </ion-button>
 <ion-button class="bigbtn" (click)="goToAnswerScreen()">
-  <ion-grid>
-    <ion-row>
-      <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
-    </ion-row>
-    <ion-row>
-      <ion-label class="labelclsgrn">
-        Answer
-      </ion-label>
-      
-    </ion-row>
-  </ion-grid>
+ <ion-grid>
+   <ion-row>
+     <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
+   </ion-row>
+   <ion-row>
+     <ion-label class="labelclsgrn">
+       Answer
+     </ion-label>
+     
+   </ion-row>
+ </ion-grid>
 </ion-button>
 </div>
 </ion-footer>
