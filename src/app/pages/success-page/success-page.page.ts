@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success-page',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessPagePage implements OnInit {
 
-  constructor() { }
+  deleteModeDisable = true;
+  deleteModeEnable = false;
+  constructor(private route: Router, private changeRef: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
+  nextQuestion() {
+    this.route.navigate(['/home']);
+  }
+
+  deleteAnswer() {
+    this.deleteModeDisable = false;
+    this.deleteModeEnable = true;
+  }
+
+  backToQuestionScreen() {
+    this.deleteModeDisable = true;
+    this.deleteModeEnable = false;
+    this.changeRef.detectChanges()
+    this.route.navigate(['/home']); 
+  }
+
+  backToRecording () {
+    console.log('gotorecording function called');
+    this.deleteModeDisable = true;
+    this.deleteModeEnable = false;
+    this.changeRef.detectChanges();
+  }
 }
