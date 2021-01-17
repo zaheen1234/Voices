@@ -5,34 +5,33 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content id="inbox-list">
-        <ion-grid id="main-grid">
-          <ion-menu-toggle auto-hide="false" id="m-toggle">
-          <ion-row>
-                  <ion-col >
-                    <ion-label> Profile : User Name 
+      <ion-content>
+        <div class="inbox-list">
+          <ion-grid id="main-grid">
+            <ion-menu-toggle auto-hide="false" id="m-toggle">
+            <ion-row>
+                    <ion-col >
+                      <!-- <ion-label> Profile : User Name 
+                      </ion-label> -->
+                    </ion-col>
+            </ion-row>
+            <ion-row>
+                  <ion-col>
+                    <ion-label><ion-icon name="home"></ion-icon> Home 
                     </ion-label>
                   </ion-col>
           </ion-row>
           <ion-row>
-                <ion-col>
-                  <ion-label> Home 
-                  </ion-label>
-                </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-label> My Recordings
-            </ion-label>
-          </ion-col>
-        </ion-row>
-       
-       
-      </ion-menu-toggle>
-
-        </ion-grid>
-
-
+            <ion-col>
+              <ion-label><ion-icon name="headset"></ion-icon> My Recordings
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-menu-toggle>
+  
+          </ion-grid>
+        </div>
+          
       </ion-content>
      
     </ion-menu>

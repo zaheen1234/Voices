@@ -18,13 +18,7 @@
   ion-button {
     --background: #white;
     }
-  .abc {
-    font-size: 400%;
-    color: #33cccc;
-    font-weight: 600%;
-
-  }
-
+  
   .recordingiconcls {
     margin-right: 5%;
     font-size: 150%;
@@ -43,7 +37,7 @@
   }
   
   .titlecls{
-    font-size: 200%;
+    font-size: 100%;
     color: #33cccc
     
   }
@@ -174,15 +168,31 @@
       margin-bottom: 0px;
       margin-top:2px;
     }
+    .cardcls{
+      position: fixed !important;
+      height:0% !important;
+      width: 98%;
+      margin-left: 1%;
+      margin-top: -25% !important;
+      }
+      .abc {
+        font-size: 250% !important;
+        color: #33cccc;
+        font-weight: 600%;
+    
+      }
     .countdwncls{
-      margin-top: 64%;
-      margin-left: 10%;
+      position:fixed;
+      margin-top: 53% !important;
       font-size: 6.5px !important;
+      margin-left:7% !important;
+      // padding:18px !important;
     }
+  
     .bigbtn1{
       margin-left: 5%;
-      margin-top: 4%;
-      height: 12%;
+      margin-top: 65% !important;
+      height: 4% !important;
       width: 90%;
       background-color: white !important;
       border-radius: 10%;
@@ -191,8 +201,8 @@
     }
     .bigbtn2{
       margin-left: 5%;
-      margin-top: 4%;
-      height: 12%;
+      margin-top: 1% !important;
+      height: 4% !important;
       width: 90%;
       background-color: white !important;
       border-radius: 10%;
@@ -201,21 +211,14 @@
     }
     .bigbtn3{
       margin-left: 5%;
-      margin-top: 4%;
-      height: 12%;
+      margin-top: 1% !important;
+      height: 4% !important;
       width: 90%;
       background-color: white !important;
       border-radius: 10%;
       color: white !important;
       border-style: solid 1px;
     }
-    .cardcls{
-      position: fixed;
-      height: 20%;
-      width: 98%;
-      margin-left: 1%;
-      margin-top: 2%;
-      }
       .btniconclsgreen {
         font-size: 500%;
         color: green;
@@ -278,14 +281,28 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .cardcls{
+        position: fixed !important;
+        height: 20%;
+        width: 98%;
+        margin-left: 1%;
+        margin-top: -37% !important;
+        }
       .countdwncls{
-        margin-top: 45%;
-        margin-left: 16%;
+        margin-top: 37% !important;
         font-size: 6.5px !important;
+        margin-left:0% !important;
+        padding:18px !important;
+      }
+      .abc {
+        font-size: 450% !important;
+        color: #33cccc;
+        font-weight: 600%;
+    
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 34%;
+        margin-top: 14% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -313,13 +330,7 @@
         color: white !important;
         border-style: solid 1px;
       }
-      .cardcls{
-        position: fixed;
-        height: 20%;
-        width: 98%;
-        margin-left: 1%;
-        margin-top: 2%;
-        }
+     
         .btniconclsgreen {
           font-size: 500%;
           color: green;
@@ -377,14 +388,28 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .cardcls{
+        position: fixed !important;
+        height: 20%;
+        width: 98%;
+        margin-left: 1%;
+        margin-top: -37% !important;
+        }
       .countdwncls{
-        margin-top: 45%;
-        margin-left: 16%;
+        margin-top: 37% !important;
         font-size: 6.5px !important;
+        margin-left:0% !important;
+        padding:18px !important;
+      }
+      .abc {
+        font-size: 450% !important;
+        color: #33cccc;
+        font-weight: 600%;
+    
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 34%;
+        margin-top: 14% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -412,13 +437,7 @@
         color: white !important;
         border-style: solid 1px;
       }
-      .cardcls{
-        position: fixed;
-        height: 20%;
-        width: 98%;
-        margin-left: 1%;
-        margin-top: 2%;
-        }
+     
         .btniconclsgreen {
           font-size: 500%;
           color: green;
@@ -514,7 +533,7 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
+        position: fixed !important;
         height: 20%;
         width: 98%;
         margin-left: 1%;
@@ -578,14 +597,22 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .abc {
+        font-size: 500%;
+        color: #33cccc;
+        font-weight: 600%;
+    
+      }
       .countdwncls{
-        margin-top: 55%;
-        margin-left: 16%;
+        position: fixed !important;
+        margin-top: 65%;
+        padding:25px !important;
         font-size: 6.5px !important;
       }
       .bigbtn1{
+        position:fixed !important;
         margin-left: 5%;
-        margin-top: 51%;
+        margin-top: 123% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -594,8 +621,9 @@
         border-style: solid 1px;
       }
       .bigbtn2{
+        position:fixed !important;
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 150% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -604,8 +632,9 @@
         border-style: solid 1px;
       }
       .bigbtn3{
+        position:fixed !important;
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 177% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -620,6 +649,7 @@
         margin-left: 1%;
         margin-top: 2%;
         }
+       
         .btniconclsgreen {
           font-size: 500%;
           color: green;
@@ -680,13 +710,14 @@
         margin-top:2px;
       }
       .countdwncls{
-        margin-top: 47%;
-        margin-left: 18%;
+        position:fixed;
+        margin-top: 30% !important;
+        margin-left:-1%;
         font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 37%;
+        margin-top: 96% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -696,7 +727,7 @@
       }
       .bigbtn2{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 120% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -706,7 +737,7 @@
       }
       .bigbtn3{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 144% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -715,8 +746,8 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
-        height: 20%;
+        position: fixed !important;
+        height: 30% !important;
         width: 98%;
         margin-left: 1%;
         margin-top: 2%;
@@ -780,13 +811,14 @@
         margin-top:2px;
       }
       .countdwncls{
-        margin-top: 47%;
-        margin-left: 20%;
+        position:fixed;
+        margin-top: 30% !important;
+        margin-left:-1%;
         font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 37%;
+        margin-top: 95% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -796,7 +828,7 @@
       }
       .bigbtn2{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 118% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -806,7 +838,7 @@
       }
       .bigbtn3{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 141% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -815,8 +847,8 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
-        height: 20%;
+        position: fixed !important;
+        height: 30% !important;
         width: 98%;
         margin-left: 1%;
         margin-top: 2%;
@@ -892,13 +924,14 @@
       margin-top:2px;
     }
     .countdwncls{
-      margin-top: 47%;
-      margin-left: 20%;
+      position:fixed;
+      margin-top: 30% !important;
+      margin-left:-1%;
       font-size: 6.5px !important;
     }
     .bigbtn1{
       margin-left: 5%;
-      margin-top: 38%!important;
+      margin-top: 101% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -908,7 +941,7 @@
     }
     .bigbtn2{
       margin-left: 5%;
-      margin-top: 1% !important;
+      margin-top: 126% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -918,7 +951,7 @@
     }
     .bigbtn3{
       margin-left: 5%;
-      margin-top: 1% !important;
+      margin-top: 151% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -927,8 +960,8 @@
       border-style: solid 1px;
     }
     .cardcls{
-      position: fixed;
-      height: 20%;
+      position: fixed !important;
+      height: 30% !important;
       width: 98%;
       margin-left: 1%;
       margin-top: 2%;
@@ -990,13 +1023,14 @@
       margin-top:2px;
     }
     .countdwncls{
-      margin-top: 47%;
-      margin-left: 20%;
+      position:fixed;
+      margin-top: 30% !important;
+      margin-left:-1%;
       font-size: 6.5px !important;
     }
     .bigbtn1{
       margin-left: 5%;
-      margin-top: 48% !important;
+      margin-top: 101% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -1006,7 +1040,7 @@
     }
     .bigbtn2{
       margin-left: 5%;
-      margin-top: 1% !important;
+      margin-top: 126% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -1016,7 +1050,7 @@
     }
     .bigbtn3{
       margin-left: 5%;
-      margin-top: 1% !important;
+      margin-top: 151% !important;
       height: 12%;
       width: 90%;
       background-color: white !important;
@@ -1025,8 +1059,8 @@
       border-style: solid 1px;
     }
     .cardcls{
-      position: fixed;
-      height: 20%;
+      position: fixed !important;
+      height: 30% !important;
       width: 98%;
       margin-left: 1%;
       margin-top: 2%;
@@ -1089,13 +1123,14 @@
         margin-top:2px;
       }
       .countdwncls{
-        margin-top: 47%;
-        margin-left: 20%;
+        position:fixed;
+        margin-top: 50% !important;
+        margin-left:-1%;
         font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 38% !important;
+        margin-top: 97% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1105,7 +1140,7 @@
       }
       .bigbtn2{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 120% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1115,7 +1150,7 @@
       }
       .bigbtn3{
         margin-left: 5%;
-        margin-top: 1% !important;
+        margin-top: 143% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1124,8 +1159,8 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
-        height: 20%;
+        position: fixed !important;
+        height: 30% !important;
         width: 98%;
         margin-left: 1%;
         margin-top: 2%;
@@ -1188,14 +1223,21 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .abc {
+        font-size: 500%;
+        color: #33cccc;
+        font-weight: 600%;
+    
+      }
       .countdwncls{
-        margin-top: 40%;
-        margin-left: 20%;
+        position:fixed;
+        margin-top: 40% !important;
+        margin-left:4%;
         font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 65% !important;
+        margin-top: 134% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1224,12 +1266,55 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
-        height: 20%;
+        position: fixed !important;
+        height: 30% !important;
         width: 98%;
         margin-left: 1%;
         margin-top: 2%;
         }
+        .btniconclsgreen {
+          font-size: 500%;
+          color: green;
+          
+        }
+        .btniconclsorange {
+          font-size: 500%;
+          color: orange;
+          
+        }
+        .btniconclsred {
+          font-size: 410%;
+          color: red;
+        }
+        
+        .labelclsgrn {
+          color: green;
+          font-size: 170%;
+          margin-top: 26px !important;
+         
+         
+        }
+        .labelclsorange {
+          color: orange;
+          font-size: 170%;
+          margin-top: 26px !important;
+        }
+        
+        .labelclsred {
+          color: red;
+          font-size: 160%;
+          margin-left: 35%;
+          margin-top: -18%;
+        }
+
+        .cardclscancel{
+          position: fixed;
+          height: 44% !important;
+          width: 95%;
+          margin-left: 2%;
+          margin-top: 34% !important;
+          }
+
         .btniconclsgreen {
           font-size: 500%;
           color: green;
@@ -1286,14 +1371,21 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .abc {
+        font-size: 500%;
+        color: #33cccc;
+        font-weight: 600%;
+    
+      }
       .countdwncls{
-        margin-top: 40%;
-        margin-left: 20%;
+        position:fixed;
+        margin-top: 28%;
+        margin-left: 4%;
         font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 30% !important;
+        margin-top: 85% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1322,11 +1414,11 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
+        position: fixed !important;
         height: 60% !important;
         width: 98%;
         margin-left: 1%;
-        margin-top: 2%;
+        margin-top:0%;
         }
         .btniconclsgreen {
           font-size: 500%;
@@ -1391,14 +1483,21 @@
         margin-bottom: 0px;
         margin-top:2px;
       }
+      .abc {
+        font-size: 500%;
+        color: #33cccc;
+        font-weight: 600%;
+    
+      }
       .countdwncls{
-        margin-top: 40%;
-        margin-left: 14%;
-        font-size: 7px !important;
+        position:fixed;
+        margin-top: 28%;
+        margin-left: 4%;
+        font-size: 6.5px !important;
       }
       .bigbtn1{
         margin-left: 5%;
-        margin-top: 65% !important;
+        margin-top: 134% !important;
         height: 12%;
         width: 90%;
         background-color: white !important;
@@ -1427,11 +1526,11 @@
         border-style: solid 1px;
       }
       .cardcls{
-        position: fixed;
+        position: fixed !important;
         height: 60% !important;
         width: 98%;
         margin-left: 1%;
-        margin-top: 2%;
+        margin-top:0%;
         }
         .btniconclsgreen {
           font-size: 500%;
