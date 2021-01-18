@@ -5,7 +5,7 @@ import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Platform } from '@ionic/angular';
 import { MediaCapture } from '@ionic-native/media-capture';
-
+import { QuestionServiceService } from '../../services/questionService/question-service.service';
 
 @Component({
   selector: 'app-record-answer',
@@ -15,7 +15,8 @@ import { MediaCapture } from '@ionic-native/media-capture';
 export class RecordAnswerPage implements OnInit {
 
   constructor(private route: Router, private media: Media, private file: File,
-     private platform: Platform, private changeRef: ChangeDetectorRef
+     private platform: Platform, private changeRef: ChangeDetectorRef,
+     private questionService: QuestionServiceService
    ) { }
 
   enable1 = false;
@@ -33,15 +34,16 @@ export class RecordAnswerPage implements OnInit {
   fileName: string;
   audio: MediaObject;
   audioList: any[] = [];
-
+  question = this.questionService.getCurrentQuestion();
 
   ngOnInit() {
+    this.question = this.questionService.getCurrentQuestion();
     console.log('init called');
     this.enable5 = true;
     this.startTimerFirst();
   }
 
-
+ 
   startRecord() {
     if (this.platform.is('ios')) {
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';

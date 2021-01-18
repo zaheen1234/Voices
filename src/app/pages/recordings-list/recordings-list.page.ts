@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuestionServiceService } from '../../services/questionService/question-service.service';
 
 @Component({
   selector: 'app-recordings-list',
@@ -8,15 +9,12 @@ import { Router } from '@angular/router';
 })
 export class RecordingsListPage implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private questionService: QuestionServiceService) { }
 
-  questionsList = [
-    'What is your best Childhood Memory',
-    'Who was your Childhood best friend',
-    'What was your nick name in Childhood'
-  ]
+  questionsList = [];
 
   ngOnInit() {
+    this.questionsList = this.questionService.questionArray;
   }
 
   ionViewWillEnter() {

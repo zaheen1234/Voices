@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
+import { QuestionServiceService } from '../services/questionService/question-service.service';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +15,12 @@ export class HomePage {
   password = '';
   otpMode = false;
   normalMode = true;
+  question = this.questionService.getCurrentQuestion();
   // tslint:disable-next-line:prefer-const
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
-               private route: Router) {
+               private route: Router, private questionService: QuestionServiceService, 
+               private changeRef: ChangeDetectorRef) {
 
 
   }
@@ -47,6 +48,17 @@ export class HomePage {
   //   }
   // }
 
+
+  ngOnInit() {
+
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter called');
+    this.question = this.questionService.getCurrentQuestion();
+
+  }
+
   goToHomepage() {
     this.route.navigate(['/homepage']);
   }
@@ -57,6 +69,16 @@ export class HomePage {
 
   goToAnswerScreen() {
     this.route.navigate(['/record-answer'])
+  }
+
+  skipCurrentQuestion() {
+    this.questionService.increaseQuestionIndex();
+    //this.question = this.questionService.increaseQuestionIndex();
+    let localQuestion = this.questionService.getCurrentQuestion();
+    console.log('checking the returned val', localQuestion);
+    // console.log('checking current question', this.question);
+    this.question = localQuestion;
+    this.changeRef.detectChanges();
   }
 
 //  async callAPI() {

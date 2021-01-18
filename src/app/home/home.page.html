@@ -19,7 +19,7 @@
  <ion-card class="cardcls">
  <ion-card-header>
    <div class="title-div">
-    <ion-card-title><p class="titlecls">What is the first thing you remember from your childhood?</p></ion-card-title>
+    <ion-card-title><p class="titlecls">{{question}}</p></ion-card-title>
    </div>
   
  </ion-card-header>    
@@ -41,7 +41,7 @@
 
 <ion-footer class="footercls">
 <div>
-<ion-button class="bigbtn">
+<ion-button class="bigbtn" (click)="skipCurrentQuestion()">
  <ion-grid>
    <ion-row>
      <ion-icon name="close-outline" class="btniconclsred"></ion-icon>
