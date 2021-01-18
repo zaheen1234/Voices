@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { QuestionServiceService } from '../services/questionService/question-service.service';
 
@@ -20,7 +20,7 @@ export class HomePage {
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
                private route: Router, private questionService: QuestionServiceService, 
-               private changeRef: ChangeDetectorRef) {
+               private changeRef: ChangeDetectorRef, private platform: Platform) {
 
 
   }
@@ -56,6 +56,7 @@ export class HomePage {
   ionViewWillEnter() {
     console.log('ionViewWillEnter called');
     this.question = this.questionService.getCurrentQuestion();
+    
 
   }
 
