@@ -15,9 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 // import { IonicStorageModule } from '@ionic/storage';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {WebView} from '@ionic-native/ionic-webview/ngx';
-import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
-
-
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import {far} from '@fortawesome/free-regular-svg-icons';
 import {fab} from '@fortawesome/free-brands-svg-icons';
