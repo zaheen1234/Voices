@@ -25,6 +25,7 @@ export class RecordAnswerPage implements OnInit {
   enable4 = false;
   enable5 = false;
   started = false;
+  animation = false;
   isRecord = true;
   isPaused = false;
   cancelModeDisable = true;
@@ -355,8 +356,9 @@ playRecording() {
 
     setTimeout(() => {
       this.started = false;
+      this.animation = true;
     }, 1000);
   }
 
- 
+
 }
