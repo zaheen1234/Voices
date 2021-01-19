@@ -47,10 +47,12 @@ export class RecordAnswerPage implements OnInit {
  
   startRecord() {
     if (this.platform.is('ios')) {
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+      console.log('platform is ios');
+      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
+      console.log('platform is android');
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
       this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
@@ -61,7 +63,7 @@ export class RecordAnswerPage implements OnInit {
 
   stopRecord() {
     this.audio.stopRecord();
-    let data = { filename: this.fileName };
+    let data = { filename: this.fileName, question: this.question };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
     this.recording = false;
@@ -298,6 +300,7 @@ playRecording() {
   }
 
   saveRecording() {
+    this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
@@ -357,6 +360,7 @@ playRecording() {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
+      this.startRecord();
     }, 1000);
   }
 
