@@ -103,6 +103,80 @@ ion-content ion-toolbar {
 }
  
 
+.titlecls{
+  
+  color: #048988;
+  margin-top:0px !important;
+  margin-bottom:0;
+}
+
+/**.innercrd{
+	
+  background: #f8fafa;
+  box-shadow: 5px 10px 5px #babdbd inset;
+}
+
+.item-native{
+	
+	background: #f8fafa;
+}**/
+
+.labelclsred {
+  text-align: center;
+  color: #9d1414;
+  font-weight: bold !important;
+}
+
+.labelclsgrn {
+  text-align: center;
+  color: #267905;
+  font-weight: bold !important;
+}
+
+.btniconclsred {
+  color: #9d1414;
+  text-align: center !important;
+  font-weight: bold !important;
+  margin-left: 17px !important;
+      
+}
+
+ion-icon{ 
+  
+  --ionicon-stroke-width: 70px;
+}
+
+.btniconclsgreen {
+  color: #267905;
+  text-align: center !important;
+  font-weight: bold !important;
+  
+}
+
+.bigbtn {
+  box-shadow: 2px 3px 7px 2px #babdbd;
+  border-radius: 10px;
+  height: auto;
+  text-align: center;
+
+}
+
+.cardcls {
+  box-shadow: 2px 3px 7px 2px #babdbd;
+	border-radius: 10px;
+}
+
+.labelclsred{
+  margin: -10% 0 0 0;
+  width: 100%;
+}
+
+.labelclsgrn{
+  margin: -10% 0 0 0;
+  width: 100%;
+}
+
+
 // START MEDIA QUERY //
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-height: 568px){
@@ -119,8 +193,7 @@ ion-content ion-toolbar {
     }
   .titlecls{
     font-size: 32px !important;
-    color: #33cccc;
-    margin-top:0px !important;
+    margin-top: 12% !important;
   }
   .innercrd {
     height: 18%;
@@ -173,40 +246,31 @@ ion-content ion-toolbar {
     height: 20%;
     width: 45%;
     background-color: white !important;
-    border-radius: 10%;
+    
     color: white !important;
     border-style: solid 1px;
   }
   .labelclsred {
-    text-align: center;
-    color: red;
+    
     font-size: 200%;
-    margin-left: 24%;
-    margin-top: -10%;
-    font-weight: bold !important;
+    
+  
   }
   
   .labelclsgrn {
-    text-align: center;
-    color: green;
+   
     font-size: 200%;
-    margin-left: 10%;
-    margin-top: -10%;
-    font-weight: bold !important;
+    
+    
   }
   
   .btniconclsred {
     font-size: 800%;
-    color: red;
-    text-align: center !important;
-    font-weight: bold !important;
+   
   }
   
   .btniconclsgreen {
     font-size: 800%;
-    color: green;
-    text-align: center !important;
-    font-weight: bold !important;
     
   }
 }
@@ -220,8 +284,7 @@ ion-content ion-toolbar {
     
     .titlecls{
       font-size: 40px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 12% !important;
     }
     .innercrd {
       height: 18%;
@@ -275,39 +338,31 @@ ion-content ion-toolbar {
       height: 185px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 24%;
-      margin-top: -10%;
-      font-weight: bold !important;
+      
+      
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
-      font-weight: bold !important;
+      
+      
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
-      text-align: center !important;
-      font-weight: bold !important;
+      
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
-      text-align: center !important;
-      font-weight: bold !important;
+      
       
     }
     
@@ -321,8 +376,7 @@ ion-content ion-toolbar {
     
     .titlecls{
       font-size: 40px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 12% !important;
     }
     .innercrd {
       height: 18%;
@@ -360,39 +414,32 @@ ion-content ion-toolbar {
       height: 185px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 24%;
+     margin-left: 24%;
       margin-top: -10%;
-      font-weight: bold !important;
+      
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
-      font-weight: bold !important;
+      
+     
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
-      text-align: center !important;
-      font-weight: bold !important;
+     
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
-      text-align: center !important;
-      font-weight: bold !important;
+     
       
     }
     
@@ -408,9 +455,8 @@ ion-content ion-toolbar {
       height:812px;
     }
     .titlecls{
-      font-size: 46px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      font-size: 42px !important;
+      margin-top: 24% !important;
     }
     .innercrd {
       height: 18%;
@@ -464,43 +510,58 @@ ion-content ion-toolbar {
       height: 230px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+     
       font-size: 200%;
-      margin-left: 24%;
-      margin-top: -10%;
+     
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+     
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
-      text-align: center !important;
-      font-weight: bold !important;
+     
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
-      text-align: center !important;
-      font-weight: bold !important;
+      
       
     }
   /* Styles */
   }
+
+  @media only screen and (min-device-width: 375px)  and (max-height: 690px){
+     
+    .cardcls {
+      height: 60%;
+    }
+    .titlecls{
+      font-size: 36px !important;
+      margin-top: 17% !important;
+      
+    }
+    .bigbtn{
+      
+      height: 182px;
+    }
+    .innercrd{
+      
+      margin-top: 78% !important;
+    }
+
+  }
+
+
   @media only screen and (min-device-width: 390px) and (max-height: 844px){
     .img1 {
       width:390px;
@@ -508,8 +569,7 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 44px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 18% !important;
     }
     .innercrd {
       height: 20%;
@@ -563,22 +623,19 @@ ion-content ion-toolbar {
       height: 240px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+     
       font-size: 200%;
-      margin-left: 31%;
-      margin-top: -10%;
-      font-weight: bold !important;
+      
+      
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -586,14 +643,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
       margin-left: 17px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       text-align: center !important;
       font-weight: bold !important;
       
@@ -607,8 +664,8 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 44px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 20% !important;
+    
     }
     .innercrd {
       height: 20%;
@@ -662,22 +719,19 @@ ion-content ion-toolbar {
       height: 200px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 31%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -685,14 +739,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
       margin-left: 17px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       text-align: center !important;
       font-weight: bold !important;
       
@@ -708,8 +762,8 @@ ion-content ion-toolbar {
     }  
     .titlecls{
       font-size: 47px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 24% !important;
+     
     }
     .innercrd {
       height: 18%;
@@ -763,22 +817,19 @@ ion-content ion-toolbar {
       height: 205px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 31%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -786,14 +837,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+     
      margin-left: 18px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
      margin-left: 13px !important;
       font-weight: bold !important;
       
@@ -806,8 +857,8 @@ ion-content ion-toolbar {
     }  
     .titlecls{
       font-size: 50px;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 24% !important;
+     
     }
     .innercrd {
       height: 18%;
@@ -861,22 +912,19 @@ ion-content ion-toolbar {
       height: 229px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+     
       font-size: 200%;
-      margin-left: 29% !important;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+     
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -884,14 +932,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+     
      margin-left: 16px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+     
       margin-left:12px !important;
       font-weight: bold !important;
       
@@ -905,8 +953,8 @@ ion-content ion-toolbar {
     }  
     .titlecls{
       font-size: 50px;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 24% !important;
+      
     }
     .innercrd {
       height: 18%;
@@ -960,22 +1008,19 @@ ion-content ion-toolbar {
       height: 229px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 24%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -983,14 +1028,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
       text-align: center !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       text-align: center !important;
       font-weight: bold !important;
       
@@ -1004,8 +1049,8 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 45px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 25% !important;
+      
     }
     .innercrd {
       height: 18%;
@@ -1059,22 +1104,19 @@ ion-content ion-toolbar {
       height: 205px !important;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 32% !important;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
       margin-left: 10%;
       margin-top: -10%;
@@ -1082,14 +1124,14 @@ ion-content ion-toolbar {
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
       text-align: center !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       text-align: center !important;
       font-weight: bold !important;
       
@@ -1103,8 +1145,8 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 45px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 25% !important;
+      
     }
     .innercrd {
       height: 18%;
@@ -1158,37 +1200,33 @@ ion-content ion-toolbar {
       height: 251px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 32% !important;
-      margin-top: -10%;
+     
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+     
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
       text-align: center !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       text-align: center !important;
       font-weight: bold !important;
       
@@ -1202,8 +1240,8 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 58px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 28% !important;
+     
     }
     .innercrd {
       height: 18%;
@@ -1257,37 +1295,33 @@ ion-content ion-toolbar {
       height: 280px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 200%;
-      margin-left: 34%;
-      margin-top: -10%;
+     
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 200%;
-      margin-left: 16%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      color: red;
+      
      margin-left: 30px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      color: green;
+      
       margin-left: 23px !important;
       font-weight: bold !important;
       
@@ -1303,8 +1337,8 @@ ion-content ion-toolbar {
     }
     .titlecls{
       font-size: 71px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      margin-top: 8% !important;
+      
     }
     .innercrd {
       height: 18%;
@@ -1361,37 +1395,34 @@ ion-content ion-toolbar {
       height: 297px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+     
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
       
-      color: red;
+      
       font-size: 220%;
-      margin-left: 40%;
-      margin-top: -10%;
+    
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 220%;
-      margin-left: 40%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 820%;
-      color: red;
+      
       margin-left:87px !important;
       font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 820%;
-      color: green;
+      
       margin-left:100px !important;
       font-weight: bold !important;
       
@@ -1407,9 +1438,9 @@ ion-content ion-toolbar {
       height:1366px;
     }
     .titlecls{
-      font-size: 87.5px !important;
-      color: #33cccc;
-      margin-top:0px !important;
+      font-size: 70px !important;
+      margin-top: 8% !important;
+      
     }
     .innercrd {
       height: 18%;
@@ -1466,37 +1497,33 @@ ion-content ion-toolbar {
       height: 397px;
       width: 45%;
       background-color: white !important;
-      border-radius: 10%;
+      
       color: white !important;
       border-style: solid 1px;
     }
     .labelclsred {
-      text-align: center;
-      color: red;
+      
       font-size: 220%;
-      margin-left: 40%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     
     .labelclsgrn {
-      text-align: center;
-      color: green;
+      
       font-size: 220%;
-      margin-left: 30%;
-      margin-top: -10%;
+     
       font-weight: bold !important;
     }
     .btniconclsred {
   font-size: 820%;
-  color: red;
+  
   margin-left: 80px !important;
   font-weight: bold !important;
 }
 
 .btniconclsgreen {
   font-size: 820%;
-  color: green;
+  
   margin-left: 70px !important;
   font-weight: bold !important;
   
