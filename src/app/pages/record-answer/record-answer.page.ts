@@ -303,7 +303,7 @@ playRecording() {
   }
 
   saveRecording() {
-   // this.stopRecord();
+    this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
@@ -363,7 +363,7 @@ playRecording() {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-     // this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 
