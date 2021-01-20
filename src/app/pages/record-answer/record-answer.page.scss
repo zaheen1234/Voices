@@ -480,6 +480,44 @@
     /* Styles */
     }
 
+    @media only screen and (min-device-width: 355px) and (max-height: 710px){
+     
+      .titlecls {
+        font-size: 175%;
+    }
+    .bigbtn{
+      margin-left: 3%;
+      margin-top: 0% !important;
+      padding-top: 0px;
+      height: 215px !important;
+      width: 29%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+  }
+  .btniconclsorange, .btniconclsgreen, .btniconclsred{
+    font-size: 1100%;
+  }
+
+  .labelclsred {
+    
+    margin: 0;
+  }
+  
+  .labelclsgrn {
+    
+    margin:0;
+  }
+
+  .labelclsorg {
+   
+    margin: 0;
+  }
+   
+   
+     }
+
     /* iPhone 6, 7, 8 ----------- */
     @media only screen and (min-device-width: 375px)  and (max-height: 812px){
       .img1 {
@@ -797,7 +835,44 @@
         }
     /* Styles */
     }
+    
+    @media only screen and (min-device-width: 408px) and (max-height: 830px){
+     
+      .titlecls {
+        font-size: 220%;
+    }
+    .bigbtn{
+      margin-left: 3%;
+      margin-top: 0% !important;
+      padding-top: 0px;
+      height: 220px !important;
+      width: 29%;
+      background-color: white !important;
+      border-radius: 10%;
+      color: white !important;
+      border-style: solid 1px;
+  }
+  .btniconclsorange, .btniconclsgreen, .btniconclsred{
+    font-size: 1100%;
+  }
 
+  .labelclsred {
+    
+    margin: 0;
+  }
+  
+  .labelclsgrn {
+    
+    margin:0;
+  }
+
+  .labelclsorg {
+   
+    margin: 0;
+  }
+   
+   
+     }
 
     @media only screen and (min-device-width: 460px) and (max-height: 995px){
      
