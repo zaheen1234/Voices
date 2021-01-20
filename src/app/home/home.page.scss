@@ -436,7 +436,37 @@ ion-icon{
   /* Styles */
   }
  
+  @media only screen and (min-device-width: 355px) and (max-height: 710px){
+
+    .titlecls{
+     font-size: 32px !important;
+     margin-top: 20% !important;
+     font-weight: bold;
+    }
+    .innercrd {
+     height: 18%;
+     margin-top: 20% !important;
+ }
+ .bigbtn {
+   margin-left: 3%;
+   height: 230px;
+   width: 45%;
+   background-color: white !important;
+   color: white !important;
+ }
+ .btniconclsred, .btniconclsgreen {
+   font-size: 900%;
+   
+   width: 100%;
+ }
+ .labelclsred, .labelclsgrn {
+   font-size: 200%;
+   margin: 0;
+   
+ }
  
+ 
+   }
   
  
   @media only screen and (min-device-width: 375px) and (max-height: 812px) {
@@ -1223,6 +1253,39 @@ ion-icon{
     }
   /* Styles */
   }
+
+  @media only screen and (min-device-width: 408px) and (max-height: 830px){
+
+    .titlecls{
+     font-size: 35px !important;
+     margin-top: 35% !important;
+     font-weight: bold;
+    }
+    .innercrd {
+     height: 18%;
+     margin-top: 91% !important;
+ }
+ .bigbtn {
+   margin-left: 3%;
+   height: 230px;
+   width: 45%;
+   background-color: white !important;
+   color: white !important;
+ }
+ .btniconclsred, .btniconclsgreen {
+   font-size: 900%;
+   
+   width: 100%;
+   margin-left: 0 !important;
+ }
+ .labelclsred, .labelclsgrn {
+   font-size: 200%;
+   margin: 0;
+   
+ }
+ 
+ 
+   }
 
   @media only screen and (min-device-width: 460px) and (max-height: 995px){
 
