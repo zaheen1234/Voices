@@ -46,4 +46,9 @@ export class SuccessPagePage implements OnInit {
     this.deleteModeEnable = false;
     this.changeRef.detectChanges();
   }
+
+  goToRecordingsList() {
+    this.route.navigate(['/recordings-list']);
+
+  }
 }

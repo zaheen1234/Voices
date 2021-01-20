@@ -52,14 +52,17 @@ export class RecordAnswerPage implements OnInit {
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
-      console.log('platform is android');
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
-      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new 
+      Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new 
+      Date().getSeconds()+'.wav';
+     // this.filePath = this.file.applicationStorageDirectory.replace(/file:\/\//g, '') + 
+      this.fileName;
+      this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
       this.audio = this.media.create(this.filePath);
     }
     this.audio.startRecord();
     this.recording = true;
-  }
+    }
 
   stopRecord() {
     this.audio.stopRecord();
@@ -300,7 +303,7 @@ playRecording() {
   }
 
   saveRecording() {
-    this.stopRecord();
+   // this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
@@ -360,7 +363,7 @@ playRecording() {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      this.startRecord();
+     // this.startRecord();
     }, 1000);
   }
 

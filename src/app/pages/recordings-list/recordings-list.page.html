@@ -11,25 +11,57 @@
   </ion-toolbar>
 </ion-header>
 
-
-
-
-
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let audio of audioList; index as i;">
     <ion-card-header>
       <ion-card-title>
-          <ion-row>
-            <ion-col size="9"><p class="card-text">What is first thing you remember from your childhood?</p></ion-col>
+          <ion-row (click)="playAudio(audio.filename, i)">
+            <ion-col size="9"><p class="card-text">{{audio.question}}</p></ion-col>
             <ion-col size="3" class="text-center"><ion-icon name="caret-forward-circle" class="recording-btn"></ion-icon></ion-col>
           </ion-row>
-        <ion-row>
+        <ion-row *ngIf="checkIfRowEnable(i)">
           <ion-col> <img src="assets/images/image.jpg" class="voice-img"><br>
           <ion-progress-bar color="voice" value="0.8" class="prgrs-baar"></ion-progress-bar><p class="progrs-count">0.124</p></ion-col>
         </ion-row>
        </ion-card-title>
     </ion-card-header>
   </ion-card>
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+          <ion-row>
+            <ion-col size="9"><p class="card-text">What was day to day life like growing up?</p></ion-col>
+            <ion-col size="3" class="text-center"><ion-icon name="caret-forward-circle" class="recording-btn"></ion-icon></ion-col>
+            </ion-row>
+       </ion-card-title>
+       
+    </ion-card-header>
+  
+   
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+          <ion-row>
+            <ion-col size="9"><p class="card-text">What was memories do you have from family holidays?</p></ion-col>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+          <ion-row>
+            <ion-col size="9"><p class="card-text">What was day to day life like growing up?</p></ion-col>
+            <ion-col size="3" class="text-center"><ion-icon name="caret-forward-circle" class="recording-btn"></ion-icon></ion-col>
+            </ion-row>
+       </ion-card-title>
+       
+    </ion-card-header>
+  
+   
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+          <ion-row>
+            <ion-col size="9"><p class="card-text">What was memories do you have from family holidays?</p></ion-col>
   <ion-card>
     <ion-card-header>
       <ion-card-title>
@@ -81,6 +113,6 @@
     </ion-card-header>
   
    
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
