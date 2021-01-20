@@ -56,10 +56,9 @@ export class HomePage {
   ionViewWillEnter() {
     console.log('ionViewWillEnter called');
     this.question = this.questionService.getCurrentQuestion();
-    alert('Height : ' + this.platform.height());
-    alert('Width : ' + this.platform.width() );
-    
-
+    // alert('Height : ' + this.platform.height());
+    // alert('Width : ' + this.platform.width() );
+  
   }
 
   goToHomepage() {
