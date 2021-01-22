@@ -12,12 +12,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let audio of audioList; index as i;">
+  <ion-card *ngFor="let audio of questionsList; index as i;">
     <ion-card-header>
       <ion-card-title>
-          <ion-row (click)="playAudio(audio.filename, i)">
-            <ion-col size="9"><p class="card-text">{{audio.question}}</p></ion-col>
-            <ion-col size="3" class="text-center"><ion-icon name="caret-forward-circle" class="recording-btn"></ion-icon></ion-col>
+          <ion-row (click)="playAudio(audio, i)">
+            <ion-col size="8"><p class="card-text">{{audio}}</p></ion-col>
+            <ion-col size="4" class="text-center"><ion-icon name="caret-forward-circle" [ngClass]="checkIfRowEnable(i) ? 'recording-btn': 'grey-icon' "></ion-icon>
+              <!--<ion-icon *ngIf="checkIfRowEnable(i)" name="caret-forward-circle" class="recording-btn"></ion-icon>-->
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8"><p class="card-date">12 Aug 2019 | Asked by Tim Madden</p></ion-col>
+            <ion-col size="4" class="text-center"><p class="card-time">00:05:36</p></ion-col>
           </ion-row>
         <ion-row *ngIf="checkIfRowEnable(i)">
           <ion-col> <img src="assets/images/image.jpg" class="voice-img"><br>

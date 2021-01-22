@@ -52,6 +52,7 @@ export class RecordingsListPage implements OnInit {
       //   ); 
       //   return;
         this.currentNumber = id;
+        return
         if (this.platform.is('ios')) {
           this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
           this.audio = this.media.create(this.filePath);

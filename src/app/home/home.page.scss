@@ -69,6 +69,7 @@ margin-left: 5%;
 
 .title {
   text-align: center;
+  color: #fff;
 }
 .container strong {
   font-size: 20px;
@@ -136,6 +137,12 @@ ion-icon{
   --ionicon-stroke-width: 100px;
 }
 
+.recordingiconcls{ 
+  
+  --ionicon-stroke-width: 30px;
+  color: #fff;
+}
+
 .btniconclsgreen {
   color: #267905;
   text-align: center !important;
@@ -164,6 +171,10 @@ ion-icon{
 .labelclsgrn{
   margin: -10% 0 0 0;
   width: 100%;
+}
+
+.ion-menu-button .button-native{
+  color: #fff;
 }
 
 
