@@ -303,7 +303,7 @@ playRecording() {
   }
 
   saveRecording() {
-    //this.stopRecord();
+   // this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
