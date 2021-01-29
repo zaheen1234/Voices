@@ -42,26 +42,22 @@ export class RecordingsListPage implements OnInit {
 
   
     playAudio(file, id) {
-      // let folder = 'Download/';
-      // let fileName = 'example.mp3';
-      // let audioFileName = folder.concat(fileName);
-      //cthis.filePath = this.file.externalRootDirectory.concat(folder);
-      // this.file.checkFile(this.file.externalDataDirectory, file).then(_ => 
-      //   this.playAudioRecording(file)
-      //   ).catch(err => alert('Directory doesn\'t exist')
-      //   ); 
-      //   return;
+  
         this.currentNumber = id;
-        return
         if (this.platform.is('ios')) {
           this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
           this.audio = this.media.create(this.filePath);
         } else if (this.platform.is('android')) {
-          this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + file;
+          this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
           this.audio = this.media.create(this.filePath);
       }
           this.audio.play();
           this.audio.setVolume(0.8); 
+
+          // setTimeout(() => {
+          //   alert('audio duration : ' + this.audio.getDuration());
+          // }, 1000);
+          
     }
 
     playAudioRecording (file) {

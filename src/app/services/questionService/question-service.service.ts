@@ -7,12 +7,18 @@ export class QuestionServiceService {
 
 
 public questionArray = [
-    'What is the first thing you remember from your childhood?',
-    'What is your favorite holiday destination?',
-    'What was the name of your best friend in childhood?',
-    'What is your nick name?',
-    'Who did you sit next to in School?',
-    'What is your best Childhood Memory?'
+  {id: 1,
+  question: 'What is the first thing you remember from your childhood?'},
+  {id: 2,
+  question:'What is your favorite holiday destination?'},
+  {id: 3,
+  question:'What was the name of your best friend in childhood?'},
+  {id: 4,
+  question:'What is your nick name?'},
+  {id: 5,
+  question:'Who did you sit next to in School?'},
+  {id: 6,
+  question:'What is your best Childhood Memory?'}
   ];
 
   currentQuestionIndex = 0;
