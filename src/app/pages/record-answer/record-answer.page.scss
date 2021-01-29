@@ -313,6 +313,20 @@
   .cardclscancel {
     box-shadow: 2px 3px 7px 2px #babdbd;
   }
+
+  .title {
+    text-align: center;
+    color: #fff;
+  }
+  .recordingiconcls{ 
+    
+    --ionicon-stroke-width: 30px;
+    color: #fff;
+  }
+  ion-menu-button{ 
+    color: #fff;
+  }
+
   
   // START MEDIA QUERY //
   /* Smartphones (portrait and landscape) ----------- */

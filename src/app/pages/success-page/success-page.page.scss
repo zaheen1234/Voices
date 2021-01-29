@@ -216,6 +216,18 @@ border-radius: 10px !important;
 --ionicon-stroke-width: 100px;
 }
 
+.title {
+  text-align: center;
+  color: #fff;
+}
+.recordingiconcls{ 
+  
+  --ionicon-stroke-width: 30px;
+  color: #fff;
+}
+ion-menu-button{ 
+  color: #fff;
+}
 
 // START MEDIA QUERY //
 /* Smartphones (portrait and landscape) ----------- */

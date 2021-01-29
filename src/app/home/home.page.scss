@@ -71,6 +71,14 @@ margin-left: 5%;
   text-align: center;
   color: #fff;
 }
+.recordingiconcls{ 
+  
+  --ionicon-stroke-width: 30px;
+  color: #fff;
+}
+ion-menu-button{ 
+  color: #fff;
+}
 .container strong {
   font-size: 20px;
   line-height: 26px;
@@ -99,6 +107,7 @@ ion-content ion-toolbar {
   color: #048988;
   margin-top:0px !important;
   margin-bottom:0;
+  font-weight: bold;
 }
 
 /**.innercrd{
@@ -123,30 +132,28 @@ ion-content ion-toolbar {
   color: #267905;
   font-weight: bold !important;
 }
-
-.btniconclsred {
-  color: #9d1414;
-  text-align: center !important;
-  font-weight: bold !important;
-  margin-left: 0 !important;
-      
-}
-
 ion-icon{ 
   
   --ionicon-stroke-width: 100px;
 }
 
-.recordingiconcls{ 
-  
-  --ionicon-stroke-width: 30px;
-  color: #fff;
+.btniconclsred {
+  color: #9d1414;
+  text-align: center !important;
+  font-weight: bold !important;
+  margin-left: 0;
+  margin-bottom:10px;
+  width: 100%;
+      
 }
 
 .btniconclsgreen {
   color: #267905;
   text-align: center !important;
   font-weight: bold !important;
+  width: 100%;
+  margin-left: 0;
+  margin-bottom:10px;
   
 }
 
@@ -160,7 +167,8 @@ ion-icon{
 
 .cardcls {
   box-shadow: 2px 3px 7px 2px #babdbd;
-	border-radius: 10px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .labelclsred{
@@ -176,7 +184,9 @@ ion-icon{
 .ion-menu-button .button-native{
   color: #fff;
 }
-
+.footer-md:before{
+  background:none;
+}
 
 // START MEDIA QUERY //
 /* Smartphones (portrait and landscape) ----------- */
@@ -189,8 +199,6 @@ ion-icon{
     position: fixed;
     height: 60%;
     width: 95%;
-    margin-left: 2%;
-    margin-top: 2%;
     }
   .titlecls{
     font-size: 32px !important;
@@ -199,12 +207,18 @@ ion-icon{
   .innercrd {
     height: 18%;
     margin-top: 77%;
-    
-
-    // background-color: #f2f2f2;
   }
+  .item-native{
+   background: #f8fafa;
+   box-shadow:inset 0px 0px 4px 2px;
+   padding:15px 0;
+   border-radius:20px;
+     
+  }
+  
   .innercrd2{
     margin-top:12px !important;
+    margin: 0 10px 0 20px;
   }
   .title-div{
     position: fixed !important;
@@ -227,8 +241,7 @@ ion-icon{
     position: fixed;
     height: 60%;
     width: 95%;
-    margin-left: 2%;
-    margin-top: 2%;
+    
     }
   .bigbtn{
 
@@ -252,27 +265,21 @@ ion-icon{
     border-style: solid 1px;
   }
   .labelclsred {
-    
     font-size: 200%;
-    
-  
   }
   
   .labelclsgrn {
-   
-    font-size: 200%;
-    
-    
+   font-size: 200%;
   }
   
   .btniconclsred {
     font-size: 800%;
-   
+    margin-bottom:0;
   }
   
   .btniconclsgreen {
     font-size: 800%;
-    
+    margin-bottom:0;
   }
 }
   
@@ -319,8 +326,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -358,18 +364,49 @@ ion-icon{
     }
     .btniconclsred {
       font-size: 800%;
+      margin-bottom:0;
       
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      
-      
+      margin-bottom:0;
     }
     
   /* Styles */
   }
-  @media only screen and (min-device-width: 360px) and (max-height: 668px) {
+  
+ 
+  @media only screen and (min-device-width: 355px) and (max-height: 710px){
+
+    .titlecls{
+     font-size: 32px !important;
+     margin-top: 20% !important;
+     font-weight: bold;
+    }
+    .innercrd {
+     height: 18%;
+     margin-top: 20% ;
+ }
+ .bigbtn {
+   margin-left: 3%;
+   height: 230px;
+   width: 45%;
+   background-color: white !important;
+   color: white !important;
+ }
+ .btniconclsred, .btniconclsgreen {
+   font-size: 900%;
+ }
+ .labelclsred, .labelclsgrn {
+   font-size: 200%;
+   margin: 0;
+   
+ }
+ 
+   }
+  
+   @media only screen and (min-device-width: 360px) and (max-height: 668px) {
     .img1 {
       width:360;
       height:668px;
@@ -405,10 +442,9 @@ ion-icon{
     }
     .cardcls{
       position: fixed;
-      height: 60%;
+      height: 59%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
       margin-left: 3%;
@@ -422,63 +458,23 @@ ion-icon{
     .labelclsred {
       
       font-size: 200%;
-     margin-left: 24%;
-      margin-top: -10%;
       
     }
-    
     .labelclsgrn {
-      
-      font-size: 200%;
-      
-     
+       font-size: 200%;
     }
     .btniconclsred {
       font-size: 800%;
-     
+      margin-bottom:0;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-     
-      
+      margin-bottom:0;     
     }
     
   /* Styles */
   }
- 
-  @media only screen and (min-device-width: 355px) and (max-height: 710px){
-
-    .titlecls{
-     font-size: 32px !important;
-     margin-top: 20% !important;
-     font-weight: bold;
-    }
-    .innercrd {
-     height: 18%;
-     margin-top: 20% !important;
- }
- .bigbtn {
-   margin-left: 3%;
-   height: 230px;
-   width: 45%;
-   background-color: white !important;
-   color: white !important;
- }
- .btniconclsred, .btniconclsgreen {
-   font-size: 900%;
-   
-   width: 100%;
- }
- .labelclsred, .labelclsgrn {
-   font-size: 200%;
-   margin: 0;
-   
- }
- 
- 
-   }
-  
  
   @media only screen and (min-device-width: 375px) and (max-height: 812px) {
     .img1 {
@@ -521,8 +517,7 @@ ion-icon{
       position: fixed;
       height: 63%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -591,7 +586,24 @@ ion-icon{
     }
 
   }
+  
+  /* iPhone SE ----------- */
+  @media only screen and (min-device-width: 375px) and (max-height: 668px) {
 
+    .titlecls {
+      font-size: 38px !important;
+      margin-top: 15% !important;
+     }
+     .innercrd2{
+      margin-top: 16px !important;
+    }
+    .cardcls{
+      height: 58%;
+      margin: 10px 10px;
+    }
+    
+ 
+ }
 
   @media only screen and (min-device-width: 390px) and (max-height: 844px){
     .img1 {
@@ -634,8 +646,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -668,22 +679,18 @@ ion-icon{
     .labelclsgrn {
       
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      
-      margin-left: 17px !important;
-      font-weight: bold !important;
+    
     }
     
     .btniconclsgreen {
       font-size: 800%;
       
-      text-align: center !important;
-      font-weight: bold !important;
       
     }
   }
@@ -730,8 +737,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -764,23 +770,16 @@ ion-icon{
     .labelclsgrn {
       
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      
-      margin-left: 17px !important;
-      font-weight: bold !important;
+     
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      
-      text-align: center !important;
-      font-weight: bold !important;
-      
     }
   }
   
@@ -828,8 +827,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -862,22 +860,16 @@ ion-icon{
     .labelclsgrn {
       
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-     
-     margin-left: 18px !important;
-      font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      
-     margin-left: 13px !important;
-      font-weight: bold !important;
+     
       
     }
   }
@@ -923,8 +915,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -957,22 +948,16 @@ ion-icon{
     .labelclsgrn {
      
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-     
-     margin-left: 16px !important;
-      font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
      
-      margin-left:12px !important;
-      font-weight: bold !important;
       
     }
    }
@@ -1019,8 +1004,7 @@ ion-icon{
       position: fixed;
       height: 60%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+     
       }
     .bigbtn{
 
@@ -1053,122 +1037,20 @@ ion-icon{
     .labelclsgrn {
       
       font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
+      
       font-weight: bold !important;
     }
     .btniconclsred {
       font-size: 800%;
-      
-      text-align: center !important;
-      font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
       
-      text-align: center !important;
-      font-weight: bold !important;
       
     }
    }
-  /* iPhone 6+, 7+, 8+ ----------- */
-  @media only screen and (min-device-width: 414px) and (max-height: 736px){
-    .img1 {
-      width:414px;
-      height:736px;
-    }
-    .titlecls{
-      font-size: 45px !important;
-      margin-top: 25% !important;
-      
-    }
-    .innercrd {
-      height: 18%;
-      margin-top:83% !important;
-      // margin-top: 10px!important;
   
-      // background-color: #f2f2f2;
-    }
-    .innercrd2{
-      margin-top:23px !important;
-    }
-    .title-div{
-      position: fixed !important;
-      
-    }
-    .book-icon{
-      font-size:18px;
-    }
-    .icon-text{
-      font-size:11px;
-      margin-bottom: 0px;
-      margin-top:2px;
-    }
-  
-    .footercls {
-      height: 30% !important;
-      margin-top:10% !important;
-      // background-color: greenyellow;
-    }
-    .cardcls{
-      position: fixed;
-      height: 62%;
-      width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
-      }
-    .bigbtn{
-
-      // margin-left: 3%;
-      //   // margin-bottom: 2%;
-      //   height: 25%;
-      //   width: 29%;
-      //   background-color: white !important;
-      //   border-radius: 10%;
-      //   color: white !important;
-      //   border-style: solid 1px;
-    
-    
-      margin-left: 3%;
-      // margin-top: -2%;
-      height: 205px !important;
-      width: 45%;
-      background-color: white !important;
-      
-      color: white !important;
-      border-style: solid 1px;
-    }
-    .labelclsred {
-      
-      font-size: 200%;
-      
-      font-weight: bold !important;
-    }
-    
-    .labelclsgrn {
-      
-      font-size: 200%;
-      margin-left: 10%;
-      margin-top: -10%;
-      font-weight: bold !important;
-    }
-    .btniconclsred {
-      font-size: 800%;
-      
-      text-align: center !important;
-      font-weight: bold !important;
-    }
-    
-    .btniconclsgreen {
-      font-size: 800%;
-      
-      text-align: center !important;
-      font-weight: bold !important;
-      
-    }
-  /* Styles */
-  }
   @media only screen and (min-device-width: 414px) and (max-height: 896px){
     .img1 {
       width:414px;
@@ -1211,8 +1093,7 @@ ion-icon{
       position: fixed;
       height: 62%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -1250,16 +1131,11 @@ ion-icon{
     }
     .btniconclsred {
       font-size: 800%;
-      
-      text-align: center !important;
-      font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 800%;
       
-      text-align: center !important;
-      font-weight: bold !important;
       
     }
   /* Styles */
@@ -1285,14 +1161,142 @@ ion-icon{
  }
  .btniconclsred, .btniconclsgreen {
    font-size: 900%;
-   
-   width: 100%;
-   margin-left: 0 !important;
  }
  .labelclsred, .labelclsgrn {
    font-size: 200%;
    margin: 0;
    
+ }
+ 
+ 
+   }
+
+   /* iPhone 6+, 7+, 8+ ----------- */
+  @media only screen and (min-device-width: 414px) and (max-height: 736px){
+    .img1 {
+      width:414px;
+      height:736px;
+    }
+    .titlecls{
+      font-size: 45px !important;
+      margin-top: 13% !important;
+      
+    }
+    .innercrd {
+      height: 18%;
+      margin-top:83% !important;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:23px !important;
+    }
+    .title-div{
+      position: fixed !important;
+      
+    }
+    .book-icon{
+      font-size:18px;
+    }
+    .icon-text{
+      font-size:11px;
+      margin-bottom: 0px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 62%;
+      width: 95%;
+      
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 205px !important;
+      width: 45%;
+      background-color: white !important;
+      
+      color: white !important;
+      border-style: solid 1px;
+    }
+    .labelclsred {
+      
+      font-size: 200%;
+      
+      font-weight: bold !important;
+    }
+    
+    .labelclsgrn {
+      
+      font-size: 200%;
+      
+      font-weight: bold !important;
+    }
+    .btniconclsred {
+      font-size: 800%;
+    }
+    
+    .btniconclsgreen {
+      font-size: 800%;
+      
+      
+    }
+  /* Styles */
+  }
+
+  /* iPhone12 Pro Max */
+  @media only screen and (min-device-width: 426px) and (max-height: 928px){
+
+    .titlecls{
+     font-size: 52px !important;
+     margin-top: 22% !important;
+     font-weight: bold;
+    }
+    .innercrd {
+     height: 15%;
+     margin-top: 17% !important;
+ }
+ .innercrd ion-item{
+     padding:15px 0 0 0;
+ }
+ .bigbtn {
+   margin-left: 3%;
+   height: 230px;
+   width: 45%;
+   background-color: white !important;
+   color: white !important;
+ }
+ .btniconclsred, .btniconclsgreen {
+   font-size: 900%;
+ }
+ .labelclsred, .labelclsgrn {
+   font-size: 200%;
+   margin: 0;
+   
+ }
+ .cardcls{
+   height:96%;
+ }
+ ion-footer{
+  height: 27%;
  }
  
  
@@ -1318,8 +1322,6 @@ ion-icon{
 }
 .btniconclsred, .btniconclsgreen {
   font-size: 900%;
-  
-  width: 100%;
 }
 .labelclsred, .labelclsgrn {
   font-size: 200%;
@@ -1372,8 +1374,7 @@ ion-icon{
       position: fixed;
       height: 62%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -1412,15 +1413,11 @@ ion-icon{
     .btniconclsred {
       font-size: 800%;
       
-     margin-left: 30px !important;
-      font-weight: bold !important;
+     
     }
     
     .btniconclsgreen {
       font-size: 800%;
-      
-      margin-left: 23px !important;
-      font-weight: bold !important;
       
     }
   }
@@ -1433,8 +1430,9 @@ ion-icon{
       height:1024px;
     }
     .titlecls{
-      font-size: 71px !important;
+      font-size: 68px !important;
       margin-top: 8% !important;
+      padding: 0 52px 0 0px;
       
     }
     .innercrd {
@@ -1472,8 +1470,7 @@ ion-icon{
       position: fixed;
       height: 63%;
       width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      
       }
     .bigbtn{
 
@@ -1502,6 +1499,7 @@ ion-icon{
       font-size: 220%;
     
       font-weight: bold !important;
+      margin:0;
     }
     
     .labelclsgrn {
@@ -1509,19 +1507,307 @@ ion-icon{
       font-size: 220%;
       
       font-weight: bold !important;
+      margin:0;
     }
     .btniconclsred {
       font-size: 820%;
-      
-      margin-left:87px !important;
-      font-weight: bold !important;
     }
     
     .btniconclsgreen {
       font-size: 820%;
       
-      margin-left:100px !important;
+    }
+
+  /* Styles */
+  }
+
+  /* iPads 8th Gen (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 808px)  and (max-height: 1082px){
+    .img1 {
+      width:768px;
+      height:1024px;
+    }
+    .titlecls{
+      font-size: 82px !important;
+      margin-top: 7% !important;
+      
+    }
+    .innercrd {
+      height: 18%;
+      margin-top:65% !important;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:45px !important;
+    }
+    .title-div{
+      position: fixed !important;
+      
+    }
+    .voice-text{
+      font-size: 30px !important;
+    }
+    .book-icon{
+      font-size:18px;
+    }
+    .icon-text{
+      font-size:11px;
+      margin-bottom: 0px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 63%;
+      width: 97%;
+      
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 297px;
+      width: 45%;
+      background-color: white !important;
+     
+      color: white !important;
+      border-style: solid 1px;
+    }
+    .labelclsred {
+      
+      
+      font-size: 220%;
+    
       font-weight: bold !important;
+      margin:0;
+    }
+    
+    .labelclsgrn {
+      
+      font-size: 220%;
+      
+      font-weight: bold !important;
+      margin:0;
+    }
+    .btniconclsred {
+      font-size: 820%;
+    }
+    
+    .btniconclsgreen {
+      font-size: 820%;
+      
+    }
+
+  /* Styles */
+  }
+
+  /* iPads Air 4th Gen (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 818px)  and (max-height: 1182px){
+    .img1 {
+      width:768px;
+      height:1024px;
+    }
+    .titlecls{
+      font-size: 84px !important;
+      margin-top: 11% !important;
+      
+    }
+    .innercrd {
+      height: 18%;
+      margin-top:72% !important;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:45px !important;
+    }
+    .title-div{
+      position: fixed !important;
+      
+    }
+    .voice-text{
+      font-size: 30px !important;
+    }
+    .book-icon{
+      font-size:18px;
+    }
+    .icon-text{
+      font-size:11px;
+      margin-bottom: 0px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 30% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 63%;
+      width: 98%;
+      padding: 0px 10px;
+      
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 297px;
+      width: 45%;
+      background-color: white !important;
+     
+      color: white !important;
+      border-style: solid 1px;
+    }
+    .labelclsred {
+      
+      
+      font-size: 220%;
+    
+      font-weight: bold !important;
+      margin:0;
+    }
+    
+    .labelclsgrn {
+      
+      font-size: 220%;
+      
+      font-weight: bold !important;
+      margin:0;
+    }
+    .btniconclsred {
+      font-size: 820%;
+    }
+    
+    .btniconclsgreen {
+      font-size: 820%;
+      
+    }
+
+  /* Styles */
+  }
+
+  /* iPads Pro 2th Gen (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 832px)  and (max-height: 1196px){
+    .img1 {
+      width:768px;
+      height:1024px;
+    }
+    .titlecls{
+      font-size: 84px !important;
+      margin-top: 11% !important;
+      
+    }
+    .innercrd {
+      height: 18%;
+      margin-top:74% !important;
+      // margin-top: 10px!important;
+  
+      // background-color: #f2f2f2;
+    }
+    .innercrd2{
+      margin-top:45px !important;
+    }
+    .title-div{
+      position: fixed !important;
+      
+    }
+    .voice-text{
+      font-size: 30px !important;
+    }
+    .book-icon{
+      font-size:18px;
+    }
+    .icon-text{
+      font-size:11px;
+      margin-bottom: 0px;
+      margin-top:2px;
+    }
+  
+    .footercls {
+      height: 27% !important;
+      margin-top:10% !important;
+      // background-color: greenyellow;
+    }
+    .cardcls{
+      position: fixed;
+      height: 65%;
+      width: 98%;
+      padding: 0px 10px;
+      
+      }
+    .bigbtn{
+
+      // margin-left: 3%;
+      //   // margin-bottom: 2%;
+      //   height: 25%;
+      //   width: 29%;
+      //   background-color: white !important;
+      //   border-radius: 10%;
+      //   color: white !important;
+      //   border-style: solid 1px;
+    
+    
+      margin-left: 3%;
+      // margin-top: -2%;
+      height: 297px;
+      width: 45%;
+      background-color: white !important;
+     
+      color: white !important;
+      border-style: solid 1px;
+    }
+    .labelclsred {
+      
+      
+      font-size: 220%;
+    
+      font-weight: bold !important;
+      margin:0;
+    }
+    
+    .labelclsgrn {
+      
+      font-size: 220%;
+      
+      font-weight: bold !important;
+      margin:0;
+    }
+    .btniconclsred {
+      font-size: 820%;
+    }
+    
+    .btniconclsgreen {
+      font-size: 820%;
       
     }
 
@@ -1529,14 +1815,15 @@ ion-icon{
   }
   
   /* iPads (portrait) ----------- */
-  @media only screen and (min-device-width : 1024px)  and (max-height: 1366px){
+  @media only screen and (min-device-width : 1022px)  and (max-height: 1368px){
     .img1 {
       width:1024px;
       height:1366px;
     }
     .titlecls{
-      font-size: 70px !important;
+      font-size: 88px !important;
       margin-top: 8% !important;
+      padding: 0 52px 0 0px;
       
     }
     .innercrd {
@@ -1573,9 +1860,8 @@ ion-icon{
     .cardcls{
       position: fixed;
       height: 64%;
-      width: 95%;
-      margin-left: 2%;
-      margin-top: 2%;
+      width: 96%;
+      
       }
     .bigbtn{
 
@@ -1603,6 +1889,7 @@ ion-icon{
       font-size: 220%;
       
       font-weight: bold !important;
+      margin: 0;
     }
     
     .labelclsgrn {
@@ -1610,19 +1897,16 @@ ion-icon{
       font-size: 220%;
      
       font-weight: bold !important;
+      margin: 0;
     }
     .btniconclsred {
   font-size: 820%;
   
-  margin-left: 80px !important;
-  font-weight: bold !important;
 }
 
 .btniconclsgreen {
   font-size: 820%;
   
-  margin-left: 70px !important;
-  font-weight: bold !important;
   
 }
   /* Styles */
