@@ -26,11 +26,6 @@ export class RecordingsListPage implements OnInit {
 
   ngOnInit() {
     this.questionsList = this.questionService.questionArray;
-
-    // let width = this.platform.width();
-    // let height = this.platform.height();
-    // alert('width is: '+ width);
-    // alert('height is : '+ height);
   }
 
   ionViewWillEnter() {

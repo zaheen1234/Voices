@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController, Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { QuestionServiceService } from '../services/questionService/question-service.service';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-home',
@@ -20,34 +21,11 @@ export class HomePage {
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
                private route: Router, private questionService: QuestionServiceService, 
-               private changeRef: ChangeDetectorRef, private platform: Platform) {
+               private changeRef: ChangeDetectorRef, private platform: Platform,
+               private vibration: Vibration) {
 
 
   }
-
-
-  // submit() {
-  //   if (this.username === '') {
-  //     alert('Mobile number can not be blank');
-  //     this.username = '';
-  //   } else {
-  //    // alert('OTP has been sent');
-  //     this.normalMode = false;
-  //     this.otpMode = true;
-  //   }
-  // }
-
-  // submitOTP(otp) {
-  //   if (otp === '') {
-  //     alert('OTP can not be blank');
-  //   } else if (otp === '123456') {
-  //     this.callAPI();
-  //   } else {
-  //     alert('OTP is invalid');
-  //     this.password = '';
-  //   }
-  // }
-
 
   ngOnInit() {
 
@@ -59,8 +37,6 @@ export class HomePage {
     console.log('checking actual this.question', this.question);
     // alert('Height : ' + this.platform.height());
     // alert('Width : ' + this.platform.width() );
-    
-
   }
 
   goToHomepage() {
@@ -68,14 +44,17 @@ export class HomePage {
   }
 
   goToRecordingsList() {
+    this.vibration.vibrate(100);
     this.route.navigate(['/recordings-list']);
   }
 
   goToAnswerScreen() {
+    this.vibration.vibrate(100);
     this.route.navigate(['/record-answer'])
   }
 
   skipCurrentQuestion() {
+    this.vibration.vibrate(100);
     this.questionService.increaseQuestionIndex();
     //this.question = this.questionService.increaseQuestionIndex();
     let localQuestion = this.questionService.getCurrentQuestion();

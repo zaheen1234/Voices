@@ -197,7 +197,7 @@ ion-icon{
   }
   .cardcls{
     position: fixed;
-    height: 60%;
+    height: 59%;
     width: 95%;
     }
   .titlecls{
@@ -206,7 +206,7 @@ ion-icon{
   }
   .innercrd {
     height: 18%;
-    margin-top: 77%;
+    margin-top: 74%;
   }
   .item-native{
    background: #f8fafa;
@@ -482,12 +482,13 @@ ion-icon{
       height:812px;
     }
     .titlecls{
-      font-size: 42px !important;
-      margin-top: 24% !important;
+      font-size: 44px !important;
+      margin-top: 15% !important;
+      padding: 0 40px 0 0;
     }
     .innercrd {
       height: 18%;
-      margin-top:105% !important;
+      margin-top:102% !important;
       // margin-top: 10px!important;
   
       // background-color: #f2f2f2;
@@ -515,7 +516,7 @@ ion-icon{
     }
     .cardcls{
       position: fixed;
-      height: 63%;
+      height: 62%;
       width: 95%;
       
       }
@@ -611,8 +612,9 @@ ion-icon{
       height:844px;
     }
     .titlecls{
-      font-size: 44px !important;
-      margin-top: 18% !important;
+      font-size: 48px !important;
+      margin-top: 11% !important;
+      padding: 0 40px 0 0;
     }
     .innercrd {
       height: 20%;
@@ -1057,8 +1059,9 @@ ion-icon{
       height:896px;
     }
     .titlecls{
-      font-size: 45px !important;
-      margin-top: 25% !important;
+      font-size: 52px !important;
+      margin-top: 14% !important;
+      padding: 0 40px 0 0;
       
     }
     .innercrd {
@@ -1144,9 +1147,9 @@ ion-icon{
   @media only screen and (min-device-width: 408px) and (max-height: 830px){
 
     .titlecls{
-     font-size: 35px !important;
-     margin-top: 35% !important;
-     font-weight: bold;
+     font-size: 48px !important;
+     margin-top: 10% !important;
+     
     }
     .innercrd {
      height: 18%;
@@ -1179,7 +1182,7 @@ ion-icon{
     }
     .titlecls{
       font-size: 45px !important;
-      margin-top: 13% !important;
+      margin-top: 7% !important;
       
     }
     .innercrd {
