@@ -12,11 +12,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let audio of questionsList; index as i;">
+  <ion-card *ngFor="let audio of audioList; index as i;">
     <ion-card-header>
       <ion-card-title>
-          <ion-row (click)="playAudio(audio, i)">
-            <ion-col size="8"><p class="card-text">{{audio}}</p></ion-col>
+          <ion-row (click)="playAudio(audio.filename, i)">
+            <ion-col size="8"><p class="card-text">{{audio.question}}</p></ion-col>
             <ion-col size="4" class="text-center"><ion-icon name="caret-forward-circle" [ngClass]="checkIfRowEnable(i) ? 'recording-btn': 'grey-icon' "></ion-icon>
               <!--<ion-icon *ngIf="checkIfRowEnable(i)" name="caret-forward-circle" class="recording-btn"></ion-icon>-->
               </ion-col>

@@ -45,10 +45,11 @@
   <div class="cardcls">
     <ion-card >
     <ion-card-header>
-      <ion-card-title ><p class="titlecls">{{question}}</p></ion-card-title>
+      <ion-card-title ><p class="titlecls">{{question.question}}</p></ion-card-title>
     </ion-card-header>    
    </ion-card>
    </div>
+
 <div class="countdwncls" >
   <label class="abc">
     Your Answer has
@@ -85,7 +86,7 @@
 </ion-button>
 <ion-button class="bigbtn2">
   <ion-grid>
-    <ion-row>
+    <ion-row (click)="startPlayingAnswer()">
       <ion-col size="4">
        <ion-icon name="play" class="btniconclsorange"></ion-icon>
       </ion-col>

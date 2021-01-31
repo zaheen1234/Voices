@@ -54,10 +54,10 @@ export class RecordAnswerPage implements OnInit {
     } else if (this.platform.is('android')) {
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new 
       Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new 
-      Date().getSeconds()+'.wav';
-     // this.filePath = this.file.applicationStorageDirectory.replace(/file:\/\//g, '') + 
+      Date().getSeconds()+'.3gp';
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + 
       this.fileName;
-      this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
+    //  this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
       this.audio = this.media.create(this.filePath);
     }
     this.audio.startRecord();
@@ -66,7 +66,7 @@ export class RecordAnswerPage implements OnInit {
 
   stopRecord() {
     this.audio.stopRecord();
-    let data = { filename: this.fileName, question: this.question };
+    let data = { filename: this.fileName, question: this.question.question, id: this.question.id };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
     this.recording = false;
@@ -90,7 +90,7 @@ export class RecordAnswerPage implements OnInit {
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
       alert('play audio clicked');
-      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + file;
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
       this.audio = this.media.create(this.filePath);
     }
     this.audio.play();
@@ -303,7 +303,7 @@ playRecording() {
   }
 
   saveRecording() {
-   // this.stopRecord();
+    this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
@@ -363,7 +363,7 @@ playRecording() {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      //this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 
