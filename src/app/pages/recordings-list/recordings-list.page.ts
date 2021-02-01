@@ -4,6 +4,8 @@ import { QuestionServiceService } from '../../services/questionService/question-
 import { ModalController, Platform } from '@ionic/angular';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 
 @Component({
@@ -15,7 +17,7 @@ export class RecordingsListPage implements OnInit {
 
   constructor(private route: Router, private questionService: QuestionServiceService,
     private platform: Platform, private media: Media, private file: File,
-    private changeRef: ChangeDetectorRef) { }
+    private changeRef: ChangeDetectorRef, private vibration: Vibration) { }
 
   questionsList = [];
   audioList = [];
@@ -37,7 +39,7 @@ export class RecordingsListPage implements OnInit {
 
   
     playAudio(file, id) {
-  
+      this.vibration.vibrate(100);
         this.currentNumber = id;
         if (this.platform.is('ios')) {
           this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
@@ -75,7 +77,7 @@ export class RecordingsListPage implements OnInit {
     }
 
     goToRecordingsList() {
-
+      this.vibration.vibrate(100);
       this.route.navigate(['/recordings-list']);
     }
 

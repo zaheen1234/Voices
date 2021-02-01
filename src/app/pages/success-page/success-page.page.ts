@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { QuestionServiceService } from '../../services/questionService/question-service.service';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 @Component({
   selector: 'app-success-page',
@@ -23,7 +25,7 @@ export class SuccessPagePage implements OnInit {
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
     private questionService: QuestionServiceService, 
     private platform: Platform, private media: Media, 
-    private file: File) { }
+    private file: File, private vibration: Vibration) { }
 
 
   ngOnInit() {
@@ -33,16 +35,19 @@ export class SuccessPagePage implements OnInit {
   }
 
   nextQuestion() {
+    this.vibration.vibrate(100);
     this.questionService.increaseQuestionIndex();
     this.route.navigate(['/home']);
   }
 
   deleteAnswer() {
+    this.vibration.vibrate(100);
     this.deleteModeDisable = false;
     this.deleteModeEnable = true;
   }
 
   backToQuestionScreen() {
+    this.vibration.vibrate(100);
     this.deleteModeDisable = true;
     this.deleteModeEnable = false;
     this.changeRef.detectChanges()
@@ -56,7 +61,7 @@ export class SuccessPagePage implements OnInit {
   }
 
   startPlayingAnswer() {
-
+    this.vibration.vibrate(100);
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.question.id === this.recordingList[i].id) {
         let file = this.recordingList[i].filename;
@@ -80,13 +85,13 @@ export class SuccessPagePage implements OnInit {
 
 
   deleteRecording(index) {
-
     let tempBookmark = this.recordingList.splice(index, 1);
     localStorage.setItem('audiolist', JSON.stringify(this.recordingList));
     this.route.navigate(['/home']); 
   }
 
   backToRecording () {
+    this.vibration.vibrate(100);
     console.log('gotorecording function called');
     this.deleteModeDisable = true;
     this.deleteModeEnable = false;
@@ -94,6 +99,7 @@ export class SuccessPagePage implements OnInit {
   }
 
   goToRecordingsList() {
+    this.vibration.vibrate(100);
     this.route.navigate(['/recordings-list']);
 
   }

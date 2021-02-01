@@ -91,7 +91,7 @@
       </ion-row>
     </ion-grid>
   </ion-button>
-  <ion-button class="bigbtn" (click)="goToAnswerScreen()" *ngIf="isRecord">
+  <ion-button class="bigbtn" (click)="pauseRecording()" *ngIf="isRecord">
     <ion-grid>
       <ion-row>
         <ion-icon name="pause-outline" class="btniconclsorange"></ion-icon>
@@ -104,7 +104,7 @@
       </ion-row>
     </ion-grid>
   </ion-button>
-  <ion-button class="bigbtn" (click)="pauseRecording()" *ngIf="isPaused">
+  <ion-button class="bigbtn" (click)="resumeRecording()" *ngIf="isPaused">
     <ion-grid>
       <ion-row>
         <ion-icon name="mic-outline" class="btniconclsorange"></ion-icon>
