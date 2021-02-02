@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private route: Router
+    private route: Router,
+    private vibration: Vibration
   ) {
     this.initializeApp();
   }
@@ -27,6 +30,7 @@ export class AppComponent {
   }
 
   goToThisPage(where) {
+    this.vibration.vibrate(100);
     if (where === 'home') {
       this.route.navigate(['/home']);
     } else {

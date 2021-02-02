@@ -6,6 +6,8 @@ import { File } from '@ionic-native/file/ngx';
 import { Platform } from '@ionic/angular';
 import { MediaCapture } from '@ionic-native/media-capture';
 import { QuestionServiceService } from '../../services/questionService/question-service.service';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 @Component({
   selector: 'app-record-answer',
@@ -16,7 +18,7 @@ export class RecordAnswerPage implements OnInit {
 
   constructor(private route: Router, private media: Media, private file: File,
      private platform: Platform, private changeRef: ChangeDetectorRef,
-     private questionService: QuestionServiceService
+     private questionService: QuestionServiceService, private vibration: Vibration
    ) { }
 
   enable1 = false;
@@ -31,6 +33,7 @@ export class RecordAnswerPage implements OnInit {
   cancelModeDisable = true;
   cancelModeEnable = false;
   recording: boolean = false;
+  pause: boolean = false;
   filePath: string;
   fileName: string;
   audio: MediaObject;
@@ -46,6 +49,7 @@ export class RecordAnswerPage implements OnInit {
 
  
   startRecord() {
+    this.vibration.vibrate(100);
     if (this.platform.is('ios')) {
       console.log('platform is ios');
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
@@ -65,7 +69,9 @@ export class RecordAnswerPage implements OnInit {
     }
 
   stopRecord() {
+    this.vibration.vibrate(100);
     this.audio.stopRecord();
+    this.audio.release();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
@@ -85,17 +91,18 @@ export class RecordAnswerPage implements OnInit {
   }
 
   playAudio(file,idx) {
+    this.vibration.vibrate(100);
     if (this.platform.is('ios')) {
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
-      alert('play audio clicked');
       this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
       this.audio = this.media.create(this.filePath);
     }
     this.audio.play();
    // this.audio.setVolume(0.8);
   }
+
 // adding functionality for audio recording
 
 // record() {
@@ -244,20 +251,16 @@ export class RecordAnswerPage implements OnInit {
 
 playRecording() {
 
-  alert('going to play media file');
   let fileNames = 'record.3gp';
   let pathToRecording = this.file.applicationStorageDirectory + fileNames;
 
   this.file.checkFile(this.file.externalDataDirectory, fileNames).then((result) => {
-    alert('recording exists');
   }).catch(err => {
-    alert('recording does not exists');
   });
   let mediaFile : MediaObject = this.media.create(this.fileName);
   mediaFile.play();
   mediaFile.onStatusUpdate.subscribe((statusCode) => {
     if (statusCode === 4) {
-      alert('audio stopped');
     }
   });
 
@@ -268,11 +271,12 @@ playRecording() {
 // 5 timers for displaying count down before audio recording starts
 
   goToRecordingsList() {
-
+    this.vibration.vibrate(100);
     this.route.navigate(['/recordings-list']);
   }
 
   backToQuestionScreen() {
+    this.vibration.vibrate(100);
     this.cancelModeEnable = false;
     this.cancelModeDisable = true;
     this.changeRef.detectChanges()
@@ -281,6 +285,7 @@ playRecording() {
   }
 
   backToRecording () {
+    this.vibration.vibrate(100);
     console.log('gotorecording function called');
     this.cancelModeEnable = false;
     this.cancelModeDisable = true;
@@ -289,28 +294,32 @@ playRecording() {
 
 
   goToCancelScreen() {
+   this.vibration.vibrate(100);
    console.log('gotocancelScreen function called');
    this.cancelModeEnable = true;
    this.cancelModeDisable = false;
    this.changeRef.detectChanges();
-   
-    
   }
 
-  pauseRecording() {
+  resumeRecording() {
+    this.vibration.vibrate(100);
     this.isRecord = true;
     this.isPaused = false;
+    this.audio.resumeRecord();
   }
 
   saveRecording() {
-    //this.stopRecord();
+    this.stopRecord();
     this.route.navigate(['/success-page']);
   }
 
-  goToAnswerScreen() {
+  pauseRecording() {
+    this.vibration.vibrate(100);
     console.log('funct called');
     this.isRecord = false;
     this.isPaused = true;
+    this.audio.pauseRecord();
+
   }
 
   startTimerFirst() {
@@ -363,7 +372,7 @@ playRecording() {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      //this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 
