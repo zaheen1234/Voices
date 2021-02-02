@@ -84,7 +84,7 @@
    
  </ion-grid>
 </ion-button>
-<ion-button class="bigbtn2">
+<ion-button class="bigbtn2" *ngIf="canPlay">
   <ion-grid>
     <ion-row (click)="startPlayingAnswer()">
       <ion-col size="4">
@@ -95,6 +95,32 @@
         <ion-col>
         <p class="porange1" >
           Play
+        </p>
+      </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p class="porange2">
+             Answer
+          </p>
+        </ion-col>
+      </ion-row>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+ </ion-button>
+ <ion-button class="bigbtn2" *ngIf="canPause">
+  <ion-grid>
+    <ion-row (click)="pausePlayingAnswer()">
+      <ion-col size="4">
+       <ion-icon name="pause-outline" class="btniconclsorange"></ion-icon>
+      </ion-col>
+      <ion-col size="8" class="labelclsorange">
+      <ion-row>
+        <ion-col>
+        <p class="porange1" >
+          Pause
         </p>
       </ion-col>
       </ion-row>

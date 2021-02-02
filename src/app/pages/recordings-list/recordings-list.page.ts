@@ -25,6 +25,7 @@ export class RecordingsListPage implements OnInit {
   fileName: string;
   audio: MediaObject;
   currentNumber;
+  isPlaying: boolean = false;
 
   ngOnInit() {
     this.questionsList = this.questionService.questionArray;
@@ -39,6 +40,12 @@ export class RecordingsListPage implements OnInit {
 
   
     playAudio(file, id) {
+
+      if (this.isPlaying) {
+        this.audio.stop();
+        this.isPlaying = false;
+        return;
+      }
       this.vibration.vibrate(100);
         this.currentNumber = id;
         if (this.platform.is('ios')) {
@@ -49,11 +56,18 @@ export class RecordingsListPage implements OnInit {
           this.audio = this.media.create(this.filePath);
       }
           this.audio.play();
+          this.isPlaying = true;
           this.audio.setVolume(0.8); 
 
-          // setTimeout(() => {
-          //   alert('audio duration : ' + this.audio.getDuration());
-          // }, 1000);
+          this.audio.onStatusUpdate.subscribe((statusCode) => {
+            if (statusCode === 4) {
+              console.log('Audio FINISHED playing');
+              this.isPlaying = false;
+              this.currentNumber = -111111;
+              this.changeRef.detectChanges();
+              this.audio.release();
+            }
+          });
           
     }
 
@@ -65,6 +79,7 @@ export class RecordingsListPage implements OnInit {
         this.audio = this.media.create(completePath);
         this.audio.play();
       this.audio.setVolume(0.8); 
+
     }
   
     checkIfRowEnable(number) {

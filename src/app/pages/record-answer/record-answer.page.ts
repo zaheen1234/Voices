@@ -39,7 +39,10 @@ export class RecordAnswerPage implements OnInit {
   audio: MediaObject;
   audioList: any[] = [];
   question = this.questionService.getCurrentQuestion();
-
+  protected interval: any;
+  public progress = 0;
+  showGif: boolean = false;
+  showPlain: boolean = true;
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
     console.log('init called');
@@ -65,10 +68,65 @@ export class RecordAnswerPage implements OnInit {
       this.audio = this.media.create(this.filePath);
     }
     this.audio.startRecord();
+    this.startInterval();
+    // setTimeout(() => {
+    //   this.started = false;
+    //   this.animation = true;
+    //   this.startRecord();
+    // }, 1000);
+    
+  //   setInterval(function () {
+  //     // get media amplitude
+  //     this.audio.getCurrentAmplitude(
+  //         // success callback
+  //         function (amp) {
+  //             console.log(amp + "% AMPLITUDE");
+  //         },
+  //         // error callback
+  //         function (e) {
+  //             console.log("Error getting amp=" + e);
+  //         }
+  //     );
+  // }, 1000);
+    // this.audio.getCurrentAmplitude().then((data)=> {
+    //   console.log('AMPLITUDE : ' , data);
+    // })
     this.recording = true;
     }
 
+
+    startInterval() {
+      console.log('startInterval called');
+      const self = this;
+      this.interval = setInterval(_ => {
+      self.progress = self.progress + 1;
+      console.log('progress');
+      this.audio.getCurrentAmplitude().then((data)=> {
+      console.log('AMPLITUDE : ' , data);
+      if (data > 0.5) {
+        console.log('UseR IS SPEAKING');
+        this.showPlain = false;
+        this.showGif = true;
+        this.changeRef.detectChanges();
+      } else {
+        console.log('user IS SILENT');
+        this.showGif = false;
+        this.showPlain = true;
+        this.changeRef.detectChanges();
+      }
+    })
+      }, 1000);
+    }
+
+    stopInterval() {
+      this.showGif = false;
+      this.showPlain = true;
+      clearInterval(this.interval);
+      console.log('stop enterval called');
+    }
+
   stopRecord() {
+    this.stopInterval();
     this.vibration.vibrate(100);
     this.audio.stopRecord();
     this.audio.release();
@@ -103,168 +161,23 @@ export class RecordAnswerPage implements OnInit {
    // this.audio.setVolume(0.8);
   }
 
-// adding functionality for audio recording
 
-// record() {
-//   let audioObject: MediaObject = this.media.create(this.fileName);
-//   alert('file created');
-//   audioObject.startRecord();
-//   alert('recording started');
-//   console.log('cache dir: ' + this.file.cacheDirectory);
-//   console.log('start recording' + this.fileName);
-//   setTimeout(() => {
-//     audioObject.stopRecord();
-//     console.log('duration: ' + audioObject.getDuration());
-//     audioObject.release();
-//     console.log('done recording' + this.fileName);
-//     this.playRecording();
-//     /** Do something with the record file and then delete */
-//     // this.file.removeFile(this.file.tempDirectory, 'record.m4a');
-//   }, 5000);
-// }
+// playRecording() {
 
-// startRecording() {
-//   this.platform.ready().then(() => {
-//     if (!this.platform.is('cordova')) {
-//       alert('platform iscordova');
-//       return false;
-//     }
+//   let fileNames = 'record.3gp';
+//   let pathToRecording = this.file.applicationStorageDirectory + fileNames;
 
-//     if (this.platform.is('ios')) {
-//       alert('platform is ios');
-//       this.fileName = this.file.documentsDirectory.replace(/file:\/\//g, '') + 'record.m4a';
-//     }
-//     else if (this.platform.is('android')) {
-//       alert('platform is android');
-
-//       this.fileName = this.file.externalDataDirectory + 'record.3gp';
-//       this.record();
-//     }
-//     else {
-//       // future usage for more platform support
-//       return false;
+//   this.file.checkFile(this.file.externalDataDirectory, fileNames).then((result) => {
+//   }).catch(err => {
+//   });
+//   let mediaFile : MediaObject = this.media.create(this.fileName);
+//   mediaFile.play();
+//   mediaFile.onStatusUpdate.subscribe((statusCode) => {
+//     if (statusCode === 4) {
 //     }
 //   });
 
-
-//   return;
-//  // const file: MediaObject = this.media.create('path/to/file.mp3');
-//  // this.file.checkDir(this.file.applicationStorageDirectory, 'mydir').then((any => alert('directory exists')).catch(err => alert('Directory does not exists'))
-//   alert('startRecording function called');
-//   let initialFile = this.file.externalRootDirectory;
-//   // let slash = '/';
-//   let folderName = 'Voices';
-
-//   // let initialPlusSlash = initialFile.concat(slash);
-//   let finalPathToFile = initialFile.concat(folderName);
-
-// //   const file: MediaObject = this.media.create(finalPathToFile);
-// //   file.startRecord();
-// // setTimeout(() => {
-// //   file.stopRecord();
-// // }, 2000);
-// //   //this.file.checkDir(this.file.applicationStorageDirectory, 'mydir').then(_ => alert('Directory exists')).catch(err => alert('Directory doesn\'t exist'));
-
-
-
-//   // this.file.checkDir(this.file.externalRootDirectory, 'Voices').then(_ => alert('Directory exists')
-//   // ).catch(err => alert('Directory doesn\'t exist')
-//   // );
-//   alert('path to file' + this.file.applicationStorageDirectory);
-//   this.file.createFile(this.file.applicationStorageDirectory, 'record.3gp', true).then(() => {
-//     alert('created file');
-//     // let file : MediaObject = this.media.create(this.file.applicationStorageDirectory.replace(/^file:\/\//, '') + 'my_file.mp3');
-//     let file : MediaObject = this.media.create(this.file.applicationStorageDirectory + 'record.3gp');
-
-//     file.startRecord();
-//     setTimeout(() => {
-//       file.stopRecord();
-//       alert('file recording stopped');
-//       this.playRecording();
-//     }, 2000);  
-//   }).catch((err => alert('could not create file')));
 // }
-  // let slash = '/';
-//   let folderName = 'Voices';
-
-//   // let initialPlusSlash = initialFile.concat(slash);
-//   let finalPathToFile = initialFile.concat(folderName);
-
-// //   const file: MediaObject = this.media.create(finalPathToFile);
-// //   file.startRecord();
-// // setTimeout(() => {
-// //   file.stopRecord();
-// // }, 2000);
-// //   //this.file.checkDir(this.file.applicationStorageDirectory, 'mydir').then(_ => alert('Directory exists')).catch(err => alert('Directory doesn\'t exist'));
-
-
-
-//   // this.file.checkDir(this.file.externalRootDirectory, 'Voices').then(_ => alert('Directory exists')
-//   // ).catch(err => alert('Directory doesn\'t exist')
-//   // );
-//   alert('path to file' + this.file.applicationStorageDirectory);
-//   this.file.createFile(this.file.applicationStorageDirectory, 'record.3gp', true).then(() => {
-//     alert('created file');
-//     // let file : MediaObject = this.media.create(this.file.applicationStorageDirectory.replace(/^file:\/\//, '') + 'my_file.mp3');
-//     let file : MediaObject = this.media.create(this.file.applicationStorageDirectory + 'record.3gp');
-
-//     file.startRecord();
-//     setTimeout(() => {
-//       file.stopRecord();
-//       alert('file recording stopped');
-//       this.playRecording();
-//     }, 2000);  
-//   }).catch((err => alert('could not create file')));
-// }
-//   // let slash = '/';
-//   let folderName = 'Voices';
-
-//   // let initialPlusSlash = initialFile.concat(slash);
-//   let finalPathToFile = initialFile.concat(folderName);
-
-// //   const file: MediaObject = this.media.create(finalPathToFile);
-// //   file.startRecord();
-// // setTimeout(() => {
-// //   file.stopRecord();
-// // }, 2000);
-// //   //this.file.checkDir(this.file.applicationStorageDirectory, 'mydir').then(_ => alert('Directory exists')).catch(err => alert('Directory doesn\'t exist'));
-
-
-
-//   // this.file.checkDir(this.file.externalRootDirectory, 'Voices').then(_ => alert('Directory exists')
-//   // ).catch(err => alert('Directory doesn\'t exist')
-//   // );
-//   alert('path to file' + this.file.applicationStorageDirectory);
-//   this.file.createFile(this.file.applicationStorageDirectory, 'record.3gp', true).then(() => {
-//     alert('created file');
-//     // let file : MediaObject = this.media.create(this.file.applicationStorageDirectory.replace(/^file:\/\//, '') + 'my_file.mp3');
-//     let file : MediaObject = this.media.create(this.file.applicationStorageDirectory + 'record.3gp');
-
-//     file.startRecord();
-//     setTimeout(() => {
-//       file.stopRecord();
-//       alert('file recording stopped');
-//       this.playRecording();
-//     }, 2000);  
-//   }).catch((err => alert('could not create file')));
-// }
-
-playRecording() {
-
-  let fileNames = 'record.3gp';
-  let pathToRecording = this.file.applicationStorageDirectory + fileNames;
-
-  this.file.checkFile(this.file.externalDataDirectory, fileNames).then((result) => {
-  }).catch(err => {
-  });
-  let mediaFile : MediaObject = this.media.create(this.fileName);
-  mediaFile.play();
-  mediaFile.onStatusUpdate.subscribe((statusCode) => {
-    if (statusCode === 4) {
-    }
-  });
-
-}
 
 
 

@@ -20,6 +20,9 @@ export class SuccessPagePage implements OnInit {
   recordingList = [];
   filePath: string;
   audio: MediaObject;
+  canPlay: boolean = true;
+  canPause: boolean = false;
+  isPaused: boolean = false;
 
 
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
@@ -62,6 +65,14 @@ export class SuccessPagePage implements OnInit {
 
   startPlayingAnswer() {
     this.vibration.vibrate(100);
+    if (this.isPaused) {
+      this.canPause = true;
+      this.canPlay = false;
+      this.isPaused = false;
+      this.audio.play();
+      this.changeRef.detectChanges();
+      return;
+    }
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.question.id === this.recordingList[i].id) {
         let file = this.recordingList[i].filename;
@@ -80,7 +91,30 @@ export class SuccessPagePage implements OnInit {
       this.audio = this.media.create(this.filePath);
   }
       this.audio.play();
+      this.canPlay = false;
+      this.canPause = true;
+      this.changeRef.detectChanges();
       this.audio.setVolume(0.8); 
+
+      this.audio.onStatusUpdate.subscribe((statusCode) => {
+        if (statusCode === 4) {
+          console.log('Audio FINISHED playing');
+          this.canPause = false;
+          this.canPlay = true;
+          this.isPaused = false;
+          this.changeRef.detectChanges();
+          this.audio.release();
+        }
+      });
+  }
+
+  pausePlayingAnswer() {
+    this.vibration.vibrate(100);
+    this.audio.pause();
+    this.canPause = false;
+    this.canPlay = true;
+    this.isPaused = true;
+    this.changeRef.detectChanges();
   }
 
 

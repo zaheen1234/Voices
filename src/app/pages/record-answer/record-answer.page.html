@@ -70,7 +70,9 @@
   Recording Started
 </div>
 <div *ngIf="animation">
-  <img src="assets/images/recording.png" class="voice-img">
+  
+  <img src="assets/images/source.gif" class="voice-img" *ngIf="showGif">
+  <img src="assets/images/recording.png" class="voice-img" *ngIf="showPlain">
 </div>
 </div>
 </ion-content>
