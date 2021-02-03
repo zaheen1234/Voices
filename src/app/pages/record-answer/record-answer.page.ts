@@ -103,7 +103,7 @@ export class RecordAnswerPage implements OnInit {
       console.log('progress');
       this.audio.getCurrentAmplitude().then((data)=> {
       console.log('AMPLITUDE : ' , data);
-      if (data > 0.5) {
+      if (data > 0.2) {
         console.log('UseR IS SPEAKING');
         this.showPlain = false;
         this.showGif = true;
@@ -115,7 +115,7 @@ export class RecordAnswerPage implements OnInit {
         this.changeRef.detectChanges();
       }
     })
-      }, 1000);
+      }, 500);
     }
 
     stopInterval() {
