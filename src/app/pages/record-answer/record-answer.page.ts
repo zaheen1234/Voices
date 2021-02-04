@@ -50,7 +50,10 @@ export class RecordAnswerPage implements OnInit {
     this.startTimerFirst();
   }
 
- 
+  hamburger() {
+    console.log('hamburger clicked');
+    this.vibration.vibrate(100);
+  }
   startRecord() {
     this.vibration.vibrate(100);
     if (this.platform.is('ios')) {

@@ -31,6 +31,11 @@ export class HomePage {
 
   }
 
+  hamburger() {
+    console.log('hamburger clicked');
+    this.vibration.vibrate(100);
+  }
+
   ionViewWillEnter() {
     console.log('ionViewWillEnter called');
     this.question = this.questionService.getCurrentQuestion();

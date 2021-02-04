@@ -28,7 +28,15 @@ export class SuccessPagePage implements OnInit {
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
     private questionService: QuestionServiceService, 
     private platform: Platform, private media: Media, 
-    private file: File, private vibration: Vibration) { }
+    private file: File, private vibration: Vibration) { 
+      this.platform.pause.subscribe(() => {
+        this.appIsPaused();
+      });
+
+      this.platform.resume.subscribe(() => {
+        this.appIsResume();
+      });
+    }
 
 
   ngOnInit() {
@@ -36,6 +44,27 @@ export class SuccessPagePage implements OnInit {
     this.question = this.questionService.getCurrentQuestion();
     this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
   }
+
+  appIsPaused() {
+    // alert('app is paused');
+    if (this.canPause) {
+      this.audio.pause();
+    }
+ 
+   }
+
+   ionViewWillLeave() {
+    if (this.canPause) {
+      this.audio.stop();
+    }
+   }
+ 
+   appIsResume() {
+     // alert('app is resume');
+     if (this.canPause) {
+       this.audio.play(); 
+     }
+   }
 
   nextQuestion() {
     this.vibration.vibrate(100);
@@ -117,7 +146,10 @@ export class SuccessPagePage implements OnInit {
     this.changeRef.detectChanges();
   }
 
-
+  hamburger() {
+    console.log('hamburger clicked');
+    this.vibration.vibrate(100);
+  }
   deleteRecording(index) {
     let tempBookmark = this.recordingList.splice(index, 1);
     localStorage.setItem('audiolist', JSON.stringify(this.recordingList));
