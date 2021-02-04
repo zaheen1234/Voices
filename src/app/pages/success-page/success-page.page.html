@@ -1,169 +1,163 @@
 <ion-header [translucent]="true">
-
-<ion-toolbar class="new-background-color" *ngIf="deleteModeDisable">
- <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
-
-   <ion-title class="title">
-     Answer Recorded 
-   </ion-title>
-   <ion-icon slot="end" class="recordingiconcls" name="headset-outline" (click)="goToRecordingsList()"></ion-icon>
- </ion-toolbar> 
- <ion-toolbar class="new-background-color" *ngIf="deleteModeEnable">
-</ion-toolbar> 
+    <ion-toolbar class="new-background-color" *ngIf="deleteModeDisable">
+        <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
+        <ion-title class="title">
+            Answer Recorded
+        </ion-title>
+        <ion-icon slot="end" class="recordingiconcls" name="headset-outline" (click)="goToRecordingsList()"></ion-icon>
+    </ion-toolbar>
+    <ion-toolbar class="new-background-color" *ngIf="deleteModeEnable">
+    </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true" color="light">
-
-  <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
-    <ion-card-header>
-      <ion-card-title class="titleclscancel">Are you sure you want to delete your recording?</ion-card-title>
-    </ion-card-header>    
+    <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
+        <ion-card-header>
+            <ion-card-title class="titleclscancel">Are you sure you want to delete your recording?</ion-card-title>
+        </ion-card-header>
         <ion-card-content>
-          <div>
-          <ion-grid class="gridcls">
-            <ion-row>
-              <ion-col size="5">
-               <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
-                 <ion-label class="labelclsgrncancel">
-                   YES
-                 </ion-label>
-                 </ion-button>
-              </ion-col>
-              <ion-col size="5">
-                <ion-button class="borderclsred" (click)="backToRecording()">
-                 <ion-label class="labelclsredcancel">
-                   NO
-                 </ion-label>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-         </div>
-          </ion-card-content>
-   </ion-card>
-<div *ngIf="deleteModeDisable">
-  <div class="cardcls">
-    <ion-card >
-    <ion-card-header>
-      <ion-card-title ><p class="titlecls">{{question.question}}</p></ion-card-title>
-    </ion-card-header>    
-   </ion-card>
-   </div>
+            <div>
+                <ion-grid class="gridcls">
+                    <ion-row>
+                        <ion-col size="5">
+                            <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
+                                <ion-label class="labelclsgrncancel">
+                                    YES
+                                </ion-label>
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="5">
+                            <ion-button class="borderclsred" (click)="backToRecording()">
+                                <ion-label class="labelclsredcancel">
+                                    NO
+                                </ion-label>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <div *ngIf="deleteModeDisable">
+        <div class="cardcls">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>
+                        <p class="titlecls">{{question.question}}</p>
+                    </ion-card-title>
+                </ion-card-header>
+            </ion-card>
+        </div>
 
-<div class="countdwncls" >
-  <label class="abc">
-    Your Answer has
-     been successfully
-     recorded.
-  </label>
-</div>
+        <div class="countdwncls">
+            <label class="abc">
+                Your Answer has
+                been successfully
+                recorded.
+            </label>
+        </div>
 
-<ion-button class="bigbtn1">
- <ion-grid>
-   <ion-row (click)="nextQuestion()">
-     <ion-col size="4">
-      <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
-     </ion-col>
-     <ion-col size="8" class="labelclsgrn">
-       <ion-row>
-         <ion-col>
-         <p class="pgrn1">
-          Next
-         </p>
-      </ion-col>
-       </ion-row>
-       <ion-row>
-         <ion-col>
-          <p class="pgrn2">
-            Question
-          </p>
-           </ion-col>
-        </ion-row>
-     </ion-col>
-   </ion-row>
-   
- </ion-grid>
-</ion-button>
-<ion-button class="bigbtn2" *ngIf="canPlay">
-  <ion-grid>
-    <ion-row (click)="startPlayingAnswer()">
-      <ion-col size="4">
-       <ion-icon name="play" class="btniconclsorange"></ion-icon>
-      </ion-col>
-      <ion-col size="8" class="labelclsorange">
-      <ion-row>
-        <ion-col>
-        <p class="porange1" >
-          Play
-        </p>
-      </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <p class="porange2">
-             Answer
-          </p>
-        </ion-col>
-      </ion-row>
-      </ion-col>
-    </ion-row>
-    
-  </ion-grid>
- </ion-button>
- <ion-button class="bigbtn2" *ngIf="canPause">
-  <ion-grid>
-    <ion-row (click)="pausePlayingAnswer()">
-      <ion-col size="4">
-       <ion-icon name="pause-outline" class="btniconclsorange"></ion-icon>
-      </ion-col>
-      <ion-col size="8" class="labelclsorange">
-      <ion-row>
-        <ion-col>
-        <p class="porange1" >
-          Pause
-        </p>
-      </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <p class="porange2">
-             Answer
-          </p>
-        </ion-col>
-      </ion-row>
-      </ion-col>
-    </ion-row>
-    
-  </ion-grid>
- </ion-button>
- <ion-button class="bigbtn3">
-  <ion-grid>
-    <ion-row (click)="deleteAnswer()">
-      <ion-col size="4">
-       <ion-icon name="trash" class="btniconclsred"></ion-icon>
-      </ion-col>
-      <ion-col size="8" class="labelclsred">
-       <ion-row>
-         <ion-col>
-          <p class="pred1">
-            Delete
-          </p>
-         </ion-col>
-       </ion-row>
-       <ion-row>
-         <ion-col>
-          <p class="pred2">
-             Answer
-          </p>
-         </ion-col>
-       </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
- </ion-button>
-</div>
+        <ion-button class="bigbtn1">
+            <ion-grid>
+                <ion-row (click)="nextQuestion()">
+                    <ion-col size="4">
+                        <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8" class="labelclsgrn">
+                        <ion-row>
+                            <ion-col>
+                                <p class="pgrn1">
+                                    Next
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <p class="pgrn2">
+                                    Question
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-button>
+        <ion-button class="bigbtn2" *ngIf="canPlay">
+            <ion-grid>
+                <ion-row (click)="startPlayingAnswer()">
+                    <ion-col size="4">
+                        <ion-icon name="play" class="btniconclsorange"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8" class="labelclsorange">
+                        <ion-row>
+                            <ion-col>
+                                <p class="porange1">
+                                    Play
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <p class="porange2">
+                                    Answer
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-button>
+        <ion-button class="bigbtn2" *ngIf="canPause">
+            <ion-grid>
+                <ion-row (click)="pausePlayingAnswer()">
+                    <ion-col size="4">
+                        <ion-icon name="pause-outline" class="btniconclsorange"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8" class="labelclsorange">
+                        <ion-row>
+                            <ion-col>
+                                <p class="porange1">
+                                    Pause
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <p class="porange2">
+                                    Answer
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-button>
+        <ion-button class="bigbtn3">
+            <ion-grid>
+                <ion-row (click)="deleteAnswer()">
+                    <ion-col size="4">
+                        <ion-icon name="trash" class="btniconclsred"></ion-icon>
+                    </ion-col>
+                    <ion-col size="8" class="labelclsred">
+                        <ion-row>
+                            <ion-col>
+                                <p class="pred1">
+                                    Delete
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <p class="pred2">
+                                    Answer
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-button>
+    </div>
 </ion-content>
-
 <!-- <ion-footer class="footercls">
  <div >
 
@@ -176,7 +170,7 @@
      <ion-label class="labelclsred">
        Skip
      </ion-label>
-     
+
    </ion-row>
  </ion-grid>
 </ion-button>
@@ -189,10 +183,9 @@
      <ion-label class="labelclsgrn">
        Answer
      </ion-label>
-     
+
    </ion-row>
  </ion-grid>
 </ion-button>
 </div>
 </ion-footer> -->
-

@@ -10,25 +10,47 @@
 
 .inbox-list{
     height: 100%;
-    align-items: center;
+    // align-items: center;
     display: flex;
 }
+
+.app-name {
+  background: #fff;
+  padding: 1rem;
+  color: #33cccc;
+  margin-top: 2rem;
+  border-radius: 0.25rem;
+}
+
+.app-name ion-label {
+  display: flex !important;
+}
+
+.app-name ion-label img {
+  margin-right: 1rem;
+}
+
+hr {
+  border: 1px solid #fff;
+  height: 0px;
+}
+
 .title {
     text-align: center;
     color: #fff;
   }
-  .recordingiconcls{ 
-    
+  .recordingiconcls{
+
     --ionicon-stroke-width: 30px;
     color: #fff;
   }
-  ion-menu-button{ 
+  ion-menu-button{
     color: #fff;
   }
-  .inbox-list ion-label { 
+  .inbox-list ion-label {
     font-size:180%;
   }
-  .inbox-list ion-row { 
+  .inbox-list ion-row {
     margin:0 0 10px;
   }
 
