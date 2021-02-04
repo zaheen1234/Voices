@@ -11,7 +11,7 @@
   </ion-toolbar>
 
   <ion-toolbar class="new-background-color" *ngIf="cancelModeEnable">
-  </ion-toolbar> 
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
@@ -19,7 +19,7 @@
   <ion-card class="cardclscancel" *ngIf="cancelModeEnable">
     <ion-card-header>
       <ion-card-title class="titleclscancel">Are you sure you want to cancel your recording?</ion-card-title>
-    </ion-card-header>    
+    </ion-card-header>
         <ion-card-content>
           <div>
           <ion-grid class="gridcls">
@@ -48,7 +48,7 @@
   <ion-card class="cardcls" *ngIf="cancelModeDisable">
     <ion-card-header>
       <ion-card-title><p class="titlecls">{{question.question}}</p></ion-card-title>
-    </ion-card-header>    
+    </ion-card-header>
   </ion-card>
   <div *ngIf="cancelModeDisable" >
   <div class="countdwncls" *ngIf="enable5">
@@ -70,7 +70,7 @@
   Recording Started
 </div>
 <div *ngIf="animation">
-  
+
   <img src="assets/images/source.gif" class="voice-img" *ngIf="showGif">
   <img src="assets/images/recording.png" class="voice-img" *ngIf="showPlain">
 </div>
@@ -89,7 +89,7 @@
         <ion-label class="labelclsred">
           Cancel
         </ion-label>
-        
+
       </ion-row>
     </ion-grid>
   </ion-button>
@@ -102,7 +102,7 @@
         <ion-label class="labelclsgrn" class="labelclsorg">
           Pause
         </ion-label>
-        
+
       </ion-row>
     </ion-grid>
   </ion-button>
@@ -115,7 +115,7 @@
         <ion-label class="labelclsgrn" class="labelclsorg">
           Record
         </ion-label>
-        
+
       </ion-row>
     </ion-grid>
   </ion-button>
@@ -128,7 +128,7 @@
         <ion-label class="labelclsgrn">
           Save
         </ion-label>
-        
+
       </ion-row>
     </ion-grid>
   </ion-button>
@@ -154,4 +154,3 @@
     </ion-item>
   </ion-list>
 </ion-content> --><ion-header >
- 

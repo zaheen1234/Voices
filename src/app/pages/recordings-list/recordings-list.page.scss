@@ -53,11 +53,6 @@
     margin: -3px 0 0 0;
     text-align: center;
   }
-  .title-heading{
-    margin-top:10px !important;
-    margin-left: 34px !important;
-    color:#fff;
-  }
   .sc-ion-buttons-md-h{
     color:#fff;
   }
@@ -71,12 +66,12 @@
     text-align: center;
     color: #fff;
   }
-  .recordingiconcls{ 
-    
+  .recordingiconcls{
+
     --ionicon-stroke-width: 30px;
     color: #fff;
   }
-  ion-menu-button{ 
+  ion-menu-button{
     color: #fff;
   }
 
@@ -93,7 +88,7 @@
     .card-date{
       font-size: 31%;
       font-weight: 400;
-      
+
     }
     .card-time{
       font-size: 50%;
@@ -112,11 +107,11 @@
     .card-date{
       font-size: 56%;
       font-weight: 400;
-      
+
     }
     .card-time{
       font-size: 80%;
-      
+
     }
   }
 
@@ -127,7 +122,7 @@
     }
     .card-text{
       font-size: 70%;
-     
+
     }
     .card-time{
       font-size: 60%;
@@ -141,7 +136,7 @@
     }
     .card-text{
       font-size: 68%;
-      
+
     }
     .card-time{
       font-size: 52%;
@@ -155,18 +150,18 @@
     .card-text{
       font-size: 103%;
     }
-      
+
     .card-date{
         font-size: 70%;
         font-weight: 400;
-        
+
     }
     .card-time{
         font-size: 80%;
-        
+
      }
   }
-  
+
   @media only screen and (min-device-width: 468px) and (max-height: 986px){
     .recording-btn, .grey-icon{
       font-size: 355% !important;
@@ -174,15 +169,15 @@
     .card-text{
       font-size: 88%;
     }
-      
+
     .card-date{
         font-size: 70%;
         font-weight: 400;
-        
+
     }
     .card-time{
         font-size: 90%;
-        
+
      }
   }
 
@@ -192,34 +187,34 @@
     }
     .card-text{
       font-size: 150%;
-      
+
     }
     .card-time{
       font-size: 105%;
     }
     .card-date{
       font-size: 88%;
-     
-      
+
+
     }
   }
 
- 
+
   @media only screen and (min-device-width: 1020px) and (max-height: 1370px){
     .recording-btn, .grey-icon{
       font-size: 500% !important;
     }
     .card-text{
       font-size: 150%;
-      
+
     }
     .card-time{
       font-size: 105%;
     }
     .card-date{
       font-size: 88%;
-     
-      
+
+
     }
   }
 
