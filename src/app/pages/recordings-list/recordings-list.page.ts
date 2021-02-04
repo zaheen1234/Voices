@@ -17,7 +17,16 @@ export class RecordingsListPage implements OnInit {
 
   constructor(private route: Router, private questionService: QuestionServiceService,
     private platform: Platform, private media: Media, private file: File,
-    private changeRef: ChangeDetectorRef, private vibration: Vibration) { }
+    private changeRef: ChangeDetectorRef, private vibration: Vibration) {
+
+      this.platform.pause.subscribe(() => {
+        this.appIsPaused();
+      });
+
+      this.platform.resume.subscribe(() => {
+        this.appIsResume();
+      });
+     }
 
   questionsList = [];
   audioList = [];
@@ -31,6 +40,27 @@ export class RecordingsListPage implements OnInit {
     this.questionsList = this.questionService.questionArray;
   }
 
+  appIsPaused() {
+   // alert('app is paused');
+   if (this.isPlaying) {
+     this.audio.pause();
+   }
+
+  }
+
+  appIsResume() {
+    // alert('app is resume');
+    if (this.isPlaying) {
+      this.audio.play(); 
+    }
+  }
+
+  ionViewWillLeave() {
+    if (this.isPlaying) {
+      this.audio.stop(); 
+    }
+  }
+
   ionViewWillEnter() {
     console.log('ionViewWillEnter called');
     this.audioList = JSON.parse(localStorage.getItem("audiolist"));
@@ -40,13 +70,13 @@ export class RecordingsListPage implements OnInit {
 
   
     playAudio(file, id) {
+      this.vibration.vibrate(100);
 
       if (this.isPlaying) {
         this.audio.stop();
         this.isPlaying = false;
         return;
       }
-      this.vibration.vibrate(100);
         this.currentNumber = id;
         if (this.platform.is('ios')) {
           this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
@@ -82,6 +112,11 @@ export class RecordingsListPage implements OnInit {
 
     }
   
+
+    hamburger() {
+      console.log('hamburger clicked');
+      this.vibration.vibrate(100);
+    }
     checkIfRowEnable(number) {
       if (number === this.currentNumber) {
         return true;
