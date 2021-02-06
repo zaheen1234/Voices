@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
     <ion-toolbar class="new-background-color" *ngIf="deleteModeDisable">
-        <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
+        <ion-menu-button slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
         <ion-title class="title">
             Answer Recorded
         </ion-title>
