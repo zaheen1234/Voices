@@ -224,7 +224,11 @@ export class RecordAnswerPage implements OnInit {
     this.vibration.vibrate(100);
     this.isRecord = true;
     this.isPaused = false;
-    this.audio.resumeRecord();
+    if (this.recordingStarted === false){
+      this.audio.resumeRecord();
+      this.recordingStarted = true;
+    }
+    
   }
 
   saveRecording() {
@@ -240,6 +244,7 @@ export class RecordAnswerPage implements OnInit {
     this.isPaused = true;
     if (this.recordingStarted){
       this.audio.pauseRecord();
+      this.recordingStarted = false;
 
     }
 
