@@ -1,71 +1,55 @@
 <ion-header [translucent]="true">
-  <!-- <ion-toolbar>
-     <ion-menu-button slot="start" autoHide="true"></ion-menu-button>
- </ion-toolbar>  -->
-
-<ion-toolbar class="new-background-color">
- <ion-menu-button slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
-
-   <ion-title class="title">
-     Questions
-   </ion-title>
-   <ion-icon slot="end" class="recordingiconcls" name="headset-outline" (click)="goToRecordingsList()"></ion-icon>
-   <!-- <ion-icon slot="end" class="recordingiconcls" name="recording-outline" (click)="goToRecordingsList()"></ion-icon> -->
- </ion-toolbar>
-
+    <ion-toolbar color="primary">
+        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
+        <ion-title>Questions</ion-title>
+        <ion-buttons collapse="true" slot="end">
+            <ion-button (click)="goToRecordingsList()">
+                <ion-icon slot="end" name="headset-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
- <ion-card class="cardcls">
- <ion-card-header>
-   <div class="title-div">
-    <ion-card-title><p class="titlecls">{{question.question}}</p></ion-card-title>
-   </div>
-
- </ion-card-header>
-   <ion-card class="innercrd" color="light">
-       <ion-item lines="none" color="light">
-         <ion-avatar slot="start" class="innercrd2">
-           <img src="assets/images/voicenew.jpg" class="voice-text">
-         </ion-avatar>
-         <ion-label class="innercrd2">
-           <h2 class="voice-text">Asked by Voices</h2>
-
-         </ion-label>
-       </ion-item>
-   </ion-card>
-
-</ion-card>
-
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title color="primary">
+                {{question.question}}
+            </ion-card-title>
+        </ion-card-header>
+    </ion-card>
+    <ion-card>
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img src="assets/images/voicenew.jpg">
+            </ion-avatar>
+            <ion-label>
+                <h1>Asked by Voices</h1>
+            </ion-label>
+        </ion-item>
+    </ion-card>
 </ion-content>
 
-<ion-footer class="footercls">
-<div>
-<ion-button class="bigbtn" (click)="skipCurrentQuestion()">
- <ion-grid>
-   <ion-row>
-     <ion-icon name="close-outline" class="btniconclsred"></ion-icon>
-   </ion-row>
-   <ion-row>
-     <ion-label class="labelclsred">
-       Skip
-     </ion-label>
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-button expand="full" size="large" color="danger" (click)="skipCurrentQuestion()">
+                    <div>
+                        <ion-icon name="close"></ion-icon><br>
+                        Skip
+                    </div>
+                </ion-button>
+            </ion-col>
 
-   </ion-row>
- </ion-grid>
-</ion-button>
-<ion-button class="bigbtn" (click)="goToAnswerScreen()">
- <ion-grid>
-   <ion-row>
-     <ion-icon name="checkmark-outline" class="btniconclsgreen"></ion-icon>
-   </ion-row>
-   <ion-row>
-     <ion-label class="labelclsgrn">
-       Answer
-     </ion-label>
-
-   </ion-row>
- </ion-grid>
-</ion-button>
-</div>
+            <ion-col>
+                <ion-button expand="full" size="large" color="success" (click)="goToAnswerScreen()">
+                    <div>
+                        <ion-icon name="checkmark"></ion-icon><br>
+                        Answer
+                    </div>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-footer>
