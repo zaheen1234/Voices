@@ -3,14 +3,17 @@
         <ion-menu menuId="first" contentId="main" type="overlay">
             <ion-header>
                 <ion-toolbar color="primary">
-                    <ion-title>Voices</ion-title>
+                    <ion-title>
+                        <img alt="Logo" height="14" src="assets/images/icon.png" >
+                        Voices
+                    </ion-title>
                 </ion-toolbar>
             </ion-header>
-            <ion-content>
+            <ion-content color="primary">
                 <ion-menu-toggle auto-hide="false" id="m-toggle">
                     <ion-list>
-                        <ion-item (click)="goToThisPage('home')">Home</ion-item>
-                        <ion-item (click)="goToThisPage('recordings')">My Recordings</ion-item>
+                        <ion-item (click)="goToThisPage('home')" color="primary">Home</ion-item>
+                        <ion-item (click)="goToThisPage('recordings')" color="primary"  >My Recordings</ion-item>
                     </ion-list>
                 </ion-menu-toggle>
             </ion-content>

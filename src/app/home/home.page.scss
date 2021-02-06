@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.footer {
+    flex: 1;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+
+.button-round {
+    --border-radius: 14px !important;
+    height: 8em !important;
+}
+
+.button-round ion-icon {
+    font-size: 90px !important;
+    font-weight: bold;
+}

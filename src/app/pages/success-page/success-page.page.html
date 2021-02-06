@@ -11,55 +11,59 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-card *ngIf="deleteModeEnable">
-        <ion-card-header>
-            <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <ion-row>
-                <ion-col class="ion-no-padding">
-                    <ion-button expand="full" size="large" color="primary" (click)="backToQuestionScreen()">
-                        <ion-icon name="checkmark"></ion-icon>Yes
-                    </ion-button>
-                </ion-col>
+    <div class="main">
+        <!-- Content Start -->
+        <div class="custom-modal" *ngIf="deleteModeEnable">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col class="ion-no-padding">
+                            <ion-button class="modal-btn" shape="round" expand="full" size="large" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
+                        </ion-col>
 
-                <ion-col class="ion-no-padding">
-                    <ion-button expand="full" size="large" color="danger" (click)="backToRecording()">
-                        <ion-icon name="close"></ion-icon>No
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-        </ion-card-content>
-    </ion-card>
+                        <ion-col class="ion-no-padding">
+                            <ion-button class="modal-btn" shape="round" expand="full" size="large" color="danger" (click)="backToRecording()">NO</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </div>
 
-    <div *ngIf="deleteModeDisable">
-        <ion-card>
-            <ion-card-header>
-                <ion-card-title color="primary">{{question.question}}</ion-card-title>
-            </ion-card-header>
-        </ion-card>
+        <div *ngIf="deleteModeDisable">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title color="primary">{{question.question}}</ion-card-title>
+                </ion-card-header>
+            </ion-card>
 
-        <ion-card style="box-shadow: none;">
-            <h1>Your Answer has been successfully recorded.</h1>
-        </ion-card>
+            <ion-card style="box-shadow: none;">
+                <h1 class="text-primary">Your Answer has been successfully recorded.</h1>
+            </ion-card>
+        </div>
 
-        <ion-card style="box-shadow: none;">
-            <ion-button expand="block" color="success" fill="outline" (click)="nextQuestion()">
-                <ion-icon name="checkmark"></ion-icon>
-                Next Question
-            </ion-button>
-            <ion-button expand="block" color="warning" fill="outline" (click)="startPlayingAnswer()">
-                <ion-icon name="play"></ion-icon>
-                Play Answer
-            </ion-button>
-            <ion-button expand="block" color="warning" fill="outline" (click)="pausePlayingAnswer()" *ngIf="canPause">
-                <ion-icon name="pause"></ion-icon>
-                Pause Answer
-            </ion-button>
-            <ion-button expand="block" color="danger" fill="outline" (click)="deleteAnswer()">
-                <ion-icon name="trash"></ion-icon>
-                Delete Answer
-            </ion-button>
-        </ion-card>
+        <!-- Footer Start -->
+        <div class="footer">
+            <ion-card style="box-shadow: none;">
+                <ion-button shape="round" expand="block" color="success" fill="outline" (click)="nextQuestion()">
+                    <ion-icon name="checkmark"></ion-icon>
+                    <ion-label>Next <br> Question</ion-label>
+                </ion-button>
+                <ion-button shape="round" expand="block" color="warning" fill="outline" (click)="startPlayingAnswer()">
+                    <ion-icon name="play"></ion-icon>
+                    <ion-label>Play <br> Answer</ion-label>
+                </ion-button>
+                <ion-button shape="round" expand="block" color="warning" fill="outline" (click)="pausePlayingAnswer()" *ngIf="canPause">
+                    <ion-icon name="pause"></ion-icon>
+                    <ion-label>Pause <br> Answer</ion-label>
+                </ion-button>
+                <ion-button shape="round" expand="block" color="danger" fill="outline" (click)="deleteAnswer()">
+                    <ion-icon name="trash"></ion-icon>
+                    <ion-label>Delete <br> Answer</ion-label>
+                </ion-button>
+            </ion-card>
+        </div>
     </div>
 </ion-content>

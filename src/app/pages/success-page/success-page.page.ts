@@ -26,9 +26,9 @@ export class SuccessPagePage implements OnInit {
 
 
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
-    private questionService: QuestionServiceService, 
-    private platform: Platform, private media: Media, 
-    private file: File, private vibration: Vibration) { 
+    private questionService: QuestionServiceService,
+    private platform: Platform, private media: Media,
+    private file: File, private vibration: Vibration) {
       this.platform.pause.subscribe(() => {
         this.appIsPaused();
       });
@@ -50,7 +50,7 @@ export class SuccessPagePage implements OnInit {
     if (this.canPause) {
       this.audio.pause();
     }
- 
+
    }
 
    ionViewWillLeave() {
@@ -58,11 +58,11 @@ export class SuccessPagePage implements OnInit {
       this.audio.stop();
     }
    }
- 
+
    appIsResume() {
      // alert('app is resume');
      if (this.canPause) {
-       this.audio.play(); 
+       this.audio.play();
      }
    }
 
@@ -74,8 +74,9 @@ export class SuccessPagePage implements OnInit {
 
   deleteAnswer() {
     this.vibration.vibrate(100);
-    this.deleteModeDisable = false;
     this.deleteModeEnable = true;
+    this.deleteModeDisable = false;
+    this.changeRef.detectChanges();
   }
 
   backToQuestionScreen() {
@@ -123,7 +124,7 @@ export class SuccessPagePage implements OnInit {
       this.canPlay = false;
       this.canPause = true;
       this.changeRef.detectChanges();
-      this.audio.setVolume(0.8); 
+      this.audio.setVolume(0.8);
 
       this.audio.onStatusUpdate.subscribe((statusCode) => {
         if (statusCode === 4) {
@@ -153,7 +154,7 @@ export class SuccessPagePage implements OnInit {
   deleteRecording(index) {
     let tempBookmark = this.recordingList.splice(index, 1);
     localStorage.setItem('audiolist', JSON.stringify(this.recordingList));
-    this.route.navigate(['/home']); 
+    this.route.navigate(['/home']);
   }
 
   backToRecording () {
