@@ -43,6 +43,8 @@ export class RecordAnswerPage implements OnInit {
   public progress = 0;
   showGif: boolean = false;
   showPlain: boolean = true;
+  recordingStarted: boolean = false;
+
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
     console.log('init called');
@@ -71,6 +73,7 @@ export class RecordAnswerPage implements OnInit {
       this.audio = this.media.create(this.filePath);
     }
     this.audio.startRecord();
+    this.recordingStarted = true;
     this.startInterval();
     // setTimeout(() => {
     //   this.started = false;
@@ -131,6 +134,7 @@ export class RecordAnswerPage implements OnInit {
   stopRecord() {
     this.stopInterval();
     this.audio.stopRecord();
+    this.recordingStarted = false;
     this.audio.release();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id };
     this.audioList.push(data);
@@ -234,7 +238,10 @@ export class RecordAnswerPage implements OnInit {
     console.log('funct called');
     this.isRecord = false;
     this.isPaused = true;
-    this.audio.pauseRecord();
+    if (this.recordingStarted){
+      this.audio.pauseRecord();
+
+    }
 
   }
 

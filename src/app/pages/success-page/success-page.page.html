@@ -45,7 +45,7 @@
         </div>
 
         <!-- Footer Start -->
-        <div class="footer">
+        <div class="footer" *ngIf="deleteModeDisable">
             <ion-card style="box-shadow: none;">
                 <ion-button shape="round" expand="block" color="success" fill="outline" (click)="nextQuestion()">
                     <ion-icon name="checkmark"></ion-icon>
