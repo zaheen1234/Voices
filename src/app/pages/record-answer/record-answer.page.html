@@ -21,11 +21,11 @@
                 <ion-card-content>
                     <ion-row>
                         <ion-col class="ion-no-padding">
-                            <ion-button class="modal-btn" shape="round" expand="full" size="large" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
+                            <ion-button class="modal-btn" shape="round" expand="full" size="large" fill="outline" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
                         </ion-col>
 
                         <ion-col class="ion-no-padding">
-                            <ion-button class="modal-btn" shape="round" expand="full" size="large" color="danger" (click)="backToRecording()">NO</ion-button>
+                            <ion-button class="modal-btn" shape="round" expand="full" size="large" fill="outline" color="danger" (click)="backToRecording()">NO</ion-button>
                         </ion-col>
                     </ion-row>
                 </ion-card-content>
@@ -70,7 +70,7 @@
             <ion-grid *ngIf="cancelModeDisable">
                 <ion-row>
                     <ion-col>
-                        <ion-button shape="round" expand="full" size="large" color="danger" (click)="goToCancelScreen()">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="danger" (click)="goToCancelScreen()">
                             <div>
                                 <ion-icon name="close"></ion-icon><br>
                                 Cancel
@@ -79,13 +79,13 @@
                     </ion-col>
 
                     <ion-col>
-                        <ion-button shape="round" expand="full" size="large" color="warning" (click)="pauseRecording()" *ngIf="isRecord">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="warning" (click)="pauseRecording()" *ngIf="isRecord">
                             <div>
                                 <ion-icon name="pause"></ion-icon><br>
                                 Pause
                             </div>
                         </ion-button>
-                        <ion-button shape="round" expand="full" size="large" color="warning" (click)="resumeRecording()" *ngIf="isPaused">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="warning" (click)="resumeRecording()" *ngIf="isPaused">
                             <div>
                                 <ion-icon name="mic-outline"></ion-icon><br>
                                 Record
@@ -94,7 +94,7 @@
                     </ion-col>
 
                     <ion-col>
-                        <ion-button shape="round" expand="full" size="large" color="success" (click)="saveRecording()">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="success" (click)="saveRecording()">
                             <div>
                                 <ion-icon name="checkmark"></ion-icon><br>
                                 Save

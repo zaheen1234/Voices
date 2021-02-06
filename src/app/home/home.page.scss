@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.main ion-card-title {
+    font-size: 2rem;
+}
+
 .footer {
     flex: 1;
     position: absolute;
@@ -14,9 +18,11 @@
 .button-round {
     --border-radius: 14px !important;
     height: 8em !important;
+    display: grid;
 }
 
 .button-round ion-icon {
     font-size: 90px !important;
     font-weight: bold;
+    --ionicon-stroke-width: 62px;
 }

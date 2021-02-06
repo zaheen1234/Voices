@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.main ion-card-title {
+    font-size: 2rem;
+}
+
 .button-round {
     --border-radius: 14px !important;
     height: 6em !important;
@@ -13,6 +17,7 @@
     font-size: 80px !important;
     font-weight: bold;
     padding: 0rem 1rem;
+    --ionicon-stroke-width: 62px;
 }
 
 .button-round ion-label {

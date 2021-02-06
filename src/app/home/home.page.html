@@ -20,23 +20,24 @@
                 </ion-card-title>
             </ion-card-header>
         </ion-card>
-        <ion-card>
-            <ion-item lines="none">
-                <ion-avatar slot="start">
-                    <img src="assets/images/voicenew.jpg">
-                </ion-avatar>
-                <ion-label>
-                    <h1>Asked by Voices</h1>
-                </ion-label>
-            </ion-item>
-        </ion-card>
 
         <!-- Footer Start -->
         <div class="footer">
+            <ion-card>
+                <ion-item lines="none">
+                    <ion-avatar slot="start">
+                        <img src="assets/images/voicenew.jpg">
+                    </ion-avatar>
+                    <ion-label>
+                        <h1>Asked by Voices</h1>
+                    </ion-label>
+                </ion-item>
+            </ion-card>
+
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        <ion-button shape="round" expand="full" size="large" color="danger" (click)="skipCurrentQuestion()">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="danger" (click)="skipCurrentQuestion()">
                             <div>
                                 <ion-icon name="close"></ion-icon><br>
                                 Skip
@@ -45,7 +46,7 @@
                     </ion-col>
 
                     <ion-col>
-                        <ion-button shape="round" expand="full" size="large" color="success" (click)="goToAnswerScreen()">
+                        <ion-button shape="round" expand="full" size="large" fill="outline" color="success" (click)="goToAnswerScreen()">
                             <div>
                                 <ion-icon name="checkmark"></ion-icon><br>
                                 Answer
