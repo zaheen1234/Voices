@@ -108,14 +108,11 @@ export class RecordAnswerPage implements OnInit {
       self.progress = self.progress + 1;
       console.log('progress');
       this.audio.getCurrentAmplitude().then((data)=> {
-      console.log('AMPLITUDE : ' , data);
       if (data > 0.2) {
-        console.log('UseR IS SPEAKING');
         this.showPlain = false;
         this.showGif = true;
         this.changeRef.detectChanges();
       } else {
-        console.log('user IS SILENT');
         this.showGif = false;
         this.showPlain = true;
         this.changeRef.detectChanges();
@@ -132,10 +129,12 @@ export class RecordAnswerPage implements OnInit {
     }
 
   stopRecord() {
-    this.stopInterval();
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
+    this.stopInterval();
+    this.audio = null;
+
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
@@ -232,7 +231,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-   // this.stopRecord();
+    this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -300,7 +299,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-    //  this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 

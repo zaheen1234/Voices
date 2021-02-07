@@ -70,6 +70,7 @@ export class RecordingsListPage implements OnInit {
 
   
     playAudio(file, id) {
+      console.log('checking file : ' , file);
       this.vibration.vibrate(100);
 
       if (this.isPlaying) {
