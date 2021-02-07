@@ -13,17 +13,14 @@
 <ion-content [fullscreen]="true" color="light">
     <div class="main">
         <!-- Content Start -->
-        <ion-card>
+        <ion-card class="card-fixed">
             <ion-card-header>
                 <ion-card-title color="primary">
                     {{question.question}}
                 </ion-card-title>
             </ion-card-header>
-        </ion-card>
 
-        <!-- Footer Start -->
-        <div class="footer">
-            <ion-card>
+            <ion-card class="subcard-fixed">
                 <ion-item lines="none">
                     <ion-avatar slot="start">
                         <img src="assets/images/voicenew.jpg">
@@ -33,7 +30,10 @@
                     </ion-label>
                 </ion-item>
             </ion-card>
+        </ion-card>
 
+        <!-- Footer Start -->
+        <div class="footer">
             <ion-grid class="ion-no-padding">
                 <ion-row>
                     <ion-col class="ion-no-padding">

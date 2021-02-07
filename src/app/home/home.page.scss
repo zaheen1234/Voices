@@ -46,3 +46,15 @@
     font-weight: bold;
     color: #2FD370 !important;
 }
+
+// Fixed Card
+.card-fixed {
+    display: block;
+    height: 58vh;
+}
+
+.subcard-fixed {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+}
