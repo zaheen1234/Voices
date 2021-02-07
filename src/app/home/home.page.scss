@@ -21,13 +21,28 @@
     display: grid;
 }
 
-.button-round ion-icon {
+.button-round ion-icon.text-red {
     font-size: 100px !important;
     font-weight: bold;
     --ionicon-stroke-width: 62px;
+    color: #EB445A !important;
 }
 
-.button-round ion-label {
+.button-round ion-icon.text-green {
+    font-size: 100px !important;
+    font-weight: bold;
+    --ionicon-stroke-width: 62px;
+    color: #2FD370 !important;
+}
+
+.button-round ion-label.text-red {
     font-size: 34px !important;
     font-weight: bold;
+    color: #EB445A !important;
+}
+
+.button-round ion-label.text-green {
+    font-size: 34px !important;
+    font-weight: bold;
+    color: #2FD370 !important;
 }

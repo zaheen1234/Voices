@@ -34,24 +34,28 @@
                 </ion-item>
             </ion-card>
 
-            <ion-grid>
+            <ion-grid class="ion-no-padding">
                 <ion-row>
-                    <ion-col>
-                        <ion-button shape="round" expand="full" size="large" fill="outline" color="danger" (click)="skipCurrentQuestion()">
-                            <div>
-                                <ion-icon name="close"></ion-icon><br>
-                                <ion-label>Skip</ion-label>
-                            </div>
-                        </ion-button>
+                    <ion-col class="ion-no-padding">
+                        <ion-card>
+                            <ion-button shape="round" expand="full" size="large" color="light" (click)="skipCurrentQuestion()">
+                                <div>
+                                    <ion-icon name="close" class="text-red"></ion-icon><br>
+                                    <ion-label class="text-red">Skip</ion-label>
+                                </div>
+                            </ion-button>
+                        </ion-card>
                     </ion-col>
 
-                    <ion-col>
-                        <ion-button shape="round" expand="full" size="large" fill="outline" color="success" (click)="goToAnswerScreen()">
-                            <div>
-                                <ion-icon name="checkmark"></ion-icon><br>
-                                <ion-label>Answer</ion-label>
-                            </div>
-                        </ion-button>
+                    <ion-col class="ion-no-padding">
+                        <ion-card>
+                            <ion-button shape="round" expand="full" size="large" color="light" (click)="goToAnswerScreen()">
+                                <div>
+                                    <ion-icon name="checkmark" class="text-green"></ion-icon><br>
+                                    <ion-label class="text-green">Answer</ion-label>
+                                </div>
+                            </ion-button>
+                        </ion-card>
                     </ion-col>
                 </ion-row>
             </ion-grid>

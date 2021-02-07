@@ -21,10 +21,44 @@
     display: grid;
 }
 
-.button-round ion-icon {
-    font-size: 50px !important;
+.button-round ion-icon.text-red {
+    font-size: 70px !important;
     font-weight: bold;
     --ionicon-stroke-width: 62px;
+    color: #EB445A !important;
+}
+
+.button-round ion-icon.text-yellow {
+    font-size: 70px !important;
+    font-weight: bold;
+    --ionicon-stroke-width: 62px;
+    color: #FF9002 !important;
+}
+
+.button-round ion-icon.text-green {
+    font-size: 70px !important;
+    font-weight: bold;
+    --ionicon-stroke-width: 62px;
+    color: #2FD370 !important;
+}
+
+.button-round ion-label.text-red {
+    font-weight: bold;
+    color: #EB445A !important;
+}
+
+.button-round ion-label.text-yellow {
+    font-weight: bold;
+    color: #FF9002 !important;
+}
+
+.button-round ion-label.text-green {
+    font-weight: bold;
+    color: #2FD370 !important;
+}
+
+.custom-card {
+    margin: 6px 6px;
 }
 
 // Modal Start
