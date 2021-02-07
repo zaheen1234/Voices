@@ -48,19 +48,19 @@
         <div class="footer" *ngIf="deleteModeDisable">
             <ion-card style="box-shadow: none;">
                 <ion-button shape="round" expand="block" color="success" fill="outline" (click)="nextQuestion()">
-                    <ion-icon name="checkmark"></ion-icon>
+                    <ion-icon name="checkmark" slot="start"></ion-icon>
                     <ion-label>Next <br> Question</ion-label>
                 </ion-button>
                 <ion-button shape="round" expand="block" color="warning" fill="outline" (click)="startPlayingAnswer()">
-                    <ion-icon name="play"></ion-icon>
+                    <ion-icon name="play" slot="start"></ion-icon>
                     <ion-label>Play <br> Answer</ion-label>
                 </ion-button>
                 <ion-button shape="round" expand="block" color="warning" fill="outline" (click)="pausePlayingAnswer()" *ngIf="canPause">
-                    <ion-icon name="pause"></ion-icon>
+                    <ion-icon name="pause" slot="start"></ion-icon>
                     <ion-label>Pause <br> Answer</ion-label>
                 </ion-button>
                 <ion-button shape="round" expand="block" color="danger" fill="outline" (click)="deleteAnswer()">
-                    <ion-icon name="trash"></ion-icon>
+                    <ion-icon name="trash" slot="start"></ion-icon>
                     <ion-label>Delete <br> Answer</ion-label>
                 </ion-button>
             </ion-card>

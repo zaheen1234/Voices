@@ -22,7 +22,12 @@
 }
 
 .button-round ion-icon {
-    font-size: 90px !important;
+    font-size: 100px !important;
     font-weight: bold;
     --ionicon-stroke-width: 62px;
+}
+
+.button-round ion-label {
+    font-size: 34px !important;
+    font-weight: bold;
 }

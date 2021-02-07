@@ -11,17 +11,17 @@
 .button-round {
     --border-radius: 14px !important;
     height: 6em !important;
+    --padding-start: 0px;
 }
 
 .button-round ion-icon {
     font-size: 80px !important;
     font-weight: bold;
-    padding: 0rem 1rem;
     --ionicon-stroke-width: 62px;
 }
 
 .button-round ion-label {
-    font-size: 26px !important;
+    font-size: 30px !important;
     font-weight: bold;
     text-align: left;
 }
