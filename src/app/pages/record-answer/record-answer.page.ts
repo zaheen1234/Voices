@@ -44,11 +44,18 @@ export class RecordAnswerPage implements OnInit {
   showGif: boolean = false;
   showPlain: boolean = true;
   recordingStarted: boolean = false;
+  protected timer: any;
+  public countdown = 0;
+  timerShouldStart: boolean = false;
+  minutes: number = 0;
+  seconds: number = 0;
 
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
     console.log('init called');
     this.enable5 = true;
+    this.timerShouldStart = false;
+    this.countdown = 0;
     this.startTimerFirst();
   }
 
@@ -56,6 +63,27 @@ export class RecordAnswerPage implements OnInit {
     console.log('hamburger clicked');
     this.vibration.vibrate(100);
   }
+
+  stopRecord() {
+    this.audio.stopRecord();
+    this.recordingStarted = false;
+    this.audio.release();
+    this.stopCountdown();
+    this.stopInterval();
+    this.audio = null;
+    console.log('checking timer : ', this.countdown);
+    this.getMinutesTimer();
+    let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
+                 date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
+                 minutes: this.minutes, seconds: this.seconds         
+    };
+    console.log('checking what data is going to save : ', JSON.stringify(data));
+    this.audioList.push(data);
+    localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    this.recording = false;
+    this.getAudioList();
+  }
+
   startRecord() {
     this.vibration.vibrate(100);
     if (this.platform.is('ios')) {
@@ -72,32 +100,27 @@ export class RecordAnswerPage implements OnInit {
     //  this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
       this.audio = this.media.create(this.filePath);
     }
-    this.audio.startRecord();
-    this.recordingStarted = true;
-    this.startInterval();
-    // setTimeout(() => {
-    //   this.started = false;
-    //   this.animation = true;
-    //   this.startRecord();
-    // }, 1000);
-    
-  //   setInterval(function () {
-  //     // get media amplitude
-  //     this.audio.getCurrentAmplitude(
-  //         // success callback
-  //         function (amp) {
-  //             console.log(amp + "% AMPLITUDE");
-  //         },
-  //         // error callback
-  //         function (e) {
-  //             console.log("Error getting amp=" + e);
-  //         }
-  //     );
-  // }, 1000);
-    // this.audio.getCurrentAmplitude().then((data)=> {
-    //   console.log('AMPLITUDE : ' , data);
-    // })
-    this.recording = true;
+      this.audio.startRecord();
+      this.timerShouldStart = true;
+      this.startCountdown();
+      this.recordingStarted = true;
+      this.startInterval();
+      this.recording = true;
+    }
+
+    startCountdown() {
+     
+      if (this.timerShouldStart){
+        setTimeout(() => {
+          this.countdown = this.countdown + 1;
+          this.startCountdown();
+        }, 1000);
+      } 
+   
+    }
+
+    stopCountdown() {
+      this.timerShouldStart = false;
     }
 
 
@@ -106,7 +129,6 @@ export class RecordAnswerPage implements OnInit {
       const self = this;
       this.interval = setInterval(_ => {
       self.progress = self.progress + 1;
-      console.log('progress');
       this.audio.getCurrentAmplitude().then((data)=> {
       if (data > 0.2) {
         this.showPlain = false;
@@ -128,18 +150,28 @@ export class RecordAnswerPage implements OnInit {
       console.log('stop enterval called');
     }
 
-  stopRecord() {
-    this.audio.stopRecord();
-    this.recordingStarted = false;
-    this.audio.release();
-    this.stopInterval();
-    this.audio = null;
+  getMinutesTimer() {
+    if(this.countdown > 60) {
+      console.log('checking totalsecs : ', this.countdown);
+      let min: number;
+      min = this.countdown/60;
+      let roundOffOfMin: number;
+      roundOffOfMin = Math.floor(min);
+      console.log( 'checking min: ', roundOffOfMin);
+      let localSec = roundOffOfMin * 60;
+      console.log('checking localSec : ', localSec)
+      let thenSec = this.countdown - localSec;
+      console.log('checking remaining sec : ', thenSec);
+      this.minutes = roundOffOfMin;
+      this.seconds = thenSec;
+    } else {
+      this.minutes = 0;
+      this.seconds = this.countdown;
+    }
+  }
 
-    let data = { filename: this.fileName, question: this.question.question, id: this.question.id };
-    this.audioList.push(data);
-    localStorage.setItem("audiolist", JSON.stringify(this.audioList));
-    this.recording = false;
-    this.getAudioList();
+  getSeconds() {
+
   }
 
   getAudioList() {
@@ -151,6 +183,8 @@ export class RecordAnswerPage implements OnInit {
 
   ionViewWillEnter() {
     this.getAudioList();
+    this.timerShouldStart = false;
+    this.countdown = 0;
   }
 
   playAudio(file,idx) {

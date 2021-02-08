@@ -52,7 +52,7 @@
                     <ion-label class="text-green">Next <br> Question</ion-label>
                 </ion-button>
             </ion-card>
-            <ion-card class="custom-card">
+            <ion-card class="custom-card" *ngIf="canPlay">
                 <ion-button shape="round" expand="block" color="light" (click)="startPlayingAnswer()">
                     <ion-icon name="play" slot="start" class="text-yellow"></ion-icon>
                     <ion-label class="text-yellow">Play <br> Answer</ion-label>
