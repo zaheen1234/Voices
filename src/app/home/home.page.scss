@@ -58,3 +58,52 @@
     bottom: 0;
     width: 90%;
 }
+
+// For Landscape
+@media (orientation: landscape) {
+    .button-round {
+        --border-radius: 10px !important;
+        height: 7em !important;
+        display: grid;
+    }
+
+    .card-fixed {
+        display: block;
+        height: auto;
+    }
+
+    .subcard-fixed {
+        position: inherit;
+        bottom: inherit;
+        width: auto;
+    }
+
+    .button-round ion-icon.text-red {
+        font-size: 80px !important;
+    }
+
+    .button-round ion-icon.text-green {
+        font-size: 80px !important;
+    }
+
+    .button-round ion-label.text-red {
+        font-size: 34px !important;
+    }
+
+    .button-round ion-label.text-green {
+        font-size: 34px !important;
+    }
+
+    .main {
+        display: inherit;
+        flex-direction: inherit;
+        height: inherit;
+    }
+
+    .footer {
+        flex: inherit;
+        position: inherit;
+        bottom: inherit;
+        width: auto;
+    }
+}
