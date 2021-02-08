@@ -90,3 +90,30 @@
     bottom: 0;
     width: 100%
 }
+
+// For Landscape
+@media (orientation: landscape) {
+    .button-round {
+        --border-radius: 10px !important;
+        height: 7em !important;
+        display: grid;
+    }
+
+    .main {
+        display: inherit;
+        flex-direction: inherit;
+        height: inherit;
+    }
+
+    .footer {
+        flex: inherit;
+        position: inherit;
+        bottom: inherit;
+        width: auto;
+    }
+
+    .modal-btn{
+        height: 2em !important;
+        font-size: 2rem;
+    }
+}
