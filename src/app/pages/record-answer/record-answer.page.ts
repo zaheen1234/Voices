@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { timeout } from 'rxjs/operators';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { MediaCapture } from '@ionic-native/media-capture';
 import { QuestionServiceService } from '../../services/questionService/question-service.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
@@ -18,7 +18,8 @@ export class RecordAnswerPage implements OnInit {
 
   constructor(private route: Router, private media: Media, private file: File,
      private platform: Platform, private changeRef: ChangeDetectorRef,
-     private questionService: QuestionServiceService, private vibration: Vibration
+     private questionService: QuestionServiceService, private vibration: Vibration,
+     private alertController: AlertController
    ) { }
 
   enable1 = false;
@@ -47,6 +48,7 @@ export class RecordAnswerPage implements OnInit {
   protected timer: any;
   public countdown = 0;
   timerShouldStart: boolean = false;
+  hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
 
@@ -68,14 +70,14 @@ export class RecordAnswerPage implements OnInit {
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
-    this.stopCountdown();
+   // this.stopCountdown();
     this.stopInterval();
     this.audio = null;
     console.log('checking timer : ', this.countdown);
-    this.getMinutesTimer();
+   // this.getMinutesTimer();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
                  date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
-                 minutes: this.minutes, seconds: this.seconds         
+                 hours: this.hours, minutes: this.minutes, seconds: this.seconds         
     };
     console.log('checking what data is going to save : ', JSON.stringify(data));
     this.audioList.push(data);
@@ -151,6 +153,38 @@ export class RecordAnswerPage implements OnInit {
     }
 
   getMinutesTimer() {
+
+    if (this.countdown > 3600) {
+      let hour: number;
+       hour = this.countdown/3600;
+       let roundOffOfHour: number;
+       roundOffOfHour = Math.floor(hour);
+       this.hours = roundOffOfHour;
+       console.log('checking hour : ', roundOffOfHour);
+       let localMin = roundOffOfHour * 3600;
+       console.log('checking localMin : ', localMin);
+      let actualMin = this.countdown - localMin;
+      if (actualMin > 60) {
+        console.log('checking totalsecs : ', this.countdown);
+        let min: number;
+        min = this.countdown/60;
+        let roundOffOfMin: number;
+        roundOffOfMin = Math.floor(min);
+        console.log( 'checking min: ', roundOffOfMin);
+        let localSec = roundOffOfMin * 60;
+        console.log('checking localSec : ', localSec)
+        let thenSec = this.countdown - localSec;
+        console.log('checking remaining sec : ', thenSec);
+        this.minutes = roundOffOfMin;
+        this.seconds = thenSec;
+        return;
+      } else {
+        this.minutes = 0;
+      this.seconds = actualMin;
+      return;
+      }
+
+    }
     if(this.countdown > 60) {
       console.log('checking totalsecs : ', this.countdown);
       let min: number;
@@ -164,10 +198,12 @@ export class RecordAnswerPage implements OnInit {
       console.log('checking remaining sec : ', thenSec);
       this.minutes = roundOffOfMin;
       this.seconds = thenSec;
-    } else {
+      return;
+    } 
+
       this.minutes = 0;
       this.seconds = this.countdown;
-    }
+    
   }
 
   getSeconds() {
@@ -245,8 +281,29 @@ export class RecordAnswerPage implements OnInit {
   }
 
 
-  goToCancelScreen() {
+  async goToCancelScreen() {
+    console.log('gotocancelscreenknddknd');
    this.vibration.vibrate(100);
+   const alart = await this.alertController.create({
+    header: 'Alert!',
+    message: '<strong>Are you sure you want to cancel your recording?</strong>',
+    buttons: [
+      {
+        text: 'NO',
+        role: 'cancel',
+        handler: (blah) => {
+          // do nothing
+        }
+      }, {
+        text: 'YES',
+        handler: () => {
+    
+        }
+      },
+    ]
+  });
+  await alart.present();
+  return;
    console.log('gotocancelScreen function called');
    this.cancelModeEnable = true;
    this.cancelModeDisable = false;
@@ -265,7 +322,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-    this.stopRecord();
+   // this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -333,7 +390,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      this.startRecord();
+     // this.startRecord();
     }, 1000);
   }
 
