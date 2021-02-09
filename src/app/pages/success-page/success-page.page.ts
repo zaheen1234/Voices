@@ -17,6 +17,8 @@ export class SuccessPagePage implements OnInit {
   deleteModeDisable = true;
   deleteModeEnable = false;
   question = this.questionService.getCurrentQuestion();
+  lenOfQuestion = this.question.question.length;
+  questionRange: boolean = false;
   recordingList = [];
   filePath: string;
   audio: MediaObject;
@@ -42,6 +44,13 @@ export class SuccessPagePage implements OnInit {
   ngOnInit() {
     console.log('init called');
     this.question = this.questionService.getCurrentQuestion();
+    this.lenOfQuestion = this.question.question.length;
+    console.log('lenght of question : ', this.lenOfQuestion);
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
     this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
   }
 

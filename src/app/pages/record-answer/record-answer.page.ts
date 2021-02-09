@@ -40,6 +40,8 @@ export class RecordAnswerPage implements OnInit {
   audio: MediaObject;
   audioList: any[] = [];
   question = this.questionService.getCurrentQuestion();
+  lenOfQuestion = this.question.question.length;
+  questionRange: boolean = false;
   protected interval: any;
   public progress = 0;
   showGif: boolean = false;
@@ -54,6 +56,13 @@ export class RecordAnswerPage implements OnInit {
 
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
+    this.lenOfQuestion = this.question.question.length;
+    console.log('lenght of question : ', this.lenOfQuestion);
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
     console.log('init called');
     this.enable5 = true;
     this.timerShouldStart = false;
@@ -70,11 +79,11 @@ export class RecordAnswerPage implements OnInit {
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
-    this.stopCountdown();
+  //  this.stopCountdown();
     this.stopInterval();
     this.audio = null;
     console.log('checking timer : ', this.countdown);
-    this.getMinutesTimer();
+  //  this.getMinutesTimer();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
                  date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
                  hours: this.hours, minutes: this.minutes, seconds: this.seconds
@@ -302,7 +311,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-    this.stopRecord();
+   // this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -370,7 +379,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      this.startRecord();
+     // this.startRecord();
     }, 1000);
   }
 

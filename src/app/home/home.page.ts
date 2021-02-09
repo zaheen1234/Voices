@@ -17,6 +17,8 @@ export class HomePage {
   otpMode = false;
   normalMode = true;
   question = this.questionService.getCurrentQuestion();
+  lenOfQuestion = this.question.question.length;
+  questionRange: boolean = false;
   // tslint:disable-next-line:prefer-const
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
@@ -28,6 +30,13 @@ export class HomePage {
   }
 
   ngOnInit() {
+    this.lenOfQuestion = this.question.question.length;
+    console.log('lenght of question : ', this.lenOfQuestion);
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
 
   }
 
@@ -66,6 +75,14 @@ export class HomePage {
     console.log('checking the returned val', localQuestion);
     // console.log('checking current question', this.question);
     this.question = localQuestion;
+    this.lenOfQuestion = this.question.question.length;
+    console.log('lenght of question : ', this.lenOfQuestion);
+
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
     this.changeRef.detectChanges();
   }
 
