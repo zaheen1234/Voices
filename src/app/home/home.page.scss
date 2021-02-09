@@ -15,34 +15,44 @@
     width: 100%
 }
 
-.button-round {
+ion-card {
+    border-radius: 8px;
+}
+
+.button-solid {
+    --box-shadow: none !important;
+}
+
+.button-solid {
     --border-radius: 14px !important;
     height: 8em !important;
     display: grid;
 }
 
-.button-round ion-icon.text-red {
-    font-size: 100px !important;
+.button-solid ion-icon.text-red {
+    font-size: 90px !important;
     font-weight: bold;
     --ionicon-stroke-width: 62px;
     color: #EB445A !important;
 }
 
-.button-round ion-icon.text-green {
-    font-size: 100px !important;
+.button-solid ion-icon.text-green {
+    font-size: 90px !important;
     font-weight: bold;
     --ionicon-stroke-width: 62px;
     color: #2FD370 !important;
 }
 
-.button-round ion-label.text-red {
-    font-size: 34px !important;
+.button-solid ion-label.text-red {
+    font-size: 30px !important;
+    text-transform: none;
     font-weight: bold;
     color: #EB445A !important;
 }
 
-.button-round ion-label.text-green {
-    font-size: 34px !important;
+.button-solid ion-label.text-green {
+    text-transform: none;
+    font-size: 30px !important;
     font-weight: bold;
     color: #2FD370 !important;
 }
@@ -61,7 +71,7 @@
 
 // For Landscape
 @media (orientation: landscape) {
-    .button-round {
+    .button-solid {
         --border-radius: 10px !important;
         height: 7em !important;
         display: grid;
@@ -78,20 +88,20 @@
         width: auto;
     }
 
-    .button-round ion-icon.text-red {
-        font-size: 80px !important;
+    .button-solid ion-icon.text-red {
+        font-size: 70px !important;
     }
 
-    .button-round ion-icon.text-green {
-        font-size: 80px !important;
+    .button-solid ion-icon.text-green {
+        font-size: 70px !important;
     }
 
-    .button-round ion-label.text-red {
-        font-size: 34px !important;
+    .button-solid ion-label.text-red {
+        font-size: 30px !important;
     }
 
-    .button-round ion-label.text-green {
-        font-size: 34px !important;
+    .button-solid ion-label.text-green {
+        font-size: 30px !important;
     }
 
     .main {

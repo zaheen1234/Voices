@@ -77,7 +77,7 @@ export class RecordAnswerPage implements OnInit {
    // this.getMinutesTimer();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
                  date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
-                 hours: this.hours, minutes: this.minutes, seconds: this.seconds         
+                 hours: this.hours, minutes: this.minutes, seconds: this.seconds
     };
     console.log('checking what data is going to save : ', JSON.stringify(data));
     this.audioList.push(data);
@@ -94,10 +94,10 @@ export class RecordAnswerPage implements OnInit {
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new 
-      Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new 
+      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new
+      Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new
       Date().getSeconds()+'.3gp';
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + 
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') +
       this.fileName;
     //  this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
       this.audio = this.media.create(this.filePath);
@@ -111,14 +111,14 @@ export class RecordAnswerPage implements OnInit {
     }
 
     startCountdown() {
-     
+
       if (this.timerShouldStart){
         setTimeout(() => {
           this.countdown = this.countdown + 1;
           this.startCountdown();
         }, 1000);
-      } 
-   
+      }
+
     }
 
     stopCountdown() {
@@ -199,11 +199,11 @@ export class RecordAnswerPage implements OnInit {
       this.minutes = roundOffOfMin;
       this.seconds = thenSec;
       return;
-    } 
+    }
 
       this.minutes = 0;
       this.seconds = this.countdown;
-    
+
   }
 
   getSeconds() {
@@ -269,7 +269,7 @@ export class RecordAnswerPage implements OnInit {
     this.cancelModeDisable = true;
     this.changeRef.detectChanges()
     this.route.navigate(['/home']);
-    
+
   }
 
   backToRecording () {
@@ -285,21 +285,21 @@ export class RecordAnswerPage implements OnInit {
     console.log('gotocancelscreenknddknd');
    this.vibration.vibrate(100);
    const alart = await this.alertController.create({
-    header: 'Alert!',
-    message: '<strong>Are you sure you want to cancel your recording?</strong>',
+    header: 'Are you sure you want to cancel your recording?',
     buttons: [
+      {
+        text: 'YES',
+        handler: () => {
+
+        }
+      },
       {
         text: 'NO',
         role: 'cancel',
         handler: (blah) => {
           // do nothing
         }
-      }, {
-        text: 'YES',
-        handler: () => {
-    
-        }
-      },
+      }
     ]
   });
   await alart.present();
@@ -318,7 +318,7 @@ export class RecordAnswerPage implements OnInit {
       this.audio.resumeRecord();
       this.recordingStarted = true;
     }
-    
+
   }
 
   saveRecording() {
@@ -341,7 +341,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startTimerFirst() {
-  
+
     setTimeout(() => {
       this.enable5 = false;
       this.startTimerSecond();

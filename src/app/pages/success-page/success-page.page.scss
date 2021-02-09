@@ -8,6 +8,14 @@
     font-size: 2rem;
 }
 
+ion-card {
+    border-radius: 8px;
+}
+
+.button-solid {
+    --box-shadow: none !important;
+}
+
 .button-round {
     --border-radius: 14px !important;
     height: 6em !important;
@@ -40,6 +48,7 @@
     font-weight: bold;
     text-align: left;
     color: #EB445A !important;
+    text-transform: none;
 }
 
 .button-round ion-label.text-yellow {
@@ -47,6 +56,7 @@
     font-weight: bold;
     text-align: left;
     color: #FF9002 !important;
+    text-transform: none;
 }
 
 .button-round ion-label.text-green {
@@ -54,10 +64,11 @@
     font-weight: bold;
     text-align: left;
     color: #2FD370 !important;
+    text-transform: none;
 }
 
 .custom-card {
-    margin: 6px 16px;
+    margin: 16px 16px;
 }
 
 // Modal Start
@@ -75,6 +86,7 @@
 .modal-btn{
     height: 2em !important;
     font-size: 2rem;
+    --padding-start: 26px;
 }
 // Modal End
 

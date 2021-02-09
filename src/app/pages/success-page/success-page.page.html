@@ -14,18 +14,18 @@
     <div class="main">
         <!-- Content Start -->
         <div class="custom-modal" *ngIf="deleteModeEnable">
-            <ion-card>
+            <ion-card style="padding: 3rem 0rem;">
                 <ion-card-header>
                     <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
                 </ion-card-header>
                 <ion-card-content>
                     <ion-row>
                         <ion-col class="ion-no-padding">
-                            <ion-button class="modal-btn" shape="round" expand="full" size="large" fill="outline" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
+                            <ion-button shape="round" class="modal-btn" expand="full" size="large" fill="outline" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
                         </ion-col>
 
                         <ion-col class="ion-no-padding">
-                            <ion-button class="modal-btn" shape="round" expand="full" size="large" fill="outline" color="danger" (click)="backToRecording()">NO</ion-button>
+                            <ion-button shape="round" class="modal-btn" expand="full" size="large" fill="outline" color="danger" (click)="backToRecording()">NO</ion-button>
                         </ion-col>
                     </ion-row>
                 </ion-card-content>

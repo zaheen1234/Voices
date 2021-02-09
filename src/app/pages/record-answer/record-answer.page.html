@@ -14,7 +14,7 @@
     <div class="main">
         <!-- Content Start -->
         <div class="custom-modal" *ngIf="cancelModeEnable">
-            <ion-card>
+            <ion-card style="padding: 3rem 0rem;">
                 <ion-card-header>
                     <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
                 </ion-card-header>
@@ -67,9 +67,9 @@
 
         <!-- Footer Start -->
         <div class="footer">
-            <ion-grid *ngIf="cancelModeDisable" class="ion-no-padding">
+            <ion-grid *ngIf="cancelModeDisable">
                 <ion-row>
-                    <ion-col class="ion-no-padding">
+                    <ion-col>
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="goToCancelScreen()">
                                 <div>
@@ -80,7 +80,7 @@
                         </ion-card>
                     </ion-col>
 
-                    <ion-col class="ion-no-padding">
+                    <ion-col>
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="pauseRecording()" *ngIf="isRecord">
                                 <div>
@@ -99,7 +99,7 @@
                         </ion-card>
                     </ion-col>
 
-                    <ion-col class="ion-no-padding">
+                    <ion-col>
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="saveRecording()">
                                 <div>
