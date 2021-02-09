@@ -112,6 +112,36 @@ export class RecordingsListPage implements OnInit {
       this.audio.setVolume(0.8); 
 
     }
+
+    getFormattedHour(hour) {
+      let str1 = JSON.stringify(hour);
+        if (str1.length === 1) {
+          const str2 = '0';
+          return str2.concat(str1);
+        } else if (str1.length === 2) {
+          return str1;
+        } 
+      }
+      
+      getFormattedMinute(hour) {
+        let str1 = JSON.stringify(hour);
+          if (str1.length === 1) {
+            const str2 = '0';
+            return str2.concat(str1);
+          } else if (str1.length === 2) {
+            return str1;
+          } 
+        }
+
+        getFormattedSecond(hour) {
+          let str1 = JSON.stringify(hour);
+            if (str1.length === 1) {
+              const str2 = '0';
+              return str2.concat(str1);
+            } else if (str1.length === 2) {
+              return str1;
+            } 
+          }
   
 
     hamburger() {
