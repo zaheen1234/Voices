@@ -69,6 +69,7 @@ ion-card {
 .card-fixed {
     display: block;
     height: 58vh;
+    overflow: auto;
 }
 
 .subcard-fixed {

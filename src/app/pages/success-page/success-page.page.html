@@ -33,12 +33,11 @@
         </div>
 
         <div *ngIf="deleteModeDisable">
-            <ion-card>
+            <ion-card class="card-fixed">
                 <ion-card-header>
                     <ion-card-title color="primary">{{question.question}}</ion-card-title>
                 </ion-card-header>
             </ion-card>
-
             <ion-card style="box-shadow: none;">
                 <h1 class="text-primary">Your Answer has been successfully recorded.</h1>
             </ion-card>

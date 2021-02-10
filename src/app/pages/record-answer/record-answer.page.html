@@ -32,42 +32,42 @@
             </ion-card>
         </div>
 
-        <ion-card *ngIf="cancelModeDisable">
+        <ion-card *ngIf="cancelModeDisable" class="card-fixed">
             <ion-card-header>
                 <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="primary">
                     {{question.question}}</ion-card-title>
             </ion-card-header>
         </ion-card>
 
-        <ion-card *ngIf="cancelModeDisable" style="box-shadow: none;">
-            <div class="ion-text-center text-primary">
-                <h1 *ngIf="enable5" >
-                    5
-                </h1>
-                <h1 *ngIf="enable4">
-                    4
-                </h1>
-                <h1 *ngIf="enable3">
-                    3
-                </h1>
-                <h1 *ngIf="enable2">
-                    2
-                </h1>
-                <h1 *ngIf="enable1">
-                    1
-                </h1>
-                <h2 *ngIf="started">
-                    Recording Started
-                </h2>
-                <div *ngIf="animation">
-                    <img src="assets/images/source.gif" *ngIf="showGif">
-                    <img src="assets/images/recording.png" *ngIf="showPlain">
-                </div>
-            </div>
-        </ion-card>
-
         <!-- Footer Start -->
         <div class="footer">
+            <ion-card *ngIf="cancelModeDisable" style="box-shadow: none; background-color: transparent;">
+                <div class="ion-text-center text-primary">
+                    <h1 *ngIf="enable5" >
+                        5
+                    </h1>
+                    <h1 *ngIf="enable4">
+                        4
+                    </h1>
+                    <h1 *ngIf="enable3">
+                        3
+                    </h1>
+                    <h1 *ngIf="enable2">
+                        2
+                    </h1>
+                    <h1 *ngIf="enable1">
+                        1
+                    </h1>
+                    <h2 *ngIf="started">
+                        Recording Started
+                    </h2>
+                    <div *ngIf="animation">
+                        <img src="assets/images/source.gif" *ngIf="showGif">
+                        <img src="assets/images/recording.png" *ngIf="showPlain">
+                    </div>
+                </div>
+            </ion-card>
+
             <ion-grid *ngIf="cancelModeDisable">
                 <ion-row>
                     <ion-col>

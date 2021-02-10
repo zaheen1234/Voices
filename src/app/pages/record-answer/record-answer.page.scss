@@ -4,16 +4,22 @@
     height: 100%;
 }
 
-// .main ion-card-title {
-//     font-size: 2rem;
-// }
+.main ion-card-title {
+    font-size: 2rem;
+}
+
+.card-fixed {
+    display: block;
+    height: 45vh;
+    overflow: auto;
+}
 
 .titleCls {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
 }
 
 .titleCls1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 ion-card {
@@ -33,7 +39,7 @@ ion-card {
 
 .button-round {
     --border-radius: 14px !important;
-    height: 6em !important;
+    height: 5em !important;
     display: grid;
 }
 
@@ -101,7 +107,7 @@ ion-card {
 
 .text-primary h1 {
     color: #06BDBB;
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: bold;
 }
 
