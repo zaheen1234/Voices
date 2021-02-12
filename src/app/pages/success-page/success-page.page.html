@@ -13,7 +13,7 @@
 <ion-content [fullscreen]="true">
     <div class="main">
         <!-- Content Start -->
-        <div class="custom-modal" *ngIf="deleteModeEnable">
+        <!--<div class="custom-modal" *ngIf="deleteModeEnable">
             <ion-card style="padding: 3rem 0rem;">
                 <ion-card-header>
                     <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
@@ -30,7 +30,37 @@
                     </ion-row>
                 </ion-card-content>
             </ion-card>
-        </div>
+        </div>-->
+        <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
+            <div class="cancel-popup">
+            <ion-card-header>
+              <ion-card-title class="titleclscancel">Are you sure you want to delete your recording?</ion-card-title>
+            </ion-card-header>    
+                <ion-card-content>
+                  <div>
+                  <ion-grid class="gridcls">
+                    <ion-row>
+                      <ion-col size="5">
+                       <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
+                         <ion-label class="labelclsgrncancel">
+                           YES
+                         </ion-label>
+                         </ion-button>
+                      </ion-col>
+                      <ion-col size="5">
+                        <ion-button class="borderclsred" (click)="backToRecording()">
+                         <ion-label class="labelclsredcancel">
+                           NO
+                         </ion-label>
+                        </ion-button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                 </div>
+                  </ion-card-content>
+                </div>
+           </ion-card>
+
 
         <div *ngIf="deleteModeDisable">
             <ion-card class="card-fixed">
@@ -47,25 +77,25 @@
         <div class="footer" *ngIf="deleteModeDisable">
             <ion-card class="custom-card">
                 <ion-button shape="round" expand="block" color="light" (click)="nextQuestion()">
-                    <ion-icon name="checkmark" slot="start" class="text-green"></ion-icon>
+                    <!--<ion-icon name="checkmark" slot="start" class="text-green"></ion-icon>--><img class="correct-icon common-icon-list" src="assets/images/check.png">
                     <ion-label class="text-green">Next <br> Question</ion-label>
                 </ion-button>
             </ion-card>
             <ion-card class="custom-card" *ngIf="canPlay">
                 <ion-button shape="round" expand="block" color="light" (click)="startPlayingAnswer()">
-                    <ion-icon name="play" slot="start" class="text-yellow"></ion-icon>
+                    <!--<ion-icon name="play" slot="start" class="text-yellow"></ion-icon>--><img class="playstart-icon common-icon-list" src="assets/images/play-button.png">
                     <ion-label class="text-yellow">Play <br> Answer</ion-label>
                 </ion-button>
             </ion-card>
             <ion-card class="custom-card" *ngIf="canPause">
                 <ion-button shape="round" expand="block" color="light" (click)="pausePlayingAnswer()">
-                    <ion-icon name="pause" slot="start" class="text-yellow"></ion-icon>
+                    <!--<ion-icon name="pause" slot="start" class="text-yellow"></ion-icon>--><img class="pause-icon common-icon-list" src="assets/images/pause.png">
                     <ion-label class="text-yellow">Pause <br> Answer</ion-label>
                 </ion-button>
             </ion-card>
             <ion-card class="custom-card">
                 <ion-button shape="round" expand="block" color="light" (click)="deleteAnswer()">
-                    <ion-icon name="trash" slot="start" class="text-red"></ion-icon>
+                    <!--<ion-icon name="trash" slot="start" class="text-red"></ion-icon>--><img class="delete-icon common-icon-list" src="assets/images/delete.png">
                     <ion-label class="text-red">Delete <br> Answer</ion-label>
                 </ion-button>
             </ion-card>
