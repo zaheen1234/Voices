@@ -110,6 +110,36 @@
 
 }
 
+.my-custom-class .alert-wrapper {
+
+        // display: flex;
+        align-items: center;
+        height: 40%;
+        max-width: 400px;
+        box-shadow:none;
+        background: #fff;
+        margin: 0;
+       
+    
+}
+.header { 
+     font-size: 2rem;
+    font-weight: bold;
+    color: #058988;
+}
+
+.failure-button {
+    text-align: center;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-color: #d7d7d7;
+    border-style: solid;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    height: 85px;
+}
+
 // ion-split-pane{ 
 //     --border: none !important;
 //     ion-menu{
