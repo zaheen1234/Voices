@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
-            <img src='assets/images/menu.png'>
+            <img class="toggle-icon" src='assets/images/menu.png'>
         </ion-menu-button>
         <ion-title>Recordings</ion-title>
     </ion-toolbar>
@@ -11,7 +11,7 @@
     <ion-card *ngFor="let audio of audioList; index as i;">
         <ion-card-header>
             <ion-card-title>
-                <ion-row (click)="playAudio(audio.filename, i)">
+                <ion-row (click)="playAudio(audio.filename, i, audio)">
                     <ion-col size="8">
                         <p class="card-text">{{audio.question}}</p>
                     </ion-col>
@@ -29,8 +29,9 @@
                 </ion-row>
                 <ion-row *ngIf="checkIfRowEnable(i)">
                     <ion-col> <img src="assets/images/soundwave.gif" class="voice-img"><br>
-                        <ion-progress-bar color="voice" value="0.8" class="prgrs-baar"></ion-progress-bar>
-                        <p class="progrs-count">0.124</p>
+                        <ion-progress-bar color="voice" [value]="p_bar_value" class="prgrs-baar"></ion-progress-bar>
+                        <p class="progrs-count">{{progress}}</p>
+                        <!-- <p class="progrs-count">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p> -->
                     </ion-col>
                 </ion-row>
             </ion-card-title>

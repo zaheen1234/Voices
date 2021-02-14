@@ -79,14 +79,14 @@ export class RecordAnswerPage implements OnInit {
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
-    //this.stopCountdown();
+    this.stopCountdown();
     this.stopInterval();
     this.audio = null;
     console.log('checking timer : ', this.countdown);
-    //this.getMinutesTimer();
+    this.getMinutesTimer();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
                  date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
-                 hours: this.hours, minutes: this.minutes, seconds: this.seconds
+                 hours: this.hours, minutes: this.minutes, seconds: this.seconds, totalSeconds: this.countdown
     };
     console.log('checking what data is going to save : ', JSON.stringify(data));
     this.audioList.push(data);
@@ -315,7 +315,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-  //  this.stopRecord();
+    this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -383,7 +383,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-     // this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 

@@ -35,6 +35,10 @@ export class RecordingsListPage implements OnInit {
   audio: MediaObject;
   currentNumber;
   isPlaying: boolean = false;
+  progress = 0;
+  startTimer: boolean = false;
+  totalSeconds = 0;
+  p_bar_value: number;
 
   ngOnInit() {
     this.questionsList = this.questionService.questionArray;
@@ -67,9 +71,16 @@ export class RecordingsListPage implements OnInit {
     //alert('checking audioList' + JSON.stringify(this.audioList));
   }
 
+increaseProgressBar() {
+  this.progress = this.progress + 1;
+  this.changeRef.detectChanges();
+}
 
+resetProgressBar() {
+  this.progress = 0;
+}
   
-    playAudio(file, id) {
+    playAudio(file, id, completeData) {
       console.log('checking file : ' , file);
       this.vibration.vibrate(100);
 
@@ -87,9 +98,13 @@ export class RecordingsListPage implements OnInit {
           this.audio = this.media.create(this.filePath);
       }
           this.audio.play();
+          this.totalSeconds = completeData.totalSeconds;
+          // alert('checking totalSeconds : ' + this.totalSeconds);
+          this.startTimer = true;
+          this.startProgressBarTimer();
           this.isPlaying = true;
           this.audio.setVolume(0.8); 
-
+          this.changeRef.detectChanges();
           this.audio.onStatusUpdate.subscribe((statusCode) => {
             if (statusCode === 4) {
               console.log('Audio FINISHED playing');
@@ -97,9 +112,25 @@ export class RecordingsListPage implements OnInit {
               this.currentNumber = -111111;
               this.changeRef.detectChanges();
               this.audio.release();
-            }
+              this.startTimer = false;
+            } 
           });
           
+    }
+
+    startProgressBarTimer() {
+      if(this.startTimer) {
+        setTimeout(()=> {
+          this.progress = this.progress + 1;
+          let apc = (this.progress / this.totalSeconds)
+          console.log(apc);
+          this.p_bar_value = apc;
+          this.changeRef.detectChanges();
+          this.startProgressBarTimer();
+        }, 1000);
+      } else {
+        this.progress = 0;
+      }
     }
 
     playAudioRecording (file) {
