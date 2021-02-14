@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
     <ion-toolbar color="primary" *ngIf="deleteModeDisable">
-        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
+        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
+            <ion-icon src="./assets/custom-menu.svg"></ion-icon>
+        </ion-menu-button>
         <ion-title>Answer Recorded</ion-title>
         <ion-buttons collapse="true" slot="end">
             <ion-button (click)="goToRecordingsList()">
@@ -45,29 +47,21 @@
 
         <!-- Footer Start -->
         <div class="footer" *ngIf="deleteModeDisable">
-            <ion-card class="custom-card">
-                <ion-button shape="round" expand="block" color="light" (click)="nextQuestion()">
-                    <ion-icon name="checkmark" slot="start" class="text-green"></ion-icon>
-                    <ion-label class="text-green">Next <br> Question</ion-label>
-                </ion-button>
+            <ion-card class="custom-card" (click)="nextQuestion()">
+                <img src="assets/images/icons/check.png" width="60">
+                <ion-label class="text-green">Next <br> Question</ion-label>
             </ion-card>
-            <ion-card class="custom-card" *ngIf="canPlay">
-                <ion-button shape="round" expand="block" color="light" (click)="startPlayingAnswer()">
-                    <ion-icon name="play" slot="start" class="text-yellow"></ion-icon>
-                    <ion-label class="text-yellow">Play <br> Answer</ion-label>
-                </ion-button>
+            <ion-card class="custom-card" *ngIf="canPlay" (click)="startPlayingAnswer()">
+                <img src="assets/images/icons/play.png" width="60">
+                <ion-label class="text-yellow">Play <br> Answer</ion-label>
             </ion-card>
-            <ion-card class="custom-card" *ngIf="canPause">
-                <ion-button shape="round" expand="block" color="light" (click)="pausePlayingAnswer()">
-                    <ion-icon name="pause" slot="start" class="text-yellow"></ion-icon>
-                    <ion-label class="text-yellow">Pause <br> Answer</ion-label>
-                </ion-button>
+            <ion-card class="custom-card" *ngIf="canPause" (click)="pausePlayingAnswer()">
+                <img src="assets/images/icons/pause.png" width="60">
+                <ion-label class="text-yellow">Pause <br> Answer</ion-label>
             </ion-card>
-            <ion-card class="custom-card">
-                <ion-button shape="round" expand="block" color="light" (click)="deleteAnswer()">
-                    <ion-icon name="trash" slot="start" class="text-red"></ion-icon>
-                    <ion-label class="text-red">Delete <br> Answer</ion-label>
-                </ion-button>
+            <ion-card class="custom-card" (click)="deleteAnswer()">
+                <img src="assets/images/icons/delete.png" width="60">
+                <ion-label class="text-red">Delete <br> Answer</ion-label>
             </ion-card>
         </div>
     </div>

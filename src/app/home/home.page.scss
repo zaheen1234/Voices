@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+ion-menu-button {
+    padding-left: 0.4rem !important;
+}
+
 // .main ion-card-title {
 //     font-size: 2rem;
 // }
@@ -37,32 +41,20 @@ ion-card {
     display: grid;
 }
 
-.button-solid ion-icon.text-red {
-    font-size: 90px !important;
+.button-solid ion-label {
+    display: block;
+    padding-top: 0.7rem;
+    font-size: 36px !important;
+    text-transform: none;
     font-weight: bold;
-    --ionicon-stroke-width: 62px;
-    color: #EB445A !important;
-}
-
-.button-solid ion-icon.text-green {
-    font-size: 90px !important;
-    font-weight: bold;
-    --ionicon-stroke-width: 62px;
-    color: #2FD370 !important;
 }
 
 .button-solid ion-label.text-red {
-    font-size: 30px !important;
-    text-transform: none;
-    font-weight: bold;
-    color: #EB445A !important;
+    color: #9E0D0D !important;
 }
 
 .button-solid ion-label.text-green {
-    text-transform: none;
-    font-size: 30px !important;
-    font-weight: bold;
-    color: #2FD370 !important;
+    color: #217A03 !important;
 }
 
 // Fixed Card
@@ -95,22 +87,6 @@ ion-card {
         position: inherit;
         bottom: inherit;
         width: auto;
-    }
-
-    .button-solid ion-icon.text-red {
-        font-size: 70px !important;
-    }
-
-    .button-solid ion-icon.text-green {
-        font-size: 70px !important;
-    }
-
-    .button-solid ion-label.text-red {
-        font-size: 30px !important;
-    }
-
-    .button-solid ion-label.text-green {
-        font-size: 30px !important;
     }
 
     .main {

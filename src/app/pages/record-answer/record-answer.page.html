@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
     <ion-toolbar color="primary" *ngIf="cancelModeDisable">
-        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
+        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
+            <ion-icon src="./assets/custom-menu.svg"></ion-icon>
+        </ion-menu-button>
         <ion-title>Record Answer</ion-title>
         <ion-buttons collapse="true" slot="end">
             <ion-button (click)="goToRecordingsList()">
@@ -74,7 +76,7 @@
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="goToCancelScreen()">
                                 <div>
-                                    <ion-icon name="close" class="text-red"></ion-icon><br>
+                                    <img src="assets/images/icons/close.png" width="80">
                                     <ion-label class="text-red">Cancel</ion-label>
                                 </div>
                             </ion-button>
@@ -85,7 +87,7 @@
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="pauseRecording()" *ngIf="isRecord">
                                 <div>
-                                    <ion-icon name="pause" class="text-yellow"></ion-icon><br>
+                                    <img src="assets/images/icons/pause.png" width="80">
                                     <ion-label class="text-yellow">Pause</ion-label>
                                 </div>
                             </ion-button>
@@ -93,7 +95,7 @@
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="resumeRecording()" *ngIf="isPaused">
                                 <div>
-                                    <ion-icon name="mic-outline" class="text-yellow"></ion-icon><br>
+                                    <img src="assets/images/icons/microphone.png" width="80">
                                     <ion-label class="text-yellow">Record</ion-label>
                                 </div>
                             </ion-button>
@@ -104,7 +106,7 @@
                         <ion-card class="custom-card">
                             <ion-button shape="round" expand="full" size="large" color="light" (click)="saveRecording()">
                                 <div>
-                                    <ion-icon name="checkmark" class="text-green"></ion-icon><br>
+                                    <img src="assets/images/icons/check.png" width="80">
                                     <ion-label class="text-green">Save</ion-label>
                                 </div>
                             </ion-button>

@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
     <ion-toolbar color="primary">
-        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()"></ion-menu-button>
+        <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
+            <ion-icon src="./assets/custom-menu.svg"></ion-icon>
+        </ion-menu-button>
         <ion-title>Questions</ion-title>
         <ion-buttons collapse="true" slot="end">
             <ion-button (click)="goToRecordingsList()">
@@ -40,7 +42,7 @@
                         <ion-card>
                             <ion-button expand="full" size="large" color="light" (click)="skipCurrentQuestion()">
                                 <div>
-                                    <ion-icon name="close" class="text-red"></ion-icon><br>
+                                    <img src="assets/images/icons/close.png" width="90">
                                     <ion-label class="text-red">Skip</ion-label>
                                 </div>
                             </ion-button>
@@ -51,7 +53,7 @@
                         <ion-card>
                             <ion-button expand="full" size="large" color="light" (click)="goToAnswerScreen()">
                                 <div>
-                                    <ion-icon name="checkmark" class="text-green"></ion-icon><br>
+                                    <img src="assets/images/icons/check.png" width="90">
                                     <ion-label class="text-green">Answer</ion-label>
                                 </div>
                             </ion-button>
@@ -62,27 +64,3 @@
         </div>
     </div>
 </ion-content>
-
-<!-- <ion-footer>
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <ion-button expand="full" size="large" color="danger" (click)="skipCurrentQuestion()">
-                    <div>
-                        <ion-icon name="close"></ion-icon><br>
-                        Skip
-                    </div>
-                </ion-button>
-            </ion-col>
-
-            <ion-col>
-                <ion-button expand="full" size="large" color="success" (click)="goToAnswerScreen()">
-                    <div>
-                        <ion-icon name="checkmark"></ion-icon><br>
-                        Answer
-                    </div>
-                </ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-</ion-footer> -->

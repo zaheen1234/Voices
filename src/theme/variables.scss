@@ -1,6 +1,26 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+/** Fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root,
+:root[mode="md"],
+:root[mode="ios"] {
+  --ion-font-family: 'Roboto', sans-serif;
+  font-family: var(--ion-font-family) !important;
+}
+
+@font-face {
+    font-family:Roboto;
+    font-style: medium;
+    src: url('../assets/fonts/Roboto/Roboto-Medium.ttf');
+}
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 /** Ionic CSS Variables **/
 :root {
   --ion-color-voice: #33cccc;
@@ -21,8 +41,8 @@
 }
 :root {
   /** primary **/
-  --ion-color-primary: #06BDBB;
-  --ion-color-primary-rgb: 6, 189, 187;
+  --ion-color-primary: #048988;
+  --ion-color-primary-rgb: 4, 137, 136;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #3171e0;
