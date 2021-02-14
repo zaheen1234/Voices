@@ -79,11 +79,11 @@ export class RecordAnswerPage implements OnInit {
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
-  //  this.stopCountdown();
+    //this.stopCountdown();
     this.stopInterval();
     this.audio = null;
     console.log('checking timer : ', this.countdown);
-  //  this.getMinutesTimer();
+    //this.getMinutesTimer();
     let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
                  date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
                  hours: this.hours, minutes: this.minutes, seconds: this.seconds
@@ -273,30 +273,34 @@ export class RecordAnswerPage implements OnInit {
    goToCancelScreen() {
     console.log('gotocancelscreenknddknd');
    this.vibration.vibrate(100);
+   console.log('gotocancelScreen function called');
+   this.cancelModeEnable = true;
+   this.cancelModeDisable = false;
+   this.changeRef.detectChanges();
   //  const alart = await this.alertController.create({
+  //   cssClass: 'my-custom-class',
   //   header: 'Are you sure you want to cancel your recording?',
   //   buttons: [
   //     {
   //       text: 'YES',
   //       handler: () => {
 
-  //       }
+  //       },
+  //       cssClass: 'failure-button'
   //     },
   //     {
   //       text: 'NO',
   //       role: 'cancel',
   //       handler: (blah) => {
   //         // do nothing
-  //       }
+  //       },
+  //       cssClass: 'failure-button'
   //     }
   //   ]
   // });
   // await alart.present();
   // return;
-   console.log('gotocancelScreen function called');
-   this.cancelModeEnable = true;
-   this.cancelModeDisable = false;
-   this.changeRef.detectChanges();
+   
   }
 
   resumeRecording() {
@@ -311,7 +315,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-   // this.stopRecord();
+  //  this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }

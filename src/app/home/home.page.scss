@@ -5,6 +5,18 @@
     background: #f1f5f5;
 }
 
+.headingcls {
+    background-color: white !important;
+}
+
+.itemCls {
+    background-color: transparent !important;
+}
+
+.labelcls {
+    margin-left: 10% !important;
+}
+
 // .main ion-card-title {
 //     font-size: 2rem;
 // }
@@ -169,6 +181,7 @@ ion-card {
 
 /* Smartphones One Plus 6 ----------- */
 @media only screen and (min-device-width : 410px) and (max-height: 872px){
+   
     .titleCls {
         font-size: 2.5rem;
     }

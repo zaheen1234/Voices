@@ -11,6 +11,18 @@
     align-items: center;
 }
 
+.failure-button {
+    text-align: center;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-color: #d7d7d7;
+    border-style: solid;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    height: 85px;
+}
+
 .titleCls {
     font-size: 2.2rem;
     font-weight: bold;
