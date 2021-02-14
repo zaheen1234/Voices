@@ -1,4 +1,4 @@
-.ion-color-primary {
+/*.ion-color-primary {
     --ion-color-shade: #fff !important;
     font-weight: bold;
     font-size: 1.1rem;
@@ -24,6 +24,51 @@ ion-icon {
 .ion-color-primary{
     font-size: 1.8rem;
 }
+.inbox-list{
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+*/
+
+.inbox-list {
+    background-color: #33cccc;
+    color:white !important;
+}
+
+.contentClass {
+    background-color: #33cccc !important;
+    color: #33cccc;
+}
+
+.inbox-list{
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+.title {
+    text-align: center;
+    color: #fff;
+  }
+  .recordingiconcls{ 
+    
+    --ionicon-stroke-width: 30px;
+    color: #fff;
+  }
+  ion-menu-button{ 
+    color: #fff;
+  }
+  .inbox-list ion-label { 
+    font-size:2rem;
+  }
+  .inbox-list ion-row { 
+    margin:0 0 10px;
+  }
+
+
+
+
+
 
 
 
