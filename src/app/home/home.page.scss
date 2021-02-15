@@ -6,11 +6,11 @@
 }
 
 .headingcls {
-    background-color: white !important;
+    background-color:transparent !important;
 }
 
 .itemCls {
-    background-color: transparent !important;
+    // background-color: #07bdbb !important;
 }
 
 .labelcls {
@@ -112,16 +112,16 @@ ion-card {
     box-shadow: 0px 2px 6px 0px #dee0e0 inset;
 }
 .subcard-fixed ion-item{
-    background: #f8fafa;
+    background:transparent;
 }
 .subcard-fixed ion-item .item-native{
-    background: #f8fafa;
+    background: transparent;
 }
 .subcard-fixed ion-avatar{
-    background: #f8fafa;
+    background: transparent;
 }
 .subcard-fixed ion-label{
-    background: #f8fafa;
+    background: transparent;
 }
 .button-solid .common-icon-list{
     width: 70%;
@@ -129,6 +129,10 @@ ion-card {
 }
 .toggle-icon{
     width:25px;
+}
+
+.voices-icon {
+    width: 50px;
 }
 
 
