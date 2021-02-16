@@ -6,7 +6,7 @@
 }
 .card-fixed {
     display: flex;
-    height: 48vh;
+    height: 44vh;
     overflow: auto;
     align-items: center;
 }
@@ -156,6 +156,7 @@ ion-card {
     font-size: 2rem;
     font-weight: bold;
     color: #058988;
+    text-align: center;
 }
 .cardclscancel icon-col{
     margin:0;

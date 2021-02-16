@@ -187,7 +187,7 @@ ion-card {
 
 
 /* Smartphones One Plus 6 ----------- */
-@media only screen and (min-device-width : 410px) and (max-height: 872px){
+@media only screen and (min-device-width : 410px) and (max-height: 793px){
    
     .titleCls {
         font-size: 2.5rem;
@@ -196,7 +196,7 @@ ion-card {
         font-size: 2.5rem;
     }
     .card-fixed{
-        height: 65vh;
+        height: 62vh;
     }
     .button-solid ion-icon.text-red {
         font-size: 8rem;
