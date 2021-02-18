@@ -20,6 +20,8 @@
     align-items: center;
     box-shadow: 1px 1px 6px 1px #babdbd;
     background: #fff;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 ion-card {
@@ -127,23 +129,27 @@ ion-card {
     bottom: 0;
     width: 100%
 }
-
-.button-solid .common-icon-list{
-    width: 18%;
+.success-status{
+    width: 20%;
     margin: 0 20px 0 0;
+    float: left;
+}
+.button-solid .common-icon-list{
+    width: auto;
+    
 }
 .button-solid .playstart-icon.common-icon-list{
-    width: 15%;
+    width: 85%;
     margin-top: 4px;
     
 }
 .button-solid .delete-icon.common-icon-list{
-    width: 16%;
+    width: 85%;
     margin-top: 4px;
     
 }
 .toggle-icon{
-    width:25px;
+    width:19px;
 }
 ion-menu-toggle{
     display: flex;
@@ -163,6 +169,8 @@ ion-menu-toggle{
     margin:0 15px;
     height:34%;
     background: #fff;
+    border-radius: 14px;
+    width: 95%;
 }
 
 .main ion-card-title.titleclscancel{
@@ -223,7 +231,13 @@ ion-menu-toggle{
   }
 
  /**Popup Cancel End**/ 
-
+ .head-icon{
+    width:30px;
+}
+ion-header ion-title{
+    padding: 0;
+    font-size: 24px;
+}
 
 // For Landscape
 @media (orientation: landscape) {
@@ -260,5 +274,7 @@ ion-menu-toggle{
     }
     .button-round ion-label.text-red, .button-round ion-label.text-yellow, .button-round ion-label.text-green {
         font-size: 2.3rem;
+        width: 35%;
+        float: left;
     }
 }

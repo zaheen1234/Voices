@@ -53,7 +53,7 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <ion-label><ion-icon name="close-outline"></ion-icon>
+              <ion-label><ion-icon name="close"></ion-icon>
               </ion-label>
             </ion-col>
           </ion-row>
@@ -89,15 +89,33 @@
                 </ion-label>
               </ion-col>
             </ion-row>
-            <ion-row (click)="goToThisPage('home')">
+            <ion-row (click)="goToThisPage('home')" class="btm-menu">
               <ion-col>
-                <ion-label><ion-icon name="home"></ion-icon> Home 
+                <ion-label><img class="menu-icons" src="assets/images/home.png"> Home 
                 </ion-label>
               </ion-col>
             </ion-row>
-            <ion-row (click)="goToThisPage('recordings')">
+            <ion-row (click)="goToThisPage('recordings')" class="btm-menu">
               <ion-col>
-                <ion-label><ion-icon name="headset"></ion-icon> My Recordings
+                <ion-label><img class="menu-icons" src="assets/images/headphone-symbol (1).png"> My Recordings
+                </ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row class="active-menu btm-menu">
+              <ion-col>
+                <ion-label><img class="menu-icons" src="assets/images/family-silhouette (1).png"> My Family
+                </ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row class="btm-menu">
+              <ion-col>
+                <ion-label><img class="menu-icons" src="assets/images/settings.png"> My Account
+                </ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row class="btm-menu">
+              <ion-col>
+                <ion-label><img class="menu-icons" src="assets/images/menuplay.png"> <span>Tutorial</span>
                 </ion-label>
               </ion-col>
             </ion-row>

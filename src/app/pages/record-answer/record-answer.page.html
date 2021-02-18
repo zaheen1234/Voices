@@ -2,12 +2,12 @@
     <ion-toolbar color="primary" *ngIf="cancelModeDisable">
         
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
-            <img class="toggle-icon" src='assets/images/menu.png'>
+            <img class="toggle-icon" src='assets/images/togglemenu.png'>
         </ion-menu-button>
         <ion-title>Record Answer</ion-title>
         <ion-buttons collapse="true" slot="end">
             <ion-button (click)="goToRecordingsList()">
-                <ion-icon slot="end" name="headset-outline"></ion-icon>
+                <img class="head-icon" src="assets/images/headphone-symbol (1).png">
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -38,7 +38,7 @@
         <ion-card class="cardclscancel" *ngIf="cancelModeEnable">
             <div class="cancel-popup">
             <ion-card-header>
-              <ion-card-title class="titleclscancel">Are you sure you want to cancel your recording?</ion-card-title>
+              <ion-card-title class="titleclscancel">Are you sure you <br>want to cancel<br> your recording?</ion-card-title>
             </ion-card-header>    
                 <ion-card-content>
                   <div>
@@ -92,7 +92,7 @@
                         1
                     </h1>
                     <h2 *ngIf="started">
-                        Recording Started
+                        Recording <br>Started
                     </h2>
                     <div *ngIf="animation">
                         <img src="assets/images/source.gif" *ngIf="showGif">

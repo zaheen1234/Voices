@@ -37,14 +37,18 @@
     flex: 1;
     position: absolute;
     bottom: 4px;
-    width: 100%
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 ion-card {
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 1px 3px 10px 2px #babdbd;
+    margin: 15px 15px 5px 15px;
 }
 .footer ion-card {
-    box-shadow: 1px 3px 10px 2px #babdbd;
+    box-shadow: 1px 8px 10px 2px #babdbd;
 }
 
 .button-solid {
@@ -114,8 +118,12 @@ ion-card {
 .subcard-fixed ion-item{
     background:transparent;
 }
-.subcard-fixed ion-item .item-native{
-    background: transparent;
+ion-item{
+    --inner-padding-end: 0px;
+    --padding-start:0px
+}
+ion-item .item-native{
+    --background: transparent;
 }
 .subcard-fixed ion-avatar{
     background: transparent;
@@ -128,13 +136,22 @@ ion-card {
     margin: 0 0 20px 0;
 }
 .toggle-icon{
-    width:25px;
+    width:19px;
 }
 
 .voices-icon {
     width: 50px;
+    border-radius:0;
+    padding-top: 6px;
+    height: 36px;
 }
-
+.head-icon{
+    width:30px;
+}
+ion-header ion-title{
+    padding: 0;
+    font-size: 24px;
+}
 
 // For Landscape
 @media (orientation: landscape) {
@@ -197,6 +214,7 @@ ion-card {
     }
     .card-fixed{
         height: 62vh;
+        
     }
     .button-solid ion-icon.text-red {
         font-size: 8rem;
