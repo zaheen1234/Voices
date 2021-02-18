@@ -38,7 +38,7 @@ export class RecordingsListPage implements OnInit {
   progress = 0;
   startTimer: boolean = false;
   totalSeconds = 0;
-  p_bar_value: number;
+  p_bar_value: number = 0;
 
   ngOnInit() {
     this.questionsList = this.questionService.questionArray;
@@ -130,6 +130,7 @@ resetProgressBar() {
         }, 1000);
       } else {
         this.progress = 0;
+        this.p_bar_value = 0;
       }
     }
 
