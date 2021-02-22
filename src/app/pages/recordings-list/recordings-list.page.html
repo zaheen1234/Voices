@@ -8,76 +8,41 @@
 </ion-header>
 
 <ion-content>
-    <!-- <ion-card *ngFor="let audio of audioList; index as i;"> -->
-    <ion-card class="listing-sec"> 
+    <ion-card *ngFor="let audio of audioList; index as i;">
+    <!-- <ion-card class="listing-sec">  -->
         <ion-card-header>
             <ion-card-title>
                 <ion-row (click)="playAudio(audio.filename, i)">
                     <ion-col size="8">
-                        <!-- <p class="card-text">{{audio.question}}</p> -->
-                        <p class="card-text">What was you childhood?</p>
+                        <p class="card-text">{{audio.question}}</p>
+                        <!-- <p class="card-text">What was you childhood?</p> -->
                     </ion-col>
                     <ion-col size="4" class="text-center audio-icon">
-                        <!-- <ion-icon name="caret-forward-circle" [ngClass]="checkIfRowEnable(i) ? 'recording-btn': 'grey-icon' "></ion-icon> -->
                         <img *ngIf="checkIfRowEnable(i)" src="assets/images/shadowplay.png" class="greyplay">
                         <img *ngIf="checkIfRowEnable(i) == false" src="assets/images/shadowplaygrey.png" class="greyplay">
                     </ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col size="8">
-                        <!-- <p class="card-date">{{audio.date}} {{getFormattedMonth(audio.month)}} {{audio.year}} | Asked by Tim Madden</p> -->
-                        <p class="card-date">20Aug-2019 | Asked by Tim Madden</p>
+                        <p class="card-date">{{audio.date}} {{getFormattedMonth(audio.month)}} {{audio.year}} | Asked by Voices</p>
+                        <!-- <p class="card-date">20Aug-2019 | Asked by Tim Madden</p> -->
 
                     </ion-col>
                     <ion-col size="4" class="text-center">
-                        <!-- <p class="card-time">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p> -->
-                        <p class="card-time">00:05:22</p>
+                        <p class="card-time">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p>
+                        <!-- <p class="card-time">00:05:22</p> -->
                     </ion-col>
                 </ion-row>
                 <ion-row *ngIf="checkIfRowEnable(i)">
-                    <ion-col>
-                        <ion-progress-bar color="voice" value="0.8" class="prgrs-baar"></ion-progress-bar>
-                        <p class="progrs-count">0.124</p>
-                        <p class="progrs-count-complete">5</p>
+                    <ion-col> <img src="assets/images/soundwave.gif" class="voice-img"><br>
+                        <ion-progress-bar color="voice" [value]="p_bar_value" class="prgrs-baar"></ion-progress-bar>
+                        <p class="progrs-count">{{progress}}</p>
+                        <p class="progrs-count-complete">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p>
                     </ion-col>
                 </ion-row>
             </ion-card-title>
         </ion-card-header>
     </ion-card>
 
-    <ion-card class="listing-sec">
-        <ion-card-header>
-            <ion-card-title>
-                <ion-row (click)="playAudio(audio.filename, i)">
-                    <ion-col size="8">
-                        <!-- <p class="card-text">{{audio.question}}</p> -->
-                        <p class="card-text">What was you childhood?</p>
-                    </ion-col>
-                    <ion-col size="4" class="text-center audio-icon">
-                        <!-- <ion-icon name="caret-forward-circle" [ngClass]="checkIfRowEnable(i) ? 'recording-btn': 'grey-icon' "></ion-icon> -->
-                        <img *ngIf="checkIfRowEnable(i)" src="assets/images/shadowplaygrey.png" class="greyplay">
-                        <img *ngIf="checkIfRowEnable(i) == false" src="assets/images/shadowplaygrey.png" class="greyplay">
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col size="8">
-                        <!-- <p class="card-date">{{audio.date}} {{getFormattedMonth(audio.month)}} {{audio.year}} | Asked by Tim Madden</p> -->
-                        <p class="card-date">20Aug-2019 | Asked by Tim Madden</p>
-
-                    </ion-col>
-                    <ion-col size="4" class="text-center">
-                        <!-- <p class="card-time">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p> -->
-                        <p class="card-time">00:05:22</p>
-                    </ion-col>
-                </ion-row>
-                <ion-row *ngIf="checkIfRowEnable(i)">
-                    <ion-col><br>
-                        <ion-progress-bar color="voice" value="0.8" class="prgrs-baar"></ion-progress-bar>
-                        <p class="progrs-count">0.124</p>
-                        <p class="progrs-count-complete">5</p>
-                    </ion-col>
-                </ion-row>
-            </ion-card-title>
-        </ion-card-header>
-    </ion-card>
+   
 </ion-content>
