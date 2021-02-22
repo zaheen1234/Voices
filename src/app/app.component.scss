@@ -1,4 +1,4 @@
-.ion-color-primary {
+/*.ion-color-primary {
     --ion-color-shade: #fff !important;
     font-weight: bold;
     font-size: 1.1rem;
@@ -14,9 +14,107 @@
 }
 
 .ion-color-primary {
-    --ion-color-shade: #048988 !important;
+    --ion-color-shade: #06bdbb !important;
 }
 
 ion-icon {
     margin-inline-end: 20px;
+    font-size: 2rem;
 }
+.ion-color-primary{
+    font-size: 1.8rem;
+}
+.inbox-list{
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+*/
+
+.inbox-list {
+    background-color: #33cccc;
+    color:white !important;
+}
+
+.contentClass {
+    background-color: #33cccc !important;
+    color: #33cccc;
+}
+
+.inbox-list{
+    height: 100%;
+    display: flex;
+}
+.title {
+    text-align: center;
+    color: #fff;
+  }
+  .recordingiconcls{ 
+    
+    --ionicon-stroke-width: 30px;
+    color: #fff;
+  }
+  ion-menu-button{ 
+    color: #fff;
+  }
+  .inbox-list ion-label { 
+    font-size:2rem;
+  }
+  .inbox-list ion-row { 
+    margin:0 0 10px;
+  }
+  .inbox-list .btm-menu{
+    margin:0 0 45px;
+  }
+  .inbox-list .btm-menu ion-col{
+    padding-left:10px;
+  }
+
+  .appName {
+      background-color: white;
+      color: #33cccc;
+  }
+  .voice-row{
+    padding: 20px 0;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0px 3px 6px 0px #c5c5c5 inset;
+   }
+  .label-voice{
+      padding:0 0 0 58px;
+      background: transparent;
+  }
+  .label-voice img{
+    position: absolute;
+    left: 12px;
+    top: 8px; 
+    height: 28px;
+    width: 28px;
+    padding-right: 0 !important;
+}
+.inbox-list .label-voice ion-label { 
+    font-size:2.5rem;
+  }
+  .inbox-list #main-grid{
+    padding-left:0;
+    padding-right: 25px;
+  }
+  .menu-icons{
+    width:36px;
+    margin-right:14px;
+    float: left;
+  }
+  .active-menu{
+    padding: 6px 0;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0px 3px 6px 0px #c5c5c5 inset;
+    color: #33cccc;
+   }
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    background: #f1f5f5;
 }
 
 ion-menu-button {
@@ -9,50 +10,75 @@ ion-menu-button {
 }
 
 .main ion-card-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #058988;
 }
 
 // Fixed Card
 .card-fixed {
-    display: block;
-    height: 27vh;
+    display: flex;
+    height: 26vh;
     overflow: auto;
+    align-items: center;
+    box-shadow: 1px 1px 6px 1px #babdbd;
+    background: #fff;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 ion-card {
     border-radius: 8px;
+    background: #f1f5f5;
 }
 
 .custom-card {
     margin: 10px 16px;
-    padding: 1rem 1rem;
+    
 }
-
-.custom-card img {
-    float: left;
-    margin-right: 2rem;
-}
-
 .custom-card ion-label.text-red {
-    font-size: 26px !important;
+    font-size: 26px ;
     text-align: left;
-    color: #9E0D0D !important;
+    color: #9E0D0D;
     text-transform: none;
+    font-weight: bold;
 }
 
 .custom-card ion-label.text-yellow {
-    font-size: 26px !important;
+    font-size: 26px ;
     text-align: left;
-    color: #FF9101 !important;
+    color: #FF9101;
     text-transform: none;
+    font-weight: bold;
 }
 
 .custom-card ion-label.text-green {
-    font-size: 26px !important;
+    font-size: 26px ;
     text-align: left;
-    color: #217A03 !important;
+    color: #217A03;
     text-transform: none;
+    font-weight: bold;
 }
+.button-solid .common-icon-list{
+    width: auto;
+}
+.button-solid .playstart-icon.common-icon-list{
+    width: 85%;
+    margin-top: 4px;
+    
+}
+.button-solid .delete-icon.common-icon-list{
+    width: 85%;
+    margin-top: 4px;
+}
+.button-round {
+    --border-radius: 14px !important;
+    height: 7em !important;
+    --padding-start: 0px;
+    margin-left: -50px;
+    --box-shadow: none !important;
+}
+
 
 // Modal Start
 .custom-modal {
@@ -73,10 +99,96 @@ ion-card {
 }
 // Modal End
 
-.text-primary {
-    color: #048988;
-    font-size: 1.6rem;
+
+.toggle-icon{
+    width:19px;
+}
+ion-menu-toggle{
+    display: flex;
+}
+
+/**Popup Cancel**/
+.cardclscancel {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-shadow: none;
+    background: #fff;
+    margin: 0;
+}
+.cancel-popup{
+    box-shadow: 1px 2px 6px 1px #babdbd;
+    margin:0 15px;
+    height:34%;
+    background: #fff;
+    border-radius: 14px;
+    width: 95%;
+}
+
+.main ion-card-title.titleclscancel{
+    font-size: 2rem;
     font-weight: bold;
+    color: #058988;
+    text-align: center;
+}
+.cardclscancel icon-col{
+    margin:0;
+}
+.cardclscancel ion-card-content{
+    padding-left: 40px
+}
+.borderclsgrn {
+    text-align: center;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-color: #d7d7d7;
+    border-style: solid;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    height: 85px;
+  }  
+  .labelclsgrncancel {
+    text-align: center;
+    color: #267905;
+    background: #fff;
+    font-size: 3rem;
+    width: 162%;
+    font-weight: 700;
+    line-height: 100px;
+    height: 95px;
+    position: absolute;
+  }
+  .borderclsred{
+    text-align: center;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-color: #d7d7d7;
+    border-style: solid;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    height: 85px;
+  }  
+  .labelclsredcancel {
+    text-align: center;
+    color: #981616;
+    background: #fff;
+    font-size: 3rem;
+    width: 162%;
+    font-weight: 700;
+    line-height: 100px;
+    height: 95px;
+    position: absolute;
+  }
+
+ /**Popup Cancel End**/ 
+
+.text-primary {
+    color: #058988;
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 10px 10px 0;
 }
 
 .footer {
@@ -84,6 +196,19 @@ ion-card {
     position: absolute;
     bottom: 0;
     width: 100%
+}
+.success-status{
+    width: 20%;
+    margin: 0 20px 0 0;
+    float: left;
+}
+.head-icon{
+    width:30px;
+}
+ion-header ion-title{
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
 }
 
 // For Landscape
@@ -104,5 +229,17 @@ ion-card {
     .modal-btn{
         height: 2em !important;
         font-size: 2rem;
+    }
+}
+
+/* Smartphones One Plus 6 ----------- */
+@media only screen and (min-device-width : 410px) and (max-height: 872px){
+    .button-round ion-icon.text-red,  .button-round ion-icon.text-yellow, .button-round ion-icon.text-green{
+        font-size: 4.6rem ;
+    }
+    .button-round ion-label.text-red, .button-round ion-label.text-yellow, .button-round ion-label.text-green {
+        font-size: 2.3rem;
+        width: 35%;
+        float: left;
     }
 }

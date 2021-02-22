@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    background: #f1f5f5;
 }
 
 ion-menu-button {
@@ -14,39 +15,50 @@ ion-menu-button {
 
 .titleCls {
     font-size: 2.5rem;
+    font-weight: bold;
+    color: #058988;
 }
 
 .titleCls1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #058988;
 }
+
 
 .footer {
     flex: 1;
     position: absolute;
-    bottom: 0;
-    width: 100%
+    bottom: 4px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 ion-card {
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 1px 3px 10px 2px #babdbd;
+    margin: 15px 15px 5px 15px;
 }
-
+.footer ion-card {
+    box-shadow: 1px 8px 10px 2px #babdbd;
+}
 .button-solid {
     --box-shadow: none !important;
 }
 
 .button-solid {
     --border-radius: 14px !important;
-    height: 8em !important;
+    height: 10em !important;
     display: grid;
 }
 
 .button-solid ion-label {
     display: block;
-    padding-top: 0.7rem;
-    font-size: 36px !important;
+    font-size: 2.6rem;
     text-transform: none;
     font-weight: bold;
+    letter-spacing: 0;
 }
 
 .button-solid ion-label.text-red {
@@ -59,15 +71,50 @@ ion-card {
 
 // Fixed Card
 .card-fixed {
-    display: block;
+    
     height: 58vh;
     overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-fixed ion-card-header{
+    margin: -115px 0 0 0;
 }
 
 .subcard-fixed {
     position: absolute;
     bottom: 0;
-    width: 90%;
+    width: 94%;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    border-radius: 18px;
+    margin: 0 auto 12px;
+    background: #f8fafa;
+    box-shadow: 0px 2px 6px 0px #dee0e0 inset;
+}
+
+.voices-icon {
+    width: 50px;
+    border-radius:0;
+    padding-top: 6px;
+    height: 36px;
+}
+.button-solid .common-icon-list{
+    width: 70%;
+    margin: 0 0 20px 0;
+}
+.toggle-icon{
+    width:19px;
+}
+.head-icon{
+    width:30px;
+}
+ion-header ion-title{
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
 }
 
 // For Landscape
@@ -101,4 +148,37 @@ ion-card {
         bottom: inherit;
         width: auto;
     }
+}
+
+/* Smartphones One Plus 6 ----------- */
+@media only screen and (min-device-width : 410px) and (max-height: 793px){
+   
+    .titleCls {
+        font-size: 2.5rem;
+    }
+    .titleCls1 {
+        font-size: 2.5rem;
+    }
+    .card-fixed{
+        height: 62vh;
+        
+    }
+    .button-solid ion-icon.text-red {
+        font-size: 8rem;
+    }
+    
+    .button-solid ion-icon.text-green {
+        font-size: 8rem;
+    }
+    
+    .button-solid ion-label.text-red {
+        font-size: 2.6rem ;
+    }
+    
+    .button-solid ion-label.text-green {
+        
+        font-size: 2.6rem;
+    }
+    
+
 }
