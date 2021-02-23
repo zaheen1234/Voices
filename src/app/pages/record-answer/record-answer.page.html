@@ -94,9 +94,13 @@
                     <h2 *ngIf="started">
                         Recording <br>Started
                     </h2>
+                    <br>
+                    <br>
+                    
                     <div *ngIf="animation">
-                        <img src="assets/images/source.gif" *ngIf="showGif">
-                        <img src="assets/images/recording.png" *ngIf="showPlain">
+                        <img src="assets/1sec/gif/low.gif" *ngIf="showLow">
+                        <img src="assets/1sec/gif/medium.gif" *ngIf="showMedium">
+                        <img src="assets/1sec/gif/high.gif" *ngIf="showHigh">
                     </div>
                 </div>
             </ion-card>

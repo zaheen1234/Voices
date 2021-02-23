@@ -53,6 +53,9 @@ export class RecordAnswerPage implements OnInit {
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
+  showLow: boolean = false;
+  showMedium: boolean = false;
+  showHigh: boolean = false;
 
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
@@ -141,13 +144,26 @@ export class RecordAnswerPage implements OnInit {
       this.interval = setInterval(_ => {
       self.progress = self.progress + 1;
       this.audio.getCurrentAmplitude().then((data)=> {
-      if (data > 0.2) {
-        this.showPlain = false;
-        this.showGif = true;
+      if (data < 0.1) {
+        console.log('checking amplitude: ', data);
+        this.showLow = true;
+        this.showMedium = false;
+        this.showHigh = false;
+        
         this.changeRef.detectChanges();
-      } else {
-        this.showGif = false;
-        this.showPlain = true;
+      } else if(data > 0.1 && data < 0.9){
+        console.log('MEDIUM amplitude: ', data);
+        this.showMedium = true;
+        this.showLow = false;
+        this.showHigh = false;
+        
+        this.changeRef.detectChanges();
+      } else if(data > 0.9){
+        console.log('checking amplitude: ', data);
+        this.showHigh = true;
+        this.showLow = false;
+        this.showMedium = false;
+        
         this.changeRef.detectChanges();
       }
     })
