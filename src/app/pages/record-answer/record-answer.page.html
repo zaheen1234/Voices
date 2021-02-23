@@ -96,7 +96,9 @@
                     </h2>
                     <br>
                     <br>
-                    
+                    <div *ngIf="animation">
+                        <img src="assets/1sec/gif/high.gif">
+                    </div>
                     <div *ngIf="animation">
                         <img src="assets/1sec/gif/low.gif" *ngIf="showLow">
                         <img src="assets/1sec/gif/medium.gif" *ngIf="showMedium">
