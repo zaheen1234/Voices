@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
     <ion-toolbar color="primary" *ngIf="cancelModeDisable">
-        
+
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
             <img class="toggle-icon" src='assets/images/togglemenu.png'>
         </ion-menu-button>
@@ -34,37 +34,37 @@
                 </ion-card-content>
             </ion-card>
         </div>-->
-        
+
         <ion-card class="cardclscancel" *ngIf="cancelModeEnable">
             <div class="cancel-popup">
-            <ion-card-header>
-              <ion-card-title class="titleclscancel">Are you sure you <br>want to cancel<br> your recording?</ion-card-title>
-            </ion-card-header>    
+                <ion-card-header>
+                    <ion-card-title class="titleclscancel">Are you sure you <br>want to cancel<br> your recording?</ion-card-title>
+                </ion-card-header>
                 <ion-card-content>
-                  <div>
-                  <ion-grid class="gridcls">
-                    <ion-row>
-                      <ion-col size="5">
-                       <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
-                         <ion-label class="labelclsgrncancel">
-                           YES
-                         </ion-label>
-                         </ion-button>
-                      </ion-col>
-                      <ion-col size="5">
-                        <ion-button class="borderclsred" (click)="backToRecording()">
-                         <ion-label class="labelclsredcancel">
-                           NO
-                         </ion-label>
-                        </ion-button>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                 </div>
-                  </ion-card-content>
-                </div>
+                    <div>
+                        <ion-grid class="gridcls">
+                            <ion-row>
+                                <ion-col size="5">
+                                    <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
+                                        <ion-label class="labelclsgrncancel">
+                                            YES
+                                        </ion-label>
+                                    </ion-button>
+                                </ion-col>
+                                <ion-col size="5">
+                                    <ion-button class="borderclsred" (click)="backToRecording()">
+                                        <ion-label class="labelclsredcancel">
+                                            NO
+                                        </ion-label>
+                                    </ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </ion-card-content>
+            </div>
         </ion-card>
-        
+
         <ion-card *ngIf="cancelModeDisable" class="card-fixed">
             <ion-card-header>
                 <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="primary">
@@ -76,28 +76,28 @@
         <div class="footer">
             <ion-card *ngIf="cancelModeDisable" style="box-shadow: none; background-color: transparent;">
                 <div class="ion-text-center text-primary">
-                    <h1 *ngIf="enable5" >
-                        5
-                    </h1>
-                    <h1 *ngIf="enable4">
-                        4
-                    </h1>
-                    <h1 *ngIf="enable3">
-                        3
-                    </h1>
-                    <h1 *ngIf="enable2">
-                        2
-                    </h1>
-                    <h1 *ngIf="enable1">
-                        1
-                    </h1>
-                    <h2 *ngIf="started">
-                        Recording <br>Started
-                    </h2>
-                    <br>
-                    <br>
+                    <div>
+                        <h1 *ngIf="enable5">
+                            5
+                        </h1>
+                        <h1 *ngIf="enable4">
+                            4
+                        </h1>
+                        <h1 *ngIf="enable3">
+                            3
+                        </h1>
+                        <h1 *ngIf="enable2">
+                            2
+                        </h1>
+                        <h1 *ngIf="enable1">
+                            1
+                        </h1>
+                        <h2 *ngIf="started">
+                            Recording <br>Started
+                        </h2>
+                    </div>
                     <div *ngIf="animation">
-                        <img src="assets/1sec/gif/high.gif">
+                        <img src="assets/1sec/gif/high.gif" class="waves">
                     </div>
                     <div *ngIf="animation">
                         <img src="assets/1sec/gif/low.gif" *ngIf="showLow">
@@ -108,48 +108,25 @@
             </ion-card>
 
             <ion-grid *ngIf="cancelModeDisable">
-                <ion-row>
-                    <ion-col>
-                        <ion-card class="custom-card">
-                            <ion-button shape="round" expand="full" size="large" color="light" (click)="goToCancelScreen()">
-                                <div>
-                                   <!-- <ion-icon name="close" class="text-red"></ion-icon>--><img class="close-icon common-icon-list" src="assets/images/close.png"><br>
-                                    <ion-label class="text-red">Cancel</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
-
-                    <ion-col>
-                        <ion-card class="custom-card">
-                            <ion-button shape="round" expand="full" size="large" color="light" (click)="pauseRecording()" *ngIf="isRecord">
-                                <div>
-                                    <!--<ion-icon name="pause" class="text-yellow"></ion-icon>--><img class="pause-icon common-icon-list" src="assets/images/pause.png"><br>
-                                    <ion-label class="text-yellow">Pause</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                        <ion-card class="custom-card">
-                            <ion-button shape="round" expand="full" size="large" color="light" (click)="resumeRecording()" *ngIf="isPaused">
-                                <div>
-                                    <!--<ion-icon name="mic-outline" class="text-yellow"></ion-icon>--><img class="resume-icon common-icon-list" src="assets/images/microphone.png"><br>
-                                    <ion-label class="text-yellow">Record</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
-
-                    <ion-col>
-                        <ion-card class="custom-card">
-                            <ion-button shape="round" expand="full" size="large" color="light" (click)="saveRecording()">
-                                <div>
-                                    <!--<ion-icon name="checkmark" class="text-green"></ion-icon>--><img class="correct-icon common-icon-list" src="assets/images/check.png"><br>
-                                    <ion-label class="text-green">Save</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
+                <ion-row class="footer-btn">
+                    <button (click)="goToCancelScreen()" class="btn-red">
+                        <img  src="assets/images/close.png"><br>
+                        <span>Cancel</span>
+                    </button>
+                    <button (click)="pauseRecording()" *ngIf="isRecord" class="btn-yellow">
+                        <img  src="assets/images/pause.png"><br>
+                        <span>Pause</span>
+                    </button>
+                    <button (click)="resumeRecording()" *ngIf="isPaused" class="btn-yellow">
+                        <img  src="assets/images/microphone.png"><br>
+                        <span>Record</span>
+                    </button>
+                    <button (click)="saveRecording()" class="btn-green">
+                        <img  src="assets/images/check.png"><br>
+                        <span>Save</span>
+                    </button>
                 </ion-row>
+
             </ion-grid>
         </div>
     </div>

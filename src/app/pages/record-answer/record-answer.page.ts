@@ -286,36 +286,36 @@ export class RecordAnswerPage implements OnInit {
   }
 
 
-   goToCancelScreen() {
-    console.log('gotocancelscreenknddknd');
-   this.vibration.vibrate(100);
-   console.log('gotocancelScreen function called');
-   this.cancelModeEnable = true;
-   this.cancelModeDisable = false;
-   this.changeRef.detectChanges();
-  //  const alart = await this.alertController.create({
-  //   cssClass: 'my-custom-class',
-  //   header: 'Are you sure you want to cancel your recording?',
-  //   buttons: [
-  //     {
-  //       text: 'YES',
-  //       handler: () => {
+   async goToCancelScreen() {
+  //   console.log('gotocancelscreenknddknd');
+  //  this.vibration.vibrate(100);
+  //  console.log('gotocancelScreen function called');
+  //  this.cancelModeEnable = true;
+  //  this.cancelModeDisable = false;
+  //  this.changeRef.detectChanges();
+   const alart = await this.alertController.create({
+    cssClass: 'basic-alert',
+    header: 'Are you sure you want to cancel your recording?',
+    buttons: [
+      {
+        text: 'YES',
+        handler: () => {
 
-  //       },
-  //       cssClass: 'failure-button'
-  //     },
-  //     {
-  //       text: 'NO',
-  //       role: 'cancel',
-  //       handler: (blah) => {
-  //         // do nothing
-  //       },
-  //       cssClass: 'failure-button'
-  //     }
-  //   ]
-  // });
-  // await alart.present();
-  // return;
+        },
+        cssClass: 'failure-button'
+      },
+      {
+        text: 'NO',
+        role: 'cancel',
+        handler: (blah) => {
+          // do nothing
+        },
+        cssClass: 'failure-button'
+      }
+    ]
+  });
+  await alart.present();
+  return;
    
   }
 

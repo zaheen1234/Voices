@@ -9,21 +9,29 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
+
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+body {
+    font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
+}
 
 
 /*ion-modal {
@@ -90,43 +98,39 @@
 }*/
 
 .my-custom-modal-css .modal-wrapper {
-   height: 60%;
-   width:100%;
-   top: 40%;
-   background-color: #383a3e;
-   color:white;
-   position: absolute; 
-   display: block;  
+    height: 60%;
+    width: 100%;
+    top: 40%;
+    background-color: #383a3e;
+    color: white;
+    position: absolute;
+    display: block;
 }
 
 .my-custom-modal-css1 .modal-wrapper {
-   height: 70%;
-   width:100%;
-   top: 70%;
-   background-color: #383a3e;
-   color:white;
-   position: absolute; 
-   display: block; 
-
+    height: 70%;
+    width: 100%;
+    top: 70%;
+    background-color: #383a3e;
+    color: white;
+    position: absolute;
+    display: block;
 }
 
 .my-custom-class .alert-wrapper {
-
-        // display: flex;
-        align-items: center;
-        height: 40%;
-        max-width: 400px;
-        box-shadow:none;
-        background: #fff;
-        margin: 0;
-       
-    
+    // display: flex;
+    align-items: center;
+    height: 40%;
+    max-width: 400px;
+    box-shadow: none;
+    background: #fff;
+    margin: 0;
 }
-.header { 
-     font-size: 2rem;
+
+.header {
+    font-size: 2rem;
     font-weight: bold;
     color: #058988;
-    
 }
 
 .failure-button {
@@ -139,6 +143,64 @@
     width: 100%;
     position: absolute;
     height: 85px;
+}
+
+// CUSTOM ALERT
+.basic-alert {
+    .alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
+        min-width: calc(100% - 30px);
+        padding-top: 6vh;
+        border-radius: 14px;
+        padding-bottom: 6vh;
+        font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
+    }
+    .alert-title.sc-ion-alert-md,
+    .alert-title.sc-ion-alert-ios {
+        font-size: 26px;
+        color: #058988;
+        text-align: center;
+        font-weight: 500;
+    }
+    .alert-button-group.sc-ion-alert-md {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #dadada;
+        max-width: 200px;
+        margin: auto;
+        flex-wrap: inherit;
+        padding: 0;
+        margin-bottom: 20px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .alert-button.sc-ion-alert-md,
+    .alert-button.sc-ion-alert-ios {
+        color: #000;
+        font-weight: 900;
+        width: 50%;
+        border: 0px;
+        border-right: 1px solid #dadada;
+        flex: 0 0 50%;
+        text-align: center;
+        justify-content: center;
+        padding: 0 0 0 0px;
+        margin: 0;
+        span.alert-button-inner.sc-ion-alert-md {
+            justify-content: center;
+            font-size: 26px;
+            padding: 0;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+    .alert-button-group.sc-ion-alert-md button:first-child span {
+        color: green;
+    }
+    .alert-button-group.sc-ion-alert-md button:last-child span {
+        color: #9d1414;
+    }
 }
 
 // ion-split-pane{ 
