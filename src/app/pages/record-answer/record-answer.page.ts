@@ -270,29 +270,32 @@ export class RecordAnswerPage implements OnInit {
 
   backToQuestionScreen() {
     this.vibration.vibrate(100);
-    this.cancelModeEnable = false;
-    this.cancelModeDisable = true;
-    this.changeRef.detectChanges()
     this.route.navigate(['/home']);
+
+    // this.cancelModeEnable = false;
+    // this.cancelModeDisable = true;
+    // this.changeRef.detectChanges()
 
   }
 
   backToRecording () {
     this.vibration.vibrate(100);
-    console.log('gotorecording function called');
-    this.cancelModeEnable = false;
-    this.cancelModeDisable = true;
-    this.changeRef.detectChanges();
+    // console.log('gotorecording function called');
+    // this.cancelModeEnable = false;
+    // this.cancelModeDisable = true;
+    // this.changeRef.detectChanges();
   }
 
 
    async goToCancelScreen() {
+     
   //   console.log('gotocancelscreenknddknd');
-  //  this.vibration.vibrate(100);
   //  console.log('gotocancelScreen function called');
   //  this.cancelModeEnable = true;
   //  this.cancelModeDisable = false;
   //  this.changeRef.detectChanges();
+
+  this.vibration.vibrate(100);
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',
     header: 'Are you sure you want to cancel your recording?',
@@ -300,7 +303,7 @@ export class RecordAnswerPage implements OnInit {
       {
         text: 'YES',
         handler: () => {
-
+          this.backToQuestionScreen();
         },
         cssClass: 'failure-button'
       },
@@ -308,7 +311,7 @@ export class RecordAnswerPage implements OnInit {
         text: 'NO',
         role: 'cancel',
         handler: (blah) => {
-          // do nothing
+          this.backToRecording();
         },
         cssClass: 'failure-button'
       }
@@ -331,7 +334,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-   // this.stopRecord();
+    this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -399,7 +402,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-    //  this.startRecord();
+      this.startRecord();
     }, 1000);
   }
 

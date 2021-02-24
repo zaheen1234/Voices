@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { QuestionServiceService } from '../../services/questionService/question-service.service';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -30,7 +30,8 @@ export class SuccessPagePage implements OnInit {
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
     private questionService: QuestionServiceService,
     private platform: Platform, private media: Media,
-    private file: File, private vibration: Vibration) {
+    private file: File, private vibration: Vibration, 
+    private alertController: AlertController) {
       this.platform.pause.subscribe(() => {
         this.appIsPaused();
       });
@@ -81,18 +82,41 @@ export class SuccessPagePage implements OnInit {
     this.route.navigate(['/home']);
   }
 
-  deleteAnswer() {
+  async deleteAnswer() {
     this.vibration.vibrate(100);
-    this.deleteModeEnable = true;
-    this.deleteModeDisable = false;
-    this.changeRef.detectChanges();
+    // this.deleteModeEnable = true;
+    // this.deleteModeDisable = false;
+    // this.changeRef.detectChanges();
+    const alart = await this.alertController.create({
+      cssClass: 'basic-alert',
+      header: 'Are you sure you want to delete your answer?',
+      buttons: [
+        {
+          text: 'YES',
+          handler: () => {
+            this.backToQuestionScreen();
+          },
+          cssClass: 'failure-button'
+        },
+        {
+          text: 'NO',
+          role: 'cancel',
+          handler: (blah) => {
+            this.backToRecording();
+          },
+          cssClass: 'failure-button'
+        }
+      ]
+    });
+    await alart.present();
+    return;
   }
 
   backToQuestionScreen() {
     this.vibration.vibrate(100);
-    this.deleteModeDisable = true;
-    this.deleteModeEnable = false;
-    this.changeRef.detectChanges()
+    // this.deleteModeDisable = true;
+    // this.deleteModeEnable = false;
+    // this.changeRef.detectChanges()
 
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.question.id === this.recordingList[i].id) {
@@ -168,10 +192,10 @@ export class SuccessPagePage implements OnInit {
 
   backToRecording () {
     this.vibration.vibrate(100);
-    console.log('gotorecording function called');
-    this.deleteModeDisable = true;
-    this.deleteModeEnable = false;
-    this.changeRef.detectChanges();
+    // console.log('gotorecording function called');
+    // this.deleteModeDisable = true;
+    // this.deleteModeEnable = false;
+    // this.changeRef.detectChanges();
   }
 
   goToRecordingsList() {
