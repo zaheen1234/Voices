@@ -12,7 +12,7 @@
 
 /* Core CSS required for Ionic components to work properly */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -154,14 +154,16 @@ body {
         padding-bottom: 6vh;
         font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
     }
-    .alert-title.sc-ion-alert-md,
-    .alert-title.sc-ion-alert-ios {
-        font-size: 26px;
+    .alert-title {
+        font-size: 32px;
         color: #058988;
         text-align: center;
         font-weight: 500;
+        @media(max-width: 360px) {
+            font-size: 24px;
+        }
     }
-    .alert-button-group.sc-ion-alert-md {
+    .alert-button-group {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -171,12 +173,15 @@ body {
         flex-wrap: inherit;
         padding: 0;
         margin-bottom: 20px;
-        height: 60px;
-        overflow: hidden;
         border-radius: 8px;
+        height: 66px;
+        overflow: hidden;
+        @media(max-width: 360px) {
+            max-width: 180px;
+            height: 50px;
+        }
     }
-    .alert-button.sc-ion-alert-md,
-    .alert-button.sc-ion-alert-ios {
+    .alert-button {
         color: #000;
         font-weight: 900;
         width: 50%;
@@ -187,18 +192,23 @@ body {
         justify-content: center;
         padding: 0 0 0 0px;
         margin: 0;
-        span.alert-button-inner.sc-ion-alert-md {
+        position: static;
+        height: 100%;
+        span.alert-button-inner {
             justify-content: center;
             font-size: 26px;
             padding: 0;
             margin: 0;
             text-transform: uppercase;
+            @media(max-width: 360px) {
+                font-size: 22px;
+            }
         }
     }
-    .alert-button-group.sc-ion-alert-md button:first-child span {
+    .alert-button-group button:first-child span {
         color: green;
     }
-    .alert-button-group.sc-ion-alert-md button:last-child span {
+    .alert-button-group button:last-child span {
         color: #9d1414;
     }
 }

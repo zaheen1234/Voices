@@ -37,33 +37,17 @@
         </ion-card>
 
         <!-- Footer Start -->
-        <div class="footer">
-            <ion-grid class="ion-no-padding">
-                <ion-row class="card-wrap">
-                    <ion-col class="">
-                        <ion-card>
-                            <ion-button expand="full" size="large" color="light" (click)="skipCurrentQuestion()">
-                                <div>
-                                    <!-- <ion-icon name="close" class="text-red"></ion-icon>--><img class="close-icon common-icon-list" src="assets/images/close.png"><br>
-                                    <ion-label class="text-red">Skip</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
-
-                    <ion-col class="">
-                        <ion-card>
-                            <ion-button expand="full" size="large" color="light" (click)="goToAnswerScreen()">
-                                <div>
-                                    <!--<ion-icon name="checkmark" class="text-green"></ion-icon>--><img class="correct-icon common-icon-list" src="assets/images/check.png"><br>
-                                    <ion-label class="text-green">Answer</ion-label>
-                                </div>
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+        <div class="footer-btn">
+            <button expand="full" class="btn-red" (click)="skipCurrentQuestion()">
+                <img class="close-icon common-icon-list" src="assets/images/close.png"><br>
+                Skip
+            </button>
+            <button expand="full" class="btn-green" (click)="goToAnswerScreen()">
+                <img class="correct-icon common-icon-list" src="assets/images/check.png"><br>
+                Answer
+            </button>
         </div>
+
     </div>
 </ion-content>
 

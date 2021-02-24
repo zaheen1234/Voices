@@ -1,167 +1,7 @@
 .main {
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    // height: calc(100vh - 56px);
     background: #f1f5f5;
-}
-
-.headingcls {
-    background-color: transparent !important;
-}
-
-.itemCls {
-    // background-color: #07bdbb !important;
-}
-
-.labelcls {
-    margin-left: 10% !important;
-}
-
-// .main ion-card-title {
-//     font-size: 2rem;
-// }
-.titleCls {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #058988;
-}
-
-.titleCls1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #058988;
-}
-
-.footer {
-    height: 32vh;
-    // flex: 1;
-    // position: absolute;
-    // bottom: 4px;
-    // width: 100%;
-    // padding-left: 0px;
-    // padding-right: 0px;
-}
-
-ion-card {
-    border-radius: 14px;
-    box-shadow: 0px 3px 8px 0px rgb(0 0 0 / 30%);
-    margin: 15px 15px 5px 15px;
-}
-
-.footer ion-card {
-    box-shadow: 0px 3px 8px 0px rgb(0 0 0 / 30%);
-}
-
-.button-solid {
-    --box-shadow: none !important;
-}
-
-.button-solid {
-    --border-radius: 14px !important;
-    height: 10em !important;
-    display: grid;
-}
-
-.button-solid ion-icon.text-red {
-    font-size: 90px;
-    font-weight: bold;
-    --ionicon-stroke-width: 62px;
-    color: #9d1414;
-}
-
-.button-solid ion-icon.text-green {
-    font-size: 90px;
-    font-weight: bold;
-    --ionicon-stroke-width: 62px;
-    color: #267905;
-}
-
-.button-solid ion-label.text-red {
-    font-size: 30px;
-    text-transform: none;
-    font-weight: bold;
-    color: #9d1414;
-    letter-spacing: 0;
-}
-
-.button-solid ion-label.text-green {
-    text-transform: none;
-    font-size: 30px;
-    font-weight: bold;
-    color: #267905;
-    letter-spacing: 0;
-}
-
-// Fixed Card
-.card-fixed {
-    height: calc(58vh - 56px);
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-wrap {
-    ion-col {
-        &:first-child {
-            ion-card {
-                margin-right: 8px;
-            }
-        }
-        &:last-child {
-            ion-card {
-                margin-left: 8px;
-            }
-        }
-    }
-}
-
-.card-fixed ion-card-header {
-    margin: -115px 0 0 0;
-}
-
-.subcard-fixed {
-    position: absolute;
-    bottom: 0;
-    width: 94%;
-    left: 0;
-    right: 0;
-    padding: 25px;
-    border-radius: 18px;
-    margin: 0 auto 12px;
-    background: #f8fafa;
-    box-shadow: 0px 1px 6px 0px rgb(0 0 0 / 21%) inset;
-}
-
-.subcard-fixed ion-item {
-    --background: transparent;
-}
-
-ion-item {
-    --inner-padding-end: 0px;
-    --padding-start: 0px
-}
-
-ion-item .item-native {
-    --background: transparent;
-}
-
-.subcard-fixed ion-avatar {
-    background: transparent;
-}
-
-.subcard-fixed ion-label {
-    background: transparent;
-}
-
-.button-solid .common-icon-list {
-    width: 70%;
-    margin: 0 0 20px 0;
-}
-
-.toggle-icon {
-    width: 19px;
+    padding: 1px;
 }
 
 .voices-icon {
@@ -175,75 +15,80 @@ ion-item .item-native {
     width: 30px;
 }
 
-ion-header ion-title {
-    padding: 0;
-    font-size: 24px;
-}
-
-// For Landscape
-@media (orientation: landscape) {
-    .button-solid {
-        --border-radius: 10px !important;
-        height: 7em !important;
-        display: grid;
-    }
-    .card-fixed {
-        display: block;
-        height: auto;
+// Fixed Card
+.card-fixed {
+    height: calc(100vh - 56px - 240px);
+    overflow-y: auto;
+    border-radius: 12px;
+    margin-top: 15px;
+    padding-bottom: 110px;
+    box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 20%);
+    display: flex;
+    align-items: center;
+    ion-card-title {
+        font-size: 42px;
+        font-weight: 600;
+        @media(max-width: 360px) {
+            font-size: 30px;
+        }
     }
     .subcard-fixed {
-        position: inherit;
-        bottom: inherit;
-        width: auto;
-    }
-    .button-solid ion-icon.text-red {
-        font-size: 70px;
-    }
-    .button-solid ion-icon.text-green {
-        font-size: 70px;
-    }
-    .button-solid ion-label.text-red {
-        font-size: 30px;
-    }
-    .button-solid ion-label.text-green {
-        font-size: 30px;
-    }
-    .main {
-        display: inherit;
-        flex-direction: inherit;
-        height: inherit;
-    }
-    .footer {
-        flex: inherit;
-        position: inherit;
-        bottom: inherit;
-        width: auto;
+        position: absolute;
+        bottom: 0;
+        width: 94%;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        border-radius: 18px;
+        margin: 0 auto 12px;
+        background: #f8fafa;
+        box-shadow: 0px 1px 6px 0px rgb(0 0 0 / 21%) inset;
+        ion-item {
+            --background: transparent !important;
+        }
     }
 }
 
-
-/* Smartphones One Plus 6 ----------- */
-
-@media only screen and (min-device-width: 410px) and (max-height: 793px) {
-    .titleCls {
-        font-size: 2.5rem;
+.footer-btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    button {
+        background: #fff;
+        box-shadow: 1px 4px 8px 0px rgb(0 0 0 / 36%);
+        flex: 0 0 49%;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 900;
+        border-radius: 8px;
+        padding: 26px 10px;
+        img {
+            height: 100px;
+            margin-bottom: 10px;
+        }
     }
-    .titleCls1 {
-        font-size: 2.5rem;
+    .btn-red {
+        color: #9d1414;
+    }
+    .btn-green {
+        color: #267905;
+    }
+}
+
+@media (orientation: landscape) {
+    .footer-btn,
+    .subcard-fixed {
+        position: static !important;
     }
     .card-fixed {
-        height: 62vh;
+        height: auto;
+        padding-bottom: 20px;
     }
-    .button-solid ion-icon.text-red {
-        font-size: 8rem;
-    }
-    .button-solid ion-icon.text-green {
-        font-size: 8rem;
-    }
-    .button-solid ion-label.text-red {
-        font-size: 2.6rem;
-    }
-    .button-solid ion-label.text-green {
-        font-size: 2.6rem;
+    .main {
+        height: auto;
     }
 }
