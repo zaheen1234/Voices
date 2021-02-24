@@ -151,14 +151,14 @@ export class RecordAnswerPage implements OnInit {
         this.showHigh = false;
         
         this.changeRef.detectChanges();
-      } else if(data > 0.1 && data < 0.9){
+      } else if(data > 0.1 && data < 0.7){
         console.log('MEDIUM amplitude: ', data);
         this.showMedium = true;
         this.showLow = false;
         this.showHigh = false;
         
         this.changeRef.detectChanges();
-      } else if(data > 0.9){
+      } else if(data > 0.7){
         console.log('checking amplitude: ', data);
         this.showHigh = true;
         this.showLow = false;

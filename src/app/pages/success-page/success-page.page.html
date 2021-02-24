@@ -33,7 +33,9 @@
                 </ion-card-content>
             </ion-card>
         </div>-->
-        <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
+
+
+        <!-- <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
             <div class="cancel-popup">
                 <ion-card-header>
                     <ion-card-title class="titleclscancel">Are you sure you <br>want to delete <br>your recording?</ion-card-title>
@@ -61,7 +63,7 @@
                     </div>
                 </ion-card-content>
             </div>
-        </ion-card>
+        </ion-card> -->
 
 
         <div *ngIf="deleteModeDisable">
@@ -81,7 +83,7 @@
                 <img class="correct-icon common-icon-list" src="assets/images/check.png">
                     Next <br> Question
             </button>
-            <button (click)="startPlayingAnswer()" class="btn-yellow">
+            <button (click)="startPlayingAnswer()" *ngIf="canPlay" class="btn-yellow">
                 <img class="playstart-icon common-icon-list" src="assets/images/play-button.png">
                 Play <br> Answer
             </button>
@@ -89,7 +91,7 @@
                 <img class="pause-icon common-icon-list" src="assets/images/pause.png">
                 Pause <br> Answer
             </button>
-            <button (click)="deleteAnswer()" *ngIf="canPlay" class="btn-green">
+            <button (click)="deleteAnswer()" class="btn-green">
                 <img class="delete-icon common-icon-list" src="assets/images/delete.png">
                 Delete <br> Answer
             </button>
