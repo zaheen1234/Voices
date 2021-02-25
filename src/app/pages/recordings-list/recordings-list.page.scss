@@ -53,22 +53,21 @@
     color: #0e8d8c !important;
     margin-top: 0px !important;
     padding-top: 0px!important;
-    font-size: 78%;
-    padding-right: 30px;
+    font-size: 6vw !important;
     margin-bottom: 0;
 }
 
 .card-date {
     color: #b0abab !important;
-    font-size: 40%;
+    font-size: 14px !important;
     margin: 0;
 }
 
 .card-time {
     color: #b0abab !important;
-    font-size: 55%;
+    font-size: 14px !important;
     margin: -3px 0 0 0;
-    text-align: center;
+    text-align: right !important;
 }
 
 .sc-ion-buttons-md-h {
@@ -110,8 +109,17 @@ ion-menu-button {
     padding: 0;
 }
 
+.flex {
+    display: flex;
+    .question {
+        width: calc(100% - 90px);
+        flex: 0 0 calc(100% - 90px);
+    }
+}
+
 .greyplay {
     width: 70px;
+    min-width: 70px;
 }
 
 .card-time {
@@ -128,7 +136,6 @@ ion-menu-button {
     }
     .card-text {
         font-size: 65%;
-        padding-right: 10px;
     }
     .card-date {
         font-size: 31%;
@@ -150,7 +157,6 @@ ion-menu-button {
     }
     .card-text {
         font-size: 85%;
-        padding-right: 10px;
     }
     .card-date {
         font-size: 50%;
@@ -269,4 +275,8 @@ ion-menu-button {
     .card-date {
         font-size: 88%;
     }
+}
+
+ion-card-header {
+    padding-bottom: 0;
 }

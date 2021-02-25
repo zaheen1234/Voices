@@ -33,7 +33,7 @@ ion-icon {
 
 .inbox-list {
     background-color: #33cccc;
-    color:white !important;
+    color: white !important;
 }
 
 .contentClass {
@@ -41,80 +41,99 @@ ion-icon {
     color: #33cccc;
 }
 
-.inbox-list{
+.inbox-list {
     height: 100%;
     display: flex;
 }
+
 .title {
     text-align: center;
     color: #fff;
-  }
-  .recordingiconcls{ 
-    
+}
+
+.recordingiconcls {
     --ionicon-stroke-width: 30px;
     color: #fff;
-  }
-  ion-menu-button{ 
-    color: #fff;
-  }
-  .inbox-list ion-label { 
-    font-size:2rem;
-  }
-  .inbox-list ion-row { 
-    margin:0 0 10px;
-  }
-  .inbox-list .btm-menu{
-    margin:0 0 45px;
-  }
-  .inbox-list .btm-menu ion-col{
-    padding-left:10px;
-  }
+}
 
-  .appName {
-      background-color: white;
-      color: #33cccc;
-  }
-  .voice-row{
+ion-menu-button {
+    color: #fff;
+}
+
+.inbox-list ion-label {
+    font-size: 2rem;
+}
+
+.inbox-list ion-row {
+    margin: 0 0 10px;
+}
+
+.inbox-list .btm-menu {
+    margin: 0 0 45px;
+}
+
+.inbox-list .btm-menu ion-col {
+    padding-left: 10px;
+}
+
+.appName {
+    background-color: white;
+    color: #33cccc;
+}
+
+.voice-row {
     padding: 20px 0;
     background: #fff;
     border-radius: 0 6px 6px 0;
     box-shadow: 0px 3px 6px 0px #c5c5c5 inset;
-   }
-  .label-voice{
-      padding:0 0 0 58px;
-      background: transparent;
-  }
-  .label-voice img{
+}
+
+.label-voice {
+    padding: 0 0 0 58px;
+    background: transparent;
+}
+
+.label-voice img {
     position: absolute;
     left: 12px;
-    top: 8px; 
+    top: 8px;
     height: 28px;
     width: 28px;
     padding-right: 0 !important;
 }
-.inbox-list .label-voice ion-label { 
-    font-size:2.5rem;
-  }
-  .inbox-list #main-grid{
-    padding-left:0;
+
+.inbox-list .label-voice ion-label {
+    font-size: 2.5rem;
+}
+
+.inbox-list #main-grid {
+    padding-left: 0;
     padding-right: 25px;
-  }
-  .menu-icons{
-    width:36px;
-    margin-right:14px;
+}
+
+.menu-icons {
+    width: 36px;
+    margin-right: 14px;
     float: left;
-  }
-  .active-menu{
+}
+
+.active-menu {
     padding: 6px 0;
     background: #fff;
     border-radius: 0 6px 6px 0;
     box-shadow: 0px 3px 6px 0px #c5c5c5 inset;
     color: #33cccc;
-   }
+}
 
+.btn-home {
+    padding-top: 60px
+}
 
-
-
-
-
-
+@media(max-width:360px) {
+    ion-label {
+        font-size: 1.5rem !important
+    }
+    .btm-menu {
+        margin: 0 0 26px !important;
+    }
+}

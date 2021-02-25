@@ -13,33 +13,32 @@
 
         <ion-card-header>
             <ion-card-title>
-                <ion-row >
-                    <ion-col size="8">
+                <ion-row class="flex">
+                    <ion-col class="question">
                         <!-- <p class="card-text">{{audio.question}}</p> -->
                         <p class="card-text">Where were you born?, Where is your childhood spent?</p>
-
                     </ion-col>
-                    <ion-col size="4" class="text-center audio-icon" (click)="pauseAudio()"  *ngIf="showPause && checkIfRowEnable(i)">
+                    <ion-col class="text-center audio-icon" (click)="pauseAudio()" *ngIf="showPause && checkIfRowEnable(i)">
                         <img src="assets/images/pauseRecordingList.png" class="greyplay">
 
                     </ion-col>
 
-                    <ion-col size="4" class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="showPlay && checkIfRowEnable(i)">
+                    <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="showPlay && checkIfRowEnable(i)">
                         <img src="assets/images/shadowplay.png" class="greyplay">
 
                     </ion-col>
 
-                    <ion-col size="4" class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="checkIfRowEnable(i) == false">
+                    <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="checkIfRowEnable(i) == false">
                         <img src="assets/images/shadowplaygrey.png" class="greyplay">
                     </ion-col>
                 </ion-row>
-                <ion-row>
+                <ion-row class="ion-justify-content-between">
                     <ion-col size="8">
                         <!-- <p class="card-date">{{audio.date}} {{getFormattedMonth(audio.month)}} {{audio.year}} | Asked by Voices</p> -->
                         <p class="card-date">12 Aug 2019 | Asked by Voices</p>
 
                     </ion-col>
-                    <ion-col size="4" class="text-center">
+                    <ion-col size="4" class="ion-text-center">
                         <!-- <p class="card-time">{{getFormattedHour(audio.hours)}}: {{getFormattedMinute(audio.minutes)}}: {{getFormattedSecond(audio.seconds)}}</p> -->
                         <p class="card-time">00:05:36</p>
 
@@ -48,7 +47,7 @@
                 <!-- <ion-row *ngIf="checkIfRowEnable(i)"> -->
                 <ion-row>
 
-                    <ion-col> <img src="assets/images/soundwave.gif" class="voice-img"><br>
+                    <ion-col> <img src="assets/1sec/gif/medium.gif" class="voice-img"><br>
                         <ion-progress-bar color="voice" [value]="p_bar_value" class="prgrs-baar"></ion-progress-bar>
                         <p class="progrs-count">00:02:34</p>
                         <p class="progrs-count-complete">00:05:36</p>
@@ -69,7 +68,7 @@
             <ion-card-title>
                 <ion-row (click)="playAudio(audio.filename, i, audio)">
                     <ion-col size="8">
-                        
+
                         <p class="card-text">Where were you born?</p>
 
                     </ion-col>
