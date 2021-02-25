@@ -340,7 +340,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-    this.stopRecord();
+   // this.stopRecord();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -410,7 +410,7 @@ export class RecordAnswerPage implements OnInit {
     setTimeout(() => {
       this.started = false;
       this.animation = true;
-      this.startRecord();
+     // this.startRecord();
     }, 1000);
   }
 
