@@ -30,7 +30,8 @@ export class HomePage {
   }
 
   ngOnInit() {
-  
+    // alert('height : ' + this.platform.height());
+    // alert('width : ' + this.platform.width());
     this.lenOfQuestion = this.question.question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
     if (this.lenOfQuestion > 70) {
