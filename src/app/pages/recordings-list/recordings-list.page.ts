@@ -37,8 +37,16 @@ export class RecordingsListPage implements OnInit {
   isPlaying: boolean = false;
   progress = 0;
   startTimer: boolean = false;
+  pauseTimer: boolean = false;
   totalSeconds = 0;
   p_bar_value: number = 0;
+
+  showPause: boolean = false;
+  showPlay: boolean = true;
+  isAudioPaused: boolean = false;
+  previousID : number = 99999;
+
+
 
   ngOnInit() {
     this.questionsList = this.questionService.questionArray;
@@ -84,12 +92,90 @@ resetProgressBar() {
       console.log('checking file : ' , file);
       this.vibration.vibrate(100);
 
-      if (this.isPlaying) {
+       if (this.isPlaying) {
         this.audio.stop();
         this.isPlaying = false;
+        this.startTimer = false;
+        this.pauseTimer = false;
         return;
       }
-        this.currentNumber = id;
+      
+      if(this.isAudioPaused) {  // if audio is paused
+        if (this.previousID == id) { // audio is paused and current id is matching with previous id
+        //  alert('audio is paused and ids matched, id : ' + id);
+          this.audio.play();  // we will simply play the audio again
+          this.showPause = true;
+          this.showPlay = false;
+          this.isAudioPaused = false;
+          this.currentNumber = id;
+          this.isPlaying = true;
+          this.pauseTimer = false;
+          this.startTimer = true;
+          this.startProgressBarTimer();
+          this.changeRef.detectChanges();
+        } else {  // means new file is selected to play audio and previous audio is paused
+
+        //  alert('audio is paused and but ids dont match, id : ' + id);
+
+          this.currentNumber = id;
+          this.previousID = id;
+          if (this.platform.is('ios')) {
+            this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+            this.audio = this.media.create(this.filePath);
+          } else if (this.platform.is('android')) {
+            this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
+            this.audio = this.media.create(this.filePath);
+        }
+            this.audio.play();
+
+            this.showPause = true;
+            this.showPlay = false;
+            this.isAudioPaused = false;
+            this.pauseTimer = false;
+            this.totalSeconds = completeData.totalSeconds;
+            // alert('checking totalSeconds : ' + this.totalSeconds);
+            this.progress = 0;
+            this.p_bar_value = 0;
+            this.startTimer = true;
+            this.startProgressBarTimer();
+            this.isPlaying = true;
+            this.audio.setVolume(0.8); 
+            this.changeRef.detectChanges();
+            this.audio.onStatusUpdate.subscribe((statusCode) => {
+              if (statusCode === 4) {
+                console.log('Audio FINISHED playing');
+                this.isPlaying = false;
+                this.currentNumber = -111111;
+                this.changeRef.detectChanges();
+                this.audio.release();
+                this.startTimer = false;
+                this.showPlay = true;
+                this.showPause = false;
+                this.isAudioPaused = false;
+                this.pauseTimer = false;
+              } 
+            });
+        }
+      } else {   // if audio is not paused
+        if (this.previousID == id) {
+        //  alert('audio is not paused but ids matched, id : ' + id);
+          this.audio.play();
+          this.showPause = true;
+          this.isPlaying = true;
+          this.showPlay = false;
+          this.currentNumber = id;
+          this.isAudioPaused = false;
+          this.pauseTimer = false;
+          this.progress = 0;
+            this.p_bar_value = 0;
+            this.startTimer = true;
+            this.startProgressBarTimer();
+          this.changeRef.detectChanges();
+        } else {
+         // alert('audio is not paused and ids dont match, id : ' + id);
+
+          this.currentNumber = id;
+          this.previousID = id;
         if (this.platform.is('ios')) {
           this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
           this.audio = this.media.create(this.filePath);
@@ -98,10 +184,18 @@ resetProgressBar() {
           this.audio = this.media.create(this.filePath);
       }
           this.audio.play();
+          this.showPause = true;
+          this.showPlay = false;
+          this.isAudioPaused = false;
+          this.changeRef.detectChanges();
+
           this.totalSeconds = completeData.totalSeconds;
           // alert('checking totalSeconds : ' + this.totalSeconds);
+          this.progress = 0;
+          this.p_bar_value = 0;
           this.startTimer = true;
           this.startProgressBarTimer();
+          this.pauseTimer = false;
           this.isPlaying = true;
           this.audio.setVolume(0.8); 
           this.changeRef.detectChanges();
@@ -110,12 +204,67 @@ resetProgressBar() {
               console.log('Audio FINISHED playing');
               this.isPlaying = false;
               this.currentNumber = -111111;
-              this.changeRef.detectChanges();
               this.audio.release();
+              this.isAudioPaused = false;
+              this.showPlay = true
+              this.showPause = false;
               this.startTimer = false;
+              this.pauseTimer = false;
+              this.changeRef.detectChanges();
+
             } 
           });
+        }
+      }
+
+      // if (this.isPlaying) {
+      //   this.audio.stop();
+      //   this.isPlaying = false;
+      //   return;
+      // }
+      //   this.currentNumber = id;
+      //   this.previousID = id;
+      //   if (this.platform.is('ios')) {
+      //     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+      //     this.audio = this.media.create(this.filePath);
+      //   } else if (this.platform.is('android')) {
+      //     this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
+      //     this.audio = this.media.create(this.filePath);
+      // }
+      //     this.audio.play();
+      //     this.showPause = true;
+      //     this.showPlay = false;
+      //     this.totalSeconds = completeData.totalSeconds;
+      //     // alert('checking totalSeconds : ' + this.totalSeconds);
+      //     this.startTimer = true;
+      //     this.startProgressBarTimer();
+      //     this.isPlaying = true;
+      //     this.audio.setVolume(0.8); 
+      //     this.changeRef.detectChanges();
+      //     this.audio.onStatusUpdate.subscribe((statusCode) => {
+      //       if (statusCode === 4) {
+      //         console.log('Audio FINISHED playing');
+      //         this.isPlaying = false;
+      //         this.currentNumber = -111111;
+      //         this.changeRef.detectChanges();
+      //         this.audio.release();
+      //         this.startTimer = false;
+      //         this.showPause = false;
+      //         this.showPlay = true;
+      //       } 
+      //     });
           
+    }
+
+    pauseAudio() {
+      this.audio.pause();
+      this.startTimer = false;
+      this.pauseTimer = true;
+      this.isAudioPaused = true;
+      this.isPlaying = false;
+      this.showPause = false;
+      this.showPlay = true;
+      this.changeRef.detectChanges();
     }
 
     startProgressBarTimer() {
@@ -128,7 +277,11 @@ resetProgressBar() {
           this.changeRef.detectChanges();
           this.startProgressBarTimer();
         }, 1000);
-      } else {
+      } else if(this.pauseTimer) {
+        this.progress = this.progress;
+        this.p_bar_value = this.p_bar_value;
+      }
+      else {
         this.progress = 0;
         this.p_bar_value = 0;
       }

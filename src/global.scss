@@ -147,13 +147,19 @@ body {
 
 // CUSTOM ALERT
 .basic-alert {
+
+    .alert-wrapper {
+        min-width: 92% !important;
+      }
     .alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
-        min-width: calc(100% - 30px);
+        // max-width: 200px !important;
         padding-top: 6vh;
         border-radius: 14px;
         padding-bottom: 6vh;
         font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
     }
+
+
     .alert-title {
         font-size: 32px;
         color: #058988;

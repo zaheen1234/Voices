@@ -114,6 +114,10 @@ ion-menu-button {
     width: 70px;
 }
 
+.card-time {
+    text-align: right;
+}
+
 
 /**Ihpone 5**/
 
@@ -132,6 +136,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -148,11 +153,12 @@ ion-menu-button {
         padding-right: 10px;
     }
     .card-date {
-        font-size: 56%;
+        font-size: 50%;
         font-weight: 400;
     }
     .card-time {
-        font-size: 80%;
+        font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -169,6 +175,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 60%;
+        text-align: right;
     }
 }
 
@@ -181,10 +188,11 @@ ion-menu-button {
         font-size: 255% !important;
     }
     .card-text {
-        font-size: 68%;
+        font-size: 50%;
     }
     .card-time {
-        font-size: 52%;
+        font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -202,11 +210,11 @@ ion-menu-button {
         font-size: 103%;
     }
     .card-date {
-        font-size: 70%;
+        font-size: 50%;
         font-weight: 400;
     }
     .card-time {
-        font-size: 80%;
+        font-size: 60%;
         text-align: right;
     }
 }
@@ -225,6 +233,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 90%;
+        text-align: right;
     }
 }
 
@@ -238,6 +247,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 105%;
+        text-align: right;
     }
     .card-date {
         font-size: 88%;
@@ -254,6 +264,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 105%;
+        text-align: right;
     }
     .card-date {
         font-size: 88%;
