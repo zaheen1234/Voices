@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-    <ion-toolbar color="primary">
+    <ion-toolbar color="primary" *ngIf="deleteModeDisable">
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
             <img class="toggle-icon" src='assets/images/togglemenu.png'>
         </ion-menu-button>
@@ -14,8 +14,7 @@
 
 <ion-content [fullscreen]="true">
     <div class="main">
-  
-        <div>
+              <div *ngIf="deleteModeDisable">
             <ion-card class="card-fixed">
                 <ion-card-header>
                     <ion-card-title color="primary">{{question.question}}</ion-card-title>
@@ -27,17 +26,17 @@
         </div>
 
         <!-- Footer Start -->
-        <div class="footer-btn">
+        <div class="footer-btn" *ngIf="deleteModeDisable">
             <button (click)="nextQuestion()" class="btn-red">
-                <img class="correct-icon common-icon-list" src="assets/images/check.png">
+                <img class="correct-icon common-icon-list" src="assets/images/new/check2.png">
                     Next <br> Question
             </button>
             <button (click)="startPlayingAnswer()" *ngIf="canPlay" class="btn-yellow">
-                <img class="playstart-icon common-icon-list" src="assets/images/play-button.png">
+                <img class="playstart-icon common-icon-list" src="assets/images/new/play-button1.png">
                 Play <br> Answer
             </button>
             <button (click)="pausePlayingAnswer()" *ngIf="canPause" class="btn-yellow">
-                <img class="pause-icon common-icon-list" src="assets/images/pause.png">
+                <img class="pause-icon common-icon-list" src="assets/images/new/pause2.png">
                 Pause <br> Answer
             </button>
             <button (click)="deleteAnswer()" class="btn-green">
