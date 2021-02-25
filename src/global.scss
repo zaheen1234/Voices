@@ -33,6 +33,16 @@ body {
     font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
 }
 
+body.backdrop-no-scroll {
+    .main,
+    ion-header {
+        filter: blur(2px);
+    }
+}
+
+*:focus {
+    outline: 0px !important;
+}
 
 /*ion-modal {
     &.my-modal-inner {

@@ -53,22 +53,21 @@
     color: #0e8d8c !important;
     margin-top: 0px !important;
     padding-top: 0px!important;
-    font-size: 78%;
-    padding-right: 30px;
+    font-size: 6vw !important;
     margin-bottom: 0;
 }
 
 .card-date {
     color: #b0abab !important;
-    font-size: 40%;
+    font-size: 14px !important;
     margin: 0;
 }
 
 .card-time {
     color: #b0abab !important;
-    font-size: 55%;
+    font-size: 14px !important;
     margin: -3px 0 0 0;
-    text-align: right;
+    text-align: right !important;
 }
 
 .sc-ion-buttons-md-h {
@@ -110,8 +109,21 @@ ion-menu-button {
     padding: 0;
 }
 
+.flex {
+    display: flex;
+    .question {
+        width: calc(100% - 90px);
+        flex: 0 0 calc(100% - 90px);
+    }
+}
+
 .greyplay {
     width: 70px;
+    min-width: 70px;
+}
+
+.card-time {
+    text-align: right;
 }
 
 
@@ -124,7 +136,6 @@ ion-menu-button {
     }
     .card-text {
         font-size: 65%;
-        padding-right: 10px;
     }
     .card-date {
         font-size: 31%;
@@ -132,6 +143,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -145,14 +157,14 @@ ion-menu-button {
     }
     .card-text {
         font-size: 85%;
-        padding-right: 10px;
     }
     .card-date {
-        font-size: 56%;
+        font-size: 50%;
         font-weight: 400;
     }
     .card-time {
-        font-size: 80%;
+        font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -169,6 +181,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 60%;
+        text-align: right;
     }
 }
 
@@ -181,10 +194,11 @@ ion-menu-button {
         font-size: 255% !important;
     }
     .card-text {
-        font-size: 68%;
+        font-size: 50%;
     }
     .card-time {
-        font-size: 52%;
+        font-size: 50%;
+        text-align: right;
     }
 }
 
@@ -202,11 +216,11 @@ ion-menu-button {
         font-size: 103%;
     }
     .card-date {
-        font-size: 70%;
+        font-size: 50%;
         font-weight: 400;
     }
     .card-time {
-        font-size: 80%;
+        font-size: 60%;
         text-align: right;
     }
 }
@@ -225,6 +239,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 90%;
+        text-align: right;
     }
 }
 
@@ -238,6 +253,7 @@ ion-menu-button {
     }
     .card-time {
         font-size: 105%;
+        text-align: right;
     }
     .card-date {
         font-size: 88%;
@@ -254,8 +270,13 @@ ion-menu-button {
     }
     .card-time {
         font-size: 105%;
+        text-align: right;
     }
     .card-date {
         font-size: 88%;
     }
+}
+
+ion-card-header {
+    padding-bottom: 0;
 }

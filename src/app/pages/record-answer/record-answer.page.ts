@@ -299,6 +299,7 @@ export class RecordAnswerPage implements OnInit {
   //  this.changeRef.detectChanges();
   this.isPaused = true;
   this.isRecord = false;
+  this.changeRef.detectChanges();
   this.vibration.vibrate(100);
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',
@@ -330,6 +331,8 @@ export class RecordAnswerPage implements OnInit {
     this.vibration.vibrate(100);
     this.isRecord = true;
     this.isPaused = false;
+    this.changeRef.detectChanges();
+
     if (this.recordingStarted === false){
       this.audio.resumeRecord();
       this.recordingStarted = true;

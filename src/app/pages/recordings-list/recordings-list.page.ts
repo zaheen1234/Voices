@@ -45,7 +45,7 @@ export class RecordingsListPage implements OnInit {
   showPlay: boolean = true;
   isAudioPaused: boolean = false;
   previousID : number = 99999;
-
+  isPaused: boolean = false;
 
 
   ngOnInit() {
