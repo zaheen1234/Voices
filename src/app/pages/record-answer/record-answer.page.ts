@@ -283,6 +283,7 @@ export class RecordAnswerPage implements OnInit {
     this.vibration.vibrate(100);
     this.isPaused = false;
     this.isRecord = true;
+    this.changeRef.detectChanges();
     // console.log('gotorecording function called');
     // this.cancelModeEnable = false;
     // this.cancelModeDisable = true;
@@ -299,6 +300,7 @@ export class RecordAnswerPage implements OnInit {
   //  this.changeRef.detectChanges();
   this.isPaused = true;
   this.isRecord = false;
+  this.changeRef.detectChanges();
   this.vibration.vibrate(100);
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',
@@ -348,6 +350,8 @@ export class RecordAnswerPage implements OnInit {
     console.log('funct called');
     this.isRecord = false;
     this.isPaused = true;
+    console.log('checking current statud of isRecord and isPaused', this.isPaused , this.animation);
+    this.changeRef.detectChanges();
     if (this.recordingStarted){
       this.audio.pauseRecord();
       this.recordingStarted = false;
