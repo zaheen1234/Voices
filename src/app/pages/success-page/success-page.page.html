@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-    <ion-toolbar color="primary" *ngIf="deleteModeDisable">
+    <ion-toolbar color="primary" >
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
             <img class="toggle-icon" src='assets/images/togglemenu.png'>
         </ion-menu-button>
@@ -14,59 +14,8 @@
 
 <ion-content [fullscreen]="true">
     <div class="main">
-        <!-- Content Start -->
-        <!--<div class="custom-modal" *ngIf="deleteModeEnable">
-            <ion-card style="padding: 3rem 0rem;">
-                <ion-card-header>
-                    <ion-card-title color="primary">Are you sure you want to cancel your recording?</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                    <ion-row>
-                        <ion-col class="ion-no-padding">
-                            <ion-button shape="round" class="modal-btn" expand="full" size="large" fill="outline" color="primary" (click)="backToQuestionScreen()">YES</ion-button>
-                        </ion-col>
-
-                        <ion-col class="ion-no-padding">
-                            <ion-button shape="round" class="modal-btn" expand="full" size="large" fill="outline" color="danger" (click)="backToRecording()">NO</ion-button>
-                        </ion-col>
-                    </ion-row>
-                </ion-card-content>
-            </ion-card>
-        </div>-->
-
-
-        <!-- <ion-card class="cardclscancel" *ngIf="deleteModeEnable">
-            <div class="cancel-popup">
-                <ion-card-header>
-                    <ion-card-title class="titleclscancel">Are you sure you <br>want to delete <br>your recording?</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                    <div>
-                        <ion-grid class="gridcls">
-                            <ion-row>
-                                <ion-col size="5">
-                                    <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
-                                        <ion-label class="labelclsgrncancel">
-                                            YES
-                                        </ion-label>
-                                    </ion-button>
-                                </ion-col>
-                                <ion-col size="5">
-                                    <ion-button class="borderclsred" (click)="backToRecording()">
-                                        <ion-label class="labelclsredcancel">
-                                            NO
-                                        </ion-label>
-                                    </ion-button>
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-                    </div>
-                </ion-card-content>
-            </div>
-        </ion-card> -->
-
-
-        <div *ngIf="deleteModeDisable">
+       
+        <div>
             <ion-card class="card-fixed">
                 <ion-card-header>
                     <ion-card-title color="primary">{{question.question}}</ion-card-title>
@@ -78,8 +27,8 @@
         </div>
 
         <!-- Footer Start -->
-        <div class="footer-btn" *ngIf="deleteModeDisable">
-            <button (click)="nextQuestion()" class="btn-red">
+        <div class="footer-btn" >
+            <button (click)="nextQuestion()" class="btn-green">
                 <img class="correct-icon common-icon-list" src="assets/images/new/check2.png">
                     Next <br> Question
             </button>
@@ -91,7 +40,7 @@
                 <img class="pause-icon common-icon-list" src="assets/images/new/pause2.png">
                 Pause <br> Answer
             </button>
-            <button (click)="deleteAnswer()" class="btn-green">
+            <button (click)="deleteAnswer()" class="btn-red">
                 <img class="delete-icon common-icon-list" src="assets/images/delete.png">
                 Delete <br> Answer
             </button>
