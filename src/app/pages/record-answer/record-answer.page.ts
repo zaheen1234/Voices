@@ -29,6 +29,7 @@ export class RecordAnswerPage implements OnInit {
   enable5 = false;
   started = false;
   animation = false;
+  
   isRecord = true;
   isPaused = false;
   cancelModeDisable = true;
@@ -280,6 +281,8 @@ export class RecordAnswerPage implements OnInit {
 
   backToRecording () {
     this.vibration.vibrate(100);
+    this.isPaused = false;
+    this.isRecord = true;
     // console.log('gotorecording function called');
     // this.cancelModeEnable = false;
     // this.cancelModeDisable = true;
@@ -294,7 +297,8 @@ export class RecordAnswerPage implements OnInit {
   //  this.cancelModeEnable = true;
   //  this.cancelModeDisable = false;
   //  this.changeRef.detectChanges();
-
+  this.isPaused = true;
+  this.isRecord = false;
   this.vibration.vibrate(100);
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',

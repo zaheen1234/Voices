@@ -99,10 +99,13 @@
                     <!-- <div *ngIf="animation">
                         <img src="assets/1sec/gif/high.gif" class="waves">
                     </div> -->
-                    <div *ngIf="animation">
-                        <img src="assets/1sec/gif/low.gif" *ngIf="showLow" class="waves">
-                        <img src="assets/1sec/gif/medium.gif" *ngIf="showMedium" class="waves">
-                        <img src="assets/1sec/gif/high.gif" *ngIf="showHigh" class="waves">
+                    <div *ngIf="animation && isRecord">
+                        <img src="assets/1sec/gif/low-old.gif" *ngIf="showLow" class="waves">
+                        <img src="assets/1sec/gif/medium-old.gif" *ngIf="showMedium" class="waves">
+                        <img src="assets/1sec/gif/high-old.gif" *ngIf="showHigh" class="waves">
+                    </div>
+                    <div *ngIf="animation && isPaused">
+                        <img src="assets/1sec/gif/low-old.gif" *ngIf="showLow" class="waves">
                     </div>
                 </div>
             </ion-card>
