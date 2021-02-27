@@ -33,6 +33,19 @@ body {
     font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
 }
 
+ion-header { 
+    font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
+    text-align: left!important;
+    padding-left: 0px !important;
+    --padding-left: 0px !important;
+    ion-title{
+        padding-left: 44px !important;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+}
+
+
 body.backdrop-no-scroll {
     .main,
     ion-header {
