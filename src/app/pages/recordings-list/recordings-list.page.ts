@@ -36,6 +36,7 @@ export class RecordingsListPage implements OnInit {
   currentNumber;
   isPlaying: boolean = false;
   progress = 0;
+  netProgress = 0;
   startTimer: boolean = false;
   pauseTimer: boolean = false;
   totalSeconds = 0;
@@ -273,10 +274,11 @@ resetProgressBar() {
           this.progress = this.progress + 1;
           let apc = (this.progress / this.totalSeconds)
           console.log(apc);
-          this.p_bar_value = apc;
+          this.p_bar_value = apc / 10;
+          this.netProgress = Math.floor(this.progress / 10);
           this.changeRef.detectChanges();
           this.startProgressBarTimer();
-        }, 1000);
+        }, 100);
       } else if(this.pauseTimer) {
         this.progress = this.progress;
         this.p_bar_value = this.p_bar_value;

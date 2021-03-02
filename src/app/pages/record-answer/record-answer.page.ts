@@ -123,6 +123,8 @@ export class RecordAnswerPage implements OnInit {
       this.recording = true;
     }
 
+
+    // timer to keep track of file duration
     startCountdown() {
 
       if (this.timerShouldStart){
@@ -280,27 +282,20 @@ export class RecordAnswerPage implements OnInit {
   }
 
   backToRecording () {
-    this.vibration.vibrate(100);
+    // this.vibration.vibrate(100);
+    this.resumeRecording();
     this.isPaused = false;
     this.isRecord = true;
-    // console.log('gotorecording function called');
-    // this.cancelModeEnable = false;
-    // this.cancelModeDisable = true;
-    // this.changeRef.detectChanges();
+    this.changeRef.detectChanges();
   }
 
 
    async goToCancelScreen() {
-     
-  //   console.log('gotocancelscreenknddknd');
-  //  console.log('gotocancelScreen function called');
-  //  this.cancelModeEnable = true;
-  //  this.cancelModeDisable = false;
-  //  this.changeRef.detectChanges();
+
+     this.pauseRecording();
   this.isPaused = true;
   this.isRecord = false;
   this.changeRef.detectChanges();
-  this.vibration.vibrate(100);
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',
     header: 'Are you sure you want to cancel your recording?',
@@ -334,6 +329,8 @@ export class RecordAnswerPage implements OnInit {
     this.changeRef.detectChanges();
 
     if (this.recordingStarted === false){
+      this.timerShouldStart = true;
+      this.startCountdown();
       this.audio.resumeRecord();
       this.recordingStarted = true;
     }
@@ -352,6 +349,7 @@ export class RecordAnswerPage implements OnInit {
     this.isRecord = false;
     this.isPaused = true;
     if (this.recordingStarted){
+      this.timerShouldStart = false;
       this.audio.pauseRecord();
       this.recordingStarted = false;
 
