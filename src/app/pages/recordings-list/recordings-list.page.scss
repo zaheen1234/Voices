@@ -101,7 +101,7 @@ ion-menu-button {
 
 .listing-sec ion-row {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .listing-sec .audio-icon {
@@ -112,6 +112,7 @@ ion-menu-button {
 .flex {
     display: flex;
     .question {
+        align-items: center !important;
         width: calc(100% - 90px);
         flex: 0 0 calc(100% - 90px);
     }

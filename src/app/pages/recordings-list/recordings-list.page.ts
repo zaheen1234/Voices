@@ -109,24 +109,35 @@ export class RecordingsListPage implements OnInit {
   }
 
 
-  playAudio(id) {
-    if (this.isIDAlreadySet) {
-      // do nothing
-    } else {
-      this.universalID = id;
-      this.isIDAlreadySet = true;
-    }
-    
-
+  playAudio(id, fromWhere) {
+   
     let completeFile = this.audioList[id];
     this.vibration.vibrate(100);
-    if (this.isPlaying) {
+    if (this.isPlaying && fromWhere === 'html') {
       this.audio.stop();
       this.isPlaying = false;
       this.startTimer = false;
       this.pauseTimer = false;
       return;
     }
+    this.previousID == id;
+    if (fromWhere === 'html') {
+      if (this.isIDAlreadySet && this.previousID == id) {
+        // do nothing
+      } else {
+        this.universalID = id;
+        this.previousID == id
+        this.isIDAlreadySet = true;
+      }
+} else {
+  if (this.isIDAlreadySet) {
+    // do nothing
+  } else {
+    this.universalID = id;
+    this.isIDAlreadySet = true;
+  }
+}
+   
 
     if (this.isAudioPaused) {  // if audio is paused
       if (this.previousID == id) { // audio is paused and current id is matching with previous id
@@ -165,8 +176,8 @@ export class RecordingsListPage implements OnInit {
           if (statusCode === 4) {
             if (completeFile.nextPeer) {
               let newIndex = id + 1;
-              this.isPlaying = false;
-              this.playAudio(newIndex);
+              // this.isPlaying = false;
+              this.playAudio(newIndex, 'system');
             }
             else {
               console.log('Audio FINISHED playing');
@@ -217,8 +228,8 @@ export class RecordingsListPage implements OnInit {
 
         this.totalSeconds = completeFile.totalSeconds;
         // alert('checking totalSeconds : ' + this.totalSeconds);
-        this.progress = 0;
-        this.p_bar_value = 0;
+        // this.progress = 0;
+        // this.p_bar_value = 0;
         this.startTimer = true;
         this.startProgressBarTimer();
         this.pauseTimer = false;
@@ -229,9 +240,9 @@ export class RecordingsListPage implements OnInit {
           if (statusCode === 4) {
 
             if (completeFile.nextPeer) {
-              this.isPlaying = false;
+              // this.isPlaying = false;
               let newIndex = id + 1;
-              this.playAudio(newIndex);
+              this.playAudio(newIndex, 'system');
             }
             else {
 
