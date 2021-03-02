@@ -30,7 +30,12 @@ export class HomePage {
   }
 
   ngOnInit() {
-  
+
+    // let val;
+    // let num = 17;
+    // val = num * 10/100;
+    // let newVal = Math.ceil(val);
+    // alert('checking val : ' + newVal);
     this.lenOfQuestion = this.question.question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
     if (this.lenOfQuestion > 70) {

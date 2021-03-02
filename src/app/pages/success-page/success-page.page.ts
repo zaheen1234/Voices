@@ -69,6 +69,11 @@ export class SuccessPagePage implements OnInit {
     }
    }
 
+   ionViewWillEnter() {
+    this.canPlay = true;
+    this.canPause = false;
+   }
+
    appIsResume() {
      // alert('app is resume');
      if (this.canPause) {

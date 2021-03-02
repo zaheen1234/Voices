@@ -48,6 +48,7 @@ export class RecordingsListPage implements OnInit {
   previousID: number = 99999;
   universalID: number = -9999;
   isIDAlreadySet: boolean = false;
+  actualSlider = 0;
 
 
   ngOnInit() {
@@ -78,16 +79,13 @@ export class RecordingsListPage implements OnInit {
     this.audioList = JSON.parse(localStorage.getItem("audiolist"));
   }
 
-  increaseProgressBar() {
-    this.progress = this.progress + 1;
-    this.changeRef.detectChanges();
-  }
-
   resetProgressBar() {
     this.progress = 0;
   }
 
   playNewAudio(index, id) {
+
+ 
     let completeFile = this.audioList[id];
     this.currentNumber = index;
     this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + completeFile.filename;
@@ -110,14 +108,19 @@ export class RecordingsListPage implements OnInit {
 
 
   playAudio(id, fromWhere) {
-   
+    
     let completeFile = this.audioList[id];
-    this.vibration.vibrate(100);
+    if (fromWhere === 'html') {
+      this.vibration.vibrate(100);
+        }
+
     if (this.isPlaying && fromWhere === 'html') {
-      this.audio.stop();
-      this.isPlaying = false;
-      this.startTimer = false;
-      this.pauseTimer = false;
+        this.pauseAudio();
+      // this.audio.stop();
+      // this.isPlaying = false;
+      // this.startTimer = false;
+      // this.pauseTimer = false;
+      // this.startProgressBarTimer();
       return;
     }
     this.previousID == id;
@@ -129,16 +132,14 @@ export class RecordingsListPage implements OnInit {
         this.previousID == id
         this.isIDAlreadySet = true;
       }
-} else {
-  if (this.isIDAlreadySet) {
-    // do nothing
-  } else {
-    this.universalID = id;
-    this.isIDAlreadySet = true;
-  }
-}
-   
-
+      } else {
+        if (this.isIDAlreadySet) {
+          // do nothing
+        } else {
+          this.universalID = id;
+          this.isIDAlreadySet = true;
+        }
+    }
     if (this.isAudioPaused) {  // if audio is paused
       if (this.previousID == id) { // audio is paused and current id is matching with previous id
         this.audio.play();  // we will simply play the audio again
@@ -152,21 +153,23 @@ export class RecordingsListPage implements OnInit {
         this.startProgressBarTimer();
         this.changeRef.detectChanges();
       } else {  // means new file is selected to play audio and previous audio is paused
-
-
         this.currentNumber = id;
         this.previousID = id;
-
         this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + completeFile.filename;
         this.audio = this.media.create(this.filePath);
         this.audio.play();
-
         this.showPause = true;
         this.showPlay = false;
+        // adding code to reset progress timer start
+        if (fromWhere === 'html') {
+          this.progress = 0;
+          this.p_bar_value = 0;  
+          this.totalSeconds = completeFile.totalSeconds;
+        }
+        // adding code end
         this.isAudioPaused = false;
         this.pauseTimer = false;
-        this.totalSeconds = completeFile.totalSeconds;
-       
+        // this.totalSeconds = completeFile.totalSeconds;
         this.startTimer = true;
         this.startProgressBarTimer();
         this.isPlaying = true;
@@ -175,8 +178,11 @@ export class RecordingsListPage implements OnInit {
         this.audio.onStatusUpdate.subscribe((statusCode) => {
           if (statusCode === 4) {
             if (completeFile.nextPeer) {
+              // this.startTimer = false;
+              // this.pauseTimer = true;
               let newIndex = id + 1;
               // this.isPlaying = false;
+              
               this.playAudio(newIndex, 'system');
             }
             else {
@@ -207,10 +213,11 @@ export class RecordingsListPage implements OnInit {
         this.showPlay = false;
         this.currentNumber = id;
         this.isAudioPaused = false;
-        this.pauseTimer = false;
-      
+       if (fromWhere === 'html') {
         this.startTimer = true;
+        this.pauseTimer = false;
         this.startProgressBarTimer();
+       }
         this.changeRef.detectChanges();
       } else {
         // alert('audio is not paused and ids dont match, id : ' + id);
@@ -225,14 +232,18 @@ export class RecordingsListPage implements OnInit {
         this.showPlay = false;
         this.isAudioPaused = false;
         this.changeRef.detectChanges();
-
-        this.totalSeconds = completeFile.totalSeconds;
-        // alert('checking totalSeconds : ' + this.totalSeconds);
-        // this.progress = 0;
-        // this.p_bar_value = 0;
-        this.startTimer = true;
-        this.startProgressBarTimer();
+        if (fromWhere === 'html') {
+          this.progress = 0;
+          this.p_bar_value = 0;
+          this.totalSeconds = completeFile.totalSeconds;  
+        }
+        // this.totalSeconds = completeFile.totalSeconds;
+        if (fromWhere === 'html') {
+          this.startTimer = true;
         this.pauseTimer = false;
+        this.startProgressBarTimer();
+       
+        }
         this.isPlaying = true;
         this.audio.setVolume(0.8);
         this.changeRef.detectChanges();
@@ -240,6 +251,8 @@ export class RecordingsListPage implements OnInit {
           if (statusCode === 4) {
 
             if (completeFile.nextPeer) {
+              // this.startTimer = false;
+              // this.pauseTimer = true;
               // this.isPlaying = false;
               let newIndex = id + 1;
               this.playAudio(newIndex, 'system');
@@ -283,6 +296,7 @@ export class RecordingsListPage implements OnInit {
     this.audio.pause();
     this.startTimer = false;
     this.pauseTimer = true;
+    this.startProgressBarTimer();
     this.isAudioPaused = true;
     this.isPlaying = false;
     this.showPause = false;
@@ -295,17 +309,21 @@ export class RecordingsListPage implements OnInit {
       setTimeout(() => {
         this.progress = this.progress + 1;
         let apc = (this.progress / this.totalSeconds)
+
         console.log(apc);
-        this.p_bar_value = apc;
+        this.p_bar_value = apc / 10;
+        this.actualSlider = Math.floor(this.progress / 10);
         this.changeRef.detectChanges();
         this.startProgressBarTimer();
-      }, 1000);
+      }, 100);
     } else if (this.pauseTimer) {
       this.progress = this.progress;
       this.p_bar_value = this.p_bar_value;
+      this.actualSlider = this.actualSlider
     }
     else {
       this.progress = 0;
+      this.actualSlider = 0;
       this.p_bar_value = 0;
     }
   }
