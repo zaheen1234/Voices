@@ -139,20 +139,19 @@ export class SuccessPagePage implements OnInit {
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.question.id === this.recordingList[i].id) {
         let file = this.recordingList[i].filename;
-        this.playAnswer(file);
+        this.playAnswer(i);
         return;
       }
     }
   }
 
-  playAnswer(file) {
-    if (this.platform.is('ios')) {
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+  playAnswer(index) {
+
+      let completeFile = this.recordingList[index];
+    
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + completeFile.filename;
       this.audio = this.media.create(this.filePath);
-    } else if (this.platform.is('android')) {
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
-      this.audio = this.media.create(this.filePath);
-  }
+  
       this.audio.play();
       this.canPlay = false;
       this.canPause = true;
@@ -161,12 +160,19 @@ export class SuccessPagePage implements OnInit {
 
       this.audio.onStatusUpdate.subscribe((statusCode) => {
         if (statusCode === 4) {
-          console.log('Audio FINISHED playing');
-          this.canPause = false;
-          this.canPlay = true;
-          this.isPaused = false;
-          this.changeRef.detectChanges();
-          this.audio.release();
+
+          if(completeFile.nextPeer) {
+            let newIndex = index + 1;
+            this.playAnswer(newIndex);
+          } else {
+            console.log('Audio FINISHED playing');
+            this.canPause = false;
+            this.canPlay = true;
+            this.isPaused = false;
+            this.changeRef.detectChanges();
+            this.audio.release();
+          }
+       
         }
       });
   }

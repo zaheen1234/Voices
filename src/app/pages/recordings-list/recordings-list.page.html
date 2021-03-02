@@ -11,7 +11,7 @@
     <ion-card class="listing-sec" *ngFor="let audio of audioList; index as i;">
     <!-- <ion-card class="listing-sec"> -->
 
-        <ion-card-header>
+        <ion-card-header *ngIf="audio.previousPeer == false">
             <ion-card-title>
                 <ion-row class="flex">
                     <ion-col class="question">
@@ -22,13 +22,15 @@
                         <img src="assets/images/pauseRecordingList.png" class="greyplay">
 
                     </ion-col>
+                    <ion-col class="text-center audio-icon" (click)="playAudio(i)" *ngIf="showPlay && checkIfRowEnable(i)">
 
-                    <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="showPlay && checkIfRowEnable(i)">
+                    <!-- <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="showPlay && checkIfRowEnable(i)"> -->
                         <img src="assets/images/shadowplay.png" class="greyplay">
 
                     </ion-col>
+                    <ion-col class="text-center audio-icon" (click)="playAudio(i)" *ngIf="checkIfRowEnable(i) == false">
 
-                    <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="checkIfRowEnable(i) == false">
+                    <!-- <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="checkIfRowEnable(i) == false"> -->
                         <img src="assets/images/shadowplaygrey.png" class="greyplay">
                     </ion-col>
                 </ion-row>
@@ -64,34 +66,4 @@
     </ion-card>
 
 
-    <!-- <ion-card class="listing-sec">
-
-        <ion-card-header>
-            <ion-card-title>
-                <ion-row (click)="playAudio(audio.filename, i, audio)">
-                    <ion-col size="8">
-
-                        <p class="card-text">Where were you born?</p>
-
-                    </ion-col>
-                    <ion-col size="4" class="text-center audio-icon">
-                        <img src="assets/images/shadowplaygrey.png" class="greyplay">
-
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col size="8">
-                        <p class="card-date">12 Aug 2019 | Asked by Voices</p>
-
-                    </ion-col>
-                    <ion-col size="4" class="text-center">
-                        <p class="card-time">00:05:36</p>
-
-                    </ion-col>
-                </ion-row>
-
-            </ion-card-title>
-        </ion-card-header>
-    </ion-card> -->
-
-</ion-content>
+  </ion-content>

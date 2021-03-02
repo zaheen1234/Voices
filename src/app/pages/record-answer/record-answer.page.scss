@@ -15,6 +15,10 @@
     width: 30px;
 }
 
+// .basic-alert .alert-wrapper{
+//     border-radius: 25px !important;
+//     }
+
 // Fixed Card
 .card-fixed {
     height: calc(45vh - 56px);
@@ -83,12 +87,12 @@
         box-shadow: 0px 3px 8px 0px rgb(0 0 0 / 30%);
         flex: 0 0 31.5%;
         text-align: center;
-        font-size: 23px;
+        font-size: 25px;
         font-weight: 900;
         border-radius: 8px;
         padding: 26px 10px;
         @media(max-width: 360px) {
-            font-size: 16px;
+            font-size: 18px;
         }
         img {
             height: 80px;

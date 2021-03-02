@@ -39,7 +39,7 @@ ion-header {
     padding-left: 0px !important;
     --padding-left: 0px !important;
     ion-title{
-        padding-left: 44px !important;
+        margin-left: -15px !important;
         text-align: left;
         font-size: 1.5rem;
     }
@@ -57,6 +57,10 @@ body.backdrop-no-scroll {
     outline: 0px !important;
 }
 
+
+// ion-modal {
+//     --border-radius: 12px!important;
+//   }
 
 /*ion-modal {
     &.my-modal-inner {
@@ -171,16 +175,20 @@ body.backdrop-no-scroll {
 
 // CUSTOM ALERT
 .basic-alert {
+
+
     .alert-wrapper {
         min-width: 92% !important;
+        border-radius: 15px !important;
     }
     .alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
         // max-width: 200px !important;
         padding-top: 6vh;
-        border-radius: 14px;
+        border-radius: 25px;
         padding-bottom: 6vh;
         font-family: "Montserrat", "Helvetica-Neue", "Roboto-Light", sans-serif !important;
     }
+    
     .alert-title {
         font-size: 32px;
         color: #058988;

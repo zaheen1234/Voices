@@ -57,8 +57,18 @@ export class RecordAnswerPage implements OnInit {
   showLow: boolean = false;
   showMedium: boolean = false;
   showHigh: boolean = false;
+  previousPeersAvailable: boolean = false;
+  nextPeersAvailable: boolean = false;
+  androidRecordingArray = [];
+  testArray = [];
+  fileNum: number = 0;
+
 
   ngOnInit() {
+    console.log('ngOnit Called on Record Answer Page');
+    this.previousPeersAvailable = false;
+    this.nextPeersAvailable = false;
+
     this.question = this.questionService.getCurrentQuestion();
     this.lenOfQuestion = this.question.question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
@@ -80,10 +90,25 @@ export class RecordAnswerPage implements OnInit {
   }
 
   stopRecord() {
+    this.timerShouldStart = false;
     this.audio.stopRecord();
     this.recordingStarted = false;
     this.audio.release();
-    this.stopCountdown();
+    this.stopInterval();
+    this.audio = null;
+    this.getMinutesTimer();
+
+    let data1 = { filename: this.fileName};
+    // this.audioList.push(data1);
+    this.androidRecordingArray.push(data1);
+    // localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    this.recording = false;
+    // this.getAudioList();
+    alert(JSON.stringify(this.androidRecordingArray));
+    return;
+    this.audio.stopRecord();
+    this.recordingStarted = false;
+    this.audio.release();
     this.stopInterval();
     this.audio = null;
     console.log('checking timer : ', this.countdown);
@@ -100,21 +125,15 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startRecord() {
+
     this.vibration.vibrate(100);
-    if (this.platform.is('ios')) {
-      console.log('platform is ios');
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
-      this.audio = this.media.create(this.filePath);
-    } else if (this.platform.is('android')) {
+    
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new
       Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new
       Date().getSeconds()+'.3gp';
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') +
-      this.fileName;
-    //  this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
+     
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
-    }
       this.audio.startRecord();
       this.timerShouldStart = true;
       this.startCountdown();
@@ -133,11 +152,6 @@ export class RecordAnswerPage implements OnInit {
       }
 
     }
-
-    stopCountdown() {
-      this.timerShouldStart = false;
-    }
-
 
     startInterval() {
       console.log('startInterval called');
@@ -249,18 +263,6 @@ export class RecordAnswerPage implements OnInit {
     this.countdown = 0;
   }
 
-  playAudio(file,idx) {
-    this.vibration.vibrate(100);
-    if (this.platform.is('ios')) {
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
-      this.audio = this.media.create(this.filePath);
-    } else if (this.platform.is('android')) {
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
-      this.audio = this.media.create(this.filePath);
-    }
-    this.audio.play();
-   // this.audio.setVolume(0.8);
-  }
 
 // 5 timers for displaying count down before audio recording starts
 
@@ -273,10 +275,7 @@ export class RecordAnswerPage implements OnInit {
     this.vibration.vibrate(100);
     this.route.navigate(['/home']);
 
-    // this.cancelModeEnable = false;
-    // this.cancelModeDisable = true;
-    // this.changeRef.detectChanges()
-
+   
   }
 
   backToRecording () {
@@ -284,20 +283,12 @@ export class RecordAnswerPage implements OnInit {
     this.isPaused = false;
     this.isRecord = true;
     this.changeRef.detectChanges();
-    // console.log('gotorecording function called');
-    // this.cancelModeEnable = false;
-    // this.cancelModeDisable = true;
-    // this.changeRef.detectChanges();
+   
   }
 
 
    async goToCancelScreen() {
      
-  //   console.log('gotocancelscreenknddknd');
-  //  console.log('gotocancelScreen function called');
-  //  this.cancelModeEnable = true;
-  //  this.cancelModeDisable = false;
-  //  this.changeRef.detectChanges();
   this.isPaused = true;
   this.isRecord = false;
   this.changeRef.detectChanges();
@@ -332,15 +323,12 @@ export class RecordAnswerPage implements OnInit {
     this.vibration.vibrate(100);
     this.isRecord = true;
     this.isPaused = false;
-    if (this.recordingStarted === false){
-      this.audio.resumeRecord();
-      this.recordingStarted = true;
-    }
-
+    this.specialResumeForAndroid();
   }
 
   saveRecording() {
-    this.stopRecord();
+    //this.stopRecord();
+    this.newSaveRecording();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
   }
@@ -350,14 +338,119 @@ export class RecordAnswerPage implements OnInit {
     console.log('funct called');
     this.isRecord = false;
     this.isPaused = true;
-    console.log('checking current statud of isRecord and isPaused', this.isPaused , this.animation);
     this.changeRef.detectChanges();
-    if (this.recordingStarted){
-      this.audio.pauseRecord();
-      this.recordingStarted = false;
+    this.pauseFuncForAndroid();
+    // if (this.recordingStarted){
+    //   if (this.platform.is('android')){
+    //       this.pauseFuncForAndroid();
+    //       this.recordingStarted = false;
 
+    //   } else {
+    //     this.audio.pauseRecord();
+    //     this.recordingStarted = false;
+    //   }
+    
+
+    // }
+
+  }
+
+  newSaveRecording() {
+    this.audio.stopRecord();
+    this.audio.release();
+    // this.timerShouldStart = false;
+    //this.stopInterval();
+    // this.audio = null;
+   // let data = { filename: this.fileName};
+
+   
+    this.getMinutesTimer();
+    this.androidRecordingArray.push(this.fileName);
+    let length = this.androidRecordingArray.length - 1;
+
+    if (this.androidRecordingArray.length == 1) {
+      let data = { filename: this.androidRecordingArray,
+        previousPeer: false,
+        nextPeer: false,
+        nextFileName: null,
+        question: this.question.question, id: this.question.id,
+        date: new Date().getDate(), month: new Date().getMonth() + 1,
+         year: new Date().getFullYear(), hours: this.hours, minutes: this.minutes,
+         seconds: this.seconds, totalSeconds: this.countdown
+        };
+        this.audioList.push(data);
+            localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+            this.testArray.push(data)
+    } else {
+      for (let i=0; i< this.androidRecordingArray.length; i++) {
+        if (i==0) {
+         let data = { filename: this.androidRecordingArray[i],
+         previousPeer: false,
+         nextPeer: true,
+         nextFileName: this.androidRecordingArray[i + 1],
+         question: this.question.question, id: this.question.id,
+         date: new Date().getDate(), month: new Date().getMonth() + 1,
+         year: new Date().getFullYear(), hours: this.hours, minutes: this.minutes,
+         seconds: this.seconds, totalSeconds: this.countdown
+         };
+         this.audioList.push(data);
+         localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+         this.testArray.push(data)
+        } 
+        else if(i == length){
+          let data = { filename: this.androidRecordingArray[i],
+            previousPeer: true,
+            nextPeer: false,
+            nextFileName: null,
+            question: this.question.question, id: this.question.id,
+            date: new Date().getDate(), month: new Date().getMonth() + 1,
+            year: new Date().getFullYear(), hours: this.hours, minutes: this.minutes,
+            seconds: this.seconds, totalSeconds: this.countdown
+            };
+            this.audioList.push(data);
+            localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+            this.testArray.push(data)
+        } else {
+          let data = { filename: this.androidRecordingArray[i],
+            previousPeer: true,
+            nextPeer: true,
+            nextFileName: this.androidRecordingArray[i + 1],
+            question: this.question.question, id: this.question.id,
+            date: new Date().getDate(), month: new Date().getMonth() + 1,
+            year: new Date().getFullYear(), hours: this.hours, minutes: this.minutes,
+            seconds: this.seconds, totalSeconds: this.countdown
+            };
+            this.audioList.push(data);
+            localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+            this.testArray.push(data)
+        }
+      }
     }
 
+
+    //  let data1 = { filename: this.fileName};
+    // // this.audioList.push(data1);
+    // this.androidRecordingArray.push(data1);
+    // // localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    // this.recording = false;
+    // // this.getAudioList();
+  }
+
+  pauseFuncForAndroid() {
+    this.audio.stopRecord();
+    this.audio.release();
+    this.timerShouldStart = false;
+    this.stopInterval();
+    this.audio = null;
+    this.androidRecordingArray.push(this.fileName);
+
+  }
+
+  specialResumeForAndroid() {
+    this.timerShouldStart = true;
+    this.startInterval();
+    this.startCountdown();
+    this.startRecord();
   }
 
   startTimerFirst() {
