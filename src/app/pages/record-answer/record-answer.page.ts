@@ -293,8 +293,12 @@ export class RecordAnswerPage implements OnInit {
 
 
   async goToCancelScreen() {
-
-    this.pauseFuncForAndroid();
+if (this.isPaused) {
+// do nothing
+} else {
+  this.pauseFuncForAndroid();
+}
+   
     this.isPaused = true;
     this.isRecord = false;
     this.changeRef.detectChanges();
@@ -346,19 +350,6 @@ export class RecordAnswerPage implements OnInit {
     this.isPaused = true;
     this.changeRef.detectChanges();
     this.pauseFuncForAndroid();
-    // if (this.recordingStarted){
-    //   if (this.platform.is('android')){
-    //       this.pauseFuncForAndroid();
-    //       this.recordingStarted = false;
-
-    //   } else {
-    //     this.audio.pauseRecord();
-    //     this.recordingStarted = false;
-    //   }
-
-
-    // }
-
   }
 
   newSaveRecording() {
