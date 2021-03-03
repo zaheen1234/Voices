@@ -7,6 +7,25 @@ export class QuestionServiceService {
 
   currentQuestionIndex = 0;
 
+  currentPermissionStatus: any;
+
+  public getPermissionStatus() {
+    const checkNavSetting = localStorage.getItem('permission');
+    if (checkNavSetting != null) {
+      return this.currentPermissionStatus = checkNavSetting;
+    } else {
+      this.setPermissionStatus(false);
+      return 'false';
+    }
+
+  }
+
+  public setPermissionStatus(val) {
+
+    localStorage.setItem('permission', val);
+    this.currentPermissionStatus = localStorage.getItem('permission');
+  }
+
 public questionArray = [
   {id: 1,
   question: 'Where were you born?'},

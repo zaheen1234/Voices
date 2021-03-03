@@ -17,11 +17,19 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 export class RecordAnswerPage implements OnInit {
 
   constructor(private route: Router, private media: Media, private file: File,
-     private platform: Platform, private changeRef: ChangeDetectorRef,
-     private questionService: QuestionServiceService, private vibration: Vibration,
-     private alertController: AlertController
-   ) { }
-
+    private platform: Platform, private changeRef: ChangeDetectorRef,
+    private questionService: QuestionServiceService, private vibration: Vibration,
+    private alertController: AlertController
+  ) {
+    this.platform.resume.subscribe(() => {
+      this.resumeCounter = this.resumeCounter + 1;
+      // alert('checking resume counter' + this.resumeCounter);
+      if (this.resumeCounter === 1) {
+        this.distroyFile();
+      }
+    });
+  }
+  resumeCounter = 0;
   enable1 = false;
   enable2 = false;
   enable3 = false;
@@ -29,7 +37,7 @@ export class RecordAnswerPage implements OnInit {
   enable5 = false;
   started = false;
   animation = false;
-  
+
   isRecord = true;
   isPaused = false;
   cancelModeDisable = true;
@@ -50,6 +58,7 @@ export class RecordAnswerPage implements OnInit {
   recordingStarted: boolean = false;
   protected timer: any;
   public countdown = 0;
+  public countdown1 = 0;
   timerShouldStart: boolean = false;
   hours: number = 0;
   minutes: number = 0;
@@ -58,6 +67,13 @@ export class RecordAnswerPage implements OnInit {
   showMedium: boolean = false;
   showHigh: boolean = false;
 
+
+  distroyFile() {
+    this.audio.stopRecord();
+    this.audio.release();
+    this.audio = null;
+    this.questionService.setPermissionStatus('true');
+  }
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
     this.lenOfQuestion = this.question.question.length;
@@ -88,9 +104,10 @@ export class RecordAnswerPage implements OnInit {
     this.audio = null;
     console.log('checking timer : ', this.countdown);
     this.getMinutesTimer();
-    let data = { filename: this.fileName, question: this.question.question, id: this.question.id ,
-                 date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
-                 hours: this.hours, minutes: this.minutes, seconds: this.seconds, totalSeconds: this.countdown
+    let data = {
+      filename: this.fileName, question: this.question.question, id: this.question.id,
+      date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
+      hours: this.hours, minutes: this.minutes, seconds: this.seconds, totalSeconds: this.countdown1
     };
     console.log('checking what data is going to save : ', JSON.stringify(data));
     this.audioList.push(data);
@@ -101,136 +118,118 @@ export class RecordAnswerPage implements OnInit {
 
   startRecord() {
     this.vibration.vibrate(100);
-    if (this.platform.is('ios')) {
-      console.log('platform is ios');
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
-      this.audio = this.media.create(this.filePath);
-    } else if (this.platform.is('android')) {
-      this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new
-      Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new
-      Date().getSeconds()+'.3gp';
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') +
-      this.fileName;
-    //  this.filePath = '/android_asset/www/assets/audio/' + this.fileName;
-      this.audio = this.media.create(this.filePath);
-    }
-      this.audio.startRecord();
-      this.timerShouldStart = true;
-      this.startCountdown();
-      this.recordingStarted = true;
-      this.startInterval();
-      this.recording = true;
-    }
+
+    this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
+    this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+    this.audio = this.media.create(this.filePath);
+    this.audio.startRecord();
+    this.timerShouldStart = true;
+    this.startCountdown();
+    this.recordingStarted = true;
+    this.startInterval();
+    this.recording = true;
+  }
 
 
-    // timer to keep track of file duration
-    startCountdown() {
+  // timer to keep track of file duration
+  startCountdown() {
 
-      if (this.timerShouldStart){
-        setTimeout(() => {
-          this.countdown = this.countdown + 1;
-          this.startCountdown();
-        }, 1000);
-      }
-
+    if (this.timerShouldStart) {
+      setTimeout(() => {
+        this.countdown = this.countdown + 1;
+        this.startCountdown();
+      }, 100);
     }
 
-    stopCountdown() {
-      this.timerShouldStart = false;
-    }
+  }
+
+  stopCountdown() {
+    this.timerShouldStart = false;
+  }
 
 
-    startInterval() {
-      console.log('startInterval called');
-      const self = this;
-      this.interval = setInterval(_ => {
+  startInterval() {
+    console.log('startInterval called');
+    const self = this;
+    this.interval = setInterval(_ => {
       self.progress = self.progress + 1;
-      this.audio.getCurrentAmplitude().then((data)=> {
-      if (data < 0.1) {
-        console.log('checking amplitude: ', data);
-        this.showLow = true;
-        this.showMedium = false;
-        this.showHigh = false;
-        
-        this.changeRef.detectChanges();
-      } else if(data > 0.1 && data < 0.7){
-        console.log('MEDIUM amplitude: ', data);
-        this.showMedium = true;
-        this.showLow = false;
-        this.showHigh = false;
-        
-        this.changeRef.detectChanges();
-      } else if(data > 0.7){
-        console.log('checking amplitude: ', data);
-        this.showHigh = true;
-        this.showLow = false;
-        this.showMedium = false;
-        
-        this.changeRef.detectChanges();
-      }
-    })
-      }, 500);
-    }
+      this.audio.getCurrentAmplitude().then((data) => {
+        if (data < 0.1) {
+          console.log('checking amplitude: ', data);
+          this.showLow = true;
+          this.showMedium = false;
+          this.showHigh = false;
 
-    stopInterval() {
-      this.showGif = false;
-      this.showPlain = true;
-      clearInterval(this.interval);
-      console.log('stop enterval called');
-    }
+          this.changeRef.detectChanges();
+        } else if (data > 0.1 && data < 0.7) {
+          console.log('MEDIUM amplitude: ', data);
+          this.showMedium = true;
+          this.showLow = false;
+          this.showHigh = false;
+
+          this.changeRef.detectChanges();
+        } else if (data > 0.7) {
+          console.log('checking amplitude: ', data);
+          this.showHigh = true;
+          this.showLow = false;
+          this.showMedium = false;
+
+          this.changeRef.detectChanges();
+        }
+      })
+    }, 500);
+  }
+
+  stopInterval() {
+    this.showGif = false;
+    this.showPlain = true;
+    clearInterval(this.interval);
+    console.log('stop enterval called');
+  }
 
   getMinutesTimer() {
+    let tempTimer = this.countdown / 10;
+    this.countdown1 = Math.floor(tempTimer);
 
-    if (this.countdown > 3600) {
+    if (this.countdown1 > 3600) {
       let hour: number;
-       hour = this.countdown/3600;
-       let roundOffOfHour: number;
-       roundOffOfHour = Math.floor(hour);
-       this.hours = roundOffOfHour;
-       console.log('checking hour : ', roundOffOfHour);
-       let localMin = roundOffOfHour * 3600;
-       console.log('checking localMin : ', localMin);
-      let actualMin = this.countdown - localMin;
+      hour = this.countdown1 / 3600;
+      let roundOffOfHour: number;
+      roundOffOfHour = Math.floor(hour);
+      this.hours = roundOffOfHour;
+      let localMin = roundOffOfHour * 3600;
+      let actualMin = this.countdown1 - localMin;
       if (actualMin > 60) {
-        console.log('checking totalsecs : ', this.countdown);
         let min: number;
-        min = this.countdown/60;
+        min = this.countdown1 / 60;
         let roundOffOfMin: number;
         roundOffOfMin = Math.floor(min);
-        console.log( 'checking min: ', roundOffOfMin);
         let localSec = roundOffOfMin * 60;
-        console.log('checking localSec : ', localSec)
-        let thenSec = this.countdown - localSec;
-        console.log('checking remaining sec : ', thenSec);
+        let thenSec = this.countdown1 - localSec;
         this.minutes = roundOffOfMin;
         this.seconds = thenSec;
         return;
       } else {
         this.minutes = 0;
-      this.seconds = actualMin;
-      return;
+        this.seconds = actualMin;
+        return;
       }
 
     }
-    if(this.countdown > 60) {
-      console.log('checking totalsecs : ', this.countdown);
+    if (this.countdown1 > 60) {
       let min: number;
-      min = this.countdown/60;
+      min = this.countdown1 / 60;
       let roundOffOfMin: number;
       roundOffOfMin = Math.floor(min);
-      console.log( 'checking min: ', roundOffOfMin);
       let localSec = roundOffOfMin * 60;
-      console.log('checking localSec : ', localSec)
-      let thenSec = this.countdown - localSec;
-      console.log('checking remaining sec : ', thenSec);
+      let thenSec = this.countdown1 - localSec;
       this.minutes = roundOffOfMin;
       this.seconds = thenSec;
       return;
     }
 
-      this.minutes = 0;
-      this.seconds = this.countdown;
+    this.minutes = 0;
+    this.seconds = this.countdown1;
 
   }
 
@@ -239,19 +238,30 @@ export class RecordAnswerPage implements OnInit {
   }
 
   getAudioList() {
-    if(localStorage.getItem("audiolist")) {
+    if (localStorage.getItem("audiolist")) {
       this.audioList = JSON.parse(localStorage.getItem("audiolist"));
       console.log(this.audioList);
     }
   }
 
   ionViewWillEnter() {
+
+    let permissionStatus = this.questionService.getPermissionStatus();
+    if(permissionStatus === 'false') {
+    // do nothing
+    this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
+    this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+    this.audio = this.media.create(this.filePath);
+    this.audio.startRecord();
+ } else {
+        // do nothing
+    }
     this.getAudioList();
     this.timerShouldStart = false;
     this.countdown = 0;
   }
 
-  playAudio(file,idx) {
+  playAudio(file, idx) {
     this.vibration.vibrate(100);
     if (this.platform.is('ios')) {
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
@@ -261,10 +271,10 @@ export class RecordAnswerPage implements OnInit {
       this.audio = this.media.create(this.filePath);
     }
     this.audio.play();
-   // this.audio.setVolume(0.8);
+    // this.audio.setVolume(0.8);
   }
 
-// 5 timers for displaying count down before audio recording starts
+  // 5 timers for displaying count down before audio recording starts
 
   goToRecordingsList() {
     this.vibration.vibrate(100);
@@ -281,7 +291,7 @@ export class RecordAnswerPage implements OnInit {
 
   }
 
-  backToRecording () {
+  backToRecording() {
     // this.vibration.vibrate(100);
     this.resumeRecording();
     this.isPaused = false;
@@ -290,36 +300,36 @@ export class RecordAnswerPage implements OnInit {
   }
 
 
-   async goToCancelScreen() {
+  async goToCancelScreen() {
 
-     this.pauseRecording();
+    this.pauseRecording();
     this.isPaused = true;
     this.isRecord = false;
     this.changeRef.detectChanges();
-   const alart = await this.alertController.create({
-    cssClass: 'basic-alert',
-    header: 'Are you sure you want to cancel your recording?',
-    buttons: [
-      {
-        text: 'YES',
-        handler: () => {
-          this.backToQuestionScreen();
+    const alart = await this.alertController.create({
+      cssClass: 'basic-alert',
+      header: 'Are you sure you want to cancel your recording?',
+      buttons: [
+        {
+          text: 'YES',
+          handler: () => {
+            this.backToQuestionScreen();
+          },
+          cssClass: 'failure-button'
         },
-        cssClass: 'failure-button'
-      },
-      {
-        text: 'NO',
-        role: 'cancel',
-        handler: (blah) => {
-          this.backToRecording();
-        },
-        cssClass: 'failure-button'
-      }
-    ]
-  });
-  await alart.present();
-  return;
-   
+        {
+          text: 'NO',
+          role: 'cancel',
+          handler: (blah) => {
+            this.backToRecording();
+          },
+          cssClass: 'failure-button'
+        }
+      ]
+    });
+    await alart.present();
+    return;
+
   }
 
   resumeRecording() {
@@ -328,7 +338,7 @@ export class RecordAnswerPage implements OnInit {
     this.isPaused = false;
     this.changeRef.detectChanges();
 
-    if (this.recordingStarted === false){
+    if (this.recordingStarted === false) {
       this.timerShouldStart = true;
       this.startCountdown();
       this.audio.resumeRecord();
@@ -348,7 +358,7 @@ export class RecordAnswerPage implements OnInit {
     console.log('funct called');
     this.isRecord = false;
     this.isPaused = true;
-    if (this.recordingStarted){
+    if (this.recordingStarted) {
       this.timerShouldStart = false;
       this.audio.pauseRecord();
       this.recordingStarted = false;
