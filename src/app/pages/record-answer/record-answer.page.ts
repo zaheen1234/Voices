@@ -293,9 +293,9 @@ export class RecordAnswerPage implements OnInit {
    async goToCancelScreen() {
 
      this.pauseRecording();
-  this.isPaused = true;
-  this.isRecord = false;
-  this.changeRef.detectChanges();
+    this.isPaused = true;
+    this.isRecord = false;
+    this.changeRef.detectChanges();
    const alart = await this.alertController.create({
     cssClass: 'basic-alert',
     header: 'Are you sure you want to cancel your recording?',
