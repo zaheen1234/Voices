@@ -8,10 +8,12 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="listing-sec" *ngFor="let audio of audioList; index as i;">
+    <div *ngFor="let audio of audioList; index as i;">
+
+    <ion-card class="listing-sec" *ngIf="audio.previousPeer == false">
     <!-- <ion-card class="listing-sec"> -->
 
-        <ion-card-header *ngIf="audio.previousPeer == false">
+        <ion-card-header >
             <ion-card-title>
                 <ion-row class="flex">
                     <ion-col class="question">
@@ -51,7 +53,7 @@
 
                     <ion-col> 
                         <img src="assets/1sec/gif/medium.gif" class="voice-img" *ngIf="isAudioPaused == false">
-                        <img src="assets/images/straightLine.png" class="voice-img" *ngIf="isAudioPaused"><br>
+                        <img src="assets/images/straightLine.png" class="voice-img" *ngIf="isAudioPaused">
                         <ion-progress-bar color="voice" [value]="p_bar_value" class="prgrs-baar"></ion-progress-bar>
                         <!-- <p class="progrs-count">00:02:34</p>
                         <p class="progrs-count-complete">00:05:36</p> -->
@@ -65,5 +67,6 @@
         </ion-card-header>
     </ion-card>
 
+</div>
 
   </ion-content>

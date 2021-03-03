@@ -6,6 +6,25 @@ import { Injectable } from '@angular/core';
 export class QuestionServiceService {
 
   currentQuestionIndex = 0;
+  currentPermissionStatus: any;
+
+  public getPermissionStatus() {
+    const checkNavSetting = localStorage.getItem('permission');
+    if (checkNavSetting != null) {
+      return this.currentPermissionStatus = checkNavSetting;
+    } else {
+      this.setPermissionStatus(false);
+    }
+
+  }
+
+  public setPermissionStatus(val) {
+
+    localStorage.setItem('permission', val);
+    this.currentPermissionStatus = localStorage.getItem('permission');
+    return this.currentPermissionStatus;
+  }
+
 
 public questionArray = [
   {id: 1,

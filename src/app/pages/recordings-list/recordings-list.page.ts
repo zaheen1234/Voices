@@ -313,6 +313,9 @@ export class RecordingsListPage implements OnInit {
         console.log(apc);
         this.p_bar_value = apc / 10;
         this.actualSlider = Math.floor(this.progress / 10);
+        if (this.actualSlider >= this.totalSeconds) {
+          this.actualSlider = this.totalSeconds;
+        }
         this.changeRef.detectChanges();
         this.startProgressBarTimer();
       }, 100);
