@@ -248,7 +248,6 @@ export class RecordAnswerPage implements OnInit {
 
     let permissionStatus = this.questionService.getPermissionStatus();
     if(permissionStatus === 'false') {
-    // do nothing
     this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
     this.audio = this.media.create(this.filePath);
@@ -261,19 +260,6 @@ export class RecordAnswerPage implements OnInit {
     this.countdown = 0;
   }
 
-  playAudio(file, idx) {
-    this.vibration.vibrate(100);
-    if (this.platform.is('ios')) {
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
-      this.audio = this.media.create(this.filePath);
-    } else if (this.platform.is('android')) {
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
-      this.audio = this.media.create(this.filePath);
-    }
-    this.audio.play();
-    // this.audio.setVolume(0.8);
-  }
-
   // 5 timers for displaying count down before audio recording starts
 
   goToRecordingsList() {
@@ -284,11 +270,6 @@ export class RecordAnswerPage implements OnInit {
   backToQuestionScreen() {
     this.vibration.vibrate(100);
     this.route.navigate(['/home']);
-
-    // this.cancelModeEnable = false;
-    // this.cancelModeDisable = true;
-    // this.changeRef.detectChanges()
-
   }
 
   backToRecording() {
@@ -362,13 +343,10 @@ export class RecordAnswerPage implements OnInit {
       this.timerShouldStart = false;
       this.audio.pauseRecord();
       this.recordingStarted = false;
-
     }
-
   }
 
   startTimerFirst() {
-
     setTimeout(() => {
       this.enable5 = false;
       this.startTimerSecond();
