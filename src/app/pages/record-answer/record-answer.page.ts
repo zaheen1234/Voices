@@ -20,15 +20,10 @@ export class RecordAnswerPage implements OnInit {
     private platform: Platform, private changeRef: ChangeDetectorRef,
     private questionService: QuestionServiceService, private vibration: Vibration,
     private alertController: AlertController
-  ) { 
-
-    // this.platform.pause.subscribe(() => {
-    // });
-
+  ) {
     this.platform.resume.subscribe(() => {
       this.resumeCounter = this.resumeCounter + 1;
-      // alert('checking resume counter' + this.resumeCounter);
-      if(this.resumeCounter ===2 ) {
+      if (this.resumeCounter === 2) {
         this.distroyFile();
       }
     });
@@ -82,22 +77,17 @@ export class RecordAnswerPage implements OnInit {
 
 
   ngOnInit() {
-    
 
-    
-    console.log('ngOnit Called on Record Answer Page');
     this.previousPeersAvailable = false;
     this.nextPeersAvailable = false;
 
     this.question = this.questionService.getCurrentQuestion();
     this.lenOfQuestion = this.question.question.length;
-    console.log('lenght of question : ', this.lenOfQuestion);
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
     }
-    console.log('init called');
     this.enable5 = true;
     this.timerShouldStart = false;
     this.countdown = 0;
@@ -110,12 +100,11 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startRecord() {
-    
+
     this.vibration.vibrate(100);
-   
-      this.timerShouldStart = true;
-      this.startCountdown();
-   
+    this.timerShouldStart = true;
+    this.startCountdown();
+
     this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
       Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
         Date().getSeconds() + '.3gp';
@@ -140,12 +129,11 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startInterval() {
-    console.log('startInterval called');
     const self = this;
     this.interval = setInterval(_ => {
       self.progress = self.progress + 1;
       this.audio.getCurrentAmplitude().then((data) => {
-       
+
         if (data < 0.1) {
           this.showLow = true;
           this.showMedium = false;
@@ -170,64 +158,63 @@ export class RecordAnswerPage implements OnInit {
     this.showGif = false;
     this.showPlain = true;
     clearInterval(this.interval);
-    console.log('stop enterval called');
   }
 
-  getMinutesTimer() {
+  // getMinutesTimer() {
 
-    
 
-    if (this.countdown > 3600) {
-      let hour: number;
-      hour = this.countdown / 3600;
-      let roundOffOfHour: number;
-      roundOffOfHour = Math.floor(hour);
-      this.hours = roundOffOfHour;
-      console.log('checking hour : ', roundOffOfHour);
-      let localMin = roundOffOfHour * 3600;
-      console.log('checking localMin : ', localMin);
-      let actualMin = this.countdown - localMin;
-      if (actualMin > 60) {
-        console.log('checking totalsecs : ', this.countdown);
-        let min: number;
-        min = this.countdown / 60;
-        let roundOffOfMin: number;
-        roundOffOfMin = Math.floor(min);
-        console.log('checking min: ', roundOffOfMin);
-        let localSec = roundOffOfMin * 60;
-        console.log('checking localSec : ', localSec)
-        let thenSec = this.countdown - localSec;
-        console.log('checking remaining sec : ', thenSec);
-        this.minutes = roundOffOfMin;
-        this.seconds = thenSec;
-        return;
-      } else {
-        this.minutes = 0;
-        this.seconds = actualMin;
-        return;
-      }
 
-    }
-    if (this.countdown > 60) {
-      console.log('checking totalsecs : ', this.countdown);
-      let min: number;
-      min = this.countdown / 60;
-      let roundOffOfMin: number;
-      roundOffOfMin = Math.floor(min);
-      console.log('checking min: ', roundOffOfMin);
-      let localSec = roundOffOfMin * 60;
-      console.log('checking localSec : ', localSec)
-      let thenSec = this.countdown - localSec;
-      console.log('checking remaining sec : ', thenSec);
-      this.minutes = roundOffOfMin;
-      this.seconds = thenSec;
-      return;
-    }
+  //   if (this.countdown > 3600) {
+  //     let hour: number;
+  //     hour = this.countdown / 3600;
+  //     let roundOffOfHour: number;
+  //     roundOffOfHour = Math.floor(hour);
+  //     this.hours = roundOffOfHour;
+  //     console.log('checking hour : ', roundOffOfHour);
+  //     let localMin = roundOffOfHour * 3600;
+  //     console.log('checking localMin : ', localMin);
+  //     let actualMin = this.countdown - localMin;
+  //     if (actualMin > 60) {
+  //       console.log('checking totalsecs : ', this.countdown);
+  //       let min: number;
+  //       min = this.countdown / 60;
+  //       let roundOffOfMin: number;
+  //       roundOffOfMin = Math.floor(min);
+  //       console.log('checking min: ', roundOffOfMin);
+  //       let localSec = roundOffOfMin * 60;
+  //       console.log('checking localSec : ', localSec)
+  //       let thenSec = this.countdown - localSec;
+  //       console.log('checking remaining sec : ', thenSec);
+  //       this.minutes = roundOffOfMin;
+  //       this.seconds = thenSec;
+  //       return;
+  //     } else {
+  //       this.minutes = 0;
+  //       this.seconds = actualMin;
+  //       return;
+  //     }
 
-    this.minutes = 0;
-    this.seconds = this.countdown;
+  //   }
+  //   if (this.countdown > 60) {
+  //     console.log('checking totalsecs : ', this.countdown);
+  //     let min: number;
+  //     min = this.countdown / 60;
+  //     let roundOffOfMin: number;
+  //     roundOffOfMin = Math.floor(min);
+  //     console.log('checking min: ', roundOffOfMin);
+  //     let localSec = roundOffOfMin * 60;
+  //     console.log('checking localSec : ', localSec)
+  //     let thenSec = this.countdown - localSec;
+  //     console.log('checking remaining sec : ', thenSec);
+  //     this.minutes = roundOffOfMin;
+  //     this.seconds = thenSec;
+  //     return;
+  //   }
 
-  }
+  //   this.minutes = 0;
+  //   this.seconds = this.countdown;
+
+  // }
 
 
   getAudioList() {
@@ -239,19 +226,19 @@ export class RecordAnswerPage implements OnInit {
 
   ionViewWillEnter() {
     let permissionStatus = this.questionService.getPermissionStatus();
-    if(permissionStatus) {
+    if (permissionStatus) {
       // do nothing
     } else {
-// if permission is false (means not set)
-    this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
-    Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
-      Date().getSeconds() + '.3gp';
-    this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
-    this.audio = this.media.create(this.filePath);
-    this.audio.startRecord();
+      // if permission is false (means not set)
+      this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
+        Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
+          Date().getSeconds() + '.3gp';
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.audio = this.media.create(this.filePath);
+      this.audio.startRecord();
 
     }
-   
+
     this.getAudioList();
     this.timerShouldStart = false;
     this.countdown = 0;
@@ -287,12 +274,12 @@ export class RecordAnswerPage implements OnInit {
 
 
   async goToCancelScreen() {
-if (this.isPaused) {
-// do nothing
-} else {
-  this.pauseFuncForAndroid();
-}
-   
+    if (this.isPaused) {
+      // do nothing
+    } else {
+      this.pauseFuncForAndroid();
+    }
+
     this.isPaused = true;
     this.isRecord = false;
     this.changeRef.detectChanges();
@@ -331,7 +318,6 @@ if (this.isPaused) {
   }
 
   saveRecording() {
-    //this.stopRecord();
     this.newSaveRecording();
     this.vibration.vibrate(100);
     this.route.navigate(['/success-page']);
@@ -387,9 +373,9 @@ if (this.isPaused) {
       localStorage.setItem("audiolist", JSON.stringify(this.audioList));
       this.testArray.push(data)
     } else {
-      
-      
-      
+
+
+
       for (let i = 0; i < this.androidRecordingArray.length; i++) {
         if (i == 0) {
           let data = {
@@ -441,7 +427,7 @@ if (this.isPaused) {
 
   pauseFuncForAndroid() {
     this.timerShouldStart = false;
-  //  this.startCountdown();
+    //  this.startCountdown();
     this.audio.stopRecord();
     this.audio.release();
     this.stopInterval();
@@ -459,7 +445,7 @@ if (this.isPaused) {
 
     let tempCounter = this.countdown / 10;
 
-    this.countdown1 = Math.ceil(tempCounter);
+    this.countdown1 = Math.floor(tempCounter);
 
     if (this.countdown1 > 3600) {
       let hour: number;
@@ -467,20 +453,15 @@ if (this.isPaused) {
       let roundOffOfHour: number;
       roundOffOfHour = Math.floor(hour);
       this.hours1 = roundOffOfHour;
-      console.log('checking hour : ', roundOffOfHour);
       let localMin = roundOffOfHour * 3600;
-      console.log('checking localMin : ', localMin);
       let actualMin = this.countdown1 - localMin;
       if (actualMin > 60) {
         let min: number;
         min = this.countdown1 / 60;
         let roundOffOfMin: number;
         roundOffOfMin = Math.floor(min);
-        console.log('checking min: ', roundOffOfMin);
         let localSec = roundOffOfMin * 60;
-        console.log('checking localSec : ', localSec)
         let thenSec = this.countdown1 - localSec;
-        console.log('checking remaining sec : ', thenSec);
         this.minutes1 = roundOffOfMin;
         this.seconds1 = thenSec;
         return;
@@ -496,11 +477,8 @@ if (this.isPaused) {
       min = this.countdown1 / 60;
       let roundOffOfMin: number;
       roundOffOfMin = Math.floor(min);
-      console.log('checking min: ', roundOffOfMin);
       let localSec = roundOffOfMin * 60;
-      console.log('checking localSec : ', localSec)
       let thenSec = this.countdown1 - localSec;
-      console.log('checking remaining sec : ', thenSec);
       this.minutes1 = roundOffOfMin;
       this.seconds1 = thenSec;
       return;
