@@ -17,8 +17,9 @@ export class HomePage {
   otpMode = false;
   normalMode = true;
   question = this.questionService.getCurrentQuestion();
-  lenOfQuestion = this.question.question.length;
+  lenOfQuestion;
   questionRange: boolean = false;
+  questionsArray = [];
   // tslint:disable-next-line:prefer-const
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
@@ -30,7 +31,12 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.lenOfQuestion = this.question.question.length;
+    alert('home');
+    let questionsList = this.questionService.startQuestionService();
+    console.log('checking what is coming actually : ', questionsList.length);
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
+    console.log('checking length : ' , this.questionsArray[0].question.length);
     console.log('lenght of question : ', this.lenOfQuestion);
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
@@ -71,11 +77,11 @@ export class HomePage {
     this.vibration.vibrate(100);
     this.questionService.increaseQuestionIndex();
     //this.question = this.questionService.increaseQuestionIndex();
-    let localQuestion = this.questionService.getCurrentQuestion();
-    console.log('checking the returned val', localQuestion);
-    // console.log('checking current question', this.question);
-    this.question = localQuestion;
-    this.lenOfQuestion = this.question.question.length;
+    // let localQuestion = this.questionService.getCurrentQuestion();
+    this.question = this.questionService.getCurrentQuestion();
+    let anArray = [];
+    anArray.push(this.question);
+    this.lenOfQuestion = anArray[0].question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
 
     if (this.lenOfQuestion > 70) {

@@ -50,7 +50,7 @@ export class RecordingsListPage implements OnInit {
 
 
   ngOnInit() {
-    this.questionsList = this.questionService.questionArray;
+    this.questionsList = this.questionService.questionsList;
   }
 
   appIsPaused() {

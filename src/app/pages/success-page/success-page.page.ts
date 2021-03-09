@@ -17,7 +17,7 @@ export class SuccessPagePage implements OnInit {
   deleteModeDisable = true;
   deleteModeEnable = false;
   question = this.questionService.getCurrentQuestion();
-  lenOfQuestion = this.question.question.length;
+  lenOfQuestion;
   questionRange: boolean = false;
   recordingList = [];
   filePath: string;
@@ -25,6 +25,8 @@ export class SuccessPagePage implements OnInit {
   canPlay: boolean = true;
   canPause: boolean = false;
   isPaused: boolean = false;
+  questionArray = [];
+  completeQuestions = [];
 
 
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
@@ -43,16 +45,33 @@ export class SuccessPagePage implements OnInit {
 
 
   ngOnInit() {
-    console.log('init called');
+    alert('Success Page');
     this.question = this.questionService.getCurrentQuestion();
-    this.lenOfQuestion = this.question.question.length;
-    console.log('lenght of question : ', this.lenOfQuestion);
+    this.completeQuestions = this.questionService.startQuestionService();
+
+   this.questionArray.push(this.question);
+    this.lenOfQuestion = this.questionArray[0].question.length;
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
     }
     this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
+
+    let questionsList = this.questionService.startQuestionService();
+
+    for(let i = 0; i < questionsList.length; i ++) {
+      if (this.questionArray[0].id === questionsList[i].id){
+        this.completeQuestions[i].isAnswered = true;
+        localStorage.setItem('questionsList', JSON.stringify(this.completeQuestions));
+        this.questionService.increaseQuestionIndex();
+        return;
+      }
+    }
+
+
+
+
   }
 
   appIsPaused() {
@@ -119,8 +138,22 @@ export class SuccessPagePage implements OnInit {
     // this.changeRef.detectChanges()
 
     for (let i = 0; i < this.recordingList.length; i++) {
-      if (this.question.id === this.recordingList[i].id) {
+      if (this.questionArray[0].id === this.recordingList[i].id) {
         this.deleteRecording(i);
+        this.deleteQuestion();
+        return;
+      }
+    }
+  }
+
+  deleteQuestion() {
+    let questionsList = this.questionService.startQuestionService();
+
+    for(let i = 0; i < questionsList.length; i ++) {
+      if (this.questionArray[0].id === questionsList[i].id){
+        this.completeQuestions[i].isAnswered = false;
+        localStorage.setItem('questionsList', JSON.stringify(this.completeQuestions));
+        this.questionService.increaseQuestionIndex();
         return;
       }
     }
@@ -137,7 +170,7 @@ export class SuccessPagePage implements OnInit {
       return;
     }
     for (let i = 0; i < this.recordingList.length; i++) {
-      if (this.question.id === this.recordingList[i].id) {
+      if (this.questionArray[0].id === this.recordingList[i].id) {
         let file = this.recordingList[i].filename;
         this.playAnswer(file);
         return;

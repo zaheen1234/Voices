@@ -49,7 +49,7 @@ export class RecordAnswerPage implements OnInit {
   audio: MediaObject;
   audioList: any[] = [];
   question = this.questionService.getCurrentQuestion();
-  lenOfQuestion = this.question.question.length;
+  lenOfQuestion;
   questionRange: boolean = false;
   protected interval: any;
   public progress = 0;
@@ -66,6 +66,7 @@ export class RecordAnswerPage implements OnInit {
   showLow: boolean = false;
   showMedium: boolean = false;
   showHigh: boolean = false;
+  questionArray = [];
 
 
   distroyFile() {
@@ -76,8 +77,8 @@ export class RecordAnswerPage implements OnInit {
   }
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
-    this.lenOfQuestion = this.question.question.length;
-    console.log('lenght of question : ', this.lenOfQuestion);
+    this.questionArray.push(this.question);
+    this.lenOfQuestion = this.questionArray[0].question.length;
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
@@ -105,7 +106,7 @@ export class RecordAnswerPage implements OnInit {
     console.log('checking timer : ', this.countdown);
     this.getMinutesTimer();
     let data = {
-      filename: this.fileName, question: this.question.question, id: this.question.id,
+      filename: this.fileName, question: this.questionArray[0].question, id: this.questionArray[0].id,
       date: new Date().getDate(), month: new Date().getMonth() + 1, year: new Date().getFullYear(),
       hours: this.hours, minutes: this.minutes, seconds: this.seconds, totalSeconds: this.countdown1
     };
