@@ -348,6 +348,9 @@ export class RecordAnswerPage implements OnInit {
   }
 
   pauseRecording() {
+    if(this.animation == false) {
+      return;
+    }
     this.vibration.vibrate(100);
     console.log('funct called');
     this.isRecord = false;

@@ -111,7 +111,6 @@ export class HomePage {
     // this.route.navigate(['/record-answer'])
 
     if (this.allQuetionsFinished) {
-      alert('You have answered all the questions');
       return;
     }
     this.vibration.vibrate(100);
@@ -139,7 +138,6 @@ export class HomePage {
     // copying new code from onlyiOS branch
 
     if (this.allQuetionsFinished) {
-      alert('You have answered all the questions');
       return;
     }
     this.questionsArray = [];
@@ -165,6 +163,8 @@ export class HomePage {
     let lastRoute = this.questionService.getLastRouteFunction();
     // alert('checking what was the last route : ' + lastRoute);
     // return;
+
+
     if (lastRoute === 'home') {
       this.goToCancelScreen();
     } else {
