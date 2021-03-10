@@ -27,6 +27,8 @@ export class RecordingsListPage implements OnInit {
     this.platform.resume.subscribe(() => {
       this.appIsResume();
     });
+
+    
   }
 
   questionsList = [];
@@ -52,8 +54,17 @@ export class RecordingsListPage implements OnInit {
 
 
   ngOnInit() {
-    this.questionsList = this.questionService.questionArray;
+    this.questionService.setLastRouteFunction('list');
+
+    this.questionsList = this.questionService.questionsList;
+    
   }
+
+
+
+  // ionViewWDidLeave() {
+  //   this.questionService.setLastRouteFunction('list');
+  // }
 
   appIsPaused() {
     if (this.isPlaying) {
@@ -71,7 +82,11 @@ export class RecordingsListPage implements OnInit {
   ionViewWillLeave() {
     if (this.isPlaying) {
       this.audio.stop();
+      this.audio.release();
+      this.audioList = [];
     }
+
+
   }
 
   ionViewWillEnter() {

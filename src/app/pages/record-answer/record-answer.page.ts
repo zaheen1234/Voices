@@ -48,7 +48,7 @@ export class RecordAnswerPage implements OnInit {
   audio: MediaObject;
   audioList: any[] = [];
   question = this.questionService.getCurrentQuestion();
-  lenOfQuestion = this.question.question.length;
+  lenOfQuestion;
   questionRange: boolean = false;
   protected interval: any;
   public progress = 0;
@@ -74,20 +74,32 @@ export class RecordAnswerPage implements OnInit {
   testArray = [];
   fileNum: number = 0;
   permissionGiven: boolean = false;
+  questionArray = [];
 
 
   ngOnInit() {
+    this.questionService.setLastRouteFunction('record');
 
     this.previousPeersAvailable = false;
     this.nextPeersAvailable = false;
 
+    // this.question = this.questionService.getCurrentQuestion();
+    // this.lenOfQuestion = this.question.question.length;
+    // if (this.lenOfQuestion > 70) {
+    //   this.questionRange = true;
+    // } else {
+    //   this.questionRange = false;
+    // }
+
     this.question = this.questionService.getCurrentQuestion();
-    this.lenOfQuestion = this.question.question.length;
+    this.questionArray.push(this.question);
+    this.lenOfQuestion = this.questionArray[0].question.length;
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
     }
+
     this.enable5 = true;
     this.timerShouldStart = false;
     this.countdown = 0;
@@ -245,8 +257,13 @@ export class RecordAnswerPage implements OnInit {
     this.permissionGiven = false;
   }
 
+  // ionViewWDidLeave() {
+  //   this.questionService.setLastRouteFunction('record');
+  // }
 
+  ionViewWillLeave() {
 
+  }
 
   // 5 timers for displaying count down before audio recording starts
 
@@ -274,6 +291,10 @@ export class RecordAnswerPage implements OnInit {
 
 
   async goToCancelScreen() {
+
+    if(this.animation == false) {
+      return;
+    }
     if (this.isPaused) {
       // do nothing
     } else {
@@ -318,9 +339,12 @@ export class RecordAnswerPage implements OnInit {
   }
 
   saveRecording() {
-    this.newSaveRecording();
-    this.vibration.vibrate(100);
-    this.route.navigate(['/success-page']);
+    if (this.animation) {
+      this.newSaveRecording();
+      this.vibration.vibrate(100);
+      this.route.navigate(['/success-page']);
+    }
+    
   }
 
   pauseRecording() {

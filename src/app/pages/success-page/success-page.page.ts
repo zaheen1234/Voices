@@ -25,6 +25,8 @@ export class SuccessPagePage implements OnInit {
   canPlay: boolean = true;
   canPause: boolean = false;
   isPaused: boolean = false;
+  questionArray = [];
+  completeQuestions = [];
 
 
   constructor(private route: Router, private changeRef: ChangeDetectorRef,
@@ -39,20 +41,51 @@ export class SuccessPagePage implements OnInit {
       this.platform.resume.subscribe(() => {
         this.appIsResume();
       });
+
+  //     this.platform.backButton.subscribe(() => {
+  //       this.backButtonHandler();
+  // });
+
+
     }
 
 
   ngOnInit() {
-    console.log('init called');
+    // this.question = this.questionService.getCurrentQuestion();
+    // this.lenOfQuestion = this.question.question.length;
+    // console.log('lenght of question : ', this.lenOfQuestion);
+    // if (this.lenOfQuestion > 70) {
+    //   this.questionRange = true;
+    // } else {
+    //   this.questionRange = false;
+    // }
+    // this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
+
+    //copying code from onlyiOS branch
+    this.questionService.setLastRouteFunction('success');
+
     this.question = this.questionService.getCurrentQuestion();
-    this.lenOfQuestion = this.question.question.length;
-    console.log('lenght of question : ', this.lenOfQuestion);
+    this.completeQuestions = this.questionService.startQuestionService();
+
+   this.questionArray.push(this.question);
+    this.lenOfQuestion = this.questionArray[0].question.length;
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
     }
-    this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
+   // this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
+
+    let questionsList = this.questionService.startQuestionService();
+
+    for(let i = 0; i < questionsList.length; i ++) {
+      if (this.questionArray[0].id === questionsList[i].id){
+        this.completeQuestions[i].isAnswered = true;
+        localStorage.setItem('questionsList', JSON.stringify(this.completeQuestions));
+        this.questionService.increaseQuestionIndex();
+        return;
+      }
+    }
   }
 
   appIsPaused() {
@@ -63,15 +96,30 @@ export class SuccessPagePage implements OnInit {
 
    }
 
+   backButtonHandler() {
+  //  let lastRoute = this.questionService.getLastRouteFunction();
+    this.route.navigate(['/home']);
+
+  }
+
+  //  ionViewWDidLeave() {
+  //   this.questionService.setLastRouteFunction('success');
+  // }
+
    ionViewWillLeave() {
+    // alert('isCan Pause : ' + this.canPause);
     if (this.canPause) {
       this.audio.stop();
+      this.audio.release();
+      this.recordingList = [];
     }
+
    }
 
    ionViewWillEnter() {
     this.canPlay = true;
     this.canPause = false;
+    this.recordingList = JSON.parse(localStorage.getItem("audiolist"));
    }
 
    appIsResume() {
@@ -83,7 +131,7 @@ export class SuccessPagePage implements OnInit {
 
   nextQuestion() {
     this.vibration.vibrate(100);
-    this.questionService.increaseQuestionIndex();
+    // this.questionService.increaseQuestionIndex();
     this.route.navigate(['/home']);
   }
 
@@ -119,13 +167,24 @@ export class SuccessPagePage implements OnInit {
 
   backToQuestionScreen() {
     this.vibration.vibrate(100);
-    // this.deleteModeDisable = true;
-    // this.deleteModeEnable = false;
-    // this.changeRef.detectChanges()
-
+  
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.question.id === this.recordingList[i].id) {
         this.deleteRecording(i);
+        this.deleteQuestion();
+        return;
+      }
+    }
+  }
+
+  deleteQuestion() {
+    let questionsList = this.questionService.startQuestionService();
+
+    for(let i = 0; i < questionsList.length; i ++) {
+      if (this.questionArray[0].id === questionsList[i].id){
+        this.completeQuestions[i].isAnswered = false;
+        localStorage.setItem('questionsList', JSON.stringify(this.completeQuestions));
+        this.questionService.decreaseQuestionIndex();
         return;
       }
     }
@@ -203,10 +262,7 @@ export class SuccessPagePage implements OnInit {
 
   backToRecording () {
     this.vibration.vibrate(100);
-    // console.log('gotorecording function called');
-    // this.deleteModeDisable = true;
-    // this.deleteModeEnable = false;
-    // this.changeRef.detectChanges();
+  
   }
 
   goToRecordingsList() {

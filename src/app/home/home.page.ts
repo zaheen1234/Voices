@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, Platform } from '@ionic/angular';
+import { AlertController, ModalController, Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { QuestionServiceService } from '../services/questionService/question-service.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
@@ -17,31 +17,49 @@ export class HomePage {
   otpMode = false;
   normalMode = true;
   question = this.questionService.getCurrentQuestion();
-  lenOfQuestion = this.question.question.length;
+  lenOfQuestion;
   questionRange: boolean = false;
+  questionsArray = [];
+  allQuetionsFinished: boolean = false;
+
   // tslint:disable-next-line:prefer-const
 
-  constructor( private modalCtrl: ModalController, private http: HttpClient,
-               private route: Router, private questionService: QuestionServiceService, 
-               private changeRef: ChangeDetectorRef, private platform: Platform,
-               private vibration: Vibration) {
+  constructor(private modalCtrl: ModalController, private http: HttpClient,
+    private route: Router, private questionService: QuestionServiceService,
+    private changeRef: ChangeDetectorRef, private platform: Platform,
+    private vibration: Vibration, private alertController: AlertController) {
+
+    //     this.platform.backButton.subscribeWithPriority(1, () => {
+    //       this.goToCancelScreen();
+    // });
+
+    this.platform.backButton.subscribe(() => {
+      this.handlerOfBackButton();
+    });
 
 
   }
 
   ngOnInit() {
+    this.questionService.setLastRouteFunction('home');
 
-    // let val;
-    // let num = 17;
-    // val = num * 10/100;
-    // let newVal = Math.ceil(val);
-    // alert('checking val : ' + newVal);
-    this.lenOfQuestion = this.question.question.length;
-    console.log('lenght of question : ', this.lenOfQuestion);
+
+    this.questionsArray = [];
+    let questionsList = this.questionService.startQuestionService();
+    this.question = this.questionService.getCurrentQuestion();
+    // alert('checking question returned : ' + JSON.stringify(this.question));
+
+
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
+    }
+
+    if (this.questionsArray[0].question === "You have answered all the Questions!!!") {
+      this.allQuetionsFinished = true;
     }
 
   }
@@ -51,13 +69,33 @@ export class HomePage {
     this.vibration.vibrate(100);
   }
 
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter called');
-    this.question = this.questionService.getCurrentQuestion();
-    console.log('checking actual this.question', this.question);
-    // alert('Height : ' + this.platform.height());
-    // alert('Width : ' + this.platform.width() );
+  ionViewWillLeave() {
+
   }
+
+  ionViewWillEnter() {
+
+    this.questionsArray = [];
+    let questionsList = this.questionService.startQuestionService();
+    this.question = this.questionService.getCurrentQuestion();
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
+
+    if (this.questionsArray[0].question === "You have answered all the Questions!!!") {
+      this.allQuetionsFinished = true;
+    }
+  }
+
+  // ionViewWDidLeave() {
+  //   this.questionService.setLastRouteFunction('home');
+  // }
+
+
 
   goToHomepage() {
     this.route.navigate(['/homepage']);
@@ -69,19 +107,50 @@ export class HomePage {
   }
 
   goToAnswerScreen() {
+    // this.vibration.vibrate(100);
+    // this.route.navigate(['/record-answer'])
+
+    if (this.allQuetionsFinished) {
+      alert('You have answered all the questions');
+      return;
+    }
     this.vibration.vibrate(100);
-    this.route.navigate(['/record-answer'])
+    this.route.navigate(['/record-answer']);
   }
 
   skipCurrentQuestion() {
-    this.vibration.vibrate(100);
+    // this.vibration.vibrate(100);
+    // this.questionService.increaseQuestionIndex();
+    // //this.question = this.questionService.increaseQuestionIndex();
+    // let localQuestion = this.questionService.getCurrentQuestion();
+    // console.log('checking the returned val', localQuestion);
+    // // console.log('checking current question', this.question);
+    // this.question = localQuestion;
+    // this.lenOfQuestion = this.question.question.length;
+    // console.log('lenght of question : ', this.lenOfQuestion);
+
+    // if (this.lenOfQuestion > 70) {
+    //   this.questionRange = true;
+    // } else {
+    //   this.questionRange = false;
+    // }
+    // this.changeRef.detectChanges();
+
+    // copying new code from onlyiOS branch
+
+    if (this.allQuetionsFinished) {
+      alert('You have answered all the questions');
+      return;
+    }
+    this.questionsArray = [];
+    let abc = this.questionService.startQuestionService();
     this.questionService.increaseQuestionIndex();
-    //this.question = this.questionService.increaseQuestionIndex();
-    let localQuestion = this.questionService.getCurrentQuestion();
-    console.log('checking the returned val', localQuestion);
-    // console.log('checking current question', this.question);
-    this.question = localQuestion;
-    this.lenOfQuestion = this.question.question.length;
+    this.vibration.vibrate(100);
+
+    this.question = this.questionService.getCurrentQuestion();
+
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
 
     if (this.lenOfQuestion > 70) {
@@ -92,18 +161,44 @@ export class HomePage {
     this.changeRef.detectChanges();
   }
 
-//  async callAPI() {
-                                     
-//     let postParams = {"MobileNo":"8209090987","OTP":"123456","OTPType":"V","DeviceId":"ios123","ProgramType":"T","OSType":"IOS"};
-//     let url = 'http://localhost/otp_api.php';
+  handlerOfBackButton() {
+    let lastRoute = this.questionService.getLastRouteFunction();
+    // alert('checking what was the last route : ' + lastRoute);
+    // return;
+    if (lastRoute === 'home') {
+      this.goToCancelScreen();
+    } else {
+      this.route.navigate(['/home']);
+    }
+  }
 
-//     await this.http.post(url, JSON.stringify(postParams)).subscribe(data => {
-//       console.log('this is response', data);
-//       this.dataService.setData(data);
-//       this.route.navigate(['/info']);
+  async goToCancelScreen() {
 
-//     }, error => {
-//       alert('this is error');
-//     });
-//   }
+    this.changeRef.detectChanges();
+    this.vibration.vibrate(100);
+    const alart = await this.alertController.create({
+      cssClass: 'basic-alert',
+      header: 'Do you want to close the App?',
+      buttons: [
+        {
+          text: 'YES',
+          handler: () => {
+            navigator['app'].exitApp();
+          },
+          cssClass: 'failure-button'
+        },
+        {
+          text: 'NO',
+          role: 'cancel',
+          handler: (blah) => {
+            // do nothing
+          },
+          cssClass: 'failure-button'
+        }
+      ]
+    });
+    await alart.present();
+    return;
+
+  }
 }
