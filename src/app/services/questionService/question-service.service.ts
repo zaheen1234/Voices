@@ -111,6 +111,12 @@ export class QuestionServiceService {
     }
   ];
 
+  fallbackReturn = [{
+    id: 1000,
+      question: "You have answered all the Questions!!!",
+      isAnswered: false
+  }];
+
   currentPermissionStatus: any;
 
   constructor() { }
@@ -159,6 +165,16 @@ export class QuestionServiceService {
     }
   }
 
+  decreaseQuestionIndex() {
+    let questionArrayLen = this.questionsList.length - 1;
+    console.log('what is current length', questionArrayLen);
+    if (this.currentQuestionIndex === questionArrayLen) {
+      this.currentQuestionIndex = questionArrayLen;
+    } else {
+      this.currentQuestionIndex = this.currentQuestionIndex - 1;
+    }
+  }
+
   getCurrentQuestion() {
 
    for(let i = this.currentQuestionIndex; i < this.questionsList.length; i++) {
@@ -169,7 +185,7 @@ export class QuestionServiceService {
        return this.questionsList[this.currentQuestionIndex];
      }
    }
-   return "No Question";
+   return this.fallbackReturn[0];
 
     // return;
     // let currentQuestion = this.questionsList[this.currentQuestionIndex];

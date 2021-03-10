@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, IonRouterOutlet, Platform } from '@ionic/angular';
 import { QuestionServiceService } from '../../services/questionService/question-service.service';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -33,7 +33,8 @@ export class SuccessPagePage implements OnInit {
     private questionService: QuestionServiceService,
     private platform: Platform, private media: Media,
     private file: File, private vibration: Vibration, 
-    private alertController: AlertController) {
+    private alertController: AlertController,
+    private routerOutlet: IonRouterOutlet) {
       this.platform.pause.subscribe(() => {
         this.appIsPaused();
       });
@@ -43,9 +44,14 @@ export class SuccessPagePage implements OnInit {
       });
     }
 
+    ionViewDidEnter() {
+      this.routerOutlet.swipeGesture = false;
+    }
+
+ 
+
 
   ngOnInit() {
-    alert('Success Page');
     this.question = this.questionService.getCurrentQuestion();
     this.completeQuestions = this.questionService.startQuestionService();
 
@@ -86,6 +92,8 @@ export class SuccessPagePage implements OnInit {
     if (this.canPause) {
       this.audio.stop();
     }
+    this.routerOutlet.swipeGesture = true;
+
    }
 
    appIsResume() {
@@ -97,7 +105,7 @@ export class SuccessPagePage implements OnInit {
 
   nextQuestion() {
     this.vibration.vibrate(100);
-    this.questionService.increaseQuestionIndex();
+   // this.questionService.increaseQuestionIndex();
     this.route.navigate(['/home']);
   }
 
@@ -133,9 +141,6 @@ export class SuccessPagePage implements OnInit {
 
   backToQuestionScreen() {
     this.vibration.vibrate(100);
-    // this.deleteModeDisable = true;
-    // this.deleteModeEnable = false;
-    // this.changeRef.detectChanges()
 
     for (let i = 0; i < this.recordingList.length; i++) {
       if (this.questionArray[0].id === this.recordingList[i].id) {
@@ -153,7 +158,7 @@ export class SuccessPagePage implements OnInit {
       if (this.questionArray[0].id === questionsList[i].id){
         this.completeQuestions[i].isAnswered = false;
         localStorage.setItem('questionsList', JSON.stringify(this.completeQuestions));
-        this.questionService.increaseQuestionIndex();
+        this.questionService.decreaseQuestionIndex();
         return;
       }
     }
@@ -225,10 +230,7 @@ export class SuccessPagePage implements OnInit {
 
   backToRecording () {
     this.vibration.vibrate(100);
-    // console.log('gotorecording function called');
-    // this.deleteModeDisable = true;
-    // this.deleteModeEnable = false;
-    // this.changeRef.detectChanges();
+   
   }
 
   goToRecordingsList() {

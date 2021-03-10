@@ -118,7 +118,7 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startRecord() {
-    this.vibration.vibrate(100);
+    // this.vibration.vibrate(100);
 
     this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;

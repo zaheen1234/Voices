@@ -20,6 +20,7 @@ export class HomePage {
   lenOfQuestion;
   questionRange: boolean = false;
   questionsArray = [];
+  allQuetionsFinished: boolean = false;
   // tslint:disable-next-line:prefer-const
 
   constructor( private modalCtrl: ModalController, private http: HttpClient,
@@ -31,19 +32,33 @@ export class HomePage {
   }
 
   ngOnInit() {
-    alert('home');
+    // let questionsList = this.questionService.startQuestionService();
+    // this.question = this.questionService.getCurrentQuestion();
+   
+    // this.questionsArray.push(this.question);
+    // this.lenOfQuestion = this.questionsArray[0].question.length;
+    // if (this.lenOfQuestion > 70) {
+    //   this.questionRange = true;
+    // } else {
+    //   this.questionRange = false;
+    // }
+    this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();
-    console.log('checking what is coming actually : ', questionsList.length);
+    this.question = this.questionService.getCurrentQuestion();
+    // alert('checking question returned : ' + JSON.stringify(this.question));
+    
+
     this.questionsArray.push(this.question);
     this.lenOfQuestion = this.questionsArray[0].question.length;
-    console.log('checking length : ' , this.questionsArray[0].question.length);
-    console.log('lenght of question : ', this.lenOfQuestion);
     if (this.lenOfQuestion > 70) {
       this.questionRange = true;
     } else {
       this.questionRange = false;
     }
 
+    if (this.questionsArray[0].question === "You have answered all the Questions!!!") {
+      this.allQuetionsFinished = true;
+    }
   }
 
   hamburger() {
@@ -52,11 +67,26 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter called');
+    this.questionsArray = [];
+    let questionsList = this.questionService.startQuestionService();
     this.question = this.questionService.getCurrentQuestion();
-    console.log('checking actual this.question', this.question);
-    // alert('Height : ' + this.platform.height());
-    // alert('Width : ' + this.platform.width() );
+    // alert('checking question returned : ' + JSON.stringify(this.question));
+    
+
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
+    if (this.lenOfQuestion > 70) {
+      this.questionRange = true;
+    } else {
+      this.questionRange = false;
+    }
+
+    if (this.questionsArray[0].question === "You have answered all the Questions!!!") {
+      this.allQuetionsFinished = true;
+    }
+    // console.log('ionViewWillEnter called');
+    // this.question = this.questionService.getCurrentQuestion();
+   
   }
 
   goToHomepage() {
@@ -69,19 +99,28 @@ export class HomePage {
   }
 
   goToAnswerScreen() {
+    if (this.allQuetionsFinished) {
+      alert('You have answered all the questions');
+      return;
+    }
     this.vibration.vibrate(100);
     this.route.navigate(['/record-answer'])
   }
 
   skipCurrentQuestion() {
-    this.vibration.vibrate(100);
+    if (this.allQuetionsFinished) {
+      alert('You have answered all the questions');
+      return;
+    }
+    this.questionsArray = [];
+    let abc = this.questionService.startQuestionService();
     this.questionService.increaseQuestionIndex();
-    //this.question = this.questionService.increaseQuestionIndex();
-    // let localQuestion = this.questionService.getCurrentQuestion();
+    this.vibration.vibrate(100);
+
     this.question = this.questionService.getCurrentQuestion();
-    let anArray = [];
-    anArray.push(this.question);
-    this.lenOfQuestion = anArray[0].question.length;
+    
+    this.questionsArray.push(this.question);
+    this.lenOfQuestion = this.questionsArray[0].question.length;
     console.log('lenght of question : ', this.lenOfQuestion);
 
     if (this.lenOfQuestion > 70) {
