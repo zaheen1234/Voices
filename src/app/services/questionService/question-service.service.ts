@@ -11,102 +11,102 @@ export class QuestionServiceService {
   questionsList = [
     {
       id: 1,
-      question: 'Where were you born?',
+      question: 'Where were you born and what is your full name, does it have any significant meaning?',
       isAnswered: false
     },
     {
       id: 2,
-      question: 'What were the foods and flavours of your childhood? ',
+      question: 'What were the foods and flavours of your childhood?',
       isAnswered: false
     },
     {
       id: 3,
-      question: 'Who was your hero / heroine when you were growing up?',
+      question: 'Where did you go to school and who was your favourite friend and why?',
       isAnswered: false
     },
     {
       id: 4,
-      question: 'What was the most memorable and treasured gift of your childhood and why? ',
+      question: 'Did you have a nickname as a child and did your parents have a nickname for you?',
       isAnswered: false
     },
     {
       id: 5,
-      question: "What were your parents’ names?",
+      question: "Who was your hero/heroine when you were growing up, what did you liked about them?",
       isAnswered: false
     },
     {
       id: 6,
-      question: 'What did your parents do for a living?',
+      question: 'What was the most memorable and treasured gift of your childhood and why?',
       isAnswered: false
     },
     {
       id: 7,
-      question: 'Do you know where they came from?',
+      question: 'What did your parents look like, do you look like either of them at all?',
       isAnswered: false
     },
     {
       id: 8,
-      question: 'What smells and noises do you associate with your parents?',
+      question: 'How many brothers and sisters did/do you have and what were their names?',
       isAnswered: false
     },
     {
       id: 9,
-      question: 'How many brothers and sisters did / do you have?',
+      question: 'Where are your roots, do you have a particularly strong feeling towards a house, town or country you have lived and why?',
       isAnswered: false
     },
     {
       id: 10,
-      question: 'Where you close to them growing up, did you get on better with one, if so why?',
+      question: 'What sort of food was cooked in the home, were there any particular foods you enjoyed?',
       isAnswered: false
     },
     {
       id: 11,
-      question: 'What did they teach you?',
-      isAnswered: false
-    },
-    {
-      id: 12,
-      question: 'Where are your roots, do you have a particularly strong feeling towards a place you have lived?',
-      isAnswered: false
-    },
-    {
-      id: 13,
-      question: "What sort of food was cooked in the home, were there any particular food you enjoyed?",
-      isAnswered: false
-    },
-    {
-      id: 14,
       question: 'Where was your favourite holiday destination and why?',
       isAnswered: false
     },
     {
-      id: 15,
-      question: 'When did you leave home?',
+      id: 12,
+      question: 'When did you leave home and where did you go?',
       isAnswered: false
     },
     {
-      id: 16,
-      question: 'Did your circle of friends change and evolve during that time?',
+      id: 13,
+      question: "What were your interests/hobbies and why?",
       isAnswered: false
     },
     {
-      id: 17,
+      id: 14,
       question: 'Where did you meet your partner?',
       isAnswered: false
     },
     {
-      id: 18,
+      id: 15,
       question: 'What is the secret to a good marriage?',
       isAnswered: false
     },
     {
+      id: 16,
+      question: 'What advice would you give to young couples?',
+      isAnswered: false
+    },
+    {
+      id: 17,
+      question: 'What advise would you give your 18-year-old self?',
+      isAnswered: false
+    },
+    {
+      id: 18,
+      question: 'What is the main driver or influence if your life?',
+      isAnswered: false
+    },
+    {
       id: 19,
-      question: "What advise would you give your 18 year old self?",
+      question: "Were you raised in a particular faith? If so, how did it influenced you?",
       isAnswered: false
     },
     {
       id: 20,
-      question: 'Were you raised in a particular faith? If so how did it influence you?',
+      question: 'If you were to run for public office, what position would you seek and why?',
       isAnswered: false
     }
   ];

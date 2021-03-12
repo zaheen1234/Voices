@@ -37,6 +37,8 @@ export class RecordingsListPage implements OnInit {
   isPlaying: boolean = false;
   progress = 0;
   netProgress = 0;
+  netHours = 0;
+  netMinutes = 0;
   startTimer: boolean = false;
   pauseTimer: boolean = false;
   totalSeconds = 0;
@@ -47,6 +49,7 @@ export class RecordingsListPage implements OnInit {
   isAudioPaused: boolean = false;
   previousID : number = 99999;
   isPaused: boolean = false;
+  progressForProgressBar: number = 0;
 
 
   ngOnInit() {
@@ -75,7 +78,6 @@ export class RecordingsListPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter called');
     this.audioList = JSON.parse(localStorage.getItem("audiolist"));
     //alert('checking audioList' + JSON.stringify(this.audioList));
   }
@@ -90,7 +92,6 @@ resetProgressBar() {
 }
   
     playAudio(file, id, completeData) {
-      console.log('checking file : ' , file);
       this.vibration.vibrate(100);
 
        if (this.isPlaying) {
@@ -144,7 +145,6 @@ resetProgressBar() {
             this.changeRef.detectChanges();
             this.audio.onStatusUpdate.subscribe((statusCode) => {
               if (statusCode === 4) {
-                console.log('Audio FINISHED playing');
                 this.isPlaying = false;
                 this.currentNumber = -111111;
                 this.changeRef.detectChanges();
@@ -271,11 +271,22 @@ resetProgressBar() {
     startProgressBarTimer() {
       if(this.startTimer) {
         setTimeout(()=> {
+          this.progressForProgressBar = this.progressForProgressBar + 1;
           this.progress = this.progress + 1;
-          let apc = (this.progress / this.totalSeconds)
-          console.log(apc);
+          let apc = (this.progressForProgressBar / this.totalSeconds)
           this.p_bar_value = apc / 10;
           this.netProgress = Math.floor(this.progress / 10);
+          if(this.netProgress > 59) {
+           // alert(this.netProgress);
+            this.progress = 0;
+            this.netProgress = 0;
+            this.netMinutes = this.netMinutes + 1;
+          }
+
+          if (this.netMinutes > 59 ) {
+            this.netMinutes = 0;
+            this.netHours = this.netHours + 1;
+          }
           this.changeRef.detectChanges();
           this.startProgressBarTimer();
         }, 100);
@@ -286,6 +297,9 @@ resetProgressBar() {
       else {
         this.progress = 0;
         this.p_bar_value = 0;
+        this.netMinutes = 0;
+        this.netHours = 0;
+        this.progressForProgressBar = 0;
       }
     }
 
@@ -332,7 +346,6 @@ resetProgressBar() {
   
 
     hamburger() {
-      console.log('hamburger clicked');
       this.vibration.vibrate(100);
     }
     checkIfRowEnable(number) {

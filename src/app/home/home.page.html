@@ -27,7 +27,7 @@
             <ion-card class="subcard-fixed">
                 <ion-item lines="none">
                     <ion-avatar slot="start">
-                        <img class="voices-icon" src="assets/images/icon.png">
+                        <img class="voices-icon" src="assets/images/VlogoGreenClear.png">
                     </ion-avatar>
                     <ion-label>
                         <h1 class="headingcls">Asked by Voices</h1>
@@ -37,7 +37,7 @@
         </ion-card>
 
         <!-- Footer Start -->
-        <div class="footer-btn">
+        <div [ngClass]="allQuetionsFinished ? 'footer-btn1' : 'footer-btn'">
             <button expand="full" class="btn-red" (click)="skipCurrentQuestion()">
                 <img class="close-icon common-icon-list" src="assets/images/new/close1.png"><br>
                 Skip
