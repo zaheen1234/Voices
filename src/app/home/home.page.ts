@@ -73,12 +73,12 @@ export class HomePage {
   startTimerFirst() {
     setTimeout(() => {
       this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
       this.audio.startRecord();
-      // this.audio.stopRecord();
-      // this.audio.release();
-    }, 2000);
+      this.audio.stopRecord();
+      this.audio.release();
+    }, 1000);
   }
 
   hamburger() {
@@ -87,7 +87,12 @@ export class HomePage {
   }
 
   ionViewWillLeave() {
-
+    this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
+    this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
+    this.audio = this.media.create(this.filePath);
+    this.audio.startRecord();
+    this.audio.stopRecord();
+    this.audio.release();
   }
 
   ionViewWillEnter() {

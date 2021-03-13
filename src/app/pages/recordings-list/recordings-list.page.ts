@@ -180,9 +180,10 @@ export class RecordingsListPage implements OnInit {
         this.showPlay = false;
         // adding code to reset progress timer start
         if (fromWhere === 'html') {
-          this.progress = 0;
-          this.p_bar_value = 0;  
-          this.totalSeconds = completeFile.totalSeconds;
+          // alert('came here');
+          // this.progress = 0;
+          // this.p_bar_value = 0;  
+          // this.totalSeconds = completeFile.totalSeconds;
         }
         // adding code end
         this.isAudioPaused = false;
