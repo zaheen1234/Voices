@@ -4,6 +4,9 @@ import { AlertController, ModalController, Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { QuestionServiceService } from '../services/questionService/question-service.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { File } from '@ionic-native/file/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -21,13 +24,16 @@ export class HomePage {
   questionRange: boolean = false;
   questionsArray = [];
   allQuetionsFinished: boolean = false;
-
+  filePath: string;
+  fileName: string;
+  audio: MediaObject;
   // tslint:disable-next-line:prefer-const
 
   constructor(private modalCtrl: ModalController, private http: HttpClient,
     private route: Router, private questionService: QuestionServiceService,
     private changeRef: ChangeDetectorRef, private platform: Platform,
-    private vibration: Vibration, private alertController: AlertController) {
+    private vibration: Vibration, private alertController: AlertController,
+    private media: Media, private file: File) {
 
     //     this.platform.backButton.subscribeWithPriority(1, () => {
     //       this.goToCancelScreen();
@@ -42,8 +48,6 @@ export class HomePage {
 
   ngOnInit() {
     this.questionService.setLastRouteFunction('home');
-
-
     this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();
     this.question = this.questionService.getCurrentQuestion();
@@ -62,6 +66,19 @@ export class HomePage {
       this.allQuetionsFinished = true;
     }
 
+    this.startTimerFirst();
+
+  }
+
+  startTimerFirst() {
+    setTimeout(() => {
+      this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.audio = this.media.create(this.filePath);
+      this.audio.startRecord();
+      // this.audio.stopRecord();
+      // this.audio.release();
+    }, 2000);
   }
 
   hamburger() {

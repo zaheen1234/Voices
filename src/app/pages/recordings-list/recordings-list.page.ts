@@ -51,6 +51,9 @@ export class RecordingsListPage implements OnInit {
   universalID: number = -9999;
   isIDAlreadySet: boolean = false;
   actualSlider = 0;
+  netHours = 0;
+  netMinutes = 0;
+  progressForProgressBar: number = 0;
 
 
   ngOnInit() {
@@ -322,15 +325,26 @@ export class RecordingsListPage implements OnInit {
   startProgressBarTimer() {
     if (this.startTimer) {
       setTimeout(() => {
+        this.progressForProgressBar = this.progressForProgressBar + 1;
         this.progress = this.progress + 1;
-        let apc = (this.progress / this.totalSeconds)
-
-        console.log(apc);
+        let apc = (this.progressForProgressBar / this.totalSeconds)
         this.p_bar_value = apc / 10;
         this.actualSlider = Math.floor(this.progress / 10);
+        if(this.actualSlider > 59) {
+          // alert(this.netProgress);
+           this.progress = 0;
+           this.actualSlider = 0;
+           this.netMinutes = this.netMinutes + 1;
+         }
+
+         if (this.netMinutes > 59 ) {
+           this.netMinutes = 0;
+           this.netHours = this.netHours + 1;
+         }
         if (this.actualSlider >= this.totalSeconds) {
           this.actualSlider = this.totalSeconds;
         }
+
         this.changeRef.detectChanges();
         this.startProgressBarTimer();
       }, 100);

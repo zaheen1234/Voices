@@ -21,12 +21,12 @@ export class RecordAnswerPage implements OnInit {
     private questionService: QuestionServiceService, private vibration: Vibration,
     private alertController: AlertController
   ) {
-    this.platform.resume.subscribe(() => {
-      this.resumeCounter = this.resumeCounter + 1;
-      if (this.resumeCounter === 2) {
-        this.distroyFile();
-      }
-    });
+    // this.platform.resume.subscribe(() => {
+    //   this.resumeCounter = this.resumeCounter + 1;
+    //   if (this.resumeCounter === 2) {
+    //     this.distroyFile();
+    //   }
+    // });
   }
   resumeCounter = 0;
   enable1 = false;
@@ -112,15 +112,12 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startRecord() {
-
     this.vibration.vibrate(100);
     this.timerShouldStart = true;
     this.startCountdown();
-
     this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
       Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
         Date().getSeconds() + '.3gp';
-
     this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
     this.audio = this.media.create(this.filePath);
     this.audio.startRecord();
@@ -237,19 +234,19 @@ export class RecordAnswerPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    let permissionStatus = this.questionService.getPermissionStatus();
-    if (permissionStatus) {
-      // do nothing
-    } else {
-      // if permission is false (means not set)
-      this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
-        Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
-          Date().getSeconds() + '.3gp';
-      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
-      this.audio = this.media.create(this.filePath);
-      this.audio.startRecord();
+    // let permissionStatus = this.questionService.getPermissionStatus();
+    // if (permissionStatus) {
+    //   // do nothing
+    // } else {
+    //   // if permission is false (means not set)
+    //   this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new
+    //     Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new
+    //       Date().getSeconds() + '.3gp';
+    //   this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
+    //   this.audio = this.media.create(this.filePath);
+    //   this.audio.startRecord();
 
-    }
+    // }
 
     this.getAudioList();
     this.timerShouldStart = false;
@@ -359,12 +356,12 @@ export class RecordAnswerPage implements OnInit {
     this.pauseFuncForAndroid();
   }
 
-  distroyFile() {
-    this.audio.stopRecord();
-    this.audio.release();
-    this.audio = null;
-    this.questionService.setPermissionStatus(true);
-  }
+  // distroyFile() {
+  //   this.audio.stopRecord();
+  //   this.audio.release();
+  //   this.audio = null;
+  //   this.questionService.setPermissionStatus(true);
+  // }
 
   newSaveRecording() {
 
