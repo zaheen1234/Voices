@@ -534,6 +534,8 @@ if(this.isAudioPaused) {
       this.progress = 0;
       this.actualSlider = 0;
       this.p_bar_value = 0;
+      this.netHours = 0;
+      this.netMinutes = 0;
     }
   }
 
