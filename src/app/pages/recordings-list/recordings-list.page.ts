@@ -218,43 +218,6 @@ resetProgressBar() {
         }
       }
 
-      // if (this.isPlaying) {
-      //   this.audio.stop();
-      //   this.isPlaying = false;
-      //   return;
-      // }
-      //   this.currentNumber = id;
-      //   this.previousID = id;
-      //   if (this.platform.is('ios')) {
-      //     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
-      //     this.audio = this.media.create(this.filePath);
-      //   } else if (this.platform.is('android')) {
-      //     this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + file;
-      //     this.audio = this.media.create(this.filePath);
-      // }
-      //     this.audio.play();
-      //     this.showPause = true;
-      //     this.showPlay = false;
-      //     this.totalSeconds = completeData.totalSeconds;
-      //     // alert('checking totalSeconds : ' + this.totalSeconds);
-      //     this.startTimer = true;
-      //     this.startProgressBarTimer();
-      //     this.isPlaying = true;
-      //     this.audio.setVolume(0.8); 
-      //     this.changeRef.detectChanges();
-      //     this.audio.onStatusUpdate.subscribe((statusCode) => {
-      //       if (statusCode === 4) {
-      //         console.log('Audio FINISHED playing');
-      //         this.isPlaying = false;
-      //         this.currentNumber = -111111;
-      //         this.changeRef.detectChanges();
-      //         this.audio.release();
-      //         this.startTimer = false;
-      //         this.showPause = false;
-      //         this.showPlay = true;
-      //       } 
-      //     });
-          
     }
 
     pauseAudio() {
@@ -286,6 +249,9 @@ resetProgressBar() {
           if (this.netMinutes > 59 ) {
             this.netMinutes = 0;
             this.netHours = this.netHours + 1;
+          }
+          if(this.netProgress >= this.totalSeconds) {
+            this.netProgress = this.totalSeconds;
           }
           this.changeRef.detectChanges();
           this.startProgressBarTimer();

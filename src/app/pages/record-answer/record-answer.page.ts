@@ -262,8 +262,8 @@ export class RecordAnswerPage implements OnInit {
   // 5 timers for displaying count down before audio recording starts
 
   goToRecordingsList() {
-    this.vibration.vibrate(100);
-    this.route.navigate(['/recordings-list']);
+    // this.vibration.vibrate(100);
+    // this.route.navigate(['/recordings-list']);
   }
 
   backToQuestionScreen() {
