@@ -31,6 +31,10 @@
         @media(max-width: 360px) {
             font-size: 30px;
         }
+        
+        @media screen and (max-width: 376px) and (min-width: 374px) {
+            font-size: 30px;
+        }
     }
     .subcard-fixed {
         position: absolute;
