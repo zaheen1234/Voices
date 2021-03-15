@@ -90,7 +90,7 @@ export class HomePage {
       this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
       this.audio.startRecord();
-      this.audio.startRecord();
+      this.audio.stopRecord();
     }, 1000);
   }
   ionViewWillLeave() {

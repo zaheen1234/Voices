@@ -96,7 +96,7 @@ export class QuestionServiceService {
     },
     {
       id: 18,
-      question: 'What is the main driver or influence if your life?',
+      question: 'What is the main driver or influence of your life?',
       isAnswered: false
     },
     {
