@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ModalController, Platform } from '@ionic/angular';
+import { AlertController, IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { QuestionServiceService } from '../services/questionService/question-service.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
@@ -33,14 +33,24 @@ export class HomePage {
     private route: Router, private questionService: QuestionServiceService,
     private changeRef: ChangeDetectorRef, private platform: Platform,
     private vibration: Vibration, private alertController: AlertController,
-    private media: Media, private file: File) {
+    private media: Media, private file: File, 
+    private routerOutlet: IonRouterOutlet
+    ) {
 
     //     this.platform.backButton.subscribeWithPriority(1, () => {
     //       this.goToCancelScreen();
     // });
 
-    this.platform.backButton.subscribe(() => {
-      this.handlerOfBackButton();
+    // this.platform.backButton.subscribe(() => {
+    //   this.handlerOfBackButton();
+    // });
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      if (!this.routerOutlet.canGoBack()) {
+        this.goToCancelScreen();
+      } else {
+        this.route.navigate(['/home']);
+      }
     });
 
 
@@ -73,12 +83,12 @@ export class HomePage {
   startTimerFirst() {
     setTimeout(() => {
       this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
       this.audio.startRecord();
-      // this.audio.stopRecord();
-      // this.audio.release();
-    }, 2000);
+      this.audio.stopRecord();
+      this.audio.release();
+    }, 1000);
   }
 
   hamburger() {
@@ -87,7 +97,12 @@ export class HomePage {
   }
 
   ionViewWillLeave() {
-
+    this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
+    this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.fileName;
+    this.audio = this.media.create(this.filePath);
+    this.audio.startRecord();
+    this.audio.stopRecord();
+    this.audio.release();
   }
 
   ionViewWillEnter() {
