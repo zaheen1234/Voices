@@ -337,8 +337,8 @@ export class RecordAnswerPage implements OnInit {
 
   saveRecording() {
     if (this.animation) {
-      this.newSaveRecording();
-      this.vibration.vibrate(100);
+      // this.newSaveRecording();
+      // this.vibration.vibrate(100);
       this.route.navigate(['/success-page']);
     }
     
