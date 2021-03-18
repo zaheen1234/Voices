@@ -61,7 +61,7 @@ ion-menu-button {
 }
 
 .inbox-list ion-label {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .inbox-list ion-row {
@@ -94,12 +94,19 @@ ion-menu-button {
 }
 
 .label-voice img {
+
+
     left: -6px;
     top: -9px;
     height: auto;
     width: 70px;
     padding-right: 0 !important;
     position: absolute;
+    @media(max-width: 360px) {
+        left: 1px;
+    top: -15px;
+    width: 60px;
+    }
 }
 
 .inbox-list .label-voice ion-label {
@@ -131,7 +138,7 @@ ion-menu-button {
 
 @media screen and (max-width: 376px) and (min-width: 374px) {
     .btm-menu {
-        font-size: 20px !important;
+        font-size: 18px !important;
         margin: 0 0 26px !important;
     }
 }
@@ -141,7 +148,7 @@ ion-menu-button {
         font-size: 1.5rem !important
     }
     .btm-menu {
-        font-size: 20px !important;
+        font-size: 18px !important;
         margin: 0 0 26px !important;
     }
 }
