@@ -35,31 +35,11 @@ export class HomePage {
                private changeRef: ChangeDetectorRef, private platform: Platform,
                private vibration: Vibration, private media: Media, private file: File) {
                 
-                
-                // this.platform.resume.subscribe(() => {
-                //   alert('resume');
-                //   this.resumeCounter = this.resumeCounter + 1;
-                //   // alert('checking resume counter' + this.resumeCounter);
-                //   if (this.resumeCounter === 1) {
-                //     this.distroyFile();
-                //   }
-                // });
-
   }
 
-  // distroyFile() {
-  //   alert('distroy called');
-  //   this.audio.stopRecord();
-  //   this.audio.release();
-  //   this.audio = null;
-  //   this.questionService.setPermissionStatus('true');
-  // }
 
   ngOnInit() {
-    // this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
-    // this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
-    // this.audio = this.media.create(this.filePath);
-    // this.audio.startRecord();
+   
     this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();
     this.question = this.questionService.getCurrentQuestion();
@@ -100,24 +80,9 @@ export class HomePage {
 
   ionViewWillEnter() {
 
-    // adding code to handle permission things on the homepage itself
-
-   // let permissionStatus = this.questionService.getPermissionStatus();
-   // if(permissionStatus === 'false') {
-   
-// } else {
-        // do nothing
-   // }
-
-
-
-
     this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();
     this.question = this.questionService.getCurrentQuestion();
-    // alert('checking question returned : ' + JSON.stringify(this.question));
-    
-
     this.questionsArray.push(this.question);
     this.lenOfQuestion = this.questionsArray[0].question.length;
     if (this.lenOfQuestion > 70) {
@@ -129,8 +94,6 @@ export class HomePage {
     if (this.questionsArray[0].question === "You have answered all the Questions!!!") {
       this.allQuetionsFinished = true;
     }
-    // console.log('ionViewWillEnter called');
-    // this.question = this.questionService.getCurrentQuestion();
    
   }
 
@@ -174,18 +137,4 @@ export class HomePage {
     this.changeRef.detectChanges();
   }
 
-//  async callAPI() {
-                                     
-//     let postParams = {"MobileNo":"8209090987","OTP":"123456","OTPType":"V","DeviceId":"ios123","ProgramType":"T","OSType":"IOS"};
-//     let url = 'http://localhost/otp_api.php';
-
-//     await this.http.post(url, JSON.stringify(postParams)).subscribe(data => {
-//       console.log('this is response', data);
-//       this.dataService.setData(data);
-//       this.route.navigate(['/info']);
-
-//     }, error => {
-//       alert('this is error');
-//     });
-//   }
 }

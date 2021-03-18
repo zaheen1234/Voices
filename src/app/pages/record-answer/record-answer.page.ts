@@ -20,12 +20,7 @@ export class RecordAnswerPage implements OnInit {
     private questionService: QuestionServiceService, private vibration: Vibration,
     private alertController: AlertController
   ) {
-    // this.platform.resume.subscribe(() => {
-    //   this.resumeCounter = this.resumeCounter + 1;
-    //   if (this.resumeCounter === 1) {
-    //     this.distroyFile();
-    //   }
-    // });
+   
   }
   resumeCounter = 0;
   enable1 = false;
@@ -67,12 +62,6 @@ export class RecordAnswerPage implements OnInit {
   questionArray = [];
 
 
-  // distroyFile() {
-  //   this.audio.stopRecord();
-  //   this.audio.release();
-  //   this.audio = null;
-  //   this.questionService.setPermissionStatus('true');
-  // }
   ngOnInit() {
     this.question = this.questionService.getCurrentQuestion();
     this.questionArray.push(this.question);
@@ -116,7 +105,6 @@ export class RecordAnswerPage implements OnInit {
   }
 
   startRecord() {
-    // this.vibration.vibrate(100);
 
     this.fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.M4a';
     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
@@ -244,16 +232,6 @@ export class RecordAnswerPage implements OnInit {
   }
 
   ionViewWillEnter() {
-
-//     let permissionStatus = this.questionService.getPermissionStatus();
-//     if(permissionStatus === 'false') {
-//     this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.M4a';
-//     this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
-//     this.audio = this.media.create(this.filePath);
-//     this.audio.startRecord();
-//  } else {
-//         // do nothing
-//     }
     this.getAudioList();
     this.timerShouldStart = false;
     this.countdown = 0;

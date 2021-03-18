@@ -5,10 +5,13 @@
 }
 
 .voices-icon {
-    width: 50px;
+    min-width: 50px;
     border-radius: 0;
     padding-top: 6px;
-    height: 36px;
+    height: 43px;
+    position: relative;
+    top: -8px;
+    right: -5px
 }
 
 .head-icon {

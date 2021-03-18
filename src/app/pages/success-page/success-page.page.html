@@ -17,7 +17,7 @@
               <div *ngIf="deleteModeDisable">
             <ion-card class="card-fixed">
                 <ion-card-header>
-                    <ion-card-title color="tertiary">{{question.question}}</ion-card-title>
+                    <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="tertiary">{{question.question}}</ion-card-title>
                 </ion-card-header>
             </ion-card>
 
@@ -28,15 +28,15 @@
         <!-- Footer Start -->
         <div class="footer-btn" *ngIf="deleteModeDisable">
             <button (click)="nextQuestion()" class="btn-green">
-                <img class="correct-icon common-icon-list" src="assets/images/new/check2.png">
+                <img class="correct-icon common-icon-list" src="assets/images/check.png">
                     Next <br> Question
             </button>
             <button (click)="startPlayingAnswer()" *ngIf="canPlay" class="btn-yellow">
-                <img class="playstart-icon common-icon-list" src="assets/images/new/play-button1.png">
+                <img class="playstart-icon common-icon-list" src="assets/images/play-button.png">
                 Play <br> Answer
             </button>
             <button (click)="pausePlayingAnswer()" *ngIf="canPause" class="btn-yellow">
-                <img class="pause-icon common-icon-list" src="assets/images/new/pause2.png">
+                <img class="pause-icon common-icon-list" src="assets/images/pause.png">
                 Pause <br> Answer
             </button>
             <button (click)="deleteAnswer()" class="btn-red">

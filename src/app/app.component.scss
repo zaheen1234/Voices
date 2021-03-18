@@ -41,6 +41,7 @@ ion-icon {
     color: #33cccc;
 }
 
+
 .inbox-list{
     height: 100%;
     display: flex;
@@ -58,7 +59,7 @@ ion-icon {
     color: #fff;
   }
   .inbox-list ion-label { 
-    font-size:2rem;
+    font-size:1.8rem;
   }
   .inbox-list ion-row { 
     margin:0 0 10px;
@@ -84,14 +85,23 @@ ion-icon {
       padding:0 0 0 58px;
       background: transparent;
   }
-  .label-voice img{
-    position: absolute;
-    left: 12px;
-    top: 8px; 
-    height: 28px;
-    width: 28px;
+
+
+  .label-voice img {
+
+    left: -6px;
+    top: -9px;
+    height: auto;
+    width: 70px;
     padding-right: 0 !important;
+    position: absolute;
+    @media(max-width: 360px) {
+        left: 1px;
+    top: -15px;
+    width: 60px;
+    }
 }
+
 .inbox-list .label-voice ion-label { 
     font-size:2.5rem;
   }
