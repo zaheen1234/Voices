@@ -18,7 +18,7 @@
         <div>
             <ion-card class="card-fixed">
                 <ion-card-header>
-                    <ion-card-title color="tertiary">{{question.question}}</ion-card-title>
+                    <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="tertiary">{{question.question}}</ion-card-title>
                 </ion-card-header>
             </ion-card>
 

@@ -29,14 +29,14 @@
     display: flex;
     align-items: center;
     ion-card-title {
-        font-size: 42px;
-        font-weight: 600;
-        @media(max-width: 360px) {
-            font-size: 30px;
-        }
-        @media screen and (max-width: 376px) and (min-width: 374px) {
-            font-size: 30px;
-        }
+        // font-size: 42px;
+        // font-weight: 600;
+        // @media(max-width: 360px) {
+        //     font-size: 30px;
+        // }
+        // @media screen and (max-width: 376px) and (min-width: 374px) {
+        //     font-size: 30px;
+        // }
     }
     .subcard-fixed {
         position: absolute;
@@ -54,6 +54,16 @@
         }
     }
 }
+
+.titleCls1{
+    font-size: 30px !important;
+    font-weight: 600 !important;
+}
+.titleCls{
+    font-size: 38px !important;
+    font-weight: 600 !important;
+}
+
 
 button:disabled {
     opacity: .5;

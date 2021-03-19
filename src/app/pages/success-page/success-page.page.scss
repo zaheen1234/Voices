@@ -44,12 +44,21 @@
         height: calc(35vh - 56px);
     }
     ion-card-title {
-        font-size: 34px;
-        font-weight: 600;
-        @media(max-width: 360px) {
-            font-size: 26px;
-        }
+        // font-size: 34px;
+        // font-weight: 600;
+        // @media(max-width: 360px) {
+        //     font-size: 26px;
+        // }
     }
+}
+
+.titleCls1{
+    font-size: 30px !important;
+    font-weight: 600 !important;
+}
+.titleCls{
+    font-size: 36px !important;
+    font-weight: 600 !important;
 }
 
 .footer-btn {
