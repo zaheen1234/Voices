@@ -39,7 +39,7 @@ export class HomePage {
 
 
   ngOnInit() {
-   
+  
     this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();
     this.question = this.questionService.getCurrentQuestion();

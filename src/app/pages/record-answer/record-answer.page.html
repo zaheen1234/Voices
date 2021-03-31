@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-    <ion-toolbar color="primary" *ngIf="cancelModeDisable">
+    <ion-toolbar color="primary" >
 
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
             <img class="toggle-icon" src='assets/images/togglemenu.png'>
@@ -16,37 +16,8 @@
 <ion-content [fullscreen]="true">
     <div class="main">
 
-        <ion-card class="cardclscancel" *ngIf="cancelModeEnable">
-            <div class="cancel-popup">
-                <ion-card-header>
-                    <ion-card-title class="titleclscancel">Are you sure you <br>want to cancel<br> your recording?</ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                    <div>
-                        <ion-grid class="gridcls">
-                            <ion-row>
-                                <ion-col size="5">
-                                    <ion-button class="borderclsgrn" (click)="backToQuestionScreen()">
-                                        <ion-label class="labelclsgrncancel">
-                                            YES
-                                        </ion-label>
-                                    </ion-button>
-                                </ion-col>
-                                <ion-col size="5">
-                                    <ion-button class="borderclsred" (click)="backToRecording()">
-                                        <ion-label class="labelclsredcancel">
-                                            NO
-                                        </ion-label>
-                                    </ion-button>
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-                    </div>
-                </ion-card-content>
-            </div>
-        </ion-card>
 
-        <ion-card *ngIf="cancelModeDisable" class="card-fixed">
+        <ion-card class="card-fixed">
             <ion-card-header>
                 <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="tertiary">
                     {{question.question}}</ion-card-title>
@@ -55,7 +26,7 @@
 
         <!-- Footer Start -->
         <div class="footer">
-            <ion-card *ngIf="cancelModeDisable" style="box-shadow: none; background-color: transparent;">
+            <ion-card style="box-shadow: none; background-color: transparent;">
                 <div class="ion-text-center text-primary">
                     <div>
                         <h1 *ngIf="enable5">
@@ -91,7 +62,7 @@
                 </div>
             </ion-card>
 
-            <ion-grid *ngIf="cancelModeDisable">
+            <ion-grid >
                 <ion-row class="footer-btn">
                     <button (click)="goToCancelScreen()" class="btn-red">
                         <img  src="assets/images/close.png"><br>

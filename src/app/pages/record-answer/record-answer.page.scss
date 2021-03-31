@@ -17,8 +17,12 @@
 
 // Fixed Card
 .card-fixed {
+    @media(max-width: 320px) {
+        height: calc(45vh - 70px) !important;
+        margin-top: 8px !important;
+    }
     height: calc(45vh - 56px);
-    overflow-y: auto;
+  //  overflow-y:auto ;
     border-radius: 12px;
     margin-top: 15px;
     box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 20%);
@@ -37,37 +41,74 @@
 }
 
 
+
 .titleCls1{
+    @media screen and (min-width: 320px) {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    }
+    @media screen and (min-width: 375px) and (min-height: 667px) {
+        font-size: 28px !important;
+        font-weight: 600 !important;
+        }
+
+        @media screen and (min-width: 414px) and (min-height: 736px) {
+            font-size: 32px !important;
+            font-weight: 600 !important;
+            }
     font-size: 30px !important;
     font-weight: 600 !important;
 }
+
 .titleCls{
-    font-size: 40px !important;
+    @media screen and (min-width: 320px) {
+    font-size: 25px !important;
+    font-weight: 600 !important;
+    }
+
+    @media screen and (min-width: 375px) and (min-height: 667px) {
+        font-size: 30px !important;
+        font-weight: 600 !important;
+        }
+
+      
+
+    font-size: 34px !important;
     font-weight: 600 !important;
 }
+
+
 .footer {
     h1 {
         margin-top: 0;
         font-size: 40vw;
         font-weight: 900;
         color: #06BDBB;
-        @media screen and (max-width: 414px) and (min-width: 414px) {
-            margin-top: -20px;
+        @media screen and (min-width: 320px) {
+                        margin-top: -10px !important;
         }
-        @media screen and (max-width: 375px) and (min-width: 375px) {
-            margin-top: -25px;
+        @media screen and (min-width: 414px) and (min-height: 736px) {
+            margin-top: -20px !important;
+        }
+        @media screen and (min-width: 375px) and (min-height: 667px) {
+            margin-top: -30px !important;
         }
         @media(max-width: 360px) {
             font-size: 30vw;
         }
     }
     h2 {
-        @media screen and (max-width: 414px) and (min-width: 414px) {
-            margin-top: -10px;
+        @media screen and (min-width: 320px) {
+                        margin-top: -6px !important;
         }
-        @media screen and (max-width: 375px) and (min-width: 375px) {
-            margin-top: -10px;
+        @media screen and (min-width: 375px) and (min-height: 667px) {
+            margin-top: -10px !important;
         }
+        @media screen and (min-width: 414px) and (min-height: 736px) {
+            margin-top: -10px !important;
+        }
+       
+     
         margin-top: 0;
         font-size: 12vw;
         font-weight: 500;
@@ -79,18 +120,36 @@
         }
     }
     img.waves {
-        @media screen and (max-width: 414px) and (min-width: 414px) {
-            margin-top: -30%;
+        @media screen and (min-width: 320px) {
+                        margin-top: -30% !important;
         }
-        @media screen and (max-width: 375px) and (min-width: 375px) {
-            margin-top: -30%;
+        @media screen and (min-width: 414px) and (min-height: 736px) {
+            margin-top: -30% !important;
+        }
+        @media screen and (min-width: 375px) and (min-height: 667px) {
+            margin-top: -30% !important;
         }
         margin: -20% 0 0 0;
         display: block;
     }
 
     img.wavesNew {
-        margin: 20% 0 0 0;
+
+        @media screen and (min-width: 320px) {
+            margin-top: 12% !important;
+            display: block;
+        }
+        @media screen and (min-width: 414px) and (min-height: 736px) {
+            margin-top: 12% !important;
+            display: block;
+
+        }
+        @media screen and (min-width: 375px) and (min-height: 667px) {
+            margin-top: 12% !important;
+            display: block;
+
+        }
+        margin-top: 22% !important;
         display: block;
     }
 }

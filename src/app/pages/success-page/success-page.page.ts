@@ -14,8 +14,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 })
 export class SuccessPagePage implements OnInit {
 
-  deleteModeDisable = true;
-  deleteModeEnable = false;
+ 
   question = this.questionService.getCurrentQuestion();
   lenOfQuestion;
   questionRange: boolean = false;
@@ -111,9 +110,6 @@ export class SuccessPagePage implements OnInit {
 
   async deleteAnswer() {
     this.vibration.vibrate(100);
-    // this.deleteModeEnable = true;
-    // this.deleteModeDisable = false;
-    // this.changeRef.detectChanges();
     const alart = await this.alertController.create({
       cssClass: 'basic-alert',
       header: 'Are you sure you want to delete your answer?',

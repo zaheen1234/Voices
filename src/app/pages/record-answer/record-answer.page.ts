@@ -380,7 +380,7 @@ export class RecordAnswerPage implements OnInit {
     this.started = true;
 
     setTimeout(() => {
-      this.started = false;
+       this.started = false;
       this.animation = true;
       this.startRecord();
     }, 1000);

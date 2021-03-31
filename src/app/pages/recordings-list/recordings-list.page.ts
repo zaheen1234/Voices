@@ -91,6 +91,8 @@ resetProgressBar() {
   this.progress = 0;
 }
   
+
+
     playAudio(file, id, completeData) {
       this.vibration.vibrate(100);
 
@@ -228,6 +230,7 @@ resetProgressBar() {
       this.isPlaying = false;
       this.showPause = false;
       this.showPlay = true;
+      this.vibration.vibrate(100);
       this.changeRef.detectChanges();
     }
 

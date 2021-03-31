@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-    <ion-toolbar color="primary" *ngIf="deleteModeDisable">
+    <ion-toolbar color="primary">
         <ion-menu-button color="light" slot="start" autoHide="true" (click)="hamburger()">
             <img class="toggle-icon" src='assets/images/togglemenu.png'>
         </ion-menu-button>
@@ -14,7 +14,7 @@
 
 <ion-content [fullscreen]="true">
     <div class="main">
-              <div *ngIf="deleteModeDisable">
+              <div>
             <ion-card class="card-fixed">
                 <ion-card-header>
                     <ion-card-title [ngClass]="questionRange ? 'titleCls1' : 'titleCls'" color="tertiary">{{question.question}}</ion-card-title>
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Footer Start -->
-        <div class="footer-btn" *ngIf="deleteModeDisable">
+        <div class="footer-btn" >
             <button (click)="nextQuestion()" class="btn-green">
                 <img class="correct-icon common-icon-list" src="assets/images/check.png">
                     Next <br> Question
