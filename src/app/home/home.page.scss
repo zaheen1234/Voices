@@ -5,13 +5,13 @@
 }
 
 .voices-icon {
-    min-width: 50px;
+    min-width: 55px;
     border-radius: 0;
     padding-top: 6px;
     height: 43px;
     position: relative;
-    top: -8px;
-    right: -5px
+    top: -6px;
+    right: 0px
 }
 
 .head-icon {
@@ -21,7 +21,7 @@
 // Fixed Card
 .card-fixed {
     @media screen and (max-width: 360px) and (min-width: 360px) {
-        height: calc(100vh - 18px - 240px);
+        height: calc(100vh - 20px - 240px);
     }
     height: calc(100vh - 56px - 240px);
     //overflow-y: auto;
@@ -92,9 +92,9 @@ button:disabled {
         font-weight: 900;
         border-radius: 8px;
         @media screen and (max-width: 360px) and (max-width: 360px) {
-            padding: 15px 10px !important;
+            padding: 10px 10px !important;
         }
-        padding: 26px 10px;
+        padding: 30px 10px;
         img {
             height: 100px;
             margin-bottom: 10px;
@@ -125,8 +125,10 @@ button:disabled {
         font-size: 30px;
         font-weight: 900;
         border-radius: 8px;
-       
-        padding: 26px 10px;
+        @media screen and (max-width: 360px) and (max-width: 360px) {
+            padding: 10px 10px !important;
+        }
+        padding: 30px 10px;
         img {
             height: 100px;
             margin-bottom: 10px;

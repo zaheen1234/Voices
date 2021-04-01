@@ -37,7 +37,7 @@ ion-menu-button {
 }
 
 .inbox-list .btm-menu {
-    margin: 0 0 45px;
+    margin: 0 0 28px;
 }
 
 .inbox-list .btm-menu ion-col {
@@ -64,21 +64,22 @@ ion-menu-button {
 .label-voice img {
 
 
-    left: -6px;
-    top: -9px;
+    left: 1px;
+    top: -15px;
     height: auto;
     width: 70px;
     padding-right: 0 !important;
     position: absolute;
     @media(max-width: 360px) {
         left: 1px;
-    top: -15px;
-    width: 60px;
+        top: -15px;
     }
 }
 
 .inbox-list .label-voice ion-label {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-left: 25px;
+
 }
 
 .inbox-list #main-grid {
@@ -100,23 +101,23 @@ ion-menu-button {
     color: #33cccc;
 }
 
-.btn-home {
-    padding-top: 60px
-}
+// .btn-home {
+//     padding-top: 60px
+// }
 
-@media screen and (max-width: 376px) and (min-width: 374px) {
-    .btm-menu {
-        font-size: 18px !important;
-        margin: 0 0 26px !important;
-    }
-}
+// @media screen and (max-width: 376px) and (min-width: 374px) {
+//     .btm-menu {
+//         font-size: 18px !important;
+//         margin: 0 0 26px !important;
+//     }
+// }
 
-@media(max-width:360px) {
-    ion-label {
-        font-size: 1.5rem !important
-    }
-    .btm-menu {
-        font-size: 18px !important;
-        margin: 0 0 26px !important;
-    }
-}
+// @media(max-width:360px) {
+//     ion-label {
+//         font-size: 2rem !important
+//     }
+//     .btm-menu {
+//         font-size: 18px !important;
+//         margin: 0 0 26px !important;
+//     }
+// }

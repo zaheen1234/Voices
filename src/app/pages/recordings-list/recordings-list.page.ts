@@ -121,6 +121,7 @@ export class RecordingsListPage implements OnInit {
         this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[index].filename;
         this.audio = this.media.create(this.filePath);
         this.audio.play();
+        this.vibration.vibrate(100);
         this.isPlaying = true;
         this.showPause = true;
         this.showPlay = false;
@@ -160,10 +161,12 @@ export class RecordingsListPage implements OnInit {
 
 
   playAudio(id, fromWhere) {
+    
     //let completeFile = this.audioList[id];
     if (this.isPlaying) {
       this.playSimple = true;
       this.audio.stop();
+      this.vibration.vibrate(100);
       this.universalID = -99999;
       this.isPlaying = false;
       this.startTimer = false;
@@ -174,6 +177,7 @@ export class RecordingsListPage implements OnInit {
 if(this.isAudioPaused) {
   if(this.previousID == id) {
     this.audio.play();
+    this.vibration.vibrate(100);
     this.showPause = true;
     this.showPlay = false;
     this.isAudioPaused = false;
@@ -210,6 +214,7 @@ if(this.isAudioPaused) {
           this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[id].filename;
           this.audio = this.media.create(this.filePath);
           this.audio.play();
+          
           this.isPlaying = true;
 
           this.showPause = true;
@@ -486,6 +491,7 @@ if(this.isAudioPaused) {
   }
 
   pauseAudio() {
+    this.vibration.vibrate(100);
     this.audio.pause();
     this.startTimer = false;
     this.pauseTimer = true;
