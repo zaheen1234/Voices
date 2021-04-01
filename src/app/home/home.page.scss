@@ -20,8 +20,11 @@
 
 // Fixed Card
 .card-fixed {
+    @media screen and (max-width: 360px) and (min-width: 360px) {
+        height: calc(100vh - 18px - 240px);
+    }
     height: calc(100vh - 56px - 240px);
-    overflow-y: auto;
+    //overflow-y: auto;
     border-radius: 12px;
     margin-top: 15px;
     padding-bottom: 110px;
@@ -44,6 +47,9 @@
         width: 94%;
         left: 0;
         right: 0;
+        @media screen and (min-width: 360px) and (max-width: 360px) {
+            padding: 12px !important;
+        }
         padding: 25px;
         border-radius: 18px;
         margin: 0 auto 12px;
@@ -85,6 +91,9 @@ button:disabled {
         font-size: 30px;
         font-weight: 900;
         border-radius: 8px;
+        @media screen and (max-width: 360px) and (max-width: 360px) {
+            padding: 15px 10px !important;
+        }
         padding: 26px 10px;
         img {
             height: 100px;
@@ -116,6 +125,7 @@ button:disabled {
         font-size: 30px;
         font-weight: 900;
         border-radius: 8px;
+       
         padding: 26px 10px;
         img {
             height: 100px;
