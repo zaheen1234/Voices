@@ -24,13 +24,13 @@
                         <img src="assets/images/pauseRecordingList.png" class="greyplay">
 
                     </ion-col>
-                    <ion-col class="text-center audio-icon" (click)="playAudio(i, 'html')" *ngIf="showPlay && checkIfRowEnable(i)">
+                    <ion-col class="text-center audio-icon" (click)="playAudioS(i, 'html')" *ngIf="showPlay && checkIfRowEnable(i)">
 
                     <!-- <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="showPlay && checkIfRowEnable(i)"> -->
                         <img src="assets/images/shadowplay.png" class="greyplay">
 
                     </ion-col>
-                    <ion-col class="text-center audio-icon" (click)="playAudio(i, 'html')" *ngIf="checkIfRowEnable(i) == false">
+                    <ion-col class="text-center audio-icon" (click)="playAudioS(i, 'html')" *ngIf="checkIfRowEnable(i) == false">
 
                     <!-- <ion-col class="text-center audio-icon" (click)="playAudio(audio.filename, i, audio)" *ngIf="checkIfRowEnable(i) == false"> -->
                         <img src="assets/images/shadowplaygrey.png" class="greyplay">

@@ -117,56 +117,51 @@ export class RecordingsListPage implements OnInit {
       this.isIDAlreadySet = true;
       this.changeRef.detectChanges();
     }
-        // alert('checking total seconds : ' + this.audioList[index].totalSeconds);
-        this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[index].filename;
-        this.audio = this.media.create(this.filePath);
-        this.audio.play();
-        this.vibration.vibrate(100);
-        this.isPlaying = true;
-        this.showPause = true;
-        this.showPlay = false;
-        // this.pauseTimer = false;
-        // this.startTimer = true;
-        // this.startProgressBarTimer();
-        this.changeRef.detectChanges();
-        this.audio.onStatusUpdate.subscribe((statusCode) => {
-          if (statusCode === 4) {
-            if (this.audioList[index].nextPeer) {
-              //  this.startTimer = false;
-              // this.pauseTimer = true;
-              let newIndex = index + 1;
-            //  this.isPlaying = true;
-              this.specialPlay(newIndex);
-            }
-            else {
-              this.isPlaying = false;
-              this.currentNumber = -111111;
-              this.previousID = -999999;
-              this.universalID = -9999;
-              this.isIDAlreadySet = false;
-              this.audio.release();
-              this.startTimer = false;
-              this.pauseTimer = false;
-              this.showPlay = true;
-              this.showPause = false;
-              this.isAudioPaused = false;
-              this.changeRef.detectChanges();
-              this.progress = 0;
-              this.p_bar_value = 0;
-            }
+    this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[index].filename;
+    this.audio = this.media.create(this.filePath);
+    this.audio.play();
+    this.isPlaying = true;
+    this.showPause = true;
+    this.showPlay = false;
+  
+    this.changeRef.detectChanges();
+    this.audio.onStatusUpdate.subscribe((statusCode) => {
+      if (statusCode === 4) {
+        if (this.audioList[index].nextPeer) {
+         
+          let newIndex = index + 1;
+          this.specialPlay(newIndex);
+        }
+        else {
+          this.isPlaying = false;
+          this.currentNumber = -111111;
+          this.previousID = -999999;
+          this.universalID = -9999;
+          this.isIDAlreadySet = false;
+          this.audio.release();
+          this.startTimer = false;
+          this.pauseTimer = false;
+          this.showPlay = true;
+          this.showPause = false;
+          this.isAudioPaused = false;
+          this.changeRef.detectChanges();
+          this.progress = 0;
+          this.p_bar_value = 0;
+        }
 
-          }
-        });
+      }
+    });
+  }
+  playAudioS(id, fromWhere) {
+    this.vibration.vibrate(100);
+    this.playAudio(id, fromWhere);
   }
 
-
   playAudio(id, fromWhere) {
-    
-    //let completeFile = this.audioList[id];
+
     if (this.isPlaying) {
       this.playSimple = true;
       this.audio.stop();
-      this.vibration.vibrate(100);
       this.universalID = -99999;
       this.isPlaying = false;
       this.startTimer = false;
@@ -174,22 +169,22 @@ export class RecordingsListPage implements OnInit {
       this.startProgressBarTimer();
       return;
     }
-if(this.isAudioPaused) {
-  if(this.previousID == id) {
-    this.audio.play();
-    this.vibration.vibrate(100);
-    this.showPause = true;
-    this.showPlay = false;
-    this.isAudioPaused = false;
-    this.currentNumber = id;
-    this.isPlaying = true;
-    this.pauseTimer = false;
-    this.startTimer = true;
-    this.startProgressBarTimer();
-    this.changeRef.detectChanges();
-  } else {
-   
-    if (this.audioList[id].nextPeer) {
+
+    if (this.isAudioPaused) {
+      if (this.previousID == id) {
+        this.audio.play();
+        this.showPause = true;
+        this.showPlay = false;
+        this.isAudioPaused = false;
+        this.currentNumber = id;
+        this.isPlaying = true;
+        this.pauseTimer = false;
+        this.startTimer = true;
+        this.startProgressBarTimer();
+        this.changeRef.detectChanges();
+      } else {
+
+        if (this.audioList[id].nextPeer) {
           this.playSimple = false;
           this.progressForProgressBar = 0;
           this.progress = 0;
@@ -200,8 +195,8 @@ if(this.isAudioPaused) {
           this.pauseTimer = false;
           this.startTimer = true;
           this.startProgressBarTimer();
-      return;
-    } else {
+          return;
+        } else {
           this.universalID = id;
           this.playSimple = true;
           this.currentNumber = id;
@@ -214,7 +209,7 @@ if(this.isAudioPaused) {
           this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[id].filename;
           this.audio = this.media.create(this.filePath);
           this.audio.play();
-          
+
           this.isPlaying = true;
 
           this.showPause = true;
@@ -225,62 +220,6 @@ if(this.isAudioPaused) {
 
           this.audio.onStatusUpdate.subscribe((statusCode) => {
             if (statusCode === 4) {
-                this.isPlaying = false;
-                this.currentNumber = -111111;
-                this.previousID = -999999;
-                this.universalID = -9999;
-                this.isIDAlreadySet = false;
-                this.audio.release();
-                this.startTimer = false;
-                this.pauseTimer = false;
-                this.showPlay = true;
-                this.showPause = false;
-                this.isAudioPaused = false;
-                this.changeRef.detectChanges();
-                // this.progressForProgressBar = 0;
-                // this.progress = 0;
-                // this.p_bar_value = 0;
-            }
-          });
-    }
-
-  }
-  return;
-
-} else {
-  if (this.audioList[id].nextPeer) {
-      this.playSimple = false;
-   // this.universalID = id;
-        // this.progress = 0;
-        // this.p_bar_value = 0;
-        this.totalSeconds = this.audioList[id].totalSeconds;
-        this.isIDAlreadySet = false;
-        this.specialPlay(id);
-        this.pauseTimer = false;
-        this.startTimer = true;
-        this.startProgressBarTimer();
-    return;
-  } else {
-        this.universalID = id;
-        this.playSimple = true;
-        this.currentNumber = id;
-        this.previousID = id;
-        this.changeRef.detectChanges();
-        // this.progressForProgressBar = 0;
-        // this.progress = 0;
-        // this.p_bar_value = 0;
-        this.totalSeconds = this.audioList[id].totalSeconds;
-        this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[id].filename;
-        this.audio = this.media.create(this.filePath);
-        this.audio.play();
-        this.isPlaying = true;
-        this.showPause = true;
-        this.showPlay = false;
-        this.pauseTimer = false;
-        this.startTimer = true;
-        this.startProgressBarTimer();
-        this.audio.onStatusUpdate.subscribe((statusCode) => {
-          if (statusCode === 4) {
               this.isPlaying = false;
               this.currentNumber = -111111;
               this.previousID = -999999;
@@ -293,188 +232,61 @@ if(this.isAudioPaused) {
               this.showPause = false;
               this.isAudioPaused = false;
               this.changeRef.detectChanges();
-              // this.progress = 0;
-              // this.p_bar_value = 0;
-          }
-        });
-  }
+        
+            }
+          });
+        }
 
-}
-   
-    return;
-
-    let completeFile = this.audioList[id];
-    if (fromWhere === 'html') {
-      this.vibration.vibrate(100);
-    }
-
-    if (this.isPlaying && fromWhere === 'html') {
-      this.universalID = -99999;
-      this, this.previousID = 99999;
-      // this.audio.pause();
-      this.pauseAudio();
-      this.audio.stop();
-      this.isPlaying = false;
-      this.startTimer = false;
-      this.pauseTimer = false;
-      this.startProgressBarTimer();
+      }
       return;
-    }
 
-    if (fromWhere === 'html') {
-      if (this.isIDAlreadySet && this.previousID == id) {
-        // do nothing
-      } else {
-        this.universalID = id;
-        this.previousID == id
-        this.isIDAlreadySet = true;
-      }
     } else {
-      if (this.isIDAlreadySet) {
-        // do nothing
+      if (this.audioList[id].nextPeer) {
+        this.playSimple = false;
+      
+        this.totalSeconds = this.audioList[id].totalSeconds;
+        this.isIDAlreadySet = false;
+        this.specialPlay(id);
+        this.pauseTimer = false;
+        this.startTimer = true;
+        this.startProgressBarTimer();
+        return;
       } else {
         this.universalID = id;
-        this.isIDAlreadySet = true;
-      }
-    }
-    if (this.isAudioPaused) {  // if audio is paused
-      if (this.previousID == id) { // audio is paused and current id is matching with previous id
-        this.audio.play();  // we will simply play the audio again
+        this.playSimple = true;
+        this.currentNumber = id;
+        this.previousID = id;
+        this.changeRef.detectChanges();
+      
+        this.totalSeconds = this.audioList[id].totalSeconds;
+        this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + this.audioList[id].filename;
+        this.audio = this.media.create(this.filePath);
+        this.audio.play();
+        this.isPlaying = true;
         this.showPause = true;
         this.showPlay = false;
-        this.isAudioPaused = false;
-        this.currentNumber = id;
-        this.isPlaying = true;
         this.pauseTimer = false;
         this.startTimer = true;
         this.startProgressBarTimer();
-        this.changeRef.detectChanges();
-      } else {  // means new file is selected to play audio and previous audio is paused
-        this.currentNumber = id;
-        this.previousID = id;
-        this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + completeFile.filename;
-        this.audio = this.media.create(this.filePath);
-        this.audio.play();
-        this.showPause = true;
-        this.showPlay = false;
-        // adding code to reset progress timer start
-        if (fromWhere === 'html') {
-          // alert('came here');
-          this.progress = 0;
-          this.p_bar_value = 0;
-          this.totalSeconds = completeFile.totalSeconds;
-        }
-        // adding code end
-        this.isAudioPaused = false;
-        this.pauseTimer = false;
-        // this.totalSeconds = completeFile.totalSeconds;
-        this.startTimer = true;
-        this.startProgressBarTimer();
-        this.isPlaying = true;
-        this.audio.setVolume(0.8);
-        this.changeRef.detectChanges();
         this.audio.onStatusUpdate.subscribe((statusCode) => {
           if (statusCode === 4) {
-            if (completeFile.nextPeer) {
-              // this.startTimer = false;
-              // this.pauseTimer = true;
-              let newIndex = id + 1;
-              // this.isPlaying = false;
-
-              this.playAudio(newIndex, 'system');
-            }
-            else {
-              console.log('Audio FINISHED playing');
-              this.isPlaying = false;
-              this.currentNumber = -111111;
-              this.universalID = -9999;
-              this.isIDAlreadySet = false;
-              this.audio.release();
-              this.startTimer = false;
-              this.pauseTimer = false;
-              this.showPlay = true;
-              this.showPause = false;
-              this.isAudioPaused = false;
-              this.changeRef.detectChanges();
-              this.progress = 0;
-              this.p_bar_value = 0;
-            }
-
+            this.isPlaying = false;
+            this.currentNumber = -111111;
+            this.previousID = -999999;
+            this.universalID = -9999;
+            this.isIDAlreadySet = false;
+            this.audio.release();
+            this.startTimer = false;
+            this.pauseTimer = false;
+            this.showPlay = true;
+            this.showPause = false;
+            this.isAudioPaused = false;
+            this.changeRef.detectChanges();
+      
           }
         });
       }
-    } else {   // if audio is not paused
-      if (this.previousID == id) {
-        this.audio.play();
-        this.showPause = true;
-        this.isPlaying = true;
-        this.showPlay = false;
-        this.currentNumber = id;
-        this.isAudioPaused = false;
-        if (fromWhere === 'html') {
-          this.startTimer = true;
-          this.pauseTimer = false;
-          this.startProgressBarTimer();
-        }
-        this.changeRef.detectChanges();
-      } else {
-        // alert('audio is not paused and ids dont match, id : ' + id);
 
-        this.currentNumber = id;
-        this.previousID = id;
-
-        this.filePath = this.file.dataDirectory.replace(/file:\/\//g, '') + completeFile.filename;
-        this.audio = this.media.create(this.filePath);
-        this.audio.play();
-        this.showPause = true;
-        this.showPlay = false;
-        this.isAudioPaused = false;
-        this.changeRef.detectChanges();
-        if (fromWhere === 'html') {
-          this.progress = 0;
-          this.p_bar_value = 0;
-          this.totalSeconds = completeFile.totalSeconds;
-        }
-        // this.totalSeconds = completeFile.totalSeconds;
-        if (fromWhere === 'html') {
-          this.startTimer = true;
-          this.pauseTimer = false;
-          this.startProgressBarTimer();
-
-        }
-        this.isPlaying = true;
-        this.audio.setVolume(0.8);
-        this.changeRef.detectChanges();
-        this.audio.onStatusUpdate.subscribe((statusCode) => {
-          if (statusCode === 4) {
-
-            if (completeFile.nextPeer) {
-              // this.startTimer = false;
-              // this.pauseTimer = true;
-              // this.isPlaying = false;
-              let newIndex = id + 1;
-              this.playAudio(newIndex, 'system');
-            }
-            else {
-
-              console.log('Audio FINISHED playing');
-              this.isPlaying = false;
-              this.currentNumber = -111111;
-              this.universalID = -9999;
-              this.isIDAlreadySet = false;
-              this.audio.release();
-              this.isAudioPaused = false;
-              this.showPlay = true
-              this.showPause = false;
-              this.startTimer = false;
-              this.pauseTimer = false;
-              this.changeRef.detectChanges();
-              this.progress = 0;
-              this.p_bar_value = 0;
-            }
-          }
-        });
-      }
     }
 
   }
