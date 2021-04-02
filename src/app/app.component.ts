@@ -29,6 +29,12 @@ export class AppComponent {
     });
   }
 
+
+  closeSideMenu() {
+    this.vibration.vibrate(100);
+
+  }
+
   goToThisPage(where) {
     this.vibration.vibrate(100);
     if (where === 'home') {
