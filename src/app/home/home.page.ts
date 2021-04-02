@@ -57,6 +57,8 @@ export class HomePage {
   }
 
   ngOnInit() {
+    // alert('width : ' + this.platform.width());
+    // alert('height : ' + this.platform.height());
     this.questionService.setLastRouteFunction('home');
     this.questionsArray = [];
     let questionsList = this.questionService.startQuestionService();

@@ -21,7 +21,7 @@
 // Fixed Card
 .card-fixed {
     @media screen and (max-width: 360px) and (min-width: 360px) {
-        height: calc(100vh - 20px - 240px);
+        height: calc(100vh - 20px - 240px) !important;
     }
     height: calc(100vh - 56px - 240px);
     //overflow-y: auto;
